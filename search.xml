@@ -2021,16 +2021,25 @@
 <p>&ensp;</p>
 <h1 id="【注意】在開始調整下方設定和配置之前，必須先了解這個步驟"><a href="#【注意】在開始調整下方設定和配置之前，必須先了解這個步驟" class="headerlink" title="【注意】在開始調整下方設定和配置之前，必須先了解這個步驟"></a>【注意】在開始調整下方設定和配置之前，必須先了解這個步驟</h1><p>由於開始設定網頁，會有做出一些變更代碼的事情!<br>因為變更代碼，所以我們要確認每一個變更代碼步驟是否有做正確。<br>&ensp;<br>在這邊我建議大家可以開一個新的cmd終端機，cd進入到之前安裝hexo的目錄裡，<br>輸入 <code>hexo s</code> 或 <code>hexo server</code> 執行，在瀏覽器輸入網址<code>http://localhost:4000</code>，<br>(如果輸入網址沒有反應，那就代表你在這個段落的前面安裝沒有做好)<br>不用特意一直按 <strong>Ctrl+C</strong> 退出終端機，就一直讓這個終端機開著在背景運作就好了!!!<br>這樣才能在本機隨時查看網頁更新內容，當然這個網頁也是要記得在瀏覽器按 <code>F5</code> 做重新載入網頁才行。<br>除非有特殊狀況再重新輸入 <code>hexo s</code> 或 <code>hexo server</code> 執行，這樣會比較好。</p>
 <h1 id="如出現錯誤訊息，解決方式"><a href="#如出現錯誤訊息，解決方式" class="headerlink" title="如出現錯誤訊息，解決方式"></a>如出現錯誤訊息，解決方式</h1><ol>
-<li><code>ERROR Deployer not found: git</code><blockquote>
+<li><p><code>ERROR Deployer not found: git</code></p>
+<blockquote>
 <ul>
 <li>解決方法<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
 </li>
+<li><p><code>Error: Cannot find module &#39;cheerio&#39;</code></p>
+<blockquote>
+<ul>
+<li>解決方法<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install cheerio --save</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</li>
 </ol>
 <p>&ensp;<br>&ensp;</p>
-<h1 id="基本設定"><a href="#基本設定" class="headerlink" title="基本設定"></a>基本設定</h1><p>這部分要先教大家如何做一些網站的基本設置，主要的設定檔有兩個<br><code>\_config.yml</code><br><code>\themes\next\_config.yml</code><br>&ensp;</p>
+<h1 id="基本設定"><a href="#基本設定" class="headerlink" title="基本設定"></a>基本設定</h1><p>這部分要先教大家如何做一些網站的基本設置，主要的設定檔有兩個<br><code>\_config.yml</code><br><code>\themes\next\_config.yml</code></p>
 <h2 id="config-yml"><a href="#config-yml" class="headerlink" title="\ _config.yml"></a>\ _config.yml</h2><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: 永成的學習部落格 <span class="comment">#網站/部落格名稱</span></span><br><span class="line">subtitle: 這是永成的學習路程之紀錄。 <span class="comment">#網站/部落格副標題</span></span><br><span class="line">description: 這是永成的學習路程之紀錄。 <span class="comment">#網站/部落格基本描述</span></span><br><span class="line">keywords:</span><br><span class="line">author: 黃永成 <span class="comment">#作者</span></span><br><span class="line">language: zh-TW <span class="comment">#語言</span></span><br><span class="line">timezone: Asia/Taipei <span class="comment">#時區</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="設定網址"><a href="#設定網址" class="headerlink" title="設定網址"></a>設定網址</h3><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line">url: https://&lt;個人帳號&gt;&gt;&gt;.github.io/              <span class="comment"># master結構，本篇文章我選擇這個</span></span><br><span class="line"><span class="comment">#   https://&lt;個人帳號&gt;.github.io/&lt;倉庫名稱&gt;      # gh-pages結構</span></span><br><span class="line">root: /                                         <span class="comment"># 根目錄，我選擇不打，保留網址為https://&lt;個人帳號&gt;.github.io</span></span><br><span class="line"><span class="comment">#     /&lt;名稱&gt;/                                  # 自定義名稱，會在網址後面呈現</span></span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
@@ -2041,10 +2050,11 @@
 <p>如果並不是使用 master 來進行網站設置，branch 的部分要改成gh-pages 。<br>這個部分可能較為重要，若沒設定正確，將無法使用<code>hexo d</code>進行配置上傳。<br>變更代碼：</p>
 <figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/&lt;個人帳號&gt;/&lt;倉庫名稱&gt;.git</span><br><span class="line">  branch: master</span><br><span class="line">  <span class="comment"># 選擇結構master或gh-pages</span></span><br></pre></td></tr></table></figure>
 <p><code>註：回到此網頁文章起始閱讀地方，了解自己是使用哪種方式來建立專案名稱。</code><br>&ensp;</p>
-<h2 id="themes-next-config-yml"><a href="#themes-next-config-yml" class="headerlink" title="\themes\next\ _config.yml"></a>\themes\next\ _config.yml</h2><h3 id="版權頁設定"><a href="#版權頁設定" class="headerlink" title="版權頁設定"></a>版權頁設定</h3><p>設定文末 (或 sidebar) 版權宣告的型態，<br>這裡我選用預設的 by-nc-nd ( 姓名標示-非商業性-禁止改作 )。<br><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E7%89%88%E6%AC%8A%E5%AE%A3%E7%A4%BA.jpg"><br>變更代碼：</p>
+<h2 id="themes-next-config-yml"><a href="#themes-next-config-yml" class="headerlink" title="\themes\next\ _config.yml"></a>\themes\next\ _config.yml</h2><h3 id="版權頁設定"><a href="#版權頁設定" class="headerlink" title="版權頁設定"></a>版權頁設定</h3><p>設定文末 (或 sidebar) 版權宣告的型態，<br>這裡我選用預設的 by-nc-nd ( 姓名標示-非商業性-禁止改作 )。<br><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E7%89%88%E6%AC%8A%E5%AE%A3%E7%A4%BA.jpg"></p>
+<p>變更代碼：</p>
 <figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Creative Commons 4.0 International License</span></span><br><span class="line"><span class="comment"># See: https://creativecommons.org/share-your-work/licensing-types-examples</span></span><br><span class="line"><span class="comment"># 許可證的可用值: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span></span><br><span class="line"><span class="comment"># You can set a language value if you prefer a translated version of CC license, e.g. deed.zh</span></span><br><span class="line"><span class="comment"># CC許可證提供39種語言的版本，您可以在 https://creativecommons.org 上找到所需的特定且正確的縮寫。</span></span><br><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-nd</span><br><span class="line">  sidebar: false</span><br><span class="line">  post: true</span><br><span class="line">  language: deed.zh_TW</span><br><span class="line">  <span class="comment"># language 則是設定 cc 版權說明網頁的語言內容。</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="選擇版型"><a href="#選擇版型" class="headerlink" title="選擇版型"></a>選擇版型</h3><p>Next 一共有四種版型可以選擇，可以自行選擇版型，不要用的版型用<code>#</code>註釋掉即可。<br>( 我個人使用的是 Gemini 版型 )<br>變更代碼：</p>
+<h3 id="選擇版型"><a href="#選擇版型" class="headerlink" title="選擇版型"></a>選擇版型</h3><p>Next 一共有四種版型可以選擇，可以自行選擇版型，不要用的版型用<code>#</code>註釋掉即可。<br>（我個人使用的是 Gemini 版型）<br>變更代碼：</p>
 <figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 方案</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
 <h3 id="菜單區塊設定"><a href="#菜單區塊設定" class="headerlink" title="菜單區塊設定"></a>菜單區塊設定</h3><p>變更代碼：</p>
 <figure class="highlight py"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
@@ -2186,16 +2196,17 @@
 <p>&ensp;</p>
 <h1 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h1><p>打開<code>themes\next\layout\_partials\head\head-unique.swig</code>文件，文末插入這個代碼：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;# 文章密碼設置 #&#125;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    (function()&#123;</span><br><span class="line">        if(&#39;&#123;&#123; page.password &#125;&#125;&#39;)&#123;</span><br><span class="line">            if (prompt(&#39;請輸入密碼&#39;) !&#x3D;&#x3D; &#39;&#123;&#123; page.password &#125;&#125;&#39;)&#123;</span><br><span class="line">                alert(&#39;密碼不正確！請訪問作者索取&#39;);</span><br><span class="line">                history.back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
 <p>然後打開要加密的文章，文章開頭放入這個：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: &#x2F;&#x2F;標題</span><br><span class="line">tags: &#x2F;&#x2F;標籤</span><br><span class="line">  - Hexo</span><br><span class="line">  - NexT</span><br><span class="line">categories: &#x2F;&#x2F;分類</span><br><span class="line">  - Hexo</span><br><span class="line">author: &#x2F;&#x2F;作者</span><br><span class="line">password: 123456 &#x2F;&#x2F;設定文章密碼</span><br><span class="line">date: 2019-10-17 00:00:00 &#x2F;&#x2F;發布時間</span><br><span class="line">updated: 2019-10-17 00:00:00 &#x2F;&#x2F;更新時間</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: &#x2F;&#x2F; 標題</span><br><span class="line">tags: &#x2F;&#x2F; 標籤</span><br><span class="line">  - Hexo</span><br><span class="line">  - NexT</span><br><span class="line">categories: &#x2F;&#x2F; 分類</span><br><span class="line">  - Hexo</span><br><span class="line">author: &#x2F;&#x2F; 作者</span><br><span class="line">password: 123456 &#x2F;&#x2F; 設定文章密碼</span><br><span class="line">date: 2019-10-17 00:00:00 &#x2F;&#x2F; 發布時間</span><br><span class="line">updated: 2019-10-17 00:00:00 &#x2F;&#x2F; 更新時間</span><br></pre></td></tr></table></figure>
 
 
 
 <p>&ensp;</p>
 <h1 id="調整和上傳"><a href="#調整和上傳" class="headerlink" title="調整和上傳"></a>調整和上傳</h1><p>在每一個設定變更後，我習慣會做以下動作</p>
-<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">$ hexo server //在本機瀏覽器查看</span><br><span class="line">//hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">$ hexo server // 在本機瀏覽器查看</span><br><span class="line">//hexo s</span><br></pre></td></tr></table></figure>
 <p>先在本機上看看是否有什麼問題，持續進行微調，最後設定都沒有問題後，再進行配置上傳。</p>
-<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">$ hexo clean  //清除舊的發布設定</span><br><span class="line"></span><br><span class="line">$ hexo g      //建立新的發布設定</span><br><span class="line"></span><br><span class="line">$ hexo deploy //配置到伺服器</span><br><span class="line">//hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">$ hexo clean  // 清除舊的發布設定</span><br><span class="line"></span><br><span class="line">$ hexo g      // 建立新的發布設定</span><br><span class="line"></span><br><span class="line">$ hexo deploy // 配置到伺服器</span><br><span class="line">//hexo d</span><br></pre></td></tr></table></figure>
 <p>若我已經在`_config.yml輸入</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;&lt;user_name&gt;&#x2F;&lt;repo_name&gt;.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <p>在執行<code>hexo deploy</code>或<code>hexo d</code>時，卻發生了<code>ERROR Deployer not found: git</code>的錯誤訊息。<br>請在終端機執行</p>
@@ -2204,7 +2215,7 @@
 <h1 id="編輯新增文章"><a href="#編輯新增文章" class="headerlink" title="編輯新增文章"></a>編輯新增文章</h1><p>撰寫文章都集中放在<code>\source</code>目錄下，最常用到的大概就是<code>source\_posts</code>裡的檔案了。<br>新增建立 <strong>“name”</strong><code>.md</code> 檔案，副檔名為<code>.md</code>，也可以參考預設<code>hello-world.md</code>的檔案做參考。<br>也可以利用以下語法，新增MD檔：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hexo new [文章類型] [檔名]</span><br></pre></td></tr></table></figure>
 <p>Hexo是使用MarkDown(MD)格式，每篇文章開頭基本上都一樣，<br>新文章加入以下內容：(<code>---</code>切記一定要加入)</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#x2F;&#x2F;標題</span><br><span class="line">tags: &#x2F;&#x2F;標籤</span><br><span class="line">  - Hexo</span><br><span class="line">  - NexT</span><br><span class="line">categories: &#x2F;&#x2F;分類</span><br><span class="line">  - Hexo</span><br><span class="line">author: &#x2F;&#x2F;作者</span><br><span class="line">password: 123456 &#x2F;&#x2F;設定文章密碼</span><br><span class="line">date: 2019-10-17 00:00:00 &#x2F;&#x2F;發布時間</span><br><span class="line">updated: 2019-10-17 00:00:00 &#x2F;&#x2F;更新時間</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#x2F;&#x2F; 標題</span><br><span class="line">tags: &#x2F;&#x2F; 標籤</span><br><span class="line">  - Hexo</span><br><span class="line">  - NexT</span><br><span class="line">categories: &#x2F;&#x2F; 分類</span><br><span class="line">  - Hexo</span><br><span class="line">author: &#x2F;&#x2F; 作者</span><br><span class="line">password: 123456 &#x2F;&#x2F; 設定文章密碼</span><br><span class="line">date: 2019-10-17 00:00:00 &#x2F;&#x2F; 發布時間</span><br><span class="line">updated: 2019-10-17 00:00:00 &#x2F;&#x2F; 更新時間</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
 <p>文章類型：</p>
 <ol>
