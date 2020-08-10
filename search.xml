@@ -1,6 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Anaconda 基本指令介紹</title>
+    <url>/2020/01/14/Anaconda%20%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4%E4%BB%8B%E7%B4%B9/</url>
+    <content><![CDATA[<p>需要者，請自行閱讀此文章。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+
+
+<a id="more"></a>
+
+<p>請至 <a href="https://www.anaconda.com/distribution/">Anaconda 官網</a> 下載安裝應用程式。<br>&ensp;</p>
+<h1 id="Anaconda-管理模組"><a href="#Anaconda-管理模組" class="headerlink" title="Anaconda 管理模組　"></a>Anaconda 管理模組　</h1><ol>
+<li>模組安裝<br><code>pip</code>為單一模組安裝，<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip list</span><br><span class="line">pip install &lt;模組名稱&gt;</span><br><span class="line">pip install  --upgrade &lt;模組名稱&gt;</span><br><span class="line">pip uninstall &lt;模組名稱&gt;</span><br></pre></td></tr></table></figure>
+<code>conda</code>會幫你安裝該包，也會幫忙安裝其他所需模組。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda list</span><br><span class="line">conda install &lt;模組名稱&gt;</span><br><span class="line">conda install --upgrade &lt;模組名稱&gt;</span><br><span class="line">conda uninstall &lt;模組名稱&gt;</span><br></pre></td></tr></table></figure></li>
+<li>anaconda 升級<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda update anaconda</span><br></pre></td></tr></table></figure></li>
+<li>pip 升級<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h1 id="安裝及更新conda"><a href="#安裝及更新conda" class="headerlink" title="安裝及更新conda"></a>安裝及更新conda</h1><ol>
+<li>查看conda版本<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda –V</span><br></pre></td></tr></table></figure></li>
+<li>conda 更新<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda update conda</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<h1 id="建立虛擬環境"><a href="#建立虛擬環境" class="headerlink" title="建立虛擬環境"></a>建立虛擬環境</h1><ol>
+<li>查看目前有哪些環境<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure></li>
+<li>建立名為<name>虛擬環境(name為自定義名稱)，並且安裝為<code>python3.6</code>版本。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n &lt;name&gt; python&#x3D;3.6</span><br></pre></td></tr></table></figure></li>
+<li>啟動環境(name為要啟動的環境名稱)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">activate &lt;name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>離開環境<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure></li>
+<li>刪除環境(name為該環境名稱)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env remove -n &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h1 id="使用方式優缺點"><a href="#使用方式優缺點" class="headerlink" title="使用方式優缺點"></a>使用方式優缺點</h1><p>從命令列執行 Python 互動式Shell </p>
+<blockquote>
+<p><code>C:\Users\user&gt;python</code> ，即時看到結果，難以編修程式。</p>
+</blockquote>
+<p>從檔案執行Python</p>
+<blockquote>
+<p><code>C:\Users\user&gt;python test.py</code>，容易編修程式，無法即時看到結果。</p>
+</blockquote>
+<hr>
+<h1 id="Jupyter-Notebook-編輯器"><a href="#Jupyter-Notebook-編輯器" class="headerlink" title="Jupyter Notebook 編輯器"></a>Jupyter Notebook 編輯器</h1><blockquote>
+<p>啟動<code>Jupyter Notebook</code>編輯器的方式有兩種，</p>
+</blockquote>
+<ol>
+<li>在<code>Anaconda Prompt</code>下打入<code>jupyter notebook</code></li>
+<li>點選桌面的應用<code>Jupyter Notebook</code></li>
+</ol>
+<h2 id="常用熱鍵"><a href="#常用熱鍵" class="headerlink" title="常用熱鍵"></a>常用熱鍵</h2><ol>
+<li>Shift + Enter 執行再新增一列</li>
+<li>Ctrl + Enter 執行目前列</li>
+<li>Esc + a 在上方插入一列</li>
+<li>Esc + b 在下方插入一列</li>
+<li>Esc + dd 刪除一列</li>
+<li>Esc + h 顯示快速鍵列表</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Anaconda 安裝引導</title>
     <url>/2020/01/14/Anaconda%20%E5%AE%89%E8%A3%9D%E5%BC%95%E5%B0%8E/</url>
     <content><![CDATA[<p>這裡將教大家如何在Windows、Linux安裝Anaconda。</p>
@@ -103,64 +171,34 @@
       </tags>
   </entry>
   <entry>
-    <title>Anaconda 基本指令介紹</title>
-    <url>/2020/01/14/Anaconda%20%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4%E4%BB%8B%E7%B4%B9/</url>
-    <content><![CDATA[<p>需要者，請自行閱讀此文章。</p>
+    <title>OpenCV 程式指令整理</title>
+    <url>/2020/01/24/OpenCV%20%E7%A8%8B%E5%BC%8F%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>這裡整理紀錄 OpenCV 的程式指令，若有新的我會持續更新。</p>
 <center>⬇⬇⬇文章開始⬇⬇⬇</center>
-
-
 <a id="more"></a>
 
-<p>請至 <a href="https://www.anaconda.com/distribution/">Anaconda 官網</a> 下載安裝應用程式。<br>&ensp;</p>
-<h1 id="Anaconda-管理模組"><a href="#Anaconda-管理模組" class="headerlink" title="Anaconda 管理模組　"></a>Anaconda 管理模組　</h1><ol>
-<li>模組安裝<br><code>pip</code>為單一模組安裝，<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip list</span><br><span class="line">pip install &lt;模組名稱&gt;</span><br><span class="line">pip install  --upgrade &lt;模組名稱&gt;</span><br><span class="line">pip uninstall &lt;模組名稱&gt;</span><br></pre></td></tr></table></figure>
-<code>conda</code>會幫你安裝該包，也會幫忙安裝其他所需模組。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda list</span><br><span class="line">conda install &lt;模組名稱&gt;</span><br><span class="line">conda install --upgrade &lt;模組名稱&gt;</span><br><span class="line">conda uninstall &lt;模組名稱&gt;</span><br></pre></td></tr></table></figure></li>
-<li>anaconda 升級<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda update anaconda</span><br></pre></td></tr></table></figure></li>
-<li>pip 升級<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<hr>
-<h1 id="安裝及更新conda"><a href="#安裝及更新conda" class="headerlink" title="安裝及更新conda"></a>安裝及更新conda</h1><ol>
-<li>查看conda版本<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda –V</span><br></pre></td></tr></table></figure></li>
-<li>conda 更新<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda update conda</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<h1 id="建立虛擬環境"><a href="#建立虛擬環境" class="headerlink" title="建立虛擬環境"></a>建立虛擬環境</h1><ol>
-<li>查看目前有哪些環境<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure></li>
-<li>建立名為<name>虛擬環境(name為自定義名稱)，並且安裝為<code>python3.6</code>版本。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n &lt;name&gt; python&#x3D;3.6</span><br></pre></td></tr></table></figure></li>
-<li>啟動環境(name為要啟動的環境名稱)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">activate &lt;name&gt;</span><br></pre></td></tr></table></figure></li>
-<li>離開環境<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure></li>
-<li>刪除環境(name為該環境名稱)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env remove -n &lt;name&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<hr>
-<h1 id="使用方式優缺點"><a href="#使用方式優缺點" class="headerlink" title="使用方式優缺點"></a>使用方式優缺點</h1><p>從命令列執行 Python 互動式Shell </p>
-<blockquote>
-<p><code>C:\Users\user&gt;python</code> ，即時看到結果，難以編修程式。</p>
-</blockquote>
-<p>從檔案執行Python</p>
-<blockquote>
-<p><code>C:\Users\user&gt;python test.py</code>，容易編修程式，無法即時看到結果。</p>
-</blockquote>
-<hr>
-<h1 id="Jupyter-Notebook-編輯器"><a href="#Jupyter-Notebook-編輯器" class="headerlink" title="Jupyter Notebook 編輯器"></a>Jupyter Notebook 編輯器</h1><blockquote>
-<p>啟動<code>Jupyter Notebook</code>編輯器的方式有兩種，</p>
-</blockquote>
 <ol>
-<li>在<code>Anaconda Prompt</code>下打入<code>jupyter notebook</code></li>
-<li>點選桌面的應用<code>Jupyter Notebook</code></li>
-</ol>
-<h2 id="常用熱鍵"><a href="#常用熱鍵" class="headerlink" title="常用熱鍵"></a>常用熱鍵</h2><ol>
-<li>Shift + Enter 執行再新增一列</li>
-<li>Ctrl + Enter 執行目前列</li>
-<li>Esc + a 在上方插入一列</li>
-<li>Esc + b 在下方插入一列</li>
-<li>Esc + dd 刪除一列</li>
-<li>Esc + h 顯示快速鍵列表</li>
+<li><p>讀取圖片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">&quot;test.jpg&quot;</span>) <span class="comment"># img = test.jpg</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>讀取影片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vc=cv2.VideoCapture(<span class="string">&quot;output.mp4&quot;</span>) <span class="comment">#vc = output.mp4</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>等待任何按鍵</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>顯示視窗</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># (&quot;視窗名稱&quot;,要顯示的圖片或影片)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>關閉顯示視窗</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.destroyAllWindows(<span class="string">&quot;test&quot;</span>) <span class="comment"># 關閉指定的&quot;test&quot;視窗</span></span><br><span class="line">cv2.destroyAllWindows()  <span class="comment"># 關閉全部視窗</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自由調整視窗大小</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.namedWindow(<span class="string">&#x27;test&#x27;</span>, cv2.WINDOW_NORMAL) <span class="comment"># 讓視窗可以自由縮放大小</span></span><br><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># 顯示視窗</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>寫入圖片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 寫入圖檔</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寫入不同圖檔格式...</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img)</span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.tiff&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 JPEG 圖片品質為 90（可用值為 0 ~ 100）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img, [cv2.IMWRITE_JPEG_QUALITY, <span class="number">90</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 PNG 壓縮層級為 5（可用值為 0 ~ 9）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img, [cv2.IMWRITE_PNG_COMPRESSION, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 ]]></content>
       <categories>
@@ -203,44 +241,6 @@
 
 
 
-]]></content>
-      <categories>
-        <category>Python 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenCV 程式指令整理</title>
-    <url>/2020/01/24/OpenCV%20%E7%A8%8B%E5%BC%8F%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<p>這裡整理紀錄 OpenCV 的程式指令，若有新的我會持續更新。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<ol>
-<li><p>讀取圖片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">&quot;test.jpg&quot;</span>) <span class="comment"># img = test.jpg</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>讀取影片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vc=cv2.VideoCapture(<span class="string">&quot;output.mp4&quot;</span>) <span class="comment">#vc = output.mp4</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>等待任何按鍵</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>顯示視窗</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># (&quot;視窗名稱&quot;,要顯示的圖片或影片)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>關閉顯示視窗</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.destroyAllWindows(<span class="string">&quot;test&quot;</span>) <span class="comment"># 關閉指定的&quot;test&quot;視窗</span></span><br><span class="line">cv2.destroyAllWindows()  <span class="comment"># 關閉全部視窗</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自由調整視窗大小</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.namedWindow(<span class="string">&#x27;test&#x27;</span>, cv2.WINDOW_NORMAL) <span class="comment"># 讓視窗可以自由縮放大小</span></span><br><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># 顯示視窗</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>寫入圖片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 寫入圖檔</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寫入不同圖檔格式...</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img)</span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.tiff&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 JPEG 圖片品質為 90（可用值為 0 ~ 100）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img, [cv2.IMWRITE_JPEG_QUALITY, <span class="number">90</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 PNG 壓縮層級為 5（可用值為 0 ~ 9）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img, [cv2.IMWRITE_PNG_COMPRESSION, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
 ]]></content>
       <categories>
         <category>Python 程式語言學習</category>
@@ -1196,277 +1196,6 @@
       </tags>
   </entry>
   <entry>
-    <title>摸索如何自己建立Github的部落格</title>
-    <url>/2019/10/19/%E6%91%B8%E7%B4%A2%E5%A6%82%E4%BD%95%E8%87%AA%E5%B7%B1%E5%BB%BA%E7%AB%8BGithub%E7%9A%84%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
-    <content><![CDATA[<p>這篇文章將教大家如何利用Github建立個人<strong>部落格</strong>網站！<br>若有興趣建立個人<strong>部落格</strong>，可以閱讀本文參考建立部落格網站。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<h1 id="選擇編輯器"><a href="#選擇編輯器" class="headerlink" title="選擇編輯器"></a>選擇編輯器</h1><p>選擇一款適合自己的編輯器，進行安裝。<br>以下，是我常用到的編輯器，你們擇一即可，我則是全部搭配使用，看你們自己的選擇囉！</p>
-<ol>
-<li>Visual Studio Code <a href="https://code.visualstudio.com/">官網</a></li>
-<li>Visual Studio 2019 <a href="https://visualstudio.microsoft.com/zh-hant/vs/?rr=https://www.google.com/">官網</a></li>
-<li>Pycharm <a href="https://www.jetbrains.com/pycharm/">官網</a></li>
-<li>Notepad++ <a href="https://notepad-plus-plus.org/">官網</a></li>
-<li>HackMD 線上編輯器 <a href="https://hackmd.io/">官網</a></li>
-</ol>
-<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><h2 id="Github-repo-設定-amp-Hexo-搭建"><a href="#Github-repo-設定-amp-Hexo-搭建" class="headerlink" title="Github repo 設定 &amp; Hexo 搭建"></a>Github repo 設定 &amp; Hexo 搭建</h2><p>至 <a href="https://github.com/">https://github.com/</a> 申請一個帳號。<br>登陸之後，尋找一下建立倉庫的按鈕(頁面右上角的加號)，選擇 New repository (建立倉庫)</p>
-<blockquote>
-<p>設置 Github 專案，建立部落格，會有兩種方式 :</p>
-</blockquote>
-<ol>
-<li><p>以<code>&lt;個人帳號&gt;.github.io</code>為專案名稱，使用 <code>master</code> branch 建構，<br>這樣生成的網址會是 <code>https://&lt;個人帳號&gt;.github.io</code>。</p>
-</li>
-<li><p>以自訂專案名稱 <code>&lt;倉庫名稱&gt;</code> ，使用 <code>gh-pages</code> banch 建構，<br>這樣生成的網址會是 <code>https://&lt;個人帳號&gt;.github.io/&lt;倉庫名稱&gt;</code>。</p>
-</li>
-</ol>
-<p>我個人做的是想把網址簡單化，因此想保留 <code>https://&lt;個人帳號&gt;.github.io</code> 作為首頁網址，</p>
-<h3 id="步驟-1：新增一個-Github-New-repository"><a href="#步驟-1：新增一個-Github-New-repository" class="headerlink" title="步驟 1：新增一個 Github New repository"></a>步驟 1：新增一個 Github New repository</h3><p>在個人的 Github 頁面上新增一個 New repository 。<br><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E5%89%B5%E5%BB%BA%E4%B8%80%E5%80%8B%E6%96%B0%E7%9A%84%E5%80%89%E5%BA%AB.jpg"></p>
-<h3 id="步驟-2-安裝-Node-js-套件管理工具"><a href="#步驟-2-安裝-Node-js-套件管理工具" class="headerlink" title="步驟 2 : 安裝 Node.js 套件管理工具"></a>步驟 2 : 安裝 Node.js 套件管理工具</h3><ol>
-<li><p>安裝Git，至<a href="https://git-scm.com/">Git官網</a>下載，安裝即可。</p>
-</li>
-<li><p>我們可以從<a href="ttps://nodejs.org/zh-cn/download/current/">Node.js</a> 官網下載安裝，安裝完後至終端機輸入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm -v</span><br></pre></td></tr></table></figure>
-<p>輸出版本後，便表示安裝已完成。<br>個人我建議到這個步驟，重新開機一次！因為我曾經遇過一些狀況，若在 <strong>STEP 3</strong> 使用沒問題，可以不用重新開機。<br>&ensp;</p>
-</li>
-</ol>
-<h3 id="步驟-3-安裝-Hexo"><a href="#步驟-3-安裝-Hexo" class="headerlink" title="步驟 3 : 安裝 Hexo"></a>步驟 3 : 安裝 Hexo</h3><p>先打開<strong>cmd終端機</strong>，cd 到你想要安裝目錄，我個人是選擇在隨身硬碟的<strong>F:**槽裡安裝，方便之後換電腦維護編輯部落格。<br>若要換電腦維護編輯部落格，也是要將<code>Hexo</code>和<code>Git</code>、<code>Hode.js</code>安裝完成，也就是<code>步驟 2</code>和<code>步驟 3</code>的步驟要做完。<br>開始</strong>安裝Hexo**</p>
-<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line">$ hexo init &lt;name&gt;</span><br><span class="line">// name為自定義名稱</span><br><span class="line"></span><br><span class="line">$ cd &lt;name&gt;</span><br><span class="line">// name為自定義名稱 (必須與上者name相同名稱)</span><br><span class="line"></span><br><span class="line">$ npm install</span><br><span class="line"></span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p><code>hexo server</code>  和  <code>hexo s</code>  是相同意思的，<br>輸入<strong>hexo s</strong>後，在網址列輸入<strong><a href="http://localhost:4000/">http://localhost:4000</a></strong>，若網頁正常顯示，表示安裝成功。</p>
-<p>接下來有幾個常用到的指令，這些指令將來進行網站修改會常常用到。<br><code>先不用執行下面步驟，文章後面下面會教到如何使用下方指令。</code></p>
-<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">$ hexo clean //清除舊發布設定</span><br><span class="line"></span><br><span class="line">$ hexo g //建立新發布設定</span><br><span class="line"></span><br><span class="line">$ hexo deploy // deploy 到伺服器</span><br><span class="line"></span><br><span class="line">$ hexo server // 在本地瀏覽網站內容 (預設 http://localhost:<span class="number">4000</span>)</span><br></pre></td></tr></table></figure>
-<p>&ensp;</p>
-<h3 id="步驟-4-安裝-Next-主題"><a href="#步驟-4-安裝-Next-主題" class="headerlink" title="步驟 4 : 安裝 Next 主題"></a>步驟 4 : 安裝 Next 主題</h3><p>Next <a href="https://github.com/theme-next/hexo-theme-next">連結</a><br>執行下方程式</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd &lt;name&gt;</span><br><span class="line">&#x2F;&#x2F; 切換到 &lt;name&gt;目錄 (必須與第三步驟的name相同名稱)</span><br><span class="line"></span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next.git themes&#x2F;next</span><br><span class="line">&#x2F;&#x2F; clone Next 主題專案到站點裡的themes資料夾中，並把主題專案改成名稱next。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>&ensp;</p>
-<h1 id="【注意】在開始調整下方設定和配置之前，必須先了解這個步驟"><a href="#【注意】在開始調整下方設定和配置之前，必須先了解這個步驟" class="headerlink" title="【注意】在開始調整下方設定和配置之前，必須先了解這個步驟"></a>【注意】在開始調整下方設定和配置之前，必須先了解這個步驟</h1><p>由於開始設定網頁，會有做出一些變更代碼的事情!<br>因為變更代碼，所以我們要確認每一個變更代碼步驟是否有做正確。<br>&ensp;<br>在這邊我建議大家可以開一個新的cmd終端機，cd進入到之前安裝hexo的目錄裡，<br>輸入 <code>hexo s</code> 或 <code>hexo server</code> 執行，在瀏覽器輸入網址<code>http://localhost:4000</code>，<br>(如果輸入網址沒有反應，那就代表你在這個段落的前面安裝沒有做好)<br>不用特意一直按 <strong>Ctrl+C</strong> 退出終端機，就一直讓這個終端機開著在背景運作就好了!!!<br>這樣才能在本機隨時查看網頁更新內容，當然這個網頁也是要記得在瀏覽器按 <code>F5</code> 做重新載入網頁才行。<br>除非有特殊狀況再重新輸入 <code>hexo s</code> 或 <code>hexo server</code> 執行，這樣會比較好。</p>
-<h1 id="基本設定"><a href="#基本設定" class="headerlink" title="基本設定"></a>基本設定</h1><p>這部分要先教大家如何做一些網站的基本設置，主要的設定檔有兩個<br><code>\_config.yml</code><br><code>\themes\next\_config.yml</code><br>&ensp;</p>
-<h2 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 永成的學習部落格 #網站&#x2F;部落格名稱</span><br><span class="line">subtitle: 這是永成的學習路程之紀錄。 #網站&#x2F;部落格副標題</span><br><span class="line">description: 這是永成的學習路程之紀錄。 #網站&#x2F;部落格基本描述</span><br><span class="line">keywords:</span><br><span class="line">author: 黃永成 #作者</span><br><span class="line">language: zh-TW #語言</span><br><span class="line">timezone: Asia&#x2F;Taipei #時區</span><br></pre></td></tr></table></figure>
-<h3 id="設定網址"><a href="#設定網址" class="headerlink" title="設定網址"></a>設定網址</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &#39;http:&#x2F;&#x2F;yoursite.com&#x2F;child&#39; and root as &#39;&#x2F;child&#x2F;&#39;</span><br><span class="line">url: https:&#x2F;&#x2F;&lt;個人帳號&gt;&gt;&gt;.github.io&#x2F;              # master結構，本篇文章我選擇這個</span><br><span class="line">#   https:&#x2F;&#x2F;&lt;個人帳號&gt;.github.io&#x2F;&lt;倉庫名稱&gt;      # gh-pages結構</span><br><span class="line">root: &#x2F;                                         # 根目錄，我選擇不打，保留網址為https:&#x2F;&#x2F;&lt;個人帳號&gt;.github.io</span><br><span class="line">#     &#x2F;&lt;名稱&gt;&#x2F;                                  # 自定義名稱，會在網址後面呈現</span><br><span class="line">permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
-
-<p>將主題改為 next，這裡若沒進行更改，就無法套用next主題。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;</span><br><span class="line">## Themes: https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-
-<p>如果並不是使用 master 來進行網站設置，branch 的部分要改成gh-pages 。<br>這個部分可能較為重要，若沒設定正確，將無法使用<code>hexo d</code>進行配置上傳。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;&lt;個人帳號&gt;&#x2F;&lt;倉庫名稱&gt;.git</span><br><span class="line">  branch: master</span><br><span class="line">  # 選擇結構master或gh-pages</span><br></pre></td></tr></table></figure>
-<p><code>註：回到此網頁文章起始閱讀地方，了解自己是使用哪種方式來建立專案名稱。</code><br>&ensp;</p>
-<h2 id="themes-next-config-yml"><a href="#themes-next-config-yml" class="headerlink" title="\themes\next_config.yml"></a>\themes\next_config.yml</h2><h3 id="版權頁設定"><a href="#版權頁設定" class="headerlink" title="版權頁設定"></a>版權頁設定</h3><p>設定文末 (或 sidebar) 版權宣告的型態，<br>這裡我選用預設的 by-nc-sa ( 姓名標示-非商業性-相同方式分享 )。<br><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E7%89%88%E6%AC%8A%E5%AE%A3%E7%A4%BA.jpg"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Creative Commons 4.0 International License.</span><br><span class="line"># See: https:&#x2F;&#x2F;creativecommons.org&#x2F;share-your-work&#x2F;licensing-types-examples</span><br><span class="line"># Available values of license: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span><br><span class="line"># You can set a language value if you prefer a translated version of CC license, e.g. deed.zh</span><br><span class="line"># CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https:&#x2F;&#x2F;creativecommons.org</span><br><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: false</span><br><span class="line">  post: true</span><br><span class="line">  language: deed.zh_TW</span><br><span class="line">  &#x2F;&#x2F;language 則是設定 cc 版權說明網頁的語言內容。</span><br></pre></td></tr></table></figure>
-<h3 id="選擇版型"><a href="#選擇版型" class="headerlink" title="選擇版型"></a>選擇版型</h3><p>Next 一共有四種版型可以選擇，可以自行選擇版型，不要用的版型用<code>#</code>註釋掉即可。<br>( 我個人使用的是 Gemini 版型 )</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
-<h3 id="側邊-菜單-區塊設定"><a href="#側邊-菜單-區塊設定" class="headerlink" title="側邊 菜單 區塊設定"></a>側邊 菜單 區塊設定</h3><figure class="highlight py"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="大頭照設定"><a href="#大頭照設定" class="headerlink" title="大頭照設定"></a>大頭照設定</h3><p>url 部分可以放圖片網址，也可以放資料路徑。<br>我個人圖片放的路徑<code>\source\images\頭像.jpg</code></p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">avatar:</span><br><span class="line">  <span class="comment"># In theme directory (source/images): /images/avatar.gif</span></span><br><span class="line">  <span class="comment"># In site directory (source/uploads): /uploads/avatar.gif</span></span><br><span class="line">  <span class="comment"># You can also use other linking images.</span></span><br><span class="line">  url: /images/圖片.jpg</span><br><span class="line">  <span class="comment"># If true, the avatar would be dispalyed in circle.</span></span><br><span class="line">  rounded: flase //若要方形頭像變更為圓形頭像，代碼變更true</span><br><span class="line">  <span class="comment"># If true, the avatar would be rotated with the cursor.</span></span><br><span class="line">  rotated: false</span><br></pre></td></tr></table></figure>
-
-<h3 id="社交連結"><a href="#社交連結" class="headerlink" title="社交連結"></a>社交連結</h3><p>側邊欄的社交連結部分，顯示自己想提供給讀者的社交平台，可以利用這個部分來設定私人的社交平台連結。</p>
-<p><code>||</code> 後面是圖示的設定，從 <a href="https://fontawesome.com/icons?d=gallery">Font Awesome</a> 進行選擇圖示，將網站上的圖示名稱加進去即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">social:</span><br><span class="line">  LINE: https:&#x2F;&#x2F;line.me&#x2F;ti&#x2F;p&#x2F;XGjZN3WZhs || envelope-square</span><br><span class="line">  E-Mail: mailto:a0979488285@gmail.com || envelope</span><br><span class="line">  GitHub: https:&#x2F;&#x2F;github.com&#x2F;pkpk26261 || github</span><br><span class="line">  #Weibo: https:&#x2F;&#x2F;weibo.com&#x2F;yourname || weibo</span><br><span class="line">  #Google: https:&#x2F;&#x2F;plus.google.com&#x2F;yourname || google</span><br><span class="line">  #Twitter: https:&#x2F;&#x2F;twitter.com&#x2F;yourname || twitter</span><br><span class="line">  Facebook: https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100002320400912 || facebook</span><br><span class="line">  #VK Group: https:&#x2F;&#x2F;vk.com&#x2F;yourname || vk</span><br><span class="line">  #StackOverflow: https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname || stack-overflow</span><br><span class="line">  YouTube: https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCdCh7GL1WCTsXJ-6PkTBZZw?view_as&#x3D;subscriber || youtube</span><br><span class="line">  Instagram: https:&#x2F;&#x2F;www.instagram.com&#x2F;da712302&#x2F;?hl&#x3D;zh-tw || instagram</span><br><span class="line">  #Skype: skype:yourname?call|chat || skype</span><br></pre></td></tr></table></figure>
-
-<h3 id="開啟瀏覽人次設定"><a href="#開啟瀏覽人次設定" class="headerlink" title="開啟瀏覽人次設定"></a>開啟瀏覽人次設定</h3><p>busuanzi_count 在比較新版的 Next 主題都包含在其中了，<br>不需另外安裝或是從 css 部分調整原始碼，只要在 <code>enable</code> 的設定改為 true 即可。</p>
-<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: <span class="built_in">false</span> //變更為<span class="built_in">true</span></span><br><span class="line">  total_visitors: <span class="built_in">true</span></span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: <span class="built_in">true</span></span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: <span class="built_in">true</span></span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure>
-<h3 id="關閉文章下方版本顯示訊息"><a href="#關閉文章下方版本顯示訊息" class="headerlink" title="關閉文章下方版本顯示訊息"></a>關閉文章下方版本顯示訊息</h3><p>【由 Hexo 強力驅動 v3.9.0 | 主題 – NexT.Gemini v7.4.0】</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">powered:</span><br><span class="line">  <span class="comment"># Hexo link (Powered by Hexo).</span></span><br><span class="line">  enable: true //變更為false</span><br><span class="line">  <span class="comment"># Version info of Hexo after Hexo link (vX.X.X).</span></span><br><span class="line">  version: true //變更為false</span><br><span class="line"></span><br><span class="line">theme:</span><br><span class="line">  <span class="comment"># Theme &amp; scheme info link (Theme - NexT.scheme).</span></span><br><span class="line">  enable: true //變更為false</span><br><span class="line">  <span class="comment"># Version info of NexT after scheme info (vX.X.X).</span></span><br><span class="line">  version: true //變更為false</span><br></pre></td></tr></table></figure>
-
-<h3 id="在按鈕中顯示閱讀百分比"><a href="#在按鈕中顯示閱讀百分比" class="headerlink" title="在按鈕中顯示閱讀百分比"></a>在按鈕中顯示閱讀百分比</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: <span class="literal">true</span></span><br><span class="line">  # 返回到頂部的側欄</span><br><span class="line">  sidebar: <span class="literal">false</span> <span class="comment">//自行選擇是否變更為true</span></span><br><span class="line">  # 閱讀目錄下方顯示閱讀進度及返回</span><br><span class="line">  scrollpercent: <span class="literal">false</span> <span class="comment">//變更為true</span></span><br><span class="line">  # 按鈕中顯示閱讀百分比</span><br></pre></td></tr></table></figure>
-
-<h3 id="閱讀進度條"><a href="#閱讀進度條" class="headerlink" title="閱讀進度條"></a>閱讀進度條</h3><p>網頁下方線條顯示進度</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"># Reading progress bar</span><br><span class="line">reading_progress:</span><br><span class="line">  enable: <span class="literal">false</span> <span class="comment">//變更為true</span></span><br><span class="line">  # Available values: top | bottom</span><br><span class="line">  position: top <span class="comment">//選擇top或bottom</span></span><br><span class="line">  color: <span class="string">&quot;#ff0000&quot;</span> <span class="comment">//變更16進制顏色</span></span><br><span class="line">  height: <span class="number">4</span>px <span class="comment">//變更粗細</span></span><br></pre></td></tr></table></figure>
-<h3 id="開啟網頁右上書籤功能"><a href="#開啟網頁右上書籤功能" class="headerlink" title="開啟網頁右上書籤功能"></a>開啟網頁右上書籤功能</h3><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Bookmark Support</span></span><br><span class="line">bookmark:</span><br><span class="line">  enable: false //變更為true</span><br><span class="line">  <span class="comment"># Customize the color of the bookmark.</span></span><br><span class="line">  color: <span class="string">&quot;222&quot;</span>  //變更<span class="number">16</span>進制<span class="string">&quot;#0ed145&quot;</span></span><br><span class="line">  <span class="comment"># If auto, save the reading progress when closing the page or clicking the bookmark-icon.</span></span><br><span class="line">  <span class="comment"># If manual, only save it by clicking the bookmark-icon.</span></span><br><span class="line">  save: auto</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="文章右上方顯示關注我的Gitgub"><a href="#文章右上方顯示關注我的Gitgub" class="headerlink" title="文章右上方顯示關注我的Gitgub"></a>文章右上方顯示關注我的Gitgub</h3><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># `Follow me on GitHub` banner in the top-right corner.</span></span><br><span class="line">github_banner:</span><br><span class="line">  enable: false //變更為true</span><br><span class="line">  permalink: https://github.com/&lt;yourname&gt; //變更您的網站</span><br><span class="line">  title: Follow me on GitHub</span><br></pre></td></tr></table></figure>
-
-<h3 id="代碼樣式變更、代碼複製開啟"><a href="#代碼樣式變更、代碼複製開啟" class="headerlink" title="代碼樣式變更、代碼複製開啟"></a>代碼樣式變更、代碼複製開啟</h3><figure class="highlight py"><table><tr><td class="code"><pre><span class="line">codeblock:</span><br><span class="line">  <span class="comment"># Code Highlight theme</span></span><br><span class="line">  <span class="comment"># Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic</span></span><br><span class="line">  <span class="comment"># See: https://github.com/chriskempson/tomorrow-theme</span></span><br><span class="line">  highlight_theme: normal</span><br><span class="line">  <span class="comment"># Add copy button on codeblock</span></span><br><span class="line">  copy_button:</span><br><span class="line">    enable: false //變更為true</span><br><span class="line">    <span class="comment"># Show text copy result.</span></span><br><span class="line">    show_result: false //變更為true</span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    style: mac //選擇樣式 default | flat | mac</span><br></pre></td></tr></table></figure>
-
-<h3 id="放大圖片"><a href="#放大圖片" class="headerlink" title="放大圖片"></a>放大圖片</h3><p>輸入指令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 到 next 安裝路徑下</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest source&#x2F;lib&#x2F;fancybox</span><br></pre></td></tr></table></figure>
-
-<p>原圖：<center><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E5%9C%96%E7%89%87%E6%94%BE%E5%A4%A71.jpg"></center></p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.</span></span><br><span class="line"><span class="comment"># For more information: https://fancyapps.com/fancybox</span></span><br><span class="line">fancybox: false //變更為true</span><br></pre></td></tr></table></figure>
-<p>效果：<center><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E5%9C%96%E7%89%87%E6%94%BE%E5%A4%A72.jpg"></center></p>
-<p>裡面還有幾個可以調整的地方，如有需要，將來會在新增介紹。<br>&ensp;</p>
-<h1 id="語言設定"><a href="#語言設定" class="headerlink" title="語言設定"></a>語言設定</h1><p>檢查<code>\themes\next\languages</code>目錄下有無<code>zh-TW.yml</code>，<br>**———–新版應該就沒有這個問題了———–**<br>若這個目錄下沒有這個檔案，請建立<code>zh-TW.yml</code>檔案，<br>內容請複製新增：**(以後若要改一些翻譯後的文字，可以在這裡更改)**</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">  archive: 歸檔</span><br><span class="line">  category: 分類</span><br><span class="line">  tag: 標籤</span><br><span class="line">  schedule: 時間表</span><br><span class="line">menu:</span><br><span class="line">  home: 首頁</span><br><span class="line">  archives: 歸檔</span><br><span class="line">  categories: 分類</span><br><span class="line">  tags: 標籤</span><br><span class="line">  about: 關於</span><br><span class="line">  search: 搜尋</span><br><span class="line">  schedule: 時間表</span><br><span class="line">  sitemap: 網站地圖</span><br><span class="line">  commonweal: 公益 404</span><br><span class="line">sidebar:</span><br><span class="line">  overview: 本站概要</span><br><span class="line">  toc: 文章目錄</span><br><span class="line">post:</span><br><span class="line">  posted: 發表於</span><br><span class="line">  edited: 更新於</span><br><span class="line">  created: 創建時間</span><br><span class="line">  modified: 修改時間</span><br><span class="line">  edit: 編輯</span><br><span class="line">  in: 分類於</span><br><span class="line">  more: 更多</span><br><span class="line">  read_more: 閱讀全文</span><br><span class="line">  untitled: 未命名</span><br><span class="line">  sticky: 置頂</span><br><span class="line">  views: 閱讀次數</span><br><span class="line">  related_posts: 相關文章</span><br><span class="line">  copy_button: 複製</span><br><span class="line">  copy_success: 複製成功</span><br><span class="line">  copy_failure: 複製失敗</span><br><span class="line">  copyright:</span><br><span class="line">    author: 作者</span><br><span class="line">    link: 文章連結</span><br><span class="line">    license_title: 版權聲明</span><br><span class="line">    license_content: &quot;本網誌所有文章除特別聲明外，均採用 %s 許可協議。轉載請註明出處！&quot;</span><br><span class="line">page:</span><br><span class="line">  totally: 共有</span><br><span class="line">  tags: 標籤</span><br><span class="line">footer:</span><br><span class="line">  powered: &quot;由 %s 強力驅動&quot;</span><br><span class="line">  theme: 主題</span><br><span class="line">  total_views: 總瀏覽次數</span><br><span class="line">  total_visitors: 訪客總數</span><br><span class="line">counter:</span><br><span class="line">  tag_cloud:</span><br><span class="line">    zero: 沒有標籤</span><br><span class="line">    one: 目前共有 1 個標籤</span><br><span class="line">    other: &quot;目前共有 %d 個標籤&quot;</span><br><span class="line">  categories:</span><br><span class="line">    zero: 沒有分類</span><br><span class="line">    one: 目前共有 1 個分類</span><br><span class="line">    other: &quot;目前共有 %d 個分類&quot;</span><br><span class="line">  archive_posts:</span><br><span class="line">    zero: 沒有文章。</span><br><span class="line">    one: 目前共有 1 篇文章。</span><br><span class="line">    other: &quot;目前共有 %d 篇文章。&quot;</span><br><span class="line">state:</span><br><span class="line">  posts: 文章</span><br><span class="line">  pages: 頁面</span><br><span class="line">  tags: 標籤</span><br><span class="line">  categories: 分類</span><br><span class="line">search:</span><br><span class="line">  placeholder: 搜尋...</span><br><span class="line">cheers:</span><br><span class="line">  um: 嗯..</span><br><span class="line">  ok: 還行</span><br><span class="line">  nice: 好</span><br><span class="line">  good: 很好</span><br><span class="line">  great: 非常好</span><br><span class="line">  excellent: 太棒了</span><br><span class="line">keep_on: 繼續努力。</span><br><span class="line">symbol:</span><br><span class="line">  comma: &quot;，&quot;</span><br><span class="line">  period: &quot;。&quot;</span><br><span class="line">  colon: &quot;：&quot;</span><br><span class="line">reward:</span><br><span class="line">  donate: 捐贈</span><br><span class="line">  wechatpay: 微信支付</span><br><span class="line">  alipay: 支付寶</span><br><span class="line">  bitcoin: 比特幣</span><br><span class="line">accessibility:</span><br><span class="line">  nav_toggle: 切換導航欄</span><br><span class="line">  prev_page: 上一頁</span><br><span class="line">  next_page: 下一頁</span><br><span class="line">symbols_count_time:</span><br><span class="line">  count: 文章字數</span><br><span class="line">  count_total: 總字數</span><br><span class="line">  time: 所需閱讀時間</span><br><span class="line">  time_total: 所需總閱讀時間</span><br><span class="line">  time_minutes: 分鐘</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>&ensp;</p>
-<h1 id="Gemini-版型-色彩配置"><a href="#Gemini-版型-色彩配置" class="headerlink" title="Gemini 版型-色彩配置"></a>Gemini 版型-色彩配置</h1><p>這個部分此部落格原本有做修改，但我因為有些配置顏色怪怪的，所以我後來跳過這個步驟，直接用默認配色＋動態背景，若讀者您也不想設置這個配置，那也可以跳過這個部分，直接進行下一個步驟。</p>
-<p>&ensp;<br>我這裡文章是使用<code>Gemini</code>版型做維護，故以<code>Gemini</code>作為介紹，<br>若對於其他版型有興趣，可以自行研究。</p>
-<blockquote>
-<p><strong>背景</strong> 顏色變更<br>在<code>\themes\next\source\css\_variables\&lt;你選擇的版型&gt;.styl</code>變更</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Settings for some of the most global styles.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line">$body-bg-color           = #<span class="number">222222</span>;</span><br></pre></td></tr></table></figure>
-<p>&ensp;<br>接下來，<br>我下面統一設定成 rgba(255, 255, 255, 0.15)，這裡的 0.15 指的是透明度。</p>
-<blockquote>
-<p><strong>文章方塊</strong> 顏色變更<br>在<code>\themes\next\source\css\_schemes\Gemini\index.styl</code>變更</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Post &amp; Comments blocks.</span></span><br><span class="line">.post-block &#123;</span><br><span class="line">  background: rgba(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.15</span>);</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  padding: $content-desktop-padding;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>菜單區塊</strong> 顏色變更<br>在<code>\themes\next\source\css\_schemes\Pisces\_layout.styl</code>變更</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header-inner &#123;</span><br><span class="line">  background: rgba(255, 255, 255, 0.15);</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  padding: 0;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 0;</span><br><span class="line">  width: $sidebar-desktop;</span><br><span class="line"></span><br><span class="line">  +desktop-large() &#123;</span><br><span class="line">    width: $sidebar-desktop;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>目錄區塊</strong> 顏色變更<br>在<code>\themes\next\source\css\_schemes\Pisces\_sidebar.styl</code>變更</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.sidebar-inner &#123;</span><br><span class="line">  background: rgba(255, 255, 255, 0.15);</span><br><span class="line">  border-radius: $border-radius;</span><br><span class="line">  box-shadow: $box-shadow;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  color: $text-color;</span><br><span class="line">  width: $sidebar-desktop;</span><br><span class="line"></span><br><span class="line">  if (hexo-config(&#39;motion.enable&#39;) &amp;&amp; hexo-config(&#39;motion.transition.sidebar&#39;)) &#123;</span><br><span class="line">    opacity: 0;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>&ensp;<br>接下來，這個地方最複雜，也需要嘗試很多次才會知道，顏色的區塊定義在哪裡，我在下方代碼區塊有稍微中文註釋，沒標註釋就是我還不知道，雖然不知道你們能不能理解我註釋的意思，但這都需要自己嘗試才會知道。</p>
-<blockquote>
-<p>文字顏色的設定<code>\themes\next\source\css\_variables\base.styl</code>變更</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; Colors</span><br><span class="line">&#x2F;&#x2F; colors for use across theme.</span><br><span class="line">&#x2F;&#x2F; --------------------------------------------------</span><br><span class="line">$whitesmoke   &#x3D; #a15100; &#x2F;&#x2F; 菜單選擇顏色</span><br><span class="line">$gainsboro    &#x3D; #a15100; &#x2F;&#x2F; 本站摘要方框顏色</span><br><span class="line">$gray-lighter &#x3D; #ddd; &#x2F;&#x2F; 暱稱 顏色</span><br><span class="line">$grey-light   &#x3D; #eee; &#x2F;&#x2F; 歸檔 虛線</span><br><span class="line">$grey         &#x3D; #ff7700; &#x2F;&#x2F; 分類 (數量)</span><br><span class="line">$grey-dark    &#x3D; #999;</span><br><span class="line">$grey-dim     &#x3D; #eee;</span><br><span class="line">$black-light  &#x3D; #eeeeee; &#x2F;&#x2F;文字顏色</span><br><span class="line">$black-dim    &#x3D; #333;</span><br><span class="line">$black-deep   &#x3D; #ff7700; &#x2F;&#x2F; 文章右下角箭頭、本站摘要名稱</span><br><span class="line">$red          &#x3D; #333333;</span><br><span class="line">$blue-bright  &#x3D; #87daff;</span><br><span class="line">$blue         &#x3D; #0684bd;</span><br><span class="line">$blue-deep    &#x3D; rgba(255, 255, 255, 0.2); &#x2F;&#x2F; 文章圈選字顏色</span><br><span class="line">$orange       &#x3D; #ff8c00; &#x2F;&#x2F; 菜單目錄字體顏色</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>&ensp;</p>
-<h2 id="標題欄位顏色變更"><a href="#標題欄位顏色變更" class="headerlink" title="標題欄位顏色變更"></a>標題欄位顏色變更</h2><p>從<code>\themes\next\source\css\_schemes\&lt;你選擇的版型&gt;\index.styl</code>來做新增，<br>更改的方式只要在最後加上這段即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.site-meta &#123;</span><br><span class="line">  background: #000000; &#x2F;&#x2F;我使用黑色為標題欄的背景色</span><br></pre></td></tr></table></figure>
-<p>&ensp;</p>
-<h2 id="設置閱讀全文按鈕顏色"><a href="#設置閱讀全文按鈕顏色" class="headerlink" title="設置閱讀全文按鈕顏色"></a>設置閱讀全文按鈕顏色</h2><p>修改<code>themes\next\source\css\_custom\custom.styl</code>文件，添加：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 修改按键（button）樣式</span><br><span class="line">.btn &#123;</span><br><span class="line">  color: #49b1f5;</span><br><span class="line">  background: #fff;</span><br><span class="line">  border: 2px solid #49b1f5;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 按键（button）點擊時樣式</span><br><span class="line">.btn:hover &#123;</span><br><span class="line">  border-color: #49b1f5;</span><br><span class="line">  color: #fff;</span><br><span class="line">  background: #49b1f5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>再來，編輯16進制顏色變更即可。</p>
-<h1 id="版面比例"><a href="#版面比例" class="headerlink" title="版面比例"></a>版面比例</h1><p>這邊可以調整一下版面區域的比例配置。<br>在預設的狀況，左右背景多一點，如果想調整比例可以從這裡去調整。<br>如果想要改變這樣的比例，可以在 <code>\themes\next\source\css\_variables\&lt;所選擇的版型&gt;.styl</code> 最後新增加入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$content-desktop         &#x3D; 100%</span><br><span class="line">$content-desktop-large   &#x3D; 100%</span><br><span class="line">$content-desktop-largest &#x3D; 85%</span><br></pre></td></tr></table></figure>
-<p>比例可以自行調整，自己高興就好，個人我自己沒有新增這個段落。<br>&ensp;</p>
-<h1 id="動態背景"><a href="#動態背景" class="headerlink" title="動態背景"></a>動態背景</h1><p>我是 Next 使用者，所以我選擇 canvas-nest 這套動態背景。<br>使用方法如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd 到 next 安裝路徑下</span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest source&#x2F;lib&#x2F;canvas-nest</span><br></pre></td></tr></table></figure>
-<p>之後到 next 設定檔 <code>\themes\next\_config.yml</code> 中設置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Canvas-nest</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest</span><br><span class="line"># For more information: https:&#x2F;&#x2F;github.com&#x2F;hustcc&#x2F;canvas-nest.js</span><br><span class="line">canvas_nest:</span><br><span class="line">  enable: true #開啟或關閉</span><br><span class="line">  onmobile: true # Display on mobile or not #是否在手機上顯示</span><br><span class="line">  color: &quot;195,195,195&quot; # RGB values, use &#96;,&#96; to separate #線條顏色</span><br><span class="line">  opacity: 1 # The opacity of line: 0~1 #線條透明度</span><br><span class="line">  zIndex: -1 # z-index property of the background #位在哪一層</span><br><span class="line">  count: 100 # The number of lines #線條數量</span><br></pre></td></tr></table></figure>
-<p>&ensp;</p>
-<h1 id="修改主題頁面布局為圓角"><a href="#修改主題頁面布局為圓角" class="headerlink" title="修改主題頁面布局為圓角"></a>修改主題頁面布局為圓角</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>在<code>/themes/next/source/css/_variables/custom.styl</code>文件中，<br>添加以下代碼（Gemini樣式）:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 修改主題頁面布局為圓角</span><br><span class="line">&#x2F;&#x2F; Variables of Gemini scheme</span><br><span class="line">&#x2F;&#x2F; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">@import &quot;Pisces.styl&quot;;</span><br><span class="line">&#x2F;&#x2F; Settings for some of the most global styles.</span><br><span class="line">&#x2F;&#x2F; --------------------------------------------------</span><br><span class="line">$body-bg-color                    &#x3D; #eee</span><br><span class="line">&#x2F;&#x2F; Borders.</span><br><span class="line">&#x2F;&#x2F; --------------------------------------------------</span><br><span class="line">$box-shadow-inner                 &#x3D; 0 2px 2px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.06), 0 1px 5px 0 rgba(0,0,0,.12)</span><br><span class="line">$box-shadow                       &#x3D; 0 2px 2px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.06), 0 1px 5px 0 rgba(0,0,0,.12), 0 -1px .5px 0 rgba(0,0,0,.09)</span><br><span class="line">$border-radius-inner              &#x3D; initial</span><br><span class="line">$border-radius                    &#x3D; initial</span><br><span class="line">$border-radius-inner            &#x3D; 15px 15px 15px 15px;</span><br><span class="line">$border-radius                  &#x3D; 15px;</span><br></pre></td></tr></table></figure>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>在<code>\themes\next\source\css\_variables\Gemini.styl</code>文件中直接添加：</p>
-<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">// 修改主題頁面布局為圓角</span><br><span class="line">$border-radius-inner            <span class="built_in">=</span> <span class="number">15</span>px <span class="number">15</span>px <span class="number">15</span>px <span class="number">15</span>px;</span><br><span class="line">$border-radius                  <span class="built_in">=</span> <span class="number">15</span>px;</span><br></pre></td></tr></table></figure>
-<p>我個人是使用<code>方法二</code>修改。<br>&ensp;</p>
-<h1 id="添加-PDF-插件"><a href="#添加-PDF-插件" class="headerlink" title="添加 PDF 插件"></a>添加 PDF 插件</h1><h2 id="安裝套件"><a href="#安裝套件" class="headerlink" title="安裝套件"></a>安裝套件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-pdf source&#x2F;lib&#x2F;pdf</span><br></pre></td></tr></table></figure>
-<p>修改<code>next/_config.yml</code>中修改修改：true </p>
-<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">pdf:</span><br><span class="line">  enable: <span class="built_in">false</span>  //變更為<span class="built_in">true</span></span><br><span class="line">  # Default height</span><br><span class="line">  height: <span class="number">500</span>px</span><br></pre></td></tr></table></figure>
-<p>在要加入pdf的文章，添入代碼</p>
-<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">外部連結：</span><br><span class="line">&#123;<span class="comment">% pdf http://Your URL.pdf %&#125;</span></span><br><span class="line"></span><br><span class="line">本地連接： //在`\source`新建pdf資料夾</span><br><span class="line">&#123;<span class="comment">% pdf /pdf/檔案名稱.pdf %&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="建立專頁"><a href="#建立專頁" class="headerlink" title="建立專頁"></a>建立專頁</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page book </span><br></pre></td></tr></table></figure>
-<h2 id="編寫"><a href="#編寫" class="headerlink" title="編寫"></a>編寫</h2><p>在生成的md檔文件中<br>在<code>\themes\next\_config.yml</code>編輯，新增書本(book)。</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  書本: /book/ || book <span class="comment">#書本　</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
-<h2 id="建立文章"><a href="#建立文章" class="headerlink" title="建立文章"></a>建立文章</h2><p>使用外部連結:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% pdf http:&#x2F;&#x2F;Your URL.pdf %&#125;</span><br></pre></td></tr></table></figure>
-<p>在<code>source\_posts\</code>文件創建一個文章。<br>如test.md,同時需要再創建一個同名的test文件夾，放要上傳的PDF文章。</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 測試</span><br><span class="line">date: 2019-10-17 00:00:00</span><br><span class="line">tags: 測試</span><br><span class="line">categories: 測試</span><br><span class="line">---</span><br><span class="line"> </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span><span class="strong">**測試**</span><span class="xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line"> </span><br><span class="line">&#123;% pdf 路徑.pdf %&#125; </span><br><span class="line"> </span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h1 id="設置點擊頭像返回首頁"><a href="#設置點擊頭像返回首頁" class="headerlink" title="設置點擊頭像返回首頁"></a>設置點擊頭像返回首頁</h1><p>打開<code>themes\next\layout\_macro\sidebar.swig</code>文件，<br>新增</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;添加代码：</span><br><span class="line">+        &lt;a href&#x3D;&quot;&#x2F;&quot;&gt;</span><br><span class="line">          &lt;img class&#x3D;&quot;site-author-image&quot; itemprop&#x3D;&quot;image&quot;</span><br><span class="line">               src&#x3D;&quot;&#123;&#123; url_for( theme.avatar | default(theme.images + &#39;&#x2F;avatar.gif&#39;) ) &#125;&#125;&quot;</span><br><span class="line">               alt&#x3D;&quot;&#123;&#123; theme.author &#125;&#125;&quot; &#x2F;&gt;</span><br><span class="line">+        &lt;&#x2F;a&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;这里注意找到中间代码，添加a标签就行了，中间不用修改。</span><br></pre></td></tr></table></figure>
-<h1 id="開啟文章船錨-傳送-功能"><a href="#開啟文章船錨-傳送-功能" class="headerlink" title="開啟文章船錨(傳送)功能"></a>開啟文章船錨(傳送)功能</h1><p><left><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E8%88%B9%E9%8C%A81.jpg"></left></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i hexo-theme-next-anchor</span><br></pre></td></tr></table></figure>
-<p>複製船錨<code>連結</code><br><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E8%88%B9%E9%8C%A82.jpg"></p>
-<p>在文章中，加入想要傳送的位子</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[文字](貼上網址連結)</span><br><span class="line"></span><br><span class="line">[文章開始](https:&#x2F;&#x2F;pkpk26261.github.io&#x2F;2019&#x2F;10&#x2F;19&#x2F;%E8%87%AA%E5%B7%B1%E6%91%B8%E7%B4%A2%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8BGithub%E7%9A%84%E9%83%A8%E8%90%BD%E6%A0%BC&#x2F;#開始)</span><br></pre></td></tr></table></figure>
-<p>範例效果 <a href="https://pkpk26261.github.io/2019/10/19/%E8%87%AA%E5%B7%B1%E6%91%B8%E7%B4%A2%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8BGithub%E7%9A%84%E9%83%A8%E8%90%BD%E6%A0%BC/#%E9%96%8B%E5%A7%8B">文章開始</a><br>&ensp;</p>
-<h1 id="開啟文章搜索功能"><a href="#開啟文章搜索功能" class="headerlink" title="開啟文章搜索功能"></a>開啟文章搜索功能</h1><p>終端機輸入：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 到安裝目錄</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
-<p>打開<code>\themes\next\_config.yml</code>變更代碼為<code>true</code>:</p>
-<figure class="highlight m"><table><tr><td class="code"><pre><span class="line"># Local Search</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: <span class="built_in">true</span></span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show <span class="built_in">all</span> results by setting to -<span class="number">1</span></span><br><span class="line">  top_n_per_article: -<span class="number">1</span></span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: <span class="built_in">true</span></span><br><span class="line">  # Preload the search data when the page loads.</span><br><span class="line">  preload: <span class="built_in">true</span></span><br></pre></td></tr></table></figure>
-<h2 id="變更搜索欄顏色"><a href="#變更搜索欄顏色" class="headerlink" title="變更搜索欄顏色"></a>變更搜索欄顏色</h2><blockquote>
-<p>搜索頁面文字背景底色<br>打開<code>\themes\next\source\css\_common\components\third-party\search.styl</code></p>
-</blockquote>
-<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">.search-popup &#123;</span><br><span class="line">  background: #<span class="number">999999</span>;</span><br><span class="line">  border-radius: <span class="number">5</span>px;</span><br><span class="line">  color: $black-dim;</span><br><span class="line">  display: none;</span><br><span class="line">  height: <span class="number">80</span><span class="comment">%;</span></span><br><span class="line">  left: <span class="number">50</span><span class="comment">%;</span></span><br><span class="line">  margin-left: -<span class="number">350</span>px;</span><br><span class="line">  padding: <span class="number">0</span>;</span><br><span class="line">  position: fixed;</span><br><span class="line">  top: <span class="number">10</span><span class="comment">%;</span></span><br><span class="line">  width: <span class="number">700</span>px;</span><br><span class="line">  z-index: $zindex-<span class="number">5</span>;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>搜索頁面其餘背景顏色</p>
-</blockquote>
-<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">.search-pop-overlay &#123;</span><br><span class="line">  background: rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">  display: none;</span><br><span class="line">  height: <span class="number">100</span><span class="comment">%;</span></span><br><span class="line">  left: <span class="number">0</span>;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  position: fixed;</span><br><span class="line">  top: <span class="number">0</span>;</span><br><span class="line">  width: <span class="number">100</span><span class="comment">%;</span></span><br><span class="line">  z-index: $zindex-<span class="number">4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&ensp;</p>
-<h1 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h1><p>打開<code>themes\next\layout\_partials\head\head-unique.swig</code>文件，文末插入這個代碼：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;# 文章密碼設置 #&#125;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    (function()&#123;</span><br><span class="line">        if(&#39;&#123;&#123; page.password &#125;&#125;&#39;)&#123;</span><br><span class="line">            if (prompt(&#39;請輸入密碼&#39;) !&#x3D;&#x3D; &#39;&#123;&#123; page.password &#125;&#125;&#39;)&#123;</span><br><span class="line">                alert(&#39;密碼不正確！請訪問作者索取&#39;);</span><br><span class="line">                history.back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-<p>然後打開要加密的文章，文章開頭放入這個：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: &#x2F;&#x2F;標題</span><br><span class="line">tags: &#x2F;&#x2F;標籤</span><br><span class="line">  - Hexo</span><br><span class="line">  - NexT</span><br><span class="line">categories: &#x2F;&#x2F;分類</span><br><span class="line">  - Hexo</span><br><span class="line">author: &#x2F;&#x2F;作者</span><br><span class="line">password: 123456 &#x2F;&#x2F;設定文章密碼</span><br><span class="line">date: 2019-10-17 00:00:00 &#x2F;&#x2F;發布時間</span><br><span class="line">updated: 2019-10-17 00:00:00 &#x2F;&#x2F;更新時間</span><br></pre></td></tr></table></figure>
-
-
-
-<p>&ensp;</p>
-<h1 id="調整和上傳"><a href="#調整和上傳" class="headerlink" title="調整和上傳"></a>調整和上傳</h1><p>在每一個設定變更後，我習慣會做以下動作</p>
-<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">$ hexo server //在本機瀏覽器查看</span><br><span class="line">//hexo s</span><br></pre></td></tr></table></figure>
-<p>先在本機上看看是否有什麼問題，持續進行微調，最後設定都沒有問題後，再進行配置上傳。</p>
-<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">$ hexo clean  //清除舊的發布設定</span><br><span class="line"></span><br><span class="line">$ hexo g      //建立新的發布設定</span><br><span class="line"></span><br><span class="line">$ hexo deploy //配置到伺服器</span><br><span class="line">//hexo d</span><br></pre></td></tr></table></figure>
-<p>若我已經在`_config.yml輸入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;&lt;user_name&gt;&#x2F;&lt;repo_name&gt;.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>在執行<code>hexo deploy</code>或<code>hexo d</code>時，卻發生了<code>ERROR Deployer not found: git</code>的錯誤訊息。<br>請在終端機執行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 到安裝目錄</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>&ensp;</p>
-<h1 id="編輯新增文章"><a href="#編輯新增文章" class="headerlink" title="編輯新增文章"></a>編輯新增文章</h1><p>撰寫文章都集中放在<code>\source</code>目錄下，最常用到的大概就是<code>source\_posts</code>裡的檔案了。<br>新增建立 <strong>“name”</strong><code>.md</code> 檔案，副檔名為<code>.md</code>，也可以參考預設<code>hello-world.md</code>的檔案做參考。<br>也可以利用以下語法，新增MD檔：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hexo new [文章類型] [檔名]</span><br></pre></td></tr></table></figure>
-<p>Hexo是使用MarkDown(MD)格式，每篇文章開頭基本上都一樣，<br>新文章加入以下內容：(<code>---</code>切記一定要加入)</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#x2F;&#x2F;標題</span><br><span class="line">tags: &#x2F;&#x2F;標籤</span><br><span class="line">  - Hexo</span><br><span class="line">  - NexT</span><br><span class="line">categories: &#x2F;&#x2F;分類</span><br><span class="line">  - Hexo</span><br><span class="line">author: &#x2F;&#x2F;作者</span><br><span class="line">password: 123456 &#x2F;&#x2F;設定文章密碼</span><br><span class="line">date: 2019-10-17 00:00:00 &#x2F;&#x2F;發布時間</span><br><span class="line">updated: 2019-10-17 00:00:00 &#x2F;&#x2F;更新時間</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>文章類型：</p>
-<ol>
-<li>post：最常碰到的一般文章。<br>新增的檔案會放在<code>\source\_posts</code>資料夾內建立<code>[檔名].md</code>的檔案。-</li>
-<li>page：不會出現在首頁中。<br>基本上拿來撰寫about或tags之類的頁面。<br>這類型會在<code>\source\</code>下建立<code>檔名</code>資料夾，並在<code>檔名</code>資料夾下新增<code>index.md</code>檔案。</li>
-<li>draft：草稿。<br>如果文章太長可以先建立草稿，這樣就算發佈了訪客也看不到。<br>草稿會存放在<code>\source\_drafts</code>底下，檔名為<code>檔名</code>.md。<br>編輯完後，可以透過指令hexo publish draft <code>檔名</code>讓文章公開。<br>再來選擇一款合適自己的md編輯器，和使用一些常用md語法就能完成一篇文章了。<br>個人我這邊都是使用 Visual Studio Code (VS Code) 編輯器。</li>
-</ol>
-<p>&ensp;</p>
-<h2 id="MD語法（Markdown）"><a href="#MD語法（Markdown）" class="headerlink" title="MD語法（Markdown）"></a>MD語法（Markdown）</h2><p>網路上已經有很多可以參考的資料了，若有需要可以自行去查。<br>這裡我提供兩個連結，我覺得不錯的。<br>GIT教學網站(gitbooks)：<a href="https://kingofamani.gitbooks.io/git-teach/content/chapter_6_gitbook/markdown.html">markdown風格</a><br>markdown文件(中文版)：<a href="https://markdown.tw/">markdown文件</a></p>
-<p>&ensp;</p>
-<h2 id="內容撰寫小技巧"><a href="#內容撰寫小技巧" class="headerlink" title="內容撰寫小技巧"></a>內容撰寫小技巧</h2><p>（學會新技巧後，此部分會不定時更新）<br>&ensp;</p>
-<h3 id="字形樣式"><a href="#字形樣式" class="headerlink" title="字形樣式"></a>字形樣式</h3><p>文字字型與顏色：</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">&quot;標楷體&quot;</span> <span class="attr">color</span>=<span class="string">&quot;red&quot;</span>&gt;</span></span>我是紅色的標楷體<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p><font face="標楷體" color="red">我是紅色的標楷體</font></p>
-<h4 id="文字大小"><a href="#文字大小" class="headerlink" title="文字大小"></a>文字大小</h4><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">&quot;16px&quot;</span>&gt;</span></span>文字大小<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p><font size="16px">文字大小：16px</font></p>
-<h4 id="文字置中"><a href="#文字置中" class="headerlink" title="文字置中"></a>文字置中</h4><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span>置中<span class="xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<center>置中</center>
-
-<h4 id="刪除線"><a href="#刪除線" class="headerlink" title="刪除線"></a>刪除線</h4><p>刪除寫法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">~~刪除線~~</span><br></pre></td></tr></table></figure>
-<p>　<del>刪除線</del><br>&ensp;<br>也可以用以下寫法：</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">del</span>&gt;</span></span>刪除線<span class="xml"><span class="tag">&lt;/<span class="name">del</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p><del>我被刪除了</del><br>&ensp;</p>
-<h3 id="縮排"><a href="#縮排" class="headerlink" title="縮排"></a>縮排</h3><p>有些人在排版上，希望一段文字首行要空兩個全形空白。</p>
-<p>半形空白：<code>&amp;ensp;</code><br>全形空白：<code>&amp;emsp;</code></p>
-<p>&ensp;</p>
-<h3 id="添加空白行"><a href="#添加空白行" class="headerlink" title="添加空白行"></a>添加空白行</h3><p>相信很多人的文章都需要按很多空白鍵或Enter鍵。<br>如果編排文章格式時，要有空白行，編輯上可以使用<code>&amp;ensp</code>。<br>或是利用空白符號進行『添加空白行』的動作。<br>另外，也可以使用<code>&lt;br /&gt;</code>或<code>&lt;p /&gt;</code>添加空白行。<br>&ensp;</p>
-<h3 id="圖片樣式設定"><a href="#圖片樣式設定" class="headerlink" title="圖片樣式設定"></a>圖片樣式設定</h3><p>Markdown檔放入圖片語法</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">圖案文字說明</span>](<span class="link">URL</span>)</span><br></pre></td></tr></table></figure>
-
-<p>範例：</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">文字說明</span>](<span class="link">http://img.touxiangzhan.com/upload/image/2a1882223309n4219215739t27.jpg</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="http://img.touxiangzhan.com/upload/image/2a1882223309n4219215739t27.jpg" alt="文字說明"><br>&ensp;</p>
-<h3 id="設定首頁文章【繼續閱讀】功能"><a href="#設定首頁文章【繼續閱讀】功能" class="headerlink" title="設定首頁文章【繼續閱讀】功能"></a>設定首頁文章【繼續閱讀】功能</h3><p>【繼續閱讀】<br>在部落格首頁時，會將每篇文章以全文方式顯示，但有些文章太長了，導致要拖拉很久才能找到下一篇。<br>只要在內文中，使用<code>&lt;!-- more --&gt;</code>（記得more前後都要空一格），首頁的文章，就會只顯示到此行，讀者就要自行點選<code>more</code>才能觀看全文。<br>範例</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>&ensp;</p>
-<h3 id="使用表格"><a href="#使用表格" class="headerlink" title="使用表格"></a>使用表格</h3><p>hexo支援表格的，表格寫法如下：<br><code>(表格前記得要空一行，這才能形成表格)</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">| 標題1 | 標題2 | 標題2 |</span><br><span class="line">| :------ | :------: | ------: |</span><br><span class="line">| 好長好長好長 | 好長好長好長 | 好長好長好長 |</span><br><span class="line">| 好短好短好短 | 好短好短好短 | 好短好短好短 |</span><br></pre></td></tr></table></figure>
-<p>呈現結果：</p>
-<table>
-<thead>
-<tr>
-<th align="left">標題1</th>
-<th align="center">標題2</th>
-<th align="right">標題2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">好長好長好長</td>
-<td align="center">好長好長好長</td>
-<td align="right">好長好長好長</td>
-</tr>
-<tr>
-<td align="left">好短好短好短</td>
-<td align="center">好短好短好短</td>
-<td align="right">好短好短好短</td>
-</tr>
-<tr>
-<td align="left">&ensp;</td>
-<td align="center"></td>
-<td align="right"></td>
-</tr>
-</tbody></table>
-<h3 id="常用的文字編輯"><a href="#常用的文字編輯" class="headerlink" title="常用的文字編輯"></a>常用的文字編輯</h3><p>一定要記：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 標題一</span><br><span class="line">## 標題二</span><br><span class="line">### 標題三</span><br><span class="line">#### 標題四</span><br><span class="line">##### 標題五</span><br><span class="line"></span><br><span class="line">**這是加粗**</span><br><span class="line"></span><br><span class="line">*這是斜線*</span><br><span class="line"></span><br><span class="line">~~這是刪除線~~</span><br><span class="line"></span><br><span class="line">&#96;內嵌代碼&#96;</span><br><span class="line"></span><br><span class="line">&gt;引用</span><br><span class="line"></span><br><span class="line">* 無序號列表</span><br><span class="line">* 無序號列表</span><br><span class="line"></span><br><span class="line">1. 有序號列表1</span><br><span class="line">2. 有序號列表2</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;代碼區塊&#96;&#96;&#96; (兩個 [&#96;&#96;&#96;] 記得分段成上下，中間編輯你要放的代碼區塊)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>以上文章編輯教到這邊，若還有新的編輯方式，我會再另外添加補充。<br>&ensp;<br>&ensp;</p>
-<p>&ensp;</p>
-<h1 id="參考文章"><a href="#參考文章" class="headerlink" title="參考文章"></a>參考文章</h1><p>名稱 Theme NexT：<a href="https://theme-next.org/">Next官方部落格</a><br>作者 Allen Tzeng：<a href="https://allen108108.github.io/blog/2019/10/07/%E4%BD%BF%E7%94%A8%20Github%20page%20%E8%A3%BD%E4%BD%9C%E5%80%8B%E4%BA%BA%E7%B6%B2%E7%AB%99%20%E2%80%93%20%E4%BB%A5%20Hexo%20_%20Next%20%E8%A3%BD%E4%BD%9C%E9%83%A8%E8%90%BD%E6%A0%BC/">使用 Github page 製作個人網站 – 以 Hexo / Next 製作部落格</a><br>作者 蓝蓝223：<a href="https://blog.csdn.net/qq_21808961/article/details/84476504">hexo d命令报错 ERROR Deployer not found: git</a><br>作者 yashuning：<a href="https://yashuning.github.io/2018/06/29/hexo-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/">hexo-下一頁主題添加搜索功能</a></p>
-]]></content>
-      <categories>
-        <category>Github 創建個人部落格</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-        <tag>創立</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>勤益 Python 教育訓練研習</title>
     <url>/2019/10/29/%E5%8B%A4%E7%9B%8A%20Python%20%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4%E7%A0%94%E7%BF%92/</url>
     <content><![CDATA[<p>這裡記錄著我在研習中的學習，若有需要請點下方連結，下載<code>上課檔案</code>。</p>
@@ -2243,6 +1972,293 @@
         <tag>MATLAB</tag>
         <tag>上課筆記</tag>
         <tag>勤益科大</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>摸索如何自己建立Github的部落格</title>
+    <url>/2019/10/19/%E6%91%B8%E7%B4%A2%E5%A6%82%E4%BD%95%E8%87%AA%E5%B7%B1%E5%BB%BA%E7%AB%8BGithub%E7%9A%84%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
+    <content><![CDATA[<p>這篇文章將教大家如何利用Github建立個人<strong>部落格</strong>網站！<br>若有興趣建立個人<strong>部落格</strong>，可以閱讀本文參考建立部落格網站。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<h1 id="選擇編輯器"><a href="#選擇編輯器" class="headerlink" title="選擇編輯器"></a>選擇編輯器</h1><p>選擇一款適合自己的編輯器，進行安裝。<br>以下，是我常用到的編輯器，你們擇一即可，我則是全部搭配使用，看你們自己的選擇囉！</p>
+<ol>
+<li>Visual Studio Code <a href="https://code.visualstudio.com/">官網</a></li>
+<li>Visual Studio 2019 <a href="https://visualstudio.microsoft.com/zh-hant/vs/?rr=https://www.google.com/">官網</a></li>
+<li>Pycharm <a href="https://www.jetbrains.com/pycharm/">官網</a></li>
+<li>Notepad++ <a href="https://notepad-plus-plus.org/">官網</a></li>
+<li>HackMD 線上編輯器 <a href="https://hackmd.io/">官網</a></li>
+</ol>
+<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><h2 id="Github-repo-設定-amp-Hexo-搭建"><a href="#Github-repo-設定-amp-Hexo-搭建" class="headerlink" title="Github repo 設定 &amp; Hexo 搭建"></a>Github repo 設定 &amp; Hexo 搭建</h2><p>至 <a href="https://github.com/">https://github.com/</a> 申請一個帳號。<br>登陸之後，尋找一下建立倉庫的按鈕(頁面右上角的加號)，選擇 New repository (建立倉庫)</p>
+<blockquote>
+<p>設置 Github 專案，建立部落格，會有兩種方式 :</p>
+</blockquote>
+<ol>
+<li><p>以<code>&lt;個人帳號&gt;.github.io</code>為專案名稱，使用 <code>master</code> branch 建構，<br>這樣生成的網址會是 <code>https://&lt;個人帳號&gt;.github.io</code>。</p>
+</li>
+<li><p>以自訂專案名稱 <code>&lt;倉庫名稱&gt;</code> ，使用 <code>gh-pages</code> banch 建構，<br>這樣生成的網址會是 <code>https://&lt;個人帳號&gt;.github.io/&lt;倉庫名稱&gt;</code>。</p>
+</li>
+</ol>
+<p>我個人做的是想把網址簡單化，因此想保留 <code>https://&lt;個人帳號&gt;.github.io</code> 作為首頁網址，</p>
+<h3 id="步驟-1：新增一個-Github-New-repository"><a href="#步驟-1：新增一個-Github-New-repository" class="headerlink" title="步驟 1：新增一個 Github New repository"></a>步驟 1：新增一個 Github New repository</h3><p>在個人的 Github 頁面上新增一個 New repository 。<br><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E5%89%B5%E5%BB%BA%E4%B8%80%E5%80%8B%E6%96%B0%E7%9A%84%E5%80%89%E5%BA%AB.jpg"></p>
+<h3 id="步驟-2-安裝-Node-js-套件管理工具"><a href="#步驟-2-安裝-Node-js-套件管理工具" class="headerlink" title="步驟 2 : 安裝 Node.js 套件管理工具"></a>步驟 2 : 安裝 Node.js 套件管理工具</h3><ol>
+<li><p>安裝Git，至<a href="https://git-scm.com/">Git官網</a>下載，安裝即可。</p>
+</li>
+<li><p>我們可以從<a href="ttps://nodejs.org/zh-cn/download/current/">Node.js</a> 官網下載安裝，安裝完後至終端機輸入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm -v</span><br></pre></td></tr></table></figure>
+<p>輸出版本後，便表示安裝已完成。<br>個人我建議到這個步驟，重新開機一次！因為我曾經遇過一些狀況，若在 <strong>STEP 3</strong> 使用沒問題，可以不用重新開機。<br>&ensp;</p>
+</li>
+</ol>
+<h3 id="步驟-3-安裝-Hexo"><a href="#步驟-3-安裝-Hexo" class="headerlink" title="步驟 3 : 安裝 Hexo"></a>步驟 3 : 安裝 Hexo</h3><p>先打開<strong>cmd終端機</strong>，cd 到你想要安裝目錄，我個人是選擇在隨身硬碟的<strong>F:**槽裡安裝，方便之後換電腦維護編輯部落格。<br>若要換電腦維護編輯部落格，也是要將<code>Hexo</code>和<code>Git</code>、<code>Hode.js</code>安裝完成，也就是<code>步驟 2</code>和<code>步驟 3</code>的步驟要做完。<br>開始</strong>安裝Hexo**</p>
+<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line">$ hexo init &lt;name&gt;</span><br><span class="line">// name為自定義名稱</span><br><span class="line"></span><br><span class="line">$ cd &lt;name&gt;</span><br><span class="line">// name為自定義名稱 (必須與上者name相同名稱)</span><br><span class="line"></span><br><span class="line">$ npm install</span><br><span class="line"></span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p><code>hexo server</code>  和  <code>hexo s</code>  是相同意思的，<br>輸入<strong>hexo s</strong>後，在網址列輸入<strong><a href="http://localhost:4000/">http://localhost:4000</a></strong>，若網頁正常顯示，表示安裝成功。</p>
+<p>接下來有幾個常用到的指令，這些指令將來進行網站修改會常常用到。<br><code>先不用執行下面步驟，文章後面下面會教到如何使用下方指令。</code></p>
+<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">$ hexo clean //清除舊發布設定</span><br><span class="line"></span><br><span class="line">$ hexo g //建立新發布設定</span><br><span class="line"></span><br><span class="line">$ hexo deploy // deploy 到伺服器</span><br><span class="line"></span><br><span class="line">$ hexo server // 在本地瀏覽網站內容 (預設 http://localhost:<span class="number">4000</span>)</span><br></pre></td></tr></table></figure>
+<p>&ensp;</p>
+<h3 id="步驟-4-安裝-Next-主題"><a href="#步驟-4-安裝-Next-主題" class="headerlink" title="步驟 4 : 安裝 Next 主題"></a>步驟 4 : 安裝 Next 主題</h3><p>Next <a href="https://github.com/theme-next/hexo-theme-next">連結</a><br>執行下方程式</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd &lt;name&gt;</span><br><span class="line">&#x2F;&#x2F; 切換到 &lt;name&gt;目錄 (必須與第三步驟的name相同名稱)</span><br><span class="line"></span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next.git themes&#x2F;next</span><br><span class="line">&#x2F;&#x2F; clone Next 主題專案到站點裡的themes資料夾中，並把主題專案改成名稱next。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>&ensp;</p>
+<h1 id="【注意】在開始調整下方設定和配置之前，必須先了解這個步驟"><a href="#【注意】在開始調整下方設定和配置之前，必須先了解這個步驟" class="headerlink" title="【注意】在開始調整下方設定和配置之前，必須先了解這個步驟"></a>【注意】在開始調整下方設定和配置之前，必須先了解這個步驟</h1><p>由於開始設定網頁，會有做出一些變更代碼的事情!<br>因為變更代碼，所以我們要確認每一個變更代碼步驟是否有做正確。<br>&ensp;<br>在這邊我建議大家可以開一個新的cmd終端機，cd進入到之前安裝hexo的目錄裡，<br>輸入 <code>hexo s</code> 或 <code>hexo server</code> 執行，在瀏覽器輸入網址<code>http://localhost:4000</code>，<br>(如果輸入網址沒有反應，那就代表你在這個段落的前面安裝沒有做好)<br>不用特意一直按 <strong>Ctrl+C</strong> 退出終端機，就一直讓這個終端機開著在背景運作就好了!!!<br>這樣才能在本機隨時查看網頁更新內容，當然這個網頁也是要記得在瀏覽器按 <code>F5</code> 做重新載入網頁才行。<br>除非有特殊狀況再重新輸入 <code>hexo s</code> 或 <code>hexo server</code> 執行，這樣會比較好。</p>
+<h1 id="錯誤訊息"><a href="#錯誤訊息" class="headerlink" title="錯誤訊息"></a>錯誤訊息</h1><ol>
+<li><code>ERROR Deployer not found: git</code><blockquote>
+<ul>
+<li>解決方法<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p>&ensp;<br>&ensp;</p>
+<h1 id="基本設定"><a href="#基本設定" class="headerlink" title="基本設定"></a>基本設定</h1><p>這部分要先教大家如何做一些網站的基本設置，主要的設定檔有兩個<br><code>\_config.yml</code><br><code>\themes\next\_config.yml</code><br>&ensp;</p>
+<h2 id="config-yml"><a href="#config-yml" class="headerlink" title="\ _config.yml"></a>\ _config.yml</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 永成的學習部落格 #網站&#x2F;部落格名稱</span><br><span class="line">subtitle: 這是永成的學習路程之紀錄。 #網站&#x2F;部落格副標題</span><br><span class="line">description: 這是永成的學習路程之紀錄。 #網站&#x2F;部落格基本描述</span><br><span class="line">keywords:</span><br><span class="line">author: 黃永成 #作者</span><br><span class="line">language: zh-TW #語言</span><br><span class="line">timezone: Asia&#x2F;Taipei #時區</span><br></pre></td></tr></table></figure>
+<h3 id="設定網址"><a href="#設定網址" class="headerlink" title="設定網址"></a>設定網址</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &#39;http:&#x2F;&#x2F;yoursite.com&#x2F;child&#39; and root as &#39;&#x2F;child&#x2F;&#39;</span><br><span class="line">url: https:&#x2F;&#x2F;&lt;個人帳號&gt;&gt;&gt;.github.io&#x2F;              # master結構，本篇文章我選擇這個</span><br><span class="line">#   https:&#x2F;&#x2F;&lt;個人帳號&gt;.github.io&#x2F;&lt;倉庫名稱&gt;      # gh-pages結構</span><br><span class="line">root: &#x2F;                                         # 根目錄，我選擇不打，保留網址為https:&#x2F;&#x2F;&lt;個人帳號&gt;.github.io</span><br><span class="line">#     &#x2F;&lt;名稱&gt;&#x2F;                                  # 自定義名稱，會在網址後面呈現</span><br><span class="line">permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
+
+<p>將主題改為 next，這裡若沒進行更改，就無法套用next主題。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;</span><br><span class="line">## Themes: https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<p>如果並不是使用 master 來進行網站設置，branch 的部分要改成gh-pages 。<br>這個部分可能較為重要，若沒設定正確，將無法使用<code>hexo d</code>進行配置上傳。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;&lt;個人帳號&gt;&#x2F;&lt;倉庫名稱&gt;.git</span><br><span class="line">  branch: master</span><br><span class="line">  # 選擇結構master或gh-pages</span><br></pre></td></tr></table></figure>
+<p><code>註：回到此網頁文章起始閱讀地方，了解自己是使用哪種方式來建立專案名稱。</code><br>&ensp;</p>
+<h2 id="themes-next-config-yml"><a href="#themes-next-config-yml" class="headerlink" title="\themes\next\ _config.yml"></a>\themes\next\ _config.yml</h2><h3 id="版權頁設定"><a href="#版權頁設定" class="headerlink" title="版權頁設定"></a>版權頁設定</h3><p>設定文末 (或 sidebar) 版權宣告的型態，<br>這裡我選用預設的 by-nc-sa ( 姓名標示-非商業性-相同方式分享 )。<br><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E7%89%88%E6%AC%8A%E5%AE%A3%E7%A4%BA.jpg"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Creative Commons 4.0 International License.</span><br><span class="line"># See: https:&#x2F;&#x2F;creativecommons.org&#x2F;share-your-work&#x2F;licensing-types-examples</span><br><span class="line"># Available values of license: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span><br><span class="line"># You can set a language value if you prefer a translated version of CC license, e.g. deed.zh</span><br><span class="line"># CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https:&#x2F;&#x2F;creativecommons.org</span><br><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: false</span><br><span class="line">  post: true</span><br><span class="line">  language: deed.zh_TW</span><br><span class="line">  &#x2F;&#x2F;language 則是設定 cc 版權說明網頁的語言內容。</span><br></pre></td></tr></table></figure>
+<h3 id="選擇版型"><a href="#選擇版型" class="headerlink" title="選擇版型"></a>選擇版型</h3><p>Next 一共有四種版型可以選擇，可以自行選擇版型，不要用的版型用<code>#</code>註釋掉即可。<br>( 我個人使用的是 Gemini 版型 )</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+<h3 id="側邊-菜單-區塊設定"><a href="#側邊-菜單-區塊設定" class="headerlink" title="側邊 菜單 區塊設定"></a>側邊 菜單 區塊設定</h3><figure class="highlight py"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="大頭照設定"><a href="#大頭照設定" class="headerlink" title="大頭照設定"></a>大頭照設定</h3><p>url 部分可以放圖片網址，也可以放資料路徑。<br>我個人圖片放的路徑<code>\source\images\頭像.jpg</code></p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">avatar:</span><br><span class="line">  <span class="comment"># In theme directory (source/images): /images/avatar.gif</span></span><br><span class="line">  <span class="comment"># In site directory (source/uploads): /uploads/avatar.gif</span></span><br><span class="line">  <span class="comment"># You can also use other linking images.</span></span><br><span class="line">  url: /images/圖片.jpg</span><br><span class="line">  <span class="comment"># If true, the avatar would be dispalyed in circle.</span></span><br><span class="line">  rounded: flase //若要方形頭像變更為圓形頭像，代碼變更true</span><br><span class="line">  <span class="comment"># If true, the avatar would be rotated with the cursor.</span></span><br><span class="line">  rotated: false</span><br></pre></td></tr></table></figure>
+
+<h3 id="社交連結"><a href="#社交連結" class="headerlink" title="社交連結"></a>社交連結</h3><p>側邊欄的社交連結部分，顯示自己想提供給讀者的社交平台，可以利用這個部分來設定私人的社交平台連結。</p>
+<p><code>||</code> 後面是圖示的設定，從 <a href="https://fontawesome.com/icons?d=gallery">Font Awesome</a> 進行選擇圖示，將網站上的圖示名稱加進去即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">social:</span><br><span class="line">  LINE: https:&#x2F;&#x2F;line.me&#x2F;ti&#x2F;p&#x2F;XGjZN3WZhs || envelope-square</span><br><span class="line">  E-Mail: mailto:a0979488285@gmail.com || envelope</span><br><span class="line">  GitHub: https:&#x2F;&#x2F;github.com&#x2F;pkpk26261 || github</span><br><span class="line">  #Weibo: https:&#x2F;&#x2F;weibo.com&#x2F;yourname || weibo</span><br><span class="line">  #Google: https:&#x2F;&#x2F;plus.google.com&#x2F;yourname || google</span><br><span class="line">  #Twitter: https:&#x2F;&#x2F;twitter.com&#x2F;yourname || twitter</span><br><span class="line">  Facebook: https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100002320400912 || facebook</span><br><span class="line">  #VK Group: https:&#x2F;&#x2F;vk.com&#x2F;yourname || vk</span><br><span class="line">  #StackOverflow: https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname || stack-overflow</span><br><span class="line">  YouTube: https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCdCh7GL1WCTsXJ-6PkTBZZw?view_as&#x3D;subscriber || youtube</span><br><span class="line">  Instagram: https:&#x2F;&#x2F;www.instagram.com&#x2F;da712302&#x2F;?hl&#x3D;zh-tw || instagram</span><br><span class="line">  #Skype: skype:yourname?call|chat || skype</span><br></pre></td></tr></table></figure>
+
+<h3 id="開啟瀏覽人次設定"><a href="#開啟瀏覽人次設定" class="headerlink" title="開啟瀏覽人次設定"></a>開啟瀏覽人次設定</h3><p>busuanzi_count 在比較新版的 Next 主題都包含在其中了，<br>不需另外安裝或是從 css 部分調整原始碼，只要在 <code>enable</code> 的設定改為 true 即可。</p>
+<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: <span class="built_in">false</span> //變更為<span class="built_in">true</span></span><br><span class="line">  total_visitors: <span class="built_in">true</span></span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: <span class="built_in">true</span></span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: <span class="built_in">true</span></span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure>
+<h3 id="關閉文章下方版本顯示訊息"><a href="#關閉文章下方版本顯示訊息" class="headerlink" title="關閉文章下方版本顯示訊息"></a>關閉文章下方版本顯示訊息</h3><p>【由 Hexo 強力驅動 v3.9.0 | 主題 – NexT.Gemini v7.4.0】</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">powered:</span><br><span class="line">  <span class="comment"># Hexo link (Powered by Hexo).</span></span><br><span class="line">  enable: true //變更為false</span><br><span class="line">  <span class="comment"># Version info of Hexo after Hexo link (vX.X.X).</span></span><br><span class="line">  version: true //變更為false</span><br><span class="line"></span><br><span class="line">theme:</span><br><span class="line">  <span class="comment"># Theme &amp; scheme info link (Theme - NexT.scheme).</span></span><br><span class="line">  enable: true //變更為false</span><br><span class="line">  <span class="comment"># Version info of NexT after scheme info (vX.X.X).</span></span><br><span class="line">  version: true //變更為false</span><br></pre></td></tr></table></figure>
+
+<h3 id="在按鈕中顯示閱讀百分比"><a href="#在按鈕中顯示閱讀百分比" class="headerlink" title="在按鈕中顯示閱讀百分比"></a>在按鈕中顯示閱讀百分比</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: <span class="literal">true</span></span><br><span class="line">  # 返回到頂部的側欄</span><br><span class="line">  sidebar: <span class="literal">false</span> <span class="comment">//自行選擇是否變更為true</span></span><br><span class="line">  # 閱讀目錄下方顯示閱讀進度及返回</span><br><span class="line">  scrollpercent: <span class="literal">false</span> <span class="comment">//變更為true</span></span><br><span class="line">  # 按鈕中顯示閱讀百分比</span><br></pre></td></tr></table></figure>
+
+<h3 id="閱讀進度條"><a href="#閱讀進度條" class="headerlink" title="閱讀進度條"></a>閱讀進度條</h3><p>網頁下方線條顯示進度</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"># Reading progress bar</span><br><span class="line">reading_progress:</span><br><span class="line">  enable: <span class="literal">false</span> <span class="comment">//變更為true</span></span><br><span class="line">  # Available values: top | bottom</span><br><span class="line">  position: top <span class="comment">//選擇top或bottom</span></span><br><span class="line">  color: <span class="string">&quot;#ff0000&quot;</span> <span class="comment">//變更16進制顏色</span></span><br><span class="line">  height: <span class="number">4</span>px <span class="comment">//變更粗細</span></span><br></pre></td></tr></table></figure>
+<h3 id="開啟網頁右上書籤功能"><a href="#開啟網頁右上書籤功能" class="headerlink" title="開啟網頁右上書籤功能"></a>開啟網頁右上書籤功能</h3><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Bookmark Support</span></span><br><span class="line">bookmark:</span><br><span class="line">  enable: false //變更為true</span><br><span class="line">  <span class="comment"># Customize the color of the bookmark.</span></span><br><span class="line">  color: <span class="string">&quot;222&quot;</span>  //變更<span class="number">16</span>進制<span class="string">&quot;#0ed145&quot;</span></span><br><span class="line">  <span class="comment"># If auto, save the reading progress when closing the page or clicking the bookmark-icon.</span></span><br><span class="line">  <span class="comment"># If manual, only save it by clicking the bookmark-icon.</span></span><br><span class="line">  save: auto</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="文章右上方顯示關注我的Gitgub"><a href="#文章右上方顯示關注我的Gitgub" class="headerlink" title="文章右上方顯示關注我的Gitgub"></a>文章右上方顯示關注我的Gitgub</h3><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># `Follow me on GitHub` banner in the top-right corner.</span></span><br><span class="line">github_banner:</span><br><span class="line">  enable: false //變更為true</span><br><span class="line">  permalink: https://github.com/&lt;yourname&gt; //變更您的網站</span><br><span class="line">  title: Follow me on GitHub</span><br></pre></td></tr></table></figure>
+
+<h3 id="代碼樣式變更、代碼複製開啟"><a href="#代碼樣式變更、代碼複製開啟" class="headerlink" title="代碼樣式變更、代碼複製開啟"></a>代碼樣式變更、代碼複製開啟</h3><figure class="highlight py"><table><tr><td class="code"><pre><span class="line">codeblock:</span><br><span class="line">  <span class="comment"># Code Highlight theme</span></span><br><span class="line">  <span class="comment"># Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic</span></span><br><span class="line">  <span class="comment"># See: https://github.com/chriskempson/tomorrow-theme</span></span><br><span class="line">  highlight_theme: normal</span><br><span class="line">  <span class="comment"># Add copy button on codeblock</span></span><br><span class="line">  copy_button:</span><br><span class="line">    enable: false //變更為true</span><br><span class="line">    <span class="comment"># Show text copy result.</span></span><br><span class="line">    show_result: false //變更為true</span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    style: mac //選擇樣式 default | flat | mac</span><br></pre></td></tr></table></figure>
+
+<h3 id="放大圖片"><a href="#放大圖片" class="headerlink" title="放大圖片"></a>放大圖片</h3><p>輸入指令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 到 next 安裝路徑下</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest source&#x2F;lib&#x2F;fancybox</span><br></pre></td></tr></table></figure>
+
+<p>原圖：<center><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E5%9C%96%E7%89%87%E6%94%BE%E5%A4%A71.jpg"></center></p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.</span></span><br><span class="line"><span class="comment"># For more information: https://fancyapps.com/fancybox</span></span><br><span class="line">fancybox: false //變更為true</span><br></pre></td></tr></table></figure>
+<p>效果：<center><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E5%9C%96%E7%89%87%E6%94%BE%E5%A4%A72.jpg"></center></p>
+<p>裡面還有幾個可以調整的地方，如有需要，將來會在新增介紹。<br>&ensp;</p>
+<h1 id="語言設定"><a href="#語言設定" class="headerlink" title="語言設定"></a>語言設定</h1><p>檢查<code>\themes\next\languages</code>目錄下有無<code>zh-TW.yml</code>，<br>**———–新版應該就沒有這個問題了———–**<br>若這個目錄下沒有這個檔案，請建立<code>zh-TW.yml</code>檔案，<br>內容請複製新增：**(以後若要改一些翻譯後的文字，可以在這裡更改)**</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">  archive: 歸檔</span><br><span class="line">  category: 分類</span><br><span class="line">  tag: 標籤</span><br><span class="line">  schedule: 時間表</span><br><span class="line">menu:</span><br><span class="line">  home: 首頁</span><br><span class="line">  archives: 歸檔</span><br><span class="line">  categories: 分類</span><br><span class="line">  tags: 標籤</span><br><span class="line">  about: 關於</span><br><span class="line">  search: 搜尋</span><br><span class="line">  schedule: 時間表</span><br><span class="line">  sitemap: 網站地圖</span><br><span class="line">  commonweal: 公益 404</span><br><span class="line">sidebar:</span><br><span class="line">  overview: 本站概要</span><br><span class="line">  toc: 文章目錄</span><br><span class="line">post:</span><br><span class="line">  posted: 發表於</span><br><span class="line">  edited: 更新於</span><br><span class="line">  created: 創建時間</span><br><span class="line">  modified: 修改時間</span><br><span class="line">  edit: 編輯</span><br><span class="line">  in: 分類於</span><br><span class="line">  more: 更多</span><br><span class="line">  read_more: 閱讀全文</span><br><span class="line">  untitled: 未命名</span><br><span class="line">  sticky: 置頂</span><br><span class="line">  views: 閱讀次數</span><br><span class="line">  related_posts: 相關文章</span><br><span class="line">  copy_button: 複製</span><br><span class="line">  copy_success: 複製成功</span><br><span class="line">  copy_failure: 複製失敗</span><br><span class="line">  copyright:</span><br><span class="line">    author: 作者</span><br><span class="line">    link: 文章連結</span><br><span class="line">    license_title: 版權聲明</span><br><span class="line">    license_content: &quot;本網誌所有文章除特別聲明外，均採用 %s 許可協議。轉載請註明出處！&quot;</span><br><span class="line">page:</span><br><span class="line">  totally: 共有</span><br><span class="line">  tags: 標籤</span><br><span class="line">footer:</span><br><span class="line">  powered: &quot;由 %s 強力驅動&quot;</span><br><span class="line">  theme: 主題</span><br><span class="line">  total_views: 總瀏覽次數</span><br><span class="line">  total_visitors: 訪客總數</span><br><span class="line">counter:</span><br><span class="line">  tag_cloud:</span><br><span class="line">    zero: 沒有標籤</span><br><span class="line">    one: 目前共有 1 個標籤</span><br><span class="line">    other: &quot;目前共有 %d 個標籤&quot;</span><br><span class="line">  categories:</span><br><span class="line">    zero: 沒有分類</span><br><span class="line">    one: 目前共有 1 個分類</span><br><span class="line">    other: &quot;目前共有 %d 個分類&quot;</span><br><span class="line">  archive_posts:</span><br><span class="line">    zero: 沒有文章。</span><br><span class="line">    one: 目前共有 1 篇文章。</span><br><span class="line">    other: &quot;目前共有 %d 篇文章。&quot;</span><br><span class="line">state:</span><br><span class="line">  posts: 文章</span><br><span class="line">  pages: 頁面</span><br><span class="line">  tags: 標籤</span><br><span class="line">  categories: 分類</span><br><span class="line">search:</span><br><span class="line">  placeholder: 搜尋...</span><br><span class="line">cheers:</span><br><span class="line">  um: 嗯..</span><br><span class="line">  ok: 還行</span><br><span class="line">  nice: 好</span><br><span class="line">  good: 很好</span><br><span class="line">  great: 非常好</span><br><span class="line">  excellent: 太棒了</span><br><span class="line">keep_on: 繼續努力。</span><br><span class="line">symbol:</span><br><span class="line">  comma: &quot;，&quot;</span><br><span class="line">  period: &quot;。&quot;</span><br><span class="line">  colon: &quot;：&quot;</span><br><span class="line">reward:</span><br><span class="line">  donate: 捐贈</span><br><span class="line">  wechatpay: 微信支付</span><br><span class="line">  alipay: 支付寶</span><br><span class="line">  bitcoin: 比特幣</span><br><span class="line">accessibility:</span><br><span class="line">  nav_toggle: 切換導航欄</span><br><span class="line">  prev_page: 上一頁</span><br><span class="line">  next_page: 下一頁</span><br><span class="line">symbols_count_time:</span><br><span class="line">  count: 文章字數</span><br><span class="line">  count_total: 總字數</span><br><span class="line">  time: 所需閱讀時間</span><br><span class="line">  time_total: 所需總閱讀時間</span><br><span class="line">  time_minutes: 分鐘</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>&ensp;</p>
+<h1 id="Gemini-版型-色彩配置"><a href="#Gemini-版型-色彩配置" class="headerlink" title="Gemini 版型-色彩配置"></a>Gemini 版型-色彩配置</h1><p>這個部分此部落格原本有做修改，但我因為有些配置顏色怪怪的，所以我後來跳過這個步驟，直接用默認配色＋動態背景，若讀者您也不想設置這個配置，那也可以跳過這個部分，直接進行下一個步驟。</p>
+<p>&ensp;<br>我這裡文章是使用<code>Gemini</code>版型做維護，故以<code>Gemini</code>作為介紹，<br>若對於其他版型有興趣，可以自行研究。</p>
+<blockquote>
+<p><strong>背景</strong> 顏色變更<br>在<code>\themes\next\source\css\_variables\&lt;你選擇的版型&gt;.styl</code>變更</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Settings for some of the most global styles.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line">$body-bg-color           = #<span class="number">222222</span>;</span><br></pre></td></tr></table></figure>
+<p>&ensp;<br>接下來，<br>我下面統一設定成 rgba(255, 255, 255, 0.15)，這裡的 0.15 指的是透明度。</p>
+<blockquote>
+<p><strong>文章方塊</strong> 顏色變更<br>在<code>\themes\next\source\css\_schemes\Gemini\index.styl</code>變更</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Post &amp; Comments blocks.</span></span><br><span class="line">.post-block &#123;</span><br><span class="line">  background: rgba(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.15</span>);</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  padding: $content-desktop-padding;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>菜單區塊</strong> 顏色變更<br>在<code>\themes\next\source\css\_schemes\Pisces\_layout.styl</code>變更</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header-inner &#123;</span><br><span class="line">  background: rgba(255, 255, 255, 0.15);</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  padding: 0;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 0;</span><br><span class="line">  width: $sidebar-desktop;</span><br><span class="line"></span><br><span class="line">  +desktop-large() &#123;</span><br><span class="line">    width: $sidebar-desktop;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>目錄區塊</strong> 顏色變更<br>在<code>\themes\next\source\css\_schemes\Pisces\_sidebar.styl</code>變更</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.sidebar-inner &#123;</span><br><span class="line">  background: rgba(255, 255, 255, 0.15);</span><br><span class="line">  border-radius: $border-radius;</span><br><span class="line">  box-shadow: $box-shadow;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  color: $text-color;</span><br><span class="line">  width: $sidebar-desktop;</span><br><span class="line"></span><br><span class="line">  if (hexo-config(&#39;motion.enable&#39;) &amp;&amp; hexo-config(&#39;motion.transition.sidebar&#39;)) &#123;</span><br><span class="line">    opacity: 0;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;<br>接下來，這個地方最複雜，也需要嘗試很多次才會知道，顏色的區塊定義在哪裡，我在下方代碼區塊有稍微中文註釋，沒標註釋就是我還不知道，雖然不知道你們能不能理解我註釋的意思，但這都需要自己嘗試才會知道。</p>
+<blockquote>
+<p>文字顏色的設定<code>\themes\next\source\css\_variables\base.styl</code>變更</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; Colors</span><br><span class="line">&#x2F;&#x2F; colors for use across theme.</span><br><span class="line">&#x2F;&#x2F; --------------------------------------------------</span><br><span class="line">$whitesmoke   &#x3D; #a15100; &#x2F;&#x2F; 菜單選擇顏色</span><br><span class="line">$gainsboro    &#x3D; #a15100; &#x2F;&#x2F; 本站摘要方框顏色</span><br><span class="line">$gray-lighter &#x3D; #ddd; &#x2F;&#x2F; 暱稱 顏色</span><br><span class="line">$grey-light   &#x3D; #eee; &#x2F;&#x2F; 歸檔 虛線</span><br><span class="line">$grey         &#x3D; #ff7700; &#x2F;&#x2F; 分類 (數量)</span><br><span class="line">$grey-dark    &#x3D; #999;</span><br><span class="line">$grey-dim     &#x3D; #eee;</span><br><span class="line">$black-light  &#x3D; #eeeeee; &#x2F;&#x2F;文字顏色</span><br><span class="line">$black-dim    &#x3D; #333;</span><br><span class="line">$black-deep   &#x3D; #ff7700; &#x2F;&#x2F; 文章右下角箭頭、本站摘要名稱</span><br><span class="line">$red          &#x3D; #333333;</span><br><span class="line">$blue-bright  &#x3D; #87daff;</span><br><span class="line">$blue         &#x3D; #0684bd;</span><br><span class="line">$blue-deep    &#x3D; rgba(255, 255, 255, 0.2); &#x2F;&#x2F; 文章圈選字顏色</span><br><span class="line">$orange       &#x3D; #ff8c00; &#x2F;&#x2F; 菜單目錄字體顏色</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>&ensp;</p>
+<h2 id="標題欄位顏色變更"><a href="#標題欄位顏色變更" class="headerlink" title="標題欄位顏色變更"></a>標題欄位顏色變更</h2><p>從<code>\themes\next\source\css\_schemes\&lt;你選擇的版型&gt;\index.styl</code>來做新增，<br>更改的方式只要在最後加上這段即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.site-meta &#123;</span><br><span class="line">  background: #000000; &#x2F;&#x2F;我使用黑色為標題欄的背景色</span><br></pre></td></tr></table></figure>
+<p>&ensp;</p>
+<h2 id="設置閱讀全文按鈕顏色"><a href="#設置閱讀全文按鈕顏色" class="headerlink" title="設置閱讀全文按鈕顏色"></a>設置閱讀全文按鈕顏色</h2><p>修改<code>themes\next\source\css\_custom\custom.styl</code>文件，添加：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 修改按键（button）樣式</span><br><span class="line">.btn &#123;</span><br><span class="line">  color: #49b1f5;</span><br><span class="line">  background: #fff;</span><br><span class="line">  border: 2px solid #49b1f5;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 按键（button）點擊時樣式</span><br><span class="line">.btn:hover &#123;</span><br><span class="line">  border-color: #49b1f5;</span><br><span class="line">  color: #fff;</span><br><span class="line">  background: #49b1f5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再來，編輯16進制顏色變更即可。</p>
+<h1 id="版面比例"><a href="#版面比例" class="headerlink" title="版面比例"></a>版面比例</h1><p>這邊可以調整一下版面區域的比例配置。<br>在預設的狀況，左右背景多一點，如果想調整比例可以從這裡去調整。<br>如果想要改變這樣的比例，可以在 <code>\themes\next\source\css\_variables\&lt;所選擇的版型&gt;.styl</code> 最後新增加入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$content-desktop         &#x3D; 100%</span><br><span class="line">$content-desktop-large   &#x3D; 100%</span><br><span class="line">$content-desktop-largest &#x3D; 85%</span><br></pre></td></tr></table></figure>
+<p>比例可以自行調整，自己高興就好，個人我自己沒有新增這個段落。<br>&ensp;</p>
+<h1 id="動態背景"><a href="#動態背景" class="headerlink" title="動態背景"></a>動態背景</h1><h2 id="JavaScript-3D-library"><a href="#JavaScript-3D-library" class="headerlink" title="JavaScript 3D library"></a>JavaScript 3D library</h2><p>使用方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd 到 next 安裝路徑下</span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-three source&#x2F;lib&#x2F;three</span><br></pre></td></tr></table></figure>
+<p>之後到 next 設定檔 <code>\themes\next\_config.yml</code> 中設置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># JavaScript 3D library.</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-three</span><br><span class="line">three:</span><br><span class="line">  enable: true</span><br><span class="line">  three_waves: false</span><br><span class="line">  canvas_lines: true</span><br><span class="line">  canvas_sphere: false</span><br></pre></td></tr></table></figure>
+<p>&ensp;</p>
+<h2 id="canvas-ribbon"><a href="#canvas-ribbon" class="headerlink" title="canvas-ribbon"></a>canvas-ribbon</h2><p>使用方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd 到 next 安裝路徑下</span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-ribbon source&#x2F;lib&#x2F;canvas-ribbon</span><br></pre></td></tr></table></figure>
+<p>之後到 next 設定檔 <code>\themes\next\_config.yml</code> 中設置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Canvas-ribbon</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-ribbon</span><br><span class="line"># For more information: https:&#x2F;&#x2F;github.com&#x2F;zproo&#x2F;canvas-ribbon</span><br><span class="line">canvas_ribbon:</span><br><span class="line">  enable: true</span><br><span class="line">  size: 300 # 色帶寬度</span><br><span class="line">  alpha: 0.6 # 色帶的透明度</span><br><span class="line">  zIndex: -1 # 功能區的顯示級別</span><br></pre></td></tr></table></figure>
+<p>&ensp;</p>
+<h2 id="canvas-nest"><a href="#canvas-nest" class="headerlink" title="canvas-nest"></a>canvas-nest</h2><p>使用方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd 到 next 安裝路徑下</span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest source&#x2F;lib&#x2F;canvas-nest</span><br></pre></td></tr></table></figure>
+<p>之後到 next 設定檔 <code>\themes\next\_config.yml</code> 中設置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Canvas-nest</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest</span><br><span class="line"># For more information: https:&#x2F;&#x2F;github.com&#x2F;hustcc&#x2F;canvas-nest.js</span><br><span class="line">canvas_nest:</span><br><span class="line">  enable: true #開啟或關閉</span><br><span class="line">  onmobile: true # Display on mobile or not #是否在手機上顯示</span><br><span class="line">  color: &quot;195,195,195&quot; # RGB values, use &#96;,&#96; to separate #線條顏色</span><br><span class="line">  opacity: 1 # The opacity of line: 0~1 #線條透明度</span><br><span class="line">  zIndex: -1 # z-index property of the background #位在哪一層</span><br><span class="line">  count: 100 # The number of lines #線條數量</span><br></pre></td></tr></table></figure>
+<p>&ensp;</p>
+<h1 id="修改主題頁面布局為圓角"><a href="#修改主題頁面布局為圓角" class="headerlink" title="修改主題頁面布局為圓角"></a>修改主題頁面布局為圓角</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>在<code>/themes/next/source/css/_variables/custom.styl</code>文件中，<br>添加以下代碼（Gemini樣式）:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 修改主題頁面布局為圓角</span><br><span class="line">&#x2F;&#x2F; Variables of Gemini scheme</span><br><span class="line">&#x2F;&#x2F; &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">@import &quot;Pisces.styl&quot;;</span><br><span class="line">&#x2F;&#x2F; Settings for some of the most global styles.</span><br><span class="line">&#x2F;&#x2F; --------------------------------------------------</span><br><span class="line">$body-bg-color                    &#x3D; #eee</span><br><span class="line">&#x2F;&#x2F; Borders.</span><br><span class="line">&#x2F;&#x2F; --------------------------------------------------</span><br><span class="line">$box-shadow-inner                 &#x3D; 0 2px 2px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.06), 0 1px 5px 0 rgba(0,0,0,.12)</span><br><span class="line">$box-shadow                       &#x3D; 0 2px 2px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.06), 0 1px 5px 0 rgba(0,0,0,.12), 0 -1px .5px 0 rgba(0,0,0,.09)</span><br><span class="line">$border-radius-inner              &#x3D; initial</span><br><span class="line">$border-radius                    &#x3D; initial</span><br><span class="line">$border-radius-inner            &#x3D; 15px 15px 15px 15px;</span><br><span class="line">$border-radius                  &#x3D; 15px;</span><br></pre></td></tr></table></figure>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>在<code>\themes\next\source\css\_variables\Gemini.styl</code>文件中直接添加：</p>
+<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">// 修改主題頁面布局為圓角</span><br><span class="line">$border-radius-inner            <span class="built_in">=</span> <span class="number">15</span>px <span class="number">15</span>px <span class="number">15</span>px <span class="number">15</span>px;</span><br><span class="line">$border-radius                  <span class="built_in">=</span> <span class="number">15</span>px;</span><br></pre></td></tr></table></figure>
+<p>我個人是使用<code>方法二</code>修改。<br>&ensp;</p>
+<h1 id="添加-PDF-插件"><a href="#添加-PDF-插件" class="headerlink" title="添加 PDF 插件"></a>添加 PDF 插件</h1><h2 id="安裝套件"><a href="#安裝套件" class="headerlink" title="安裝套件"></a>安裝套件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-pdf source&#x2F;lib&#x2F;pdf</span><br></pre></td></tr></table></figure>
+<p>修改<code>next/_config.yml</code>中修改修改：true </p>
+<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">pdf:</span><br><span class="line">  enable: <span class="built_in">false</span>  //變更為<span class="built_in">true</span></span><br><span class="line">  # Default height</span><br><span class="line">  height: <span class="number">500</span>px</span><br></pre></td></tr></table></figure>
+<p>在要加入pdf的文章，添入代碼</p>
+<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">外部連結：</span><br><span class="line">&#123;<span class="comment">% pdf http://Your URL.pdf %&#125;</span></span><br><span class="line"></span><br><span class="line">本地連接： //在`\source`新建pdf資料夾</span><br><span class="line">&#123;<span class="comment">% pdf /pdf/檔案名稱.pdf %&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="建立專頁"><a href="#建立專頁" class="headerlink" title="建立專頁"></a>建立專頁</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page book </span><br></pre></td></tr></table></figure>
+<h2 id="編寫"><a href="#編寫" class="headerlink" title="編寫"></a>編寫</h2><p>在生成的md檔文件中<br>在<code>\themes\next\_config.yml</code>編輯，新增書本(book)。</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  書本: /book/ || book <span class="comment">#書本　</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
+<h2 id="建立文章"><a href="#建立文章" class="headerlink" title="建立文章"></a>建立文章</h2><p>使用外部連結:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% pdf http:&#x2F;&#x2F;Your URL.pdf %&#125;</span><br></pre></td></tr></table></figure>
+<p>在<code>source\_posts\</code>文件創建一個文章。<br>如test.md,同時需要再創建一個同名的test文件夾，放要上傳的PDF文章。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 測試</span><br><span class="line">date: 2019-10-17 00:00:00</span><br><span class="line">tags: 測試</span><br><span class="line">categories: 測試</span><br><span class="line">---</span><br><span class="line"> </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span><span class="strong">**測試**</span><span class="xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line"> </span><br><span class="line">&#123;% pdf 路徑.pdf %&#125; </span><br><span class="line"> </span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="設置點擊頭像返回首頁"><a href="#設置點擊頭像返回首頁" class="headerlink" title="設置點擊頭像返回首頁"></a>設置點擊頭像返回首頁</h1><p>打開<code>themes\next\layout\_macro\sidebar.swig</code>文件，<br>新增</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;添加代码：</span><br><span class="line">+        &lt;a href&#x3D;&quot;&#x2F;&quot;&gt;</span><br><span class="line">          &lt;img class&#x3D;&quot;site-author-image&quot; itemprop&#x3D;&quot;image&quot;</span><br><span class="line">               src&#x3D;&quot;&#123;&#123; url_for( theme.avatar | default(theme.images + &#39;&#x2F;avatar.gif&#39;) ) &#125;&#125;&quot;</span><br><span class="line">               alt&#x3D;&quot;&#123;&#123; theme.author &#125;&#125;&quot; &#x2F;&gt;</span><br><span class="line">+        &lt;&#x2F;a&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;这里注意找到中间代码，添加a标签就行了，中间不用修改。</span><br></pre></td></tr></table></figure>
+<h1 id="開啟文章船錨-傳送-功能"><a href="#開啟文章船錨-傳送-功能" class="headerlink" title="開啟文章船錨(傳送)功能"></a>開啟文章船錨(傳送)功能</h1><p><left><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E8%88%B9%E9%8C%A81.jpg"></left></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i hexo-theme-next-anchor</span><br></pre></td></tr></table></figure>
+<p>複製船錨<code>連結</code><br><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E8%88%B9%E9%8C%A82.jpg"></p>
+<p>在文章中，加入想要傳送的位子</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[文字](貼上網址連結)</span><br><span class="line"></span><br><span class="line">[文章開始](https:&#x2F;&#x2F;pkpk26261.github.io&#x2F;2019&#x2F;10&#x2F;19&#x2F;%E8%87%AA%E5%B7%B1%E6%91%B8%E7%B4%A2%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8BGithub%E7%9A%84%E9%83%A8%E8%90%BD%E6%A0%BC&#x2F;#開始)</span><br></pre></td></tr></table></figure>
+<p>範例效果 <a href="https://pkpk26261.github.io/2019/10/19/%E8%87%AA%E5%B7%B1%E6%91%B8%E7%B4%A2%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8BGithub%E7%9A%84%E9%83%A8%E8%90%BD%E6%A0%BC/#%E9%96%8B%E5%A7%8B">文章開始</a><br>&ensp;</p>
+<h1 id="開啟文章搜索功能"><a href="#開啟文章搜索功能" class="headerlink" title="開啟文章搜索功能"></a>開啟文章搜索功能</h1><p>終端機輸入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 到安裝目錄</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p>打開<code>\themes\next\_config.yml</code>變更代碼為<code>true</code>:</p>
+<figure class="highlight m"><table><tr><td class="code"><pre><span class="line"># Local Search</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: <span class="built_in">true</span></span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show <span class="built_in">all</span> results by setting to -<span class="number">1</span></span><br><span class="line">  top_n_per_article: -<span class="number">1</span></span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: <span class="built_in">true</span></span><br><span class="line">  # Preload the search data when the page loads.</span><br><span class="line">  preload: <span class="built_in">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="變更搜索欄顏色"><a href="#變更搜索欄顏色" class="headerlink" title="變更搜索欄顏色"></a>變更搜索欄顏色</h2><blockquote>
+<p>搜索頁面文字背景底色<br>打開<code>\themes\next\source\css\_common\components\third-party\search.styl</code></p>
+</blockquote>
+<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">.search-popup &#123;</span><br><span class="line">  background: #<span class="number">999999</span>;</span><br><span class="line">  border-radius: <span class="number">5</span>px;</span><br><span class="line">  color: $black-dim;</span><br><span class="line">  display: none;</span><br><span class="line">  height: <span class="number">80</span><span class="comment">%;</span></span><br><span class="line">  left: <span class="number">50</span><span class="comment">%;</span></span><br><span class="line">  margin-left: -<span class="number">350</span>px;</span><br><span class="line">  padding: <span class="number">0</span>;</span><br><span class="line">  position: fixed;</span><br><span class="line">  top: <span class="number">10</span><span class="comment">%;</span></span><br><span class="line">  width: <span class="number">700</span>px;</span><br><span class="line">  z-index: $zindex-<span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>搜索頁面其餘背景顏色</p>
+</blockquote>
+<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">.search-pop-overlay &#123;</span><br><span class="line">  background: rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>);</span><br><span class="line">  display: none;</span><br><span class="line">  height: <span class="number">100</span><span class="comment">%;</span></span><br><span class="line">  left: <span class="number">0</span>;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  position: fixed;</span><br><span class="line">  top: <span class="number">0</span>;</span><br><span class="line">  width: <span class="number">100</span><span class="comment">%;</span></span><br><span class="line">  z-index: $zindex-<span class="number">4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;</p>
+<h1 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h1><p>打開<code>themes\next\layout\_partials\head\head-unique.swig</code>文件，文末插入這個代碼：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;# 文章密碼設置 #&#125;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    (function()&#123;</span><br><span class="line">        if(&#39;&#123;&#123; page.password &#125;&#125;&#39;)&#123;</span><br><span class="line">            if (prompt(&#39;請輸入密碼&#39;) !&#x3D;&#x3D; &#39;&#123;&#123; page.password &#125;&#125;&#39;)&#123;</span><br><span class="line">                alert(&#39;密碼不正確！請訪問作者索取&#39;);</span><br><span class="line">                history.back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p>然後打開要加密的文章，文章開頭放入這個：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: &#x2F;&#x2F;標題</span><br><span class="line">tags: &#x2F;&#x2F;標籤</span><br><span class="line">  - Hexo</span><br><span class="line">  - NexT</span><br><span class="line">categories: &#x2F;&#x2F;分類</span><br><span class="line">  - Hexo</span><br><span class="line">author: &#x2F;&#x2F;作者</span><br><span class="line">password: 123456 &#x2F;&#x2F;設定文章密碼</span><br><span class="line">date: 2019-10-17 00:00:00 &#x2F;&#x2F;發布時間</span><br><span class="line">updated: 2019-10-17 00:00:00 &#x2F;&#x2F;更新時間</span><br></pre></td></tr></table></figure>
+
+
+
+<p>&ensp;</p>
+<h1 id="調整和上傳"><a href="#調整和上傳" class="headerlink" title="調整和上傳"></a>調整和上傳</h1><p>在每一個設定變更後，我習慣會做以下動作</p>
+<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">$ hexo server //在本機瀏覽器查看</span><br><span class="line">//hexo s</span><br></pre></td></tr></table></figure>
+<p>先在本機上看看是否有什麼問題，持續進行微調，最後設定都沒有問題後，再進行配置上傳。</p>
+<figure class="highlight m"><table><tr><td class="code"><pre><span class="line">$ hexo clean  //清除舊的發布設定</span><br><span class="line"></span><br><span class="line">$ hexo g      //建立新的發布設定</span><br><span class="line"></span><br><span class="line">$ hexo deploy //配置到伺服器</span><br><span class="line">//hexo d</span><br></pre></td></tr></table></figure>
+<p>若我已經在`_config.yml輸入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;&lt;user_name&gt;&#x2F;&lt;repo_name&gt;.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>在執行<code>hexo deploy</code>或<code>hexo d</code>時，卻發生了<code>ERROR Deployer not found: git</code>的錯誤訊息。<br>請在終端機執行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd 到安裝目錄</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>&ensp;</p>
+<h1 id="編輯新增文章"><a href="#編輯新增文章" class="headerlink" title="編輯新增文章"></a>編輯新增文章</h1><p>撰寫文章都集中放在<code>\source</code>目錄下，最常用到的大概就是<code>source\_posts</code>裡的檔案了。<br>新增建立 <strong>“name”</strong><code>.md</code> 檔案，副檔名為<code>.md</code>，也可以參考預設<code>hello-world.md</code>的檔案做參考。<br>也可以利用以下語法，新增MD檔：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hexo new [文章類型] [檔名]</span><br></pre></td></tr></table></figure>
+<p>Hexo是使用MarkDown(MD)格式，每篇文章開頭基本上都一樣，<br>新文章加入以下內容：(<code>---</code>切記一定要加入)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#x2F;&#x2F;標題</span><br><span class="line">tags: &#x2F;&#x2F;標籤</span><br><span class="line">  - Hexo</span><br><span class="line">  - NexT</span><br><span class="line">categories: &#x2F;&#x2F;分類</span><br><span class="line">  - Hexo</span><br><span class="line">author: &#x2F;&#x2F;作者</span><br><span class="line">password: 123456 &#x2F;&#x2F;設定文章密碼</span><br><span class="line">date: 2019-10-17 00:00:00 &#x2F;&#x2F;發布時間</span><br><span class="line">updated: 2019-10-17 00:00:00 &#x2F;&#x2F;更新時間</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>文章類型：</p>
+<ol>
+<li>post：最常碰到的一般文章。<br>新增的檔案會放在<code>\source\_posts</code>資料夾內建立<code>[檔名].md</code>的檔案。-</li>
+<li>page：不會出現在首頁中。<br>基本上拿來撰寫about或tags之類的頁面。<br>這類型會在<code>\source\</code>下建立<code>檔名</code>資料夾，並在<code>檔名</code>資料夾下新增<code>index.md</code>檔案。</li>
+<li>draft：草稿。<br>如果文章太長可以先建立草稿，這樣就算發佈了訪客也看不到。<br>草稿會存放在<code>\source\_drafts</code>底下，檔名為<code>檔名</code>.md。<br>編輯完後，可以透過指令hexo publish draft <code>檔名</code>讓文章公開。<br>再來選擇一款合適自己的md編輯器，和使用一些常用md語法就能完成一篇文章了。<br>個人我這邊都是使用 Visual Studio Code (VS Code) 編輯器。</li>
+</ol>
+<p>&ensp;</p>
+<h2 id="MD語法（Markdown）"><a href="#MD語法（Markdown）" class="headerlink" title="MD語法（Markdown）"></a>MD語法（Markdown）</h2><p>網路上已經有很多可以參考的資料了，若有需要可以自行去查。<br>這裡我提供兩個連結，我覺得不錯的。<br>GIT教學網站(gitbooks)：<a href="https://kingofamani.gitbooks.io/git-teach/content/chapter_6_gitbook/markdown.html">markdown風格</a><br>markdown文件(中文版)：<a href="https://markdown.tw/">markdown文件</a></p>
+<p>&ensp;</p>
+<h2 id="內容撰寫小技巧"><a href="#內容撰寫小技巧" class="headerlink" title="內容撰寫小技巧"></a>內容撰寫小技巧</h2><p>（學會新技巧後，此部分會不定時更新）<br>&ensp;</p>
+<h3 id="字形樣式"><a href="#字形樣式" class="headerlink" title="字形樣式"></a>字形樣式</h3><p>文字字型與顏色：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">&quot;標楷體&quot;</span> <span class="attr">color</span>=<span class="string">&quot;red&quot;</span>&gt;</span></span>我是紅色的標楷體<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><font face="標楷體" color="red">我是紅色的標楷體</font></p>
+<h4 id="文字大小"><a href="#文字大小" class="headerlink" title="文字大小"></a>文字大小</h4><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">&quot;16px&quot;</span>&gt;</span></span>文字大小<span class="xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><font size="16px">文字大小：16px</font></p>
+<h4 id="文字置中"><a href="#文字置中" class="headerlink" title="文字置中"></a>文字置中</h4><figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span>置中<span class="xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<center>置中</center>
+
+<h4 id="刪除線"><a href="#刪除線" class="headerlink" title="刪除線"></a>刪除線</h4><p>刪除寫法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">~~刪除線~~</span><br></pre></td></tr></table></figure>
+<p>　<del>刪除線</del><br>&ensp;<br>也可以用以下寫法：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">del</span>&gt;</span></span>刪除線<span class="xml"><span class="tag">&lt;/<span class="name">del</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><del>我被刪除了</del><br>&ensp;</p>
+<h3 id="縮排"><a href="#縮排" class="headerlink" title="縮排"></a>縮排</h3><p>有些人在排版上，希望一段文字首行要空兩個全形空白。</p>
+<p>半形空白：<code>&amp;ensp;</code><br>全形空白：<code>&amp;emsp;</code></p>
+<p>&ensp;</p>
+<h3 id="添加空白行"><a href="#添加空白行" class="headerlink" title="添加空白行"></a>添加空白行</h3><p>相信很多人的文章都需要按很多空白鍵或Enter鍵。<br>如果編排文章格式時，要有空白行，編輯上可以使用<code>&amp;ensp</code>。<br>或是利用空白符號進行『添加空白行』的動作。<br>另外，也可以使用<code>&lt;br /&gt;</code>或<code>&lt;p /&gt;</code>添加空白行。<br>&ensp;</p>
+<h3 id="圖片樣式設定"><a href="#圖片樣式設定" class="headerlink" title="圖片樣式設定"></a>圖片樣式設定</h3><p>Markdown檔放入圖片語法</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">圖案文字說明</span>](<span class="link">URL</span>)</span><br></pre></td></tr></table></figure>
+
+<p>範例：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">![<span class="string">文字說明</span>](<span class="link">http://img.touxiangzhan.com/upload/image/2a1882223309n4219215739t27.jpg</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.touxiangzhan.com/upload/image/2a1882223309n4219215739t27.jpg" alt="文字說明"><br>&ensp;</p>
+<h3 id="設定首頁文章【繼續閱讀】功能"><a href="#設定首頁文章【繼續閱讀】功能" class="headerlink" title="設定首頁文章【繼續閱讀】功能"></a>設定首頁文章【繼續閱讀】功能</h3><p>【繼續閱讀】<br>在部落格首頁時，會將每篇文章以全文方式顯示，但有些文章太長了，導致要拖拉很久才能找到下一篇。<br>只要在內文中，使用<code>&lt;!-- more --&gt;</code>（記得more前後都要空一格），首頁的文章，就會只顯示到此行，讀者就要自行點選<code>more</code>才能觀看全文。<br>範例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>&ensp;</p>
+<h3 id="使用表格"><a href="#使用表格" class="headerlink" title="使用表格"></a>使用表格</h3><p>hexo支援表格的，表格寫法如下：<br><code>(表格前記得要空一行，這才能形成表格)</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">| 標題1 | 標題2 | 標題2 |</span><br><span class="line">| :------ | :------: | ------: |</span><br><span class="line">| 靠左靠左靠左 | 靠中靠中靠中 | 靠右靠右靠右 |</span><br><span class="line">| 靠左靠左靠左 | 靠中靠中靠中 | 靠右靠右靠右 |</span><br></pre></td></tr></table></figure>
+<p>呈現結果：</p>
+<table>
+<thead>
+<tr>
+<th align="left">標題1</th>
+<th align="center">標題2</th>
+<th align="right">標題2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">靠左靠左靠左</td>
+<td align="center">靠中靠中靠中</td>
+<td align="right">靠右靠右靠右</td>
+</tr>
+<tr>
+<td align="left">靠左靠左靠左</td>
+<td align="center">靠中靠中靠中</td>
+<td align="right">靠右靠右靠右</td>
+</tr>
+</tbody></table>
+<p>&ensp;</p>
+<h3 id="常用的文字編輯"><a href="#常用的文字編輯" class="headerlink" title="常用的文字編輯"></a>常用的文字編輯</h3><p>一定要記：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 標題一</span><br><span class="line">## 標題二</span><br><span class="line">### 標題三</span><br><span class="line">#### 標題四</span><br><span class="line">##### 標題五</span><br><span class="line"></span><br><span class="line">**這是加粗**</span><br><span class="line"></span><br><span class="line">*這是斜線*</span><br><span class="line"></span><br><span class="line">~~這是刪除線~~</span><br><span class="line"></span><br><span class="line">&#96;內嵌代碼&#96;</span><br><span class="line"></span><br><span class="line">&gt;引用</span><br><span class="line"></span><br><span class="line">* 無序號列表</span><br><span class="line">* 無序號列表</span><br><span class="line"></span><br><span class="line">1. 有序號列表1</span><br><span class="line">2. 有序號列表2</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;代碼區塊&#96;&#96;&#96; (兩個 [&#96;&#96;&#96;] 記得分段成上下，中間編輯你要放的代碼區塊)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>以上文章編輯教到這邊，若還有新的編輯方式，我會再另外添加補充。<br>&ensp;<br>&ensp;</p>
+<p>&ensp;</p>
+<h1 id="參考文章"><a href="#參考文章" class="headerlink" title="參考文章"></a>參考文章</h1><p>名稱 Theme NexT：<a href="https://theme-next.org/">Next官方部落格</a><br>作者 Allen Tzeng：<a href="https://allen108108.github.io/blog/2019/10/07/%E4%BD%BF%E7%94%A8%20Github%20page%20%E8%A3%BD%E4%BD%9C%E5%80%8B%E4%BA%BA%E7%B6%B2%E7%AB%99%20%E2%80%93%20%E4%BB%A5%20Hexo%20_%20Next%20%E8%A3%BD%E4%BD%9C%E9%83%A8%E8%90%BD%E6%A0%BC/">使用 Github page 製作個人網站 – 以 Hexo / Next 製作部落格</a><br>作者 蓝蓝223：<a href="https://blog.csdn.net/qq_21808961/article/details/84476504">hexo d命令报错 ERROR Deployer not found: git</a><br>作者 yashuning：<a href="https://yashuning.github.io/2018/06/29/hexo-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/">hexo-下一頁主題添加搜索功能</a></p>
+]]></content>
+      <categories>
+        <category>Github 創建個人部落格</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>創立</tag>
       </tags>
   </entry>
 </search>
