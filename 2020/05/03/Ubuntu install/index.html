@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"pkpk26261.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="這裡將教大家如何安裝Ubuntu。 ⬇⬇⬇文章開始⬇⬇⬇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 與 Windows 雙系統安裝引導">
+<meta property="og:url" content="https://pkpk26261.github.io/2020/05/03/Ubuntu%20install/index.html">
+<meta property="og:site_name" content="永成的學習部落格">
+<meta property="og:description" content="這裡將教大家如何安裝Ubuntu。 ⬇⬇⬇文章開始⬇⬇⬇">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu%E5%AE%89%E8%A3%9D/%E8%A8%BB%E8%A7%A32020-05-03-1.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu%E5%AE%89%E8%A3%9D/%E8%A8%BB%E8%A7%A32020-05-03-2.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-3.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-4.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-5.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-6.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-7.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-8.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-9.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-10.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-11.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-12.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-13.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-14.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-15.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-16.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-17.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-18.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/註解2020-05-03-19.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/設定開機/2020-05-03%2014-56-17%20的螢幕擷圖.png">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/設定開機/2020-05-03%2014-57-30%20的螢幕擷圖.png">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/設定開機/2020-05-03%2015-00-03%20的螢幕擷圖.png">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Ubuntu安裝/時間同步/2020-05-03%2015-00-56%20的螢幕擷圖.png">
+<meta property="article:published_time" content="2020-05-03T12:14:15.000Z">
+<meta property="article:modified_time" content="2020-05-24T06:37:24.000Z">
+<meta property="article:author" content="Yong Cheng（永成）">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="系統">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pkpk26261.github.io/images/Ubuntu%E5%AE%89%E8%A3%9D/%E8%A8%BB%E8%A7%A32020-05-03-1.jpg">
+
+<link rel="canonical" href="https://pkpk26261.github.io/2020/05/03/Ubuntu%20install/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Ubuntu 與 Windows 雙系統安裝引導 | 永成的學習部落格</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">永成的學習部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Yong Cheng</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://pkpk26261.github.io/2020/05/03/Ubuntu%20install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/He56zkY.png">
+      <meta itemprop="name" content="Yong Cheng（永成）">
+      <meta itemprop="description" content="這是永成的學習路程之紀錄。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永成的學習部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ubuntu 與 Windows 雙系統安裝引導
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-05-03 20:14:15" itemprop="dateCreated datePublished" datetime="2020-05-03T20:14:15+08:00">2020-05-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-05-24 14:37:24" itemprop="dateModified" datetime="2020-05-24T14:37:24+08:00">2020-05-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>這裡將教大家如何安裝Ubuntu。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<h1 id="下載ISO光碟映像檔"><a href="#下載ISO光碟映像檔" class="headerlink" title="下載ISO光碟映像檔"></a>下載ISO光碟映像檔</h1><p>至 Ubuntu 正體中文站 <a target="_blank" rel="noopener" href="https://www.ubuntu-tw.org/modules/tinyd0/">https://www.ubuntu-tw.org/modules/tinyd0/</a> 下載，<br>您想裝的系統版本，這裡我選擇的是 <code>20.04 LTS</code>(長期支援，穩定，五年支援)。<br><img src="/images/Ubuntu%E5%AE%89%E8%A3%9D/%E8%A8%BB%E8%A7%A32020-05-03-1.jpg" alt="官網下載介面"></p>
+<h1 id="ISO-to-USB"><a href="#ISO-to-USB" class="headerlink" title="ISO to USB"></a>ISO to USB</h1><p>至 Rufus 官網 <a target="_blank" rel="noopener" href="https://rufus.ie/">https://rufus.ie/</a> 下載應用程式。<br><img src="/images/Ubuntu%E5%AE%89%E8%A3%9D/%E8%A8%BB%E8%A7%A32020-05-03-2.jpg" alt="官網下載介面"></p>
+<h2 id="開始將-ISO-寫入USB"><a href="#開始將-ISO-寫入USB" class="headerlink" title="開始將 ISO 寫入USB"></a>開始將 ISO 寫入USB</h2><p><font color="red">注意以下步驟將會格式化USB的資料，請備份USB內資料或使用空的USB。</font></p>
+<ol>
+<li><p>選擇裝置<code>USB</code>，再將開機模式選擇為<code>FreeDOS</code></p>
+<img src="/images/Ubuntu安裝/註解2020-05-03-3.jpg" style="margin-left:0px" height="720" >
+</li>
+<li><p>再選擇剛下載好的 <code>Ubuntu ISO 映像檔</code>，選擇完後，<br>確認下方<font color="blue">藍色框</font>是否選擇一樣的，確定好了之後，再按下方的 <code>執行</code>。</p>
+</li>
+</ol>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-4.jpg" style="margin-left:0px" height="720" >
+</li>
+</ul>
+<ol start="3">
+<li>若選擇執行後，跳出方框，一律選擇 <code>建議選項</code> 再按 <code>ok</code> 。</li>
+</ol>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-5.jpg" style="margin-left:0px" height="240" >
+
+</li>
+</ul>
+<h1 id="分割硬碟"><a href="#分割硬碟" class="headerlink" title="分割硬碟"></a>分割硬碟</h1><p><font color="red">若只想安裝一個系統 <code>Ubuntu</code> 此步驟可跳過。</font><br>進入Windows 10 <code>硬碟管理</code>，<br>請依自己電腦硬碟容量，自行分割硬碟大小。(我建議<code>(/)</code>至少要有50GB，<code>(Home)</code>則是自己決定囉!)<br>我這裡分割的是<code>100GB(SSD)</code>+<code>400GB(HDD)</code>。<br>註：100GB為<code>(/)</code>（類似於Ｃ槽系統碟），400GB為<code>(Home)</code>（類似於Ｄ槽資料碟）</p>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-6.jpg" style="margin-left:0px" height="480" ></li>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-7.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h1 id="進入BIOS選擇-USB-為啟動硬碟"><a href="#進入BIOS選擇-USB-為啟動硬碟" class="headerlink" title="進入BIOS選擇 USB 為啟動硬碟"></a>進入BIOS選擇 USB 為啟動硬碟</h1><p>此步驟我跳過，每個主機板的選擇介面不同。<br>不會的人，請自行<code>Google</code>，搜尋關鍵字為<code>BIOS選擇USB</code>。</p>
+<h1 id="進入-Ubuntu-安裝介面"><a href="#進入-Ubuntu-安裝介面" class="headerlink" title="進入 Ubuntu 安裝介面"></a>進入 Ubuntu 安裝介面</h1><h2 id="選擇系統語言"><a href="#選擇系統語言" class="headerlink" title="選擇系統語言"></a>選擇系統語言</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-8.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="選擇鍵盤配置"><a href="#選擇鍵盤配置" class="headerlink" title="選擇鍵盤配置"></a>選擇鍵盤配置</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-9.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="選擇更新及其他選項"><a href="#選擇更新及其他選項" class="headerlink" title="選擇更新及其他選項"></a>選擇更新及其他選項</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-10.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="選擇其它"><a href="#選擇其它" class="headerlink" title="選擇其它"></a>選擇<code>其它</code></h2><p><font color="red">若想安裝一個系統而已，則選擇<code>清除磁碟並安裝Ubuntu</code></font></p>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-11.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="選擇硬碟"><a href="#選擇硬碟" class="headerlink" title="選擇硬碟"></a>選擇硬碟</h2><p>由於我用VMware截圖，所以跟我當初說的分割數字不一樣，請見諒。<br>&ensp;<br>選擇剛分割好的硬碟，點選左下 <code>+</code> 符號，建立分割區，詳情請看圖。<br>註：100GB為<code>(/)</code>（類似於Ｃ槽系統碟），400GB為<code>(Home)</code>（類似於Ｄ槽資料碟）</p>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-12.jpg" style="margin-left:0px" height="480" >
+</li>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-13.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<p>選擇<code>繼續</code>。</p>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-14.jpg" style="margin-left:0px" height="360" >
+
+</li>
+</ul>
+<h2 id="選擇時區"><a href="#選擇時區" class="headerlink" title="選擇時區"></a>選擇時區</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-15.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="設定用戶及密碼"><a href="#設定用戶及密碼" class="headerlink" title="設定用戶及密碼"></a>設定用戶及密碼</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-16.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="等待安裝過程"><a href="#等待安裝過程" class="headerlink" title="等待安裝過程"></a>等待安裝過程</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-17.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="安裝完成，重啟電腦"><a href="#安裝完成，重啟電腦" class="headerlink" title="安裝完成，重啟電腦"></a>安裝完成，重啟電腦</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-18.jpg" style="margin-left:0px" height="120" >
+
+</li>
+</ul>
+<h2 id="拔除USB"><a href="#拔除USB" class="headerlink" title="拔除USB"></a>拔除USB</h2><p>此步驟可安全拔除USB，拔除後，按<code>Enter</code>重啟後便安裝完成。</p>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-19.jpg" style="margin-left:0px" height="240" >
+
+</li>
+</ul>
+<h2 id="開機選單"><a href="#開機選單" class="headerlink" title="開機選單"></a>開機選單</h2><p>雙系統安裝完成後，會有開機選單。<br><code>第一個選項是Ubuntu</code>，<code>第三個選項是windows</code>，<code>第四個選項是BIOS</code>。</p>
+<p>單系統也是有開機選單，<br><code>第一個選項是Ubuntu</code>，<code>第三個選項是BIOS</code>。</p>
+<h1 id="更改開機默認選單"><a href="#更改開機默認選單" class="headerlink" title="更改開機默認選單"></a>更改開機默認選單</h1><h2 id="查看windows位址"><a href="#查看windows位址" class="headerlink" title="查看windows位址"></a>查看windows位址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat &#x2F;boot&#x2F;grub&#x2F;grub.cfg | grep windows</span><br></pre></td></tr></table></figure>
+<ul>
+<li><img src="/images/Ubuntu安裝/設定開機/2020-05-03 14-56-17 的螢幕擷圖.png" style="margin-left:0px" height="360" >
+首先要先知道自己的 Windows 系統的開機名字和裝在哪個磁碟，所以打入上述指令並且複製引號內的文字供等會使用。
+
+</li>
+</ul>
+<h2 id="更改配置"><a href="#更改配置" class="headerlink" title="更改配置"></a>更改配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;default&#x2F;grub</span><br></pre></td></tr></table></figure>
+<p>接著用指令打開 GRUB 的設定檔，<br>將 GRUB_DEFAULT=0 後方的數值改為剛剛複製的 Windows 開機名稱後儲存，如下圖所示。</p>
+<ul>
+<li><img src="/images/Ubuntu安裝/設定開機/2020-05-03 14-57-30 的螢幕擷圖.png" style="margin-left:0px" height="360" >
+
+
+</li>
+</ul>
+<h2 id="更新設置"><a href="#更新設置" class="headerlink" title="更新設置"></a>更新設置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br><span class="line">sudo update-initramfs -u -k all</span><br></pre></td></tr></table></figure>
+
+<p>這邊提供另一個方法，就是進入 BIOS 直接改變開機順序，將默認第一順位改為 Windows Boot Manager。</p>
+<ul>
+<li><img src="/images/Ubuntu安裝/設定開機/2020-05-03 15-00-03 的螢幕擷圖.png" style="margin-left:0px" height="360" >
+然後就對剛剛的 GRUB 開機選單的改變寫入 Ubuntu 系統，下一次重開機時就會預設為 Windows 系統了。
+
+
+
+</li>
+</ul>
+<h1 id="設定Windows與Ubuntu時區同步"><a href="#設定Windows與Ubuntu時區同步" class="headerlink" title="設定Windows與Ubuntu時區同步"></a>設定Windows與Ubuntu時區同步</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ntpdate</span><br><span class="line">sudo ntpdate time.windows.com</span><br><span class="line"></span><br><span class="line">sudo hwclock --localtime --systohc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><img src="/images/Ubuntu安裝/時間同步/2020-05-03 15-00-56 的螢幕擷圖.png" style="margin-left:0px" height="360" ></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Yong Cheng（永成）
+  </li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    <a href="https://pkpk26261.github.io/2020/05/03/Ubuntu%20install/" title="Ubuntu 與 Windows 雙系統安裝引導">https://pkpk26261.github.io/2020/05/03/Ubuntu install/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+              <a href="/tags/%E7%B3%BB%E7%B5%B1/" rel="tag"># 系統</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/13/%E5%8B%A4%E7%9B%8A-%E4%BA%8C%E4%B8%8B%20%E5%B0%88%E6%A5%AD%E8%BB%9F%E9%AB%94%E6%87%89%E7%94%A8%E5%8F%8A%E5%AF%A6%E7%BF%92%EF%BC%88MATLAB%EF%BC%89/" rel="prev" title="勤益(二下)課程-上課筆記 專業軟體應用及實習">
+      <i class="fa fa-chevron-left"></i> 勤益(二下)課程-上課筆記 專業軟體應用及實習
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/03/Ubuntu%20%E5%9F%B7%E8%A1%8C%20MATLAB%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF/" rel="next" title="Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module "canberra-gtk-module"}">
+      Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module "canberra-gtk-module"} <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BC%89ISO%E5%85%89%E7%A2%9F%E6%98%A0%E5%83%8F%E6%AA%94"><span class="nav-number">1.</span> <span class="nav-text">下載ISO光碟映像檔</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ISO-to-USB"><span class="nav-number">2.</span> <span class="nav-text">ISO to USB</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%96%8B%E5%A7%8B%E5%B0%87-ISO-%E5%AF%AB%E5%85%A5USB"><span class="nav-number">2.1.</span> <span class="nav-text">開始將 ISO 寫入USB</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E5%89%B2%E7%A1%AC%E7%A2%9F"><span class="nav-number">3.</span> <span class="nav-text">分割硬碟</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%B2%E5%85%A5BIOS%E9%81%B8%E6%93%87-USB-%E7%82%BA%E5%95%9F%E5%8B%95%E7%A1%AC%E7%A2%9F"><span class="nav-number">4.</span> <span class="nav-text">進入BIOS選擇 USB 為啟動硬碟</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%B2%E5%85%A5-Ubuntu-%E5%AE%89%E8%A3%9D%E4%BB%8B%E9%9D%A2"><span class="nav-number">5.</span> <span class="nav-text">進入 Ubuntu 安裝介面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%B8%E6%93%87%E7%B3%BB%E7%B5%B1%E8%AA%9E%E8%A8%80"><span class="nav-number">5.1.</span> <span class="nav-text">選擇系統語言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%B8%E6%93%87%E9%8D%B5%E7%9B%A4%E9%85%8D%E7%BD%AE"><span class="nav-number">5.2.</span> <span class="nav-text">選擇鍵盤配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%B8%E6%93%87%E6%9B%B4%E6%96%B0%E5%8F%8A%E5%85%B6%E4%BB%96%E9%81%B8%E9%A0%85"><span class="nav-number">5.3.</span> <span class="nav-text">選擇更新及其他選項</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%B8%E6%93%87%E5%85%B6%E5%AE%83"><span class="nav-number">5.4.</span> <span class="nav-text">選擇其它</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%B8%E6%93%87%E7%A1%AC%E7%A2%9F"><span class="nav-number">5.5.</span> <span class="nav-text">選擇硬碟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%B8%E6%93%87%E6%99%82%E5%8D%80"><span class="nav-number">5.6.</span> <span class="nav-text">選擇時區</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E7%94%A8%E6%88%B6%E5%8F%8A%E5%AF%86%E7%A2%BC"><span class="nav-number">5.7.</span> <span class="nav-text">設定用戶及密碼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AD%89%E5%BE%85%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B"><span class="nav-number">5.8.</span> <span class="nav-text">等待安裝過程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E5%AE%8C%E6%88%90%EF%BC%8C%E9%87%8D%E5%95%9F%E9%9B%BB%E8%85%A6"><span class="nav-number">5.9.</span> <span class="nav-text">安裝完成，重啟電腦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%94%E9%99%A4USB"><span class="nav-number">5.10.</span> <span class="nav-text">拔除USB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%96%8B%E6%A9%9F%E9%81%B8%E5%96%AE"><span class="nav-number">5.11.</span> <span class="nav-text">開機選單</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E9%96%8B%E6%A9%9F%E9%BB%98%E8%AA%8D%E9%81%B8%E5%96%AE"><span class="nav-number">6.</span> <span class="nav-text">更改開機默認選單</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bwindows%E4%BD%8D%E5%9D%80"><span class="nav-number">6.1.</span> <span class="nav-text">查看windows位址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="nav-number">6.2.</span> <span class="nav-text">更改配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%A8%AD%E7%BD%AE"><span class="nav-number">6.3.</span> <span class="nav-text">更新設置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9AWindows%E8%88%87Ubuntu%E6%99%82%E5%8D%80%E5%90%8C%E6%AD%A5"><span class="nav-number">7.</span> <span class="nav-text">設定Windows與Ubuntu時區同步</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yong Cheng（永成）"
+      src="https://i.imgur.com/He56zkY.png">
+  <p class="site-author-name" itemprop="name">Yong Cheng（永成）</p>
+  <div class="site-description" itemprop="description">這是永成的學習路程之紀錄。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yong Cheng（永成）</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='195,195,195' opacity='1' zIndex='-1' count='50' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

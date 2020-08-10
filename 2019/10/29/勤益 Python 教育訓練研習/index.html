@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"pkpk26261.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="這裡記錄著我在研習中的學習，若有需要請點下方連結，下載上課檔案。  2019&#x2F;10&#x2F;29 上課檔案 （檔案下載）  2019&#x2F;11&#x2F;05 上課檔案 （檔案下載）  2019&#x2F;11&#x2F;12 上課檔案 （檔案下載）   ⬇⬇⬇文章開始⬇⬇⬇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="勤益 Python 教育訓練研習">
+<meta property="og:url" content="https://pkpk26261.github.io/2019/10/29/%E5%8B%A4%E7%9B%8A%20Python%20%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4%E7%A0%94%E7%BF%92/index.html">
+<meta property="og:site_name" content="永成的學習部落格">
+<meta property="og:description" content="這裡記錄著我在研習中的學習，若有需要請點下方連結，下載上課檔案。  2019&#x2F;10&#x2F;29 上課檔案 （檔案下載）  2019&#x2F;11&#x2F;05 上課檔案 （檔案下載）  2019&#x2F;11&#x2F;12 上課檔案 （檔案下載）   ⬇⬇⬇文章開始⬇⬇⬇">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Python%E8%AA%9E%E8%A8%80%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E6%87%89%E7%94%A8%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4/1.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Python%E8%AA%9E%E8%A8%80%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E6%87%89%E7%94%A8%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4/2.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Python%E8%AA%9E%E8%A8%80%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E6%87%89%E7%94%A8%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4/3.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Python%E8%AA%9E%E8%A8%80%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E6%87%89%E7%94%A8%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4/4.jpg">
+<meta property="og:image" content="https://pkpk26261.github.io/images/Python%E8%AA%9E%E8%A8%80%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E6%87%89%E7%94%A8%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4/5.jpg">
+<meta property="article:published_time" content="2019-10-29T01:00:00.000Z">
+<meta property="article:modified_time" content="2020-01-19T13:18:35.000Z">
+<meta property="article:author" content="Yong Cheng（永成）">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="勤益科大">
+<meta property="article:tag" content="研習">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pkpk26261.github.io/images/Python%E8%AA%9E%E8%A8%80%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E6%87%89%E7%94%A8%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4/1.jpg">
+
+<link rel="canonical" href="https://pkpk26261.github.io/2019/10/29/%E5%8B%A4%E7%9B%8A%20Python%20%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4%E7%A0%94%E7%BF%92/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>勤益 Python 教育訓練研習 | 永成的學習部落格</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">永成的學習部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Yong Cheng</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://pkpk26261.github.io/2019/10/29/%E5%8B%A4%E7%9B%8A%20Python%20%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4%E7%A0%94%E7%BF%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/He56zkY.png">
+      <meta itemprop="name" content="Yong Cheng（永成）">
+      <meta itemprop="description" content="這是永成的學習路程之紀錄。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永成的學習部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          勤益 Python 教育訓練研習
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-10-29 09:00:00" itemprop="dateCreated datePublished" datetime="2019-10-29T09:00:00+08:00">2019-10-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-01-19 21:18:35" itemprop="dateModified" datetime="2020-01-19T21:18:35+08:00">2020-01-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python-%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E5%AD%B8%E7%BF%92/" itemprop="url" rel="index"><span itemprop="name">Python 程式語言學習</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>這裡記錄著我在研習中的學習，若有需要請點下方連結，下載<code>上課檔案</code>。</p>
+<ol>
+<li><p>2019/10/29 上課檔案 <a target="_blank" rel="noopener" href="https://gmstudentncutedutw-my.sharepoint.com/:f:/g/personal/da712302_gm_student_ncut_edu_tw/En0BInbvFZRBljceB01wskQBarGNJQWNDEE-ELzyo5NpuQ?e=up42wJ">（檔案下載）</a></p>
+</li>
+<li><p>2019/11/05 上課檔案 <a target="_blank" rel="noopener" href="https://gmstudentncutedutw-my.sharepoint.com/:f:/g/personal/da712302_gm_student_ncut_edu_tw/EjaHoPAIkS9AhQitBfrTx7gBMtMvEbE3rB112tz5z6vZ3g?e=PFaEWs">（檔案下載）</a></p>
+</li>
+<li><p>2019/11/12 上課檔案 <a target="_blank" rel="noopener" href="https://gmstudentncutedutw-my.sharepoint.com/:f:/g/personal/da712302_gm_student_ncut_edu_tw/EuW4UogSMnFKi1ziPiHr4LwB2vG_zCGWOpe1zyJuQ-2eCw?e=KWb2b4">（檔案下載）</a></p>
+</li>
+</ol>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+
+<a id="more"></a>
+
+<h1 id="【DAY-1】Python與大數據資料分析-2019-10-29"><a href="#【DAY-1】Python與大數據資料分析-2019-10-29" class="headerlink" title="【DAY 1】Python與大數據資料分析(2019/10/29)"></a>【DAY 1】Python與大數據資料分析(2019/10/29)</h1><h2 id="Python-簡介"><a href="#Python-簡介" class="headerlink" title="Python 簡介"></a>Python 簡介</h2><h3 id="Python-程式語言的特色"><a href="#Python-程式語言的特色" class="headerlink" title="Python 程式語言的特色"></a>Python 程式語言的特色</h3><blockquote>
+<p>• 免費：開放源碼，社群支援多<br>• 豐富：第三方函式庫眾多<br>• 簡單：直譯式，容易學習<br>• 快速：動態型別，語法簡潔<br>• 有效：高階物件導向程式語言<br>• 可攜：跨平台、可移植、可嵌入<br>• 哲學：優美、明確、簡單</p>
+</blockquote>
+<h3 id="完整的資料分析套件"><a href="#完整的資料分析套件" class="headerlink" title="完整的資料分析套件"></a>完整的資料分析套件</h3><p>互動模式編輯器</p>
+<blockquote>
+<p>• <a target="_blank" rel="noopener" href="https://jupyter.org/">Jupyter Notebook</a> </p>
+</blockquote>
+<p>統計科學計算 </p>
+<blockquote>
+<p>• <a target="_blank" rel="noopener" href="https://numpy.org/">Numpy</a><br>• <a target="_blank" rel="noopener" href="https://www.scipy.org/">Scipy</a><br>• <a target="_blank" rel="noopener" href="https://www.statsmodels.org/stable/index.html">Statsmodels</a></p>
+</blockquote>
+<p>資料處理與分析 </p>
+<blockquote>
+<p>• <a target="_blank" rel="noopener" href="https://pandas.pydata.org/">Pandas</a></p>
+</blockquote>
+<p>分散式存儲大數據處理 </p>
+<blockquote>
+<p>• <a target="_blank" rel="noopener" href="https://spark.apache.org/docs/latest/api/python/index.html">PySpark</a> </p>
+</blockquote>
+<p>機器學習 </p>
+<blockquote>
+<p>• <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/">Scikit-learn</a></p>
+</blockquote>
+<p>深度學習 </p>
+<blockquote>
+<p>• <a target="_blank" rel="noopener" href="https://www.tensorflow.org/">TensorFlow</a><br>• <a target="_blank" rel="noopener" href="https://keras.io/zh/">Keras</a><br>• <a target="_blank" rel="noopener" href="https://mxnet.apache.org/">MXNet</a><br>• <a target="_blank" rel="noopener" href="https://pytorch.org/">PyTorch</a></p>
+</blockquote>
+<h2 id="Anaconda-開發工具簡介"><a href="#Anaconda-開發工具簡介" class="headerlink" title="Anaconda 開發工具簡介"></a>Anaconda 開發工具簡介</h2><p>請至 <a target="_blank" rel="noopener" href="https://www.anaconda.com/distribution/">Anaconda 官網</a> 下載安裝應用程式。<br>&ensp;<br>Anaconda Prompt 管理模組</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pip list</span><br><span class="line">pip install 模組名稱</span><br><span class="line">pip install  --upgrade 模組名稱</span><br><span class="line">pip uninstall 模組名稱</span><br><span class="line">python -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+<p>anaconda 升級</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda update anaconda</span><br></pre></td></tr></table></figure>
+<p>pip 升級</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+
+<p>從命令列執行 Python 互動式Shell </p>
+<blockquote>
+<p><code>C:\Users\user&gt;python</code> ，即時看到結果，難以編修程式。</p>
+</blockquote>
+<p>從檔案執行Python</p>
+<blockquote>
+<p><code>C:\Users\user&gt;python test.py</code>，容易編修程式，無法即時看到結果。</p>
+</blockquote>
+<h2 id="編輯器介紹"><a href="#編輯器介紹" class="headerlink" title="編輯器介紹"></a>編輯器介紹</h2><ol>
+<li><p>【Spyder 編輯器】 <a target="_blank" rel="noopener" href="https://www.anaconda.com/distribution/">Anaconda</a> 安裝，內建應用程式。<br>整合開發環境(Integrated Development Environment, IDE) </p>
+</li>
+<li><p>【PyCharm 編輯器】 <a target="_blank" rel="noopener" href="https://www.jetbrains.com/pycharm/download/#section=windows">官網下載</a><br>Windows User 專案開發建議使用</p>
+</li>
+<li><p>【SublimeText 編輯器】<a target="_blank" rel="noopener" href="https://www.sublimetext.com/3">官網下載</a><br>Windows User 專案開發建議使用</p>
+</li>
+<li><p>【Jupyter Notebook 編輯器】<br> 適合教學，不適合專案開發 </p>
+<blockquote>
+<p>Enter(編輯模式, 綠邊)<br>Esc(命令模式, 藍邊)</p>
+</blockquote>
+<p> 常用熱鍵： </p>
+<blockquote>
+<p>Shift + Enter 執行再新增一列<br> Ctrl + Enter 執行目前列<br> Esc + a  在上方插入一列<br> Esc + b  在下方插入一列<br> Esc + dd 刪除一列<br> Esc + h  顯示快速鍵列表 </p>
+</blockquote>
+<p> 啟動Jupyter Notebook 編輯器 </p>
+<blockquote>
+<p>在Anaconda Prompt下打入<code>jupyter notebook</code></p>
+</blockquote>
+</li>
+<li><p>線上雲端編輯器</p>
+<blockquote>
+<p>Skulpt <a target="_blank" rel="noopener" href="http://skulpt.org/">官網連結</a><br>repl.it <a target="_blank" rel="noopener" href="https://repl.it/">官網連結</a></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="Python-基本語法簡介"><a href="#Python-基本語法簡介" class="headerlink" title="Python 基本語法簡介"></a>Python 基本語法簡介</h2><blockquote>
+<p>• 變數、註解、運算子<br>• 數字、字串<br>• 標準輸入輸出<br>• 列表、字典、集合、元組<br>• 條件判斷<br>• 迴圈<br>• 函式<br>• 模組<br>• 檔案處理<br>• 例外處理</p>
+</blockquote>
+<h3 id="變數、註解、運算子"><a href="#變數、註解、運算子" class="headerlink" title="變數、註解、運算子"></a>變數、註解、運算子</h3><h4 id="變數-Variable"><a href="#變數-Variable" class="headerlink" title="變數(Variable)"></a>變數(Variable)</h4><ol>
+<li>變數：名稱的第一個字母必須是大小寫字母或_，不需要事先宣告變數 </li>
+<li>賦值：<code>變數名稱＝資料</code><br><code>name = &#39;John&#39;; age =18; x, y = 1, 2 </code></li>
+<li>刪除變數<br><code>del 變數</code></li>
+<li>變數資料型態<br><code>整數(int)、浮點數(float)、字串(str)、布林(bool)</code> </li>
+<li>查看資料型態<br><code>type()</code></li>
+<li>資料型態轉換<br><code>int() 、float() 、str()</code></li>
+</ol>
+<h4 id="註解-Comment"><a href="#註解-Comment" class="headerlink" title="註解(Comment)"></a>註解(Comment)</h4><ol>
+<li><code>#</code> 單行或行內註解文字，可以在一列的開頭或中間加入 </li>
+<li><code>&quot;&quot;&quot;</code>多行註解文字，可跨越多行文字敘述… <code>&quot;&quot;&quot;</code><br> “””以下是多行註解程式的說明範例<br> 這兩行說明文字不會被執行哦！”””<br> X = 1 #變數X<br> Y=[1, 2, 3]#變數Y<br> #Python 變數是不需要宣告就可以使用的</li>
+</ol>
+<h4 id="運算子"><a href="#運算子" class="headerlink" title="運算子"></a>運算子</h4><ol>
+<li>算術運算子<br> <code>+、-、*、/、% (餘數)、// (商)、**(指數)</code></li>
+<li>比較運算子<br> <code>==、!=、&gt;、&gt;=、&lt;、&lt;=</code></li>
+<li>邏輯運算子<br> <code>not、and、or </code></li>
+<li>複合指定運算子<br> <code>+=、-=、*=、/=、%=(餘數)、//=(商)、**=(指數)</code></li>
+</ol>
+<h3 id="數字、字串"><a href="#數字、字串" class="headerlink" title="數字、字串"></a>數字、字串</h3><h4 id="數字-Number"><a href="#數字-Number" class="headerlink" title="數字(Number)"></a>數字(Number)</h4><blockquote>
+<p>2 + 3 <code>#5</code><br> 40 -3 * 5 <code>#25</code><br> (40 -3 * 5) / 4  <code>#6.25</code><br> (40 -3 * 5) // 4 #取商數 <code>#6</code><br> (40 -3 * 5) % 4  #取餘數 <code>#1</code><br> 2 ** 3 <code>#8</code></p>
+</blockquote>
+<blockquote>
+<p>a = 10; b = 2 <code>#注意：兩個整數相除，結果是實數</code><br> a / b <code>#5.0</code><br> type(a) <code>#&lt;class &#39;int&#39;&gt;</code><br> type(a / b) <code>#&lt;class &#39;float&#39;&gt;</code><br> c = 1.2e-12<br> type(c) <code>#&lt;class &#39;float&#39;&gt;</code><br> d = 5.5 + 6j<br> type(d) <code>#&lt;class &#39;complex&#39;&gt;</code></p>
+</blockquote>
+<h4 id="字串-String"><a href="#字串-String" class="headerlink" title="字串(String)"></a>字串(String)</h4><ol>
+<li>以單引號括住字串<br><code>Str1 = &#39;This is a string&#39;</code></li>
+<li>以雙引號括住字串<br><code>Str2 = &quot;This is also a string&quot;</code></li>
+<li>以三個單引號括住做多行字串處理<br><code>Str3 = &#39;&#39;&#39;This is a multiple line string very loooooooooooooong text…&#39;&#39;&#39;</code></li>
+</ol>
+<h5 id="字串索引"><a href="#字串索引" class="headerlink" title="字串索引"></a>字串索引</h5><ol>
+<li>s = ‘Python’</li>
+<li>索引值由0開始。例：s[0]<code>P</code>s[1]<code>y</code> </li>
+<li>索引值可為負號從右取值由-1開始。例：s[-1] <code>n</code> s[-2]<code>o</code> </li>
+<li>索引值可用：來選定起迄點等切片範圍。例：<br>• s[1:3] <code>yt</code> s[:4] <code>Pyth</code> s[2:] <code>thon</code><br>• s[::2] <code>Pto</code> s[::-1] <code>nohtyP</code></li>
+</ol>
+<h5 id="字串支援的方法"><a href="#字串支援的方法" class="headerlink" title="字串支援的方法"></a>字串支援的方法</h5><p>• s = ‘Python’<br>• dir(s)            <code>#可查詢字串支援的方法</code><br>• s.upper()         <code>#將字串轉大寫</code><br>• s.lower()         <code>#將字串轉小寫</code><br>• s.split(‘t’)      <code>#根據某字元將字串切割</code><br>• len(s)            <code>#檢查字串的長度</code></p>
+<h3 id="標準輸入輸出"><a href="#標準輸入輸出" class="headerlink" title="標準輸入輸出"></a>標準輸入輸出</h3><h4 id="標準輸入input-和輸出Print"><a href="#標準輸入input-和輸出Print" class="headerlink" title="標準輸入input()和輸出Print()"></a>標準輸入input()和輸出Print()</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">input(<span class="string">&quot;…&quot;</span>) <span class="comment"># 在螢幕上顯示字串，並等待使用者輸入字串 </span></span><br><span class="line">Score = input(<span class="string">&quot;請輸入成績:&quot;</span>) <span class="comment"># 95 </span></span><br><span class="line"><span class="keyword">print</span> (...) 顯示在螢幕上 </span><br><span class="line">print(Score) <span class="comment"># 95</span></span><br><span class="line">print(<span class="string">&quot;Python&quot;</span>, <span class="number">3.0</span>, <span class="literal">True</span>) <span class="comment"># Python 3.0 True</span></span><br><span class="line">print(<span class="string">&quot;Python&quot;</span> + str(<span class="number">3.0</span>) + str(<span class="literal">True</span>)) <span class="comment"># Python3.0True</span></span><br><span class="line">print(<span class="string">&quot;Python&quot;</span>, <span class="number">3.0</span>, <span class="literal">True</span>, sep=<span class="string">&quot;-&quot;</span>) <span class="comment"># Python‐3.0‐True</span></span><br><span class="line">print(<span class="string">&quot;Python&quot;</span>, <span class="number">3.0</span>, <span class="literal">True</span>, sep=<span class="string">&quot;-&quot;</span>, end=<span class="string">&quot;.&quot;</span>) <span class="comment"># Python‐3.0‐True.</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="print-函式"><a href="#print-函式" class="headerlink" title="print 函式"></a>print 函式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&quot;I&#x27;m 20 years old!&quot;</span>) <span class="comment"># Syntax Error: invalid syntax</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;I&#x27;m 20 years old!&quot;</span>) <span class="comment"># I’m 20 years old!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳脫字元\ </span></span><br><span class="line">print(<span class="string">&quot;I\&#x27;m 20 years old!&quot;</span>) <span class="comment"># I’m 20 years old!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳脫字元\n 換行 #This is escape character testing </span></span><br><span class="line">print(<span class="string">&quot;This is escape character \n testing&quot;</span>) </span><br><span class="line">print(<span class="string">r&quot;Thisis escape character \n testing&quot;</span>)   <span class="comment"># 不跳脫 # This is escape character \n testing</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳脫字元\t 以表格形式排列資料 </span></span><br><span class="line">print(<span class="string">&quot;This is escape character \t testing&quot;</span>)  <span class="comment"># This is escape charactertesting</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="列表、字典、集合、元組"><a href="#列表、字典、集合、元組" class="headerlink" title="列表、字典、集合、元組"></a>列表、字典、集合、元組</h3><h4 id="列表-List"><a href="#列表-List" class="headerlink" title="列表(List)"></a>列表(List)</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">List可以包含不同資料型態的元素，Python的List比較接近ArrayList </span><br><span class="line">List的宣告方式：a = []; b = list(); c = [<span class="number">0</span> <span class="keyword">for</span> iin range(<span class="number">6</span>)] </span><br><span class="line">print(a) <span class="comment"># []</span></span><br><span class="line">print(b) <span class="comment"># []</span></span><br><span class="line">print(c) <span class="comment"># [0, 0, 0, 0, 0, 0]</span></span><br><span class="line">[<span class="string">&#x27;python&#x27;</span>,<span class="number">3</span>] <span class="comment"># [&#x27;python&#x27;, 3]</span></span><br><span class="line">list((<span class="string">&quot;python&quot;</span>,<span class="number">3</span>)) <span class="comment"># [&#x27;python&#x27;, 3]</span></span><br><span class="line">[[<span class="string">&#x27;python&#x27;</span>],[<span class="string">&#x27;python&#x27;</span>, <span class="string">&#x27;list&#x27;</span>]] <span class="comment"># [[&#x27;python&#x27;], [&#x27;python&#x27;, &#x27;list&#x27;]]</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h5><p>列表生成式 <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017317609699776">廖雪峰的官方網站</a></p>
+<h5 id="套用List-於字串中"><a href="#套用List-於字串中" class="headerlink" title="套用List 於字串中"></a>套用List 於字串中</h5><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">list(<span class="string">&#x27;a&#x27;</span>) <span class="comment"># [&#x27;a&#x27;]</span></span><br><span class="line">list(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>) <span class="comment"># TypeError: list expected at most 1 arguments, got 3</span></span><br><span class="line">list([<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>]) <span class="comment"># [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span></span><br><span class="line">list(<span class="string">&#x27;Python&#x27;</span>) `<span class="comment"># [&#x27;P&#x27;, &#x27;y&#x27;, &#x27;t&#x27;, &#x27;h&#x27;, &#x27;o&#x27;, &#x27;n&#x27;]</span></span><br><span class="line"><span class="string">&#x27;a&#x27;</span> <span class="keyword">in</span> list(<span class="string">&#x27;Python&#x27;</span>) <span class="comment"># false #檢查元素是否在列表中 </span></span><br><span class="line"><span class="string">&#x27;o&#x27;</span> <span class="keyword">in</span> list(<span class="string">&#x27;Python&#x27;</span>) <span class="comment"># true</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="List索引"><a href="#List索引" class="headerlink" title="List索引"></a>List索引</h5><blockquote>
+<p>• l = [1, 2, 3, 4, 5, 6]<br>• 索引值由0開始。例：l[0] <code>1</code> l[1] <code>2</code><br>• 索引值可為負號從右取值由-1開始。例：l[-1] <code>6</code> l[-2] <code>5</code><br>• 索引值可用：來選定起迄點等切片範圍。例：<br>• l[1:3]<code>[2, 3]</code> l[:4]<code>[1, 2, 3, 4]</code><br>• l[2:] <code>[3, 4, 5, 6]</code><br>• l[::2] <code>[1, 3, 5]</code> l[::-1] <code>[6, 5, 4, 3, 2, 1]</code></p>
+</blockquote>
+<h5 id="二維List"><a href="#二維List" class="headerlink" title="二維List"></a>二維List</h5><p>( 從命令列執行 Python 互動式Shell )<br>• 列表中的列表（二維）</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ l = [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]] </span><br><span class="line">$ m = n = <span class="number">3</span> </span><br><span class="line">$ l = [[<span class="number">0</span>] * m] * n </span><br><span class="line">$ l   <span class="comment"># [[0,  0, 0], [0, 0, 0], [0, 0, 0]]</span></span><br><span class="line">$ l[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span> </span><br><span class="line">$ l   <span class="comment"># [[1, 0, 0], [1, 0, 0], [1, 0, 0]]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ m = n =<span class="number">3</span></span><br><span class="line">$ l = [[<span class="number">0</span> <span class="keyword">for</span> iin range(m)] <span class="keyword">for</span> j <span class="keyword">in</span> range(n)] </span><br><span class="line">        <span class="comment"># 列表生成式法 </span></span><br><span class="line"></span><br><span class="line">$ l   <span class="comment"># [[0, 0, 0], [0, 0, 0], [0, 0, 0]]</span></span><br><span class="line">$ l[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span> </span><br><span class="line">$ l   <span class="comment"># [1, 0, 0], [0, 0, 0], [0, 0, 0]] </span></span><br><span class="line">$ l = list(range(<span class="number">1</span>, <span class="number">7</span>)) </span><br><span class="line">$ l   <span class="comment"># [1, 2, 3, 4, 5, 6]</span></span><br><span class="line">$ l = [x*x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">7</span>)] </span><br><span class="line">$ l   <span class="comment"># [1, 4, 9, 16, 25, 36]</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="List的賦值-Assignment"><a href="#List的賦值-Assignment" class="headerlink" title="List的賦值(Assignment)"></a>List的賦值(Assignment)</h5><p>( 從命令列執行 Python 互動式Shell )<br>錯誤賦值</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ l = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>] </span><br><span class="line">$ l1 = l </span><br><span class="line">$ l[<span class="number">5</span>] = <span class="number">0</span> </span><br><span class="line">$ l    <span class="comment"># [1, 2, 3, 4, 5, 0]</span></span><br><span class="line">$ l1   <span class="comment"># [1, 2, 3, 4, 5, 0]</span></span><br><span class="line">$ id(l)   <span class="comment"># 2320597740616(記憶體編碼)</span></span><br><span class="line">$ id(l1)  <span class="comment"># 2320597740616(記憶體編碼)</span></span><br></pre></td></tr></table></figure>
+<p>正確賦值</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ l = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>] </span><br><span class="line">$ l2 = l.copy() </span><br><span class="line">$ l[<span class="number">5</span>] = <span class="number">0</span> </span><br><span class="line">$ l    <span class="comment"># [1, 2, 3, 4, 5, 0]</span></span><br><span class="line">$ l2   <span class="comment"># [1, 2, 3, 4, 5, 6] </span></span><br><span class="line">$ id(l)   <span class="comment"># 2320597739912(記憶體編碼)</span></span><br><span class="line">$ id(l2)  <span class="comment"># 2320597738632(記憶體編碼)</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="List支援的方法"><a href="#List支援的方法" class="headerlink" title="List支援的方法"></a>List支援的方法</h5><p>( 從命令列執行 Python 互動式Shell )</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ l = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>] </span><br><span class="line">$ dir(l)                                                <span class="comment"># 可查詢List支援的方法 </span></span><br><span class="line">$ l.pop()                  <span class="comment"># 6                          # 可取出List最後一個元素 </span></span><br><span class="line">$ l                        <span class="comment"># [1, 2, 3, 4, 5]</span></span><br><span class="line">$ l.append(<span class="number">0</span>) print(l)     <span class="comment"># [1, 2, 3, 4, 5, 0]         # 可加入一個元素至List中 </span></span><br><span class="line">$ l.extend([<span class="number">6</span>, <span class="number">7</span>])print(I) <span class="comment"># [1, 2, 3, 4, 5, 0, 6, 7]   # 可延伸多個元素至List中 </span></span><br><span class="line">$ l.sort()print(l)         <span class="comment"># [0, 1, 2, 3, 4, 5, 6, 7]   # 可將List元素排序 </span></span><br><span class="line">$ l.reverse()print(l)      <span class="comment"># [7, 6, 5, 4, 3, 2, 1, 0]   # 可將List元素反轉 </span></span><br><span class="line">$ len(l)                   <span class="comment"># 6                          # 檢查字串的長度</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="字典-Dictionary"><a href="#字典-Dictionary" class="headerlink" title="字典(Dictionary)"></a>字典(Dictionary)</h4><p>( 從命令列執行 Python 互動式Shell )</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ dic = &#123;key : value&#125; <span class="comment"># key 值必須唯一</span></span><br><span class="line">$ dic = &#123;<span class="string">&#x27;name&#x27;</span> : <span class="string">&quot;YongCheng&quot;</span>, <span class="string">&#x27;age&#x27;</span> : <span class="number">30</span>, <span class="string">&#x27;sex&#x27;</span> : <span class="string">&quot;M&quot;</span>&#125;</span><br><span class="line">$ dic <span class="comment"># &#123;&#x27;name&#x27;: &#x27;YongCheng&#x27;, &#x27;age&#x27;: 30, &#x27;sex&#x27;: &#x27;M&#x27;&#125;</span></span><br><span class="line">$ dic.keys()  <span class="comment"># dict_keys([&#x27;name&#x27;, &#x27;age&#x27;, &#x27;sex&#x27;])</span></span><br><span class="line">$ dic.values()  <span class="comment"># dict_values([&#x27;YongCheng&#x27;, 30, &#x27;M&#x27;])</span></span><br><span class="line">$ dic[<span class="string">&#x27;name&#x27;</span>]  <span class="comment"># YongCheng</span></span><br><span class="line">$ dic[<span class="string">&#x27;address&#x27;</span>]  <span class="comment"># KeyError: &#x27;address&#x27;</span></span><br><span class="line">$ dic.get(<span class="string">&#x27;name&#x27;</span>)  <span class="comment"># YongCheng</span></span><br><span class="line">$ dic.get(<span class="string">&#x27;address&#x27;</span>)</span><br><span class="line">$ print(dic.get(<span class="string">&#x27;address&#x27;</span>))  <span class="comment"># None</span></span><br><span class="line">$ dic.get(<span class="string">&#x27;address&#x27;</span>, <span class="string">&#x27;Not found&#x27;</span>)  <span class="comment"># &#x27;Not found&#x27;</span></span><br><span class="line">$ dic[<span class="string">&#x27;height&#x27;</span>] = <span class="number">175</span></span><br><span class="line">$ dic  <span class="comment"># &#123;&#x27;name&#x27;: &#x27;YongCheng&#x27;, &#x27;age&#x27;: 30, &#x27;sex&#x27;: &#x27;M&#x27;, &#x27;height&#x27;: 175&#125;</span></span><br><span class="line">$ dic.update(&#123;<span class="string">&#x27;weight&#x27;</span> : <span class="number">70</span>&#125;)</span><br><span class="line">$ dic  <span class="comment"># &#123;&#x27;name&#x27;: &#x27;YongCheng&#x27;, &#x27;age&#x27;: 30, &#x27;sex&#x27;: &#x27;M&#x27;, &#x27;height&#x27;: 175, &#x27;weight&#x27;: 70&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="集合-Sets"><a href="#集合-Sets" class="headerlink" title="集合(Sets)"></a>集合(Sets)</h4><p>( 從命令列執行 Python 互動式Shell )</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ l = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">$ s = set(l)</span><br><span class="line">$ s         <span class="comment"># &#123;1, 2, 3, 4&#125;</span></span><br><span class="line">$ s = &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>&#125;</span><br><span class="line">$ s</span><br><span class="line">$ dir(s)    <span class="comment"># 可查詢Sets支援的方法</span></span><br><span class="line">$ s.add(<span class="number">5</span>)</span><br><span class="line">$ print(s)  <span class="comment"># &#123;1, 2, 3, 4, 5, 6&#125;</span></span><br><span class="line">$ s.remove(<span class="number">1</span>)</span><br><span class="line">$ print(s)  <span class="comment"># &#123;2, 3, 4, 5, 6&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>集合類似數學中的集合，裡面的元素值不會重複</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ l = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">$ s = set(l)</span><br><span class="line">$ s      <span class="comment"># &#123;1, 2, 3, 4&#125;</span></span><br><span class="line">$ s = &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>&#125;</span><br><span class="line">$ s      <span class="comment"># &#123;1, 2, 3, 4&#125;</span></span><br><span class="line">$ dir(s) <span class="comment"># 可查詢Sets支援的方法</span></span><br><span class="line">$ s.add(<span class="number">5</span>)</span><br><span class="line">$ s      <span class="comment"># &#123;1, 2, 3, 4, 5&#125;</span></span><br><span class="line">$ s.remove(<span class="number">1</span>)</span><br><span class="line">$ s      <span class="comment"># &#123;2, 3, 4, 5&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="元組-Tuples"><a href="#元組-Tuples" class="headerlink" title="元組(Tuples)"></a>元組(Tuples)</h4><p>( 從命令列執行 Python 互動式Shell )</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 和List類似，但Tuple宣告後不能修改</span></span><br><span class="line">$ t = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">$ t[<span class="number">1</span>] = <span class="number">5</span>  <span class="comment"># TypeError: &#x27;tuple&#x27; object does not support item assignment</span></span><br><span class="line">$ <span class="keyword">try</span>:</span><br><span class="line">$ t[<span class="number">1</span>] = <span class="number">5</span>  <span class="comment"># cannot modify a tuple</span></span><br><span class="line">$ <span class="keyword">except</span> TypeError:</span><br><span class="line">$ print(<span class="string">&#x27;cannot modify a tuple&#x27;</span>)</span><br><span class="line">$ l = [<span class="number">1</span>, <span class="number">2</span> , <span class="number">3</span>]</span><br><span class="line">$ l[<span class="number">1</span>] = <span class="number">5</span>  </span><br><span class="line">$ l  <span class="comment"># [1, 5, 3] </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="條件判斷-Condition"><a href="#條件判斷-Condition" class="headerlink" title="條件判斷(Condition)"></a>條件判斷(Condition)</h3><h4 id="if…elif…else-流程控制"><a href="#if…elif…else-流程控制" class="headerlink" title="if…elif…else 流程控制"></a>if…elif…else 流程控制</h4><p>• <a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-0008/#indentation">https://www.python.org/dev/peps/pep-0008/#indentation</a><br>• PEP8建議使用 <code>4個空格</code> 縮排(Indentation)</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 條件式一:</span><br><span class="line">    程式區塊一</span><br><span class="line"><span class="keyword">elif</span> 條件式二:</span><br><span class="line">    程式區塊二</span><br><span class="line"><span class="keyword">elif</span> 條件式三:</span><br><span class="line">    程式區塊三</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    程式區塊四</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>範例：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">score = int(input(<span class="string">&quot;請輸入成績:&quot;</span>))</span><br><span class="line"><span class="keyword">if</span> score &gt;= <span class="number">90</span>:</span><br><span class="line">print(<span class="string">&quot;A&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> score &gt;= <span class="number">80</span>:</span><br><span class="line">print(<span class="string">&quot;B&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> score &gt;= <span class="number">70</span>:</span><br><span class="line">print(<span class="string">&quot;C&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> score &gt;= <span class="number">60</span>:</span><br><span class="line">print(<span class="string">&quot;D&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">print(<span class="string">&quot;E&quot;</span>)</span><br></pre></td></tr></table></figure>
+&ensp;</li>
+</ul>
+<p><font size="6px"><font color="red">if 相關說明</font></font></p>
+<p>• 不同數量的空格（或tab）縮排，會被視為不同的block<br>• 檔案的第一層(最外層)不可以有縮排<br>• 註解不受縮排規定限制<br>• <code>邏輯判斷式</code>可以不用加括號<code>”()”</code>，但是如果有多個建議加括號以利閱讀<br>• 不管 if, elif, else 都需要加上 <code>:</code><br>• x = int(input(“請輸入一個數字:”))  <code>101</code><br>• if x % 2 == 1: print (“odd”) <code>#如果Statement很簡短，可以直接在:後面寫出</code><br>• else: print (“even”)  <code>odd</code><br>• num = ‘odd’ if x % 2 == 1 else ‘even’ <code>#三元運算子 if 的寫法</code><br>• print(num)  <code>odd</code></p>
+<h2 id="迴圈-Loop"><a href="#迴圈-Loop" class="headerlink" title="迴圈(Loop)"></a>迴圈(Loop)</h2><p>for 迴圈<br>• for迴圈用於執行固定次數的動作<br>• 具備iteration特質的物件：list, set, dictionary, tuple, iteration</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> 變數 <span class="keyword">in</span> iteration-Object:</span><br><span class="line">    程式區塊</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>範例：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sum=<span class="number">0</span></span><br><span class="line">l=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> l:</span><br><span class="line">    sum += i</span><br><span class="line">print(sum) <span class="comment"># 55</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>用range函式產生iteration物件來計數</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for 變數 in range(start, end, inc):</span><br><span class="line">    程式區塊</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>範例：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sum=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>):</span><br><span class="line">    sum += i</span><br><span class="line">print(sum) <span class="comment"># 55</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="break和continue"><a href="#break和continue" class="headerlink" title="break和continue"></a>break和continue</h3><p>• break會強制跳離迴圈</p>
+<ul>
+<li>範例：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>):</span><br><span class="line">    <span class="keyword">if</span> i==<span class="number">5</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">print(i, end=<span class="string">&#x27;,&#x27;</span>) <span class="comment"># 1,2,3,4,</span></span><br></pre></td></tr></table></figure>
+• continue會強制跳到迴圈起始處繼續執行</li>
+<li>範例：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>):</span><br><span class="line">    <span class="keyword">if</span> i==<span class="number">5</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">print(i, end=<span class="string">&#x27;,&#x27;</span>) <span class="comment"># 1,2,3,4,6,7,8,9,10,</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="while-迴圈"><a href="#while-迴圈" class="headerlink" title="while 迴圈"></a>while 迴圈</h3><p>• while迴圈用於執行不固定次數的動作</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> 條件式:</span><br><span class="line">    程式區塊</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>範例：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sum=i=<span class="number">0</span>          <span class="comment"># 計數器歸零</span></span><br><span class="line"><span class="keyword">while</span> (i&lt;=<span class="number">10</span>): <span class="comment"># 決定執行條件</span></span><br><span class="line">    sum += i</span><br><span class="line">    i += <span class="number">1</span>         <span class="comment"># 計數器+1</span></span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="函式-Function"><a href="#函式-Function" class="headerlink" title="函式(Function)"></a>函式(Function)</h2><h3 id="自訂函式"><a href="#自訂函式" class="headerlink" title="自訂函式"></a>自訂函式</h3><p>• 將程式區塊定義成函式，可供重複呼叫使用<br>• 定義函式</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> 函式名稱 (<span class="params">[參數<span class="number">1</span>, 參數<span class="number">2</span>, …]</span>):</span></span><br><span class="line">    程式區塊</span><br><span class="line">    [<span class="keyword">return</span> 回傳值<span class="number">1</span>, 回傳值<span class="number">2</span>, …]</span><br></pre></td></tr></table></figure>
+<p>• 函式可以沒有參數(arguments)，也可以有很多個參數<br>• 函式可以有傳回值(return value)<br>• 呼叫函式</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函式名稱 ([參數<span class="number">1</span>, 參數<span class="number">2</span>, …])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say_hello</span>():</span>                  <span class="comment"># say_hello() # Hello</span></span><br><span class="line">    print(<span class="string">&quot;Hello&quot;</span>)           </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Area</span>(<span class="params">w,h</span>):</span>                    <span class="comment"># Area(5,6)  # 30</span></span><br><span class="line">    area = w * h</span><br><span class="line">    <span class="keyword">return</span> print(area)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span>(<span class="params">e</span>):</span>                    <span class="comment"># square(5)  # 25</span></span><br><span class="line">    <span class="keyword">return</span> print(e ** <span class="number">2</span>)</span><br><span class="line">square = <span class="keyword">lambda</span> e : print(e ** <span class="number">2</span>) <span class="comment"># square(5)  # 25</span></span><br><span class="line">        <span class="comment"># 使用匿名函數lambda方式</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="內建函式"><a href="#內建函式" class="headerlink" title="內建函式"></a>內建函式</h3><p>( 從命令列執行 Python 互動式Shell )</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ all()： <span class="comment"># 列表中所有元素為真</span></span><br><span class="line">$ all([<span class="number">1</span>, &#123;<span class="number">2</span>&#125;, <span class="literal">True</span>])  <span class="comment"># Ture</span></span><br><span class="line">$ all([<span class="number">1</span>, &#123;&#125;, <span class="literal">True</span>])   <span class="comment"># False</span></span><br><span class="line">$ all([<span class="number">1</span>,<span class="string">&#x27;a&#x27;</span>])         <span class="comment"># Ture</span></span><br><span class="line">$ all([<span class="number">0</span>,<span class="string">&#x27;a&#x27;</span>])         <span class="comment"># False</span></span><br><span class="line">$ any()： <span class="comment"># 列表中只要有任何元素為真</span></span><br><span class="line">$ any([<span class="number">1</span>, &#123;&#125;, <span class="literal">True</span>])   <span class="comment"># Ture</span></span><br><span class="line">$ any([<span class="number">0</span>,<span class="string">&#x27;a&#x27;</span>])         <span class="comment"># Ture</span></span><br><span class="line">$ any([])              <span class="comment"># False</span></span><br><span class="line">$ sorted()： <span class="comment"># 針對 list 進行排序(由小到大)</span></span><br><span class="line">$ x = [<span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>]  </span><br><span class="line">$ y = sorted(x)</span><br><span class="line">$ x                    <span class="comment"># [4, 1, 5, 2, 3]</span></span><br><span class="line">$ y                    <span class="comment"># [1, 2, 3, 4, 5]  # sorted()函式不會改變原來 list</span></span><br><span class="line">$ y = sorted(x,reverse=<span class="literal">True</span>)</span><br><span class="line">$ y                    <span class="comment"># [5, 4, 3, 2, 1]</span></span><br><span class="line">$ x.sort()                                 <span class="comment"># sort()方法會改變原來 list</span></span><br><span class="line">$ x                    <span class="comment"># [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="模組-Module"><a href="#模組-Module" class="headerlink" title="模組(Module)"></a>模組(Module)</h2><h3 id="import-模組"><a href="#import-模組" class="headerlink" title="import 模組"></a>import 模組</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> 模組名稱</span><br><span class="line"><span class="keyword">import</span> 模組名稱 <span class="keyword">as</span> 別名</span><br><span class="line">使用模組中的函式：</span><br><span class="line">模組名稱.函式名稱</span><br><span class="line">匯入模組中指定的函數：</span><br><span class="line"><span class="keyword">from</span> 模組名稱 <span class="keyword">import</span> 函式名稱</span><br><span class="line">匯入模組中所有的函數</span><br><span class="line"><span class="keyword">from</span> 模組名稱 <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>範例：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">random.randint(<span class="number">1</span>,<span class="number">10</span>) <span class="comment"># 1</span></span><br><span class="line"><span class="keyword">import</span> random <span class="keyword">as</span> r</span><br><span class="line">r.randint(<span class="number">1</span>,<span class="number">10</span>)      <span class="comment"># 10</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">randint(<span class="number">1</span>,<span class="number">10</span>)        <span class="comment"># 5</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> *</span><br><span class="line">randint(<span class="number">1</span>,<span class="number">10</span>)        <span class="comment"># 10                   # 在整數1~10之間隨機取值</span></span><br><span class="line">randrange(<span class="number">1</span>,<span class="number">10</span>)      <span class="comment"># 9                    # 在整數1~9區間隨機取值</span></span><br><span class="line">random()             <span class="comment"># 0.22368014705368078  # 隨機生成0.0~1.0浮點數</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="datetime-日期時間模組"><a href="#datetime-日期時間模組" class="headerlink" title="datetime 日期時間模組"></a>datetime 日期時間模組</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime                       <span class="comment"># format()格式化日期參數：</span></span><br><span class="line">print(datetime.datetime(<span class="number">2019</span>,<span class="number">10</span>,<span class="number">29</span>))  <span class="comment"># %y：兩位數年份表示(00-99)</span></span><br><span class="line">            <span class="comment"># 2019‐10‐29 00:00:00     # %Y：四位數年份表示(0000-9999)</span></span><br><span class="line">print(datetime.datetime.now())        <span class="comment"># %m：月份(01-12)</span></span><br><span class="line">      <span class="comment"># 2019‐10‐10 10:41:13.17002     # %B：月份英文名(January -December)</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime         <span class="comment"># %d：月內中的一天(01-31)</span></span><br><span class="line">d = datetime(<span class="number">2019</span>,<span class="number">10</span>,<span class="number">29</span>)              <span class="comment"># %H：24小時制時數(00-23)</span></span><br><span class="line">print(<span class="string">&#x27;&#123;:%m/%d/%Y&#125;&#x27;</span>.format(d))        <span class="comment"># %I：12小時制時數(01-12)</span></span><br><span class="line">                      <span class="comment"># 10/29/2019    # %M：分鐘數(00-59)</span></span><br><span class="line">                                      <span class="comment"># %S：秒數(00-59)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="math數學模組"><a href="#math數學模組" class="headerlink" title="math數學模組"></a>math數學模組</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="comment"># 常用函數：</span></span><br><span class="line">math.ceil(x):  <span class="comment"># 返回最接近，大於或等於x的 整數</span></span><br><span class="line">math.floor(x): <span class="comment"># 返回捨去小數，小於或等於 x的整數</span></span><br><span class="line">math.fabs(x):  <span class="comment"># 返回x絕對值，可處理整數 及浮點數</span></span><br><span class="line">math.pow(x,y): <span class="comment"># 返回x的y次方值</span></span><br><span class="line">math.sqrt(x):  <span class="comment"># 返回x的平方根</span></span><br><span class="line">math.log(x):   <span class="comment"># 返回x的自然對數，x&gt;0</span></span><br><span class="line">math.pi:       <span class="comment"># 返回圓周率的常數</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>範例：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line">math.ceil(<span class="number">168.8</span>)   <span class="comment"># 169</span></span><br><span class="line">math.floor(<span class="number">168.8</span>)  <span class="comment"># 168</span></span><br><span class="line">math.fabs(<span class="number">-168.8</span>)  <span class="comment"># 168.8</span></span><br><span class="line">math.pow(<span class="number">2</span>,<span class="number">3</span>)      <span class="comment"># 8.0</span></span><br><span class="line">math.sqrt(<span class="number">81</span>)      <span class="comment"># 9.0</span></span><br><span class="line">math.log(<span class="number">10</span>)       <span class="comment"># 2.302585092994046</span></span><br><span class="line">math.pi            <span class="comment"># 3.141592653589793</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="檔案處理-File-Processing"><a href="#檔案處理-File-Processing" class="headerlink" title="檔案處理(File Processing)"></a>檔案處理(File Processing)</h2><h3 id="os-path模組"><a href="#os-path模組" class="headerlink" title="os.path模組"></a>os.path模組</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># os.path模組與檔案路徑操作相關</span></span><br><span class="line"><span class="comment"># isfile()用來判斷指定的路徑與檔案是否存在</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.isfile(<span class="string">&quot;檔案&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>範例：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">if</span> os.path.isfile(<span class="string">&quot;file.txt&quot;</span>):</span><br><span class="line">    fid = open(<span class="string">&quot;file.txt&quot;</span>, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> fid.mode == <span class="string">&#x27;r&#x27;</span> :</span><br><span class="line">        s = fid.read()</span><br><span class="line">        print(s)</span><br><span class="line">    fid.close()</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">&quot;File not exist !&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="open-函數"><a href="#open-函數" class="headerlink" title="open()函數"></a>open()函數</h3><p>• open()用來開啟文件，回傳值是文件物件<br>• <code>物件= open(檔案, 模式)</code> #記得要用 物件.close() 關檔<br>• <code>with open(檔案, 模式) as 物件</code> #使用 with 會自動關檔<br>支援方法：<br>• read()可讀取文件內容，返回值是字串。<br>• readline()讀取文件指針處下一行，返回是字串。<br>• readlines() 讀取文件每一行成串列返回。<br>• write() 可將字串寫入文件。<br>• seek(偏移量, 位置) 移動文件讀取指針到指定位置。<br>• close() 關閉文件物件。<br>&ensp;</p>
+<p>模式：<br>• r：唯讀，文件指針在檔頭，預設模式。<br>• r+：開啟文件可讀寫，文件指針在檔頭。<br>• a：附加，沒有檔案時會新增檔案，新增內容會放在檔尾。<br>• a+：開啟文件可讀寫，沒有檔案時會新增檔案，新增內容會放在檔尾。<br>• w：寫入，沒有檔案時會新增檔案，寫入時會複蓋原內容。<br>• w+：開啟文件可讀寫，沒有檔案時會新增檔案，寫入時會複蓋原內容。</p>
+<h3 id="讀取檔案"><a href="#讀取檔案" class="headerlink" title="讀取檔案"></a>讀取檔案</h3><ul>
+<li>一行一行讀取檔案<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">&#x27;file.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> fid:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> fid:</span><br><span class="line">        print(<span class="string">&quot;line: &quot;</span>+line.strip())</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>&ensp;</p>
+<ul>
+<li>列表生成式法<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lines = [line.strip() <span class="keyword">for</span> line <span class="keyword">in</span> open(<span class="string">&#x27;file.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>)]</span><br><span class="line">lines</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">&quot;file.txt&quot;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> fid:</span><br><span class="line">    lines = []</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> fid:</span><br><span class="line">        lines.append(line.strip())</span><br><span class="line">lines</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>&ensp;</p>
+<ul>
+<li>讀取檔案中所有內容<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">&#x27;file.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> fid:</span><br><span class="line">    <span class="comment">#fid.seek(0, 0)</span></span><br><span class="line">    s=fid.read()</span><br><span class="line">print(<span class="string">&quot;line: &quot;</span>, s)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">&#x27;file.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> fid:</span><br><span class="line">    s = fid.read().splitlines()</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="寫入檔案"><a href="#寫入檔案" class="headerlink" title="寫入檔案"></a>寫入檔案</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 將資料寫入檔案中</span></span><br><span class="line">fid = open(<span class="string">&#x27;file1.txt&#x27;</span>,<span class="string">&#x27;w&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">fid.write(<span class="string">&quot;This is line %d\n&quot;</span> % (i+<span class="number">1</span>))</span><br><span class="line">    fid.close()</span><br><span class="line"><span class="comment"># 文件開啟後,記得要用close()關閉</span></span><br><span class="line"><span class="comment"># 使用with 自動關檔</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">&#x27;file1.txt&#x27;</span>,<span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> fid:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">        fid.write(<span class="string">&quot;This is line %d\n&quot;</span> % (i+<span class="number">1</span>))</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">&#x27;file1.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> fid:</span><br><span class="line">    s = fid.read().splitlines()</span><br><span class="line"></span><br><span class="line">s   <span class="comment">#[&#x27;This is line 1&#x27;,</span></span><br><span class="line">    <span class="comment"># &#x27;This is line 2&#x27;,</span></span><br><span class="line">    <span class="comment"># &#x27;This is line 3&#x27;,</span></span><br><span class="line">    <span class="comment"># &#x27;This is line 4&#x27;,</span></span><br><span class="line">    <span class="comment"># &#x27;This is line 5&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="例外處理-Exception-handling"><a href="#例外處理-Exception-handling" class="headerlink" title="例外處理(Exception handling)"></a>例外處理(Exception handling)</h3><p>Try &amp; Except例外處理</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    程式區塊一</span><br><span class="line"><span class="keyword">except</span>[ 例外狀況 ]:</span><br><span class="line">    程式區塊二</span><br><span class="line">...</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    程式區塊三</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    程式區塊四</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>• 程式出現錯誤時會傳回 exception，若不妥善處理程式有可能會當掉。<br>• 程式區塊一：用來執行並進行例外偵測。<br>• 程式區塊二：若有發生例外時執行的程式。<br>• 程式區塊三：若沒有發生例外時執行的程式。<br>• 程式區塊四：一定會執行的程式。<br>• except可設定多種例外狀況。若省略指定 即代表一發生例外狀況即執行。<br>• else、finally非必填。</p>
+<ul>
+<li>範例：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x = input (<span class="string">&quot;Dividend: &quot;</span>)  <span class="comment">#100</span></span><br><span class="line">y = input(<span class="string">&quot;Divisor: &quot;</span>)    <span class="comment">#0</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(float(x) / float(y))</span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError :</span><br><span class="line">    print(<span class="string">&quot;ZeroDivisionError&quot;</span>)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">&quot;except&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">&quot;else except&quot;</span>)</span><br><span class="line"><span class="keyword">finally</span>:                  <span class="comment"># ZeroDivisionError after exception...</span></span><br><span class="line">    print(<span class="string">&quot;after exception...&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>• 例外種類：<br>• IOError<br>• SyntaxError<br>• RuntimeError<br>• NameError<br>• ValueError<br>• ZeroDivisionError<br>• 其他…</p>
+<h2 id="範例-剪刀、石頭、布"><a href="#範例-剪刀、石頭、布" class="headerlink" title="範例-剪刀、石頭、布"></a>範例-剪刀、石頭、布</h2><h3 id="第一版：文字輸入、文字輸出"><a href="#第一版：文字輸入、文字輸出" class="headerlink" title="第一版：文字輸入、文字輸出"></a>第一版：文字輸入、文字輸出</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 主程式</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line">c = random.randint(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="keyword">if</span> c == <span class="number">1</span>:</span><br><span class="line">    c1 = <span class="string">&#x27;剪刀&#x27;</span></span><br><span class="line"><span class="keyword">elif</span> c == <span class="number">2</span>:</span><br><span class="line">    c1 = <span class="string">&#x27;石頭&#x27;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    c1 = <span class="string">&#x27;布&#x27;</span></span><br><span class="line"></span><br><span class="line">i = input(<span class="string">&#x27;剪刀、石頭、布，請問你出什麼拳:&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">result</span>(<span class="params">i</span>):</span> </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">&#x27;剪刀&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> c1 == <span class="string">&#x27;剪刀&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;平手&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> c1 == <span class="string">&#x27;石頭&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;輸&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r = <span class="string">&#x27;贏&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> i == <span class="string">&#x27;石頭&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> c1 == <span class="string">&#x27;剪刀&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;贏&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> c1 == <span class="string">&#x27;石頭&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;平手&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r = <span class="string">&#x27;輸&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> i == <span class="string">&#x27;布&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> c1 == <span class="string">&#x27;剪刀&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;輸&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> c1 == <span class="string">&#x27;石頭&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;贏&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r = <span class="string">&#x27;平手&#x27;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        r = <span class="string">&#x27;莫宰羊&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> r</span><br><span class="line"></span><br><span class="line">s = result(i)</span><br><span class="line">    </span><br><span class="line">d = &#123;</span><br><span class="line">  <span class="string">&#x27;平手&#x27;</span>: <span class="string">&#x27;你出 &#x27;</span> + i + <span class="string">&#x27; 我也出 &#x27;</span> + c1 + <span class="string">&#x27; 平手&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;輸&#x27;</span>: <span class="string">&#x27;你出 &#x27;</span> + i + <span class="string">&#x27; 我出 &#x27;</span> + c1 + <span class="string">&#x27; 你輸了&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;贏&#x27;</span>: <span class="string">&#x27;你出 &#x27;</span> + i + <span class="string">&#x27; 我出 &#x27;</span> + c1 + <span class="string">&#x27; 你贏了&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">d.get(s, <span class="string">&#x27;我聽不清楚，請重新出拳&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="第二版：語音輸入、文字輸出"><a href="#第二版：語音輸入、文字輸出" class="headerlink" title="第二版：語音輸入、文字輸出"></a>第二版：語音輸入、文字輸出</h3><ul>
+<li><p>更新pip </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安裝所需模組</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pip install SpeechRecognition</span><br><span class="line">$ pip install PyAudio</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 語音模組</span></span><br><span class="line"><span class="keyword">import</span> speech_recognition</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">listen</span>():</span></span><br><span class="line">    r = speech_recognition.Recognizer()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> speech_recognition.Microphone() <span class="keyword">as</span> source:</span><br><span class="line">        r.adjust_for_ambient_noise(source)</span><br><span class="line">        audio = r.listen(source)</span><br><span class="line">    <span class="keyword">return</span> r.recognize_google(audio, language=<span class="string">&#x27;zh-TW&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 主程式</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line">c = random.randint(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="keyword">if</span> c == <span class="number">1</span>:</span><br><span class="line">    c1 = <span class="string">&#x27;剪刀&#x27;</span></span><br><span class="line"><span class="keyword">elif</span> c == <span class="number">2</span>:</span><br><span class="line">    c1 = <span class="string">&#x27;石頭&#x27;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    c1 = <span class="string">&#x27;不&#x27;</span></span><br><span class="line"></span><br><span class="line">i = listen()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">result</span>(<span class="params">i</span>):</span> </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">&#x27;剪刀&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> c1 == <span class="string">&#x27;剪刀&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;平手&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> c1 == <span class="string">&#x27;石頭&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;輸&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r = <span class="string">&#x27;贏&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> i == <span class="string">&#x27;石頭&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> c1 == <span class="string">&#x27;剪刀&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;贏&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> c1 == <span class="string">&#x27;石頭&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;平手&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r = <span class="string">&#x27;輸&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> i == <span class="string">&#x27;不&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> c1 == <span class="string">&#x27;剪刀&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;輸&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> c1 == <span class="string">&#x27;石頭&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;贏&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r = <span class="string">&#x27;平手&#x27;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        r = <span class="string">&#x27;莫宰羊&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> r</span><br><span class="line"></span><br><span class="line">s = result(i)</span><br><span class="line">    </span><br><span class="line">d = &#123;</span><br><span class="line">  <span class="string">&#x27;平手&#x27;</span>: <span class="string">&#x27;你出 &#x27;</span> + i + <span class="string">&#x27; 我也出 &#x27;</span> + c1 + <span class="string">&#x27; 平手&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;輸&#x27;</span>: <span class="string">&#x27;你出 &#x27;</span> + i + <span class="string">&#x27; 我出 &#x27;</span> + c1 + <span class="string">&#x27; 你輸了&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;贏&#x27;</span>: <span class="string">&#x27;你出 &#x27;</span> + i + <span class="string">&#x27; 我出 &#x27;</span> + c1 + <span class="string">&#x27; 你贏了&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">d.get(s, <span class="string">&#x27;我聽不清楚，請重新出拳&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="第三版：語音輸入、語音輸出"><a href="#第三版：語音輸入、語音輸出" class="headerlink" title="第三版：語音輸入、語音輸出"></a>第三版：語音輸入、語音輸出</h3><ul>
+<li>安裝所需模組<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pip install gTTS</span><br><span class="line">$ pip install pygame</span><br><span class="line">$ pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --trusted-host pypi.python.org urllib3</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 語音模組</span></span><br><span class="line"><span class="keyword">from</span> gtts <span class="keyword">import</span> gTTS</span><br><span class="line"><span class="keyword">from</span> pygame <span class="keyword">import</span> mixer</span><br><span class="line">mixer.init()</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tempfile</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">speak</span>(<span class="params">sentence</span>):</span></span><br><span class="line">    <span class="keyword">with</span> tempfile.NamedTemporaryFile(delete=<span class="literal">True</span>) <span class="keyword">as</span> fp:</span><br><span class="line">        tts = gTTS(text=sentence, lang=<span class="string">&#x27;zh-tw&#x27;</span>)</span><br><span class="line">        tts.save(<span class="string">&quot;&#123;&#125;.mp3&quot;</span>.format(fp.name))</span><br><span class="line">        mixer.music.load(<span class="string">&#x27;&#123;&#125;.mp3&#x27;</span>.format(fp.name))</span><br><span class="line">        </span><br><span class="line">        mixer.music.play()</span><br><span class="line"><span class="comment"># 主程式</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line">c = random.randint(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="keyword">if</span> c == <span class="number">1</span>:</span><br><span class="line">    c1 = <span class="string">&#x27;剪刀&#x27;</span></span><br><span class="line"><span class="keyword">elif</span> c == <span class="number">2</span>:</span><br><span class="line">    c1 = <span class="string">&#x27;石頭&#x27;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    c1 = <span class="string">&#x27;不&#x27;</span></span><br><span class="line"></span><br><span class="line">i = listen()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">result</span>(<span class="params">i</span>):</span> </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">&#x27;剪刀&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> c1 == <span class="string">&#x27;剪刀&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;平手&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> c1 == <span class="string">&#x27;石頭&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;輸&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r = <span class="string">&#x27;贏&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> i == <span class="string">&#x27;石頭&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> c1 == <span class="string">&#x27;剪刀&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;贏&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> c1 == <span class="string">&#x27;石頭&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;平手&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r = <span class="string">&#x27;輸&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> i == <span class="string">&#x27;不&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> c1 == <span class="string">&#x27;剪刀&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;輸&#x27;</span></span><br><span class="line">        <span class="keyword">elif</span> c1 == <span class="string">&#x27;石頭&#x27;</span>:</span><br><span class="line">            r = <span class="string">&#x27;贏&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            r = <span class="string">&#x27;平手&#x27;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        r = <span class="string">&#x27;莫宰羊&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> r</span><br><span class="line"></span><br><span class="line">s = result(i)</span><br><span class="line">    </span><br><span class="line">d = &#123;</span><br><span class="line">  <span class="string">&#x27;平手&#x27;</span>: <span class="string">&#x27;你出 &#x27;</span> + i + <span class="string">&#x27; 我也出 &#x27;</span> + c1 + <span class="string">&#x27; 平手&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;輸&#x27;</span>: <span class="string">&#x27;你出 &#x27;</span> + i + <span class="string">&#x27; 我出 &#x27;</span> + c1 + <span class="string">&#x27; 你輸了&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;贏&#x27;</span>: <span class="string">&#x27;你出 &#x27;</span> + i + <span class="string">&#x27; 我出 &#x27;</span> + c1 + <span class="string">&#x27; 你贏了&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">speak(d.get(s, <span class="string">&#x27;我聽不清楚，請重新出拳&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<h1 id="【DAY-2】Python與大數據資料分析-2019-11-05"><a href="#【DAY-2】Python與大數據資料分析-2019-11-05" class="headerlink" title="【DAY 2】Python與大數據資料分析(2019/11/05)"></a>【DAY 2】Python與大數據資料分析(2019/11/05)</h1><h2 id="Python-網路爬蟲簡介"><a href="#Python-網路爬蟲簡介" class="headerlink" title="Python 網路爬蟲簡介"></a>Python 網路爬蟲簡介</h2><h3 id="網路爬蟲-Web-Crawler"><a href="#網路爬蟲-Web-Crawler" class="headerlink" title="網路爬蟲(Web Crawler)"></a>網路爬蟲(Web Crawler)</h3><p>• 網路爬蟲是一種機器人，可以幫您自動地瀏覽網際網路並擷取目標資訊<br>• 自動化爬取目標網站，並按照您的需求蒐集目標資料<br>• 將非結構化資料轉變為結構化資料</p>
+<h3 id="網路爬蟲步驟"><a href="#網路爬蟲步驟" class="headerlink" title="網路爬蟲步驟"></a>網路爬蟲步驟</h3><ol>
+<li>取得指定網域下的HTML 資料<br>• 使用Chrome瀏覽器，按右鍵”檢查”，查看網頁原始碼<br>• 透過requests 利用GET或POST取得HTML</li>
+<li>解析這些資料以取得目標資訊<br>• 透過開發者工具，觀察目標資訊的位置<br>• 透過BeautifulSoup 以lxml、xml、html5lib解析HTML、XML、HTML5</li>
+<li>反覆爬取</li>
+</ol>
+<h2 id="pandas套件"><a href="#pandas套件" class="headerlink" title="pandas套件"></a>pandas套件</h2><h3 id="pandas簡介"><a href="#pandas簡介" class="headerlink" title="pandas簡介"></a>pandas簡介</h3><p>• Python for Data Analysis<br>• 源自於R<br>• 提供高效能、簡易使用的Table-Like資料格式(Data Frame)讓使用者可以快速操作及分析資料</p>
+<h3 id="Pandas可以處理的表格形式"><a href="#Pandas可以處理的表格形式" class="headerlink" title="Pandas可以處理的表格形式"></a>Pandas可以處理的表格形式</h3><p><img src="/images/Python%E8%AA%9E%E8%A8%80%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E6%87%89%E7%94%A8%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4/1.jpg"></p>
+<h3 id="Pandas-I-O讀取和寫入表格"><a href="#Pandas-I-O讀取和寫入表格" class="headerlink" title="Pandas I/O讀取和寫入表格"></a>Pandas I/O讀取和寫入表格</h3><p>• 使用read_xxx 來讀取表格形式之檔案，會回傳一個DataFrame ，最好使用utf-8編碼來讀取網站檔案<br>• 必要參數: 檔案名稱<br>• 選用參數encoding(有預設值): 讀取時使用文字編碼<br>• DataFrame = read_csv(‘檔案名稱’, encoding=‘utf-8’)<br>• 使用to_xxx 來儲存整理成表格形式之DataFrame到指定之檔案，最好使用utf-8來儲存檔案<br>• 必要參數: 檔案名稱<br>• 選用參數encoding(有預設值): 讀取時使用文字編碼<br>• 選用參數index(有預設值True): 如果不要把pandas 產生的列編號寫進檔案則要設為Flase<br>• DataFrame.to_csv(‘檔案名稱’, encoding=‘utf-8’, index = False)</p>
+<h3 id="Pandas-基本資料"><a href="#Pandas-基本資料" class="headerlink" title="Pandas 基本資料"></a>Pandas 基本資料</h3><p>• Pandas 只有兩種基本資料，一種叫做DataFrame，一種叫做Series<br>• 多行* 多列-&gt; DataFrame<br>• 一行* 多列-&gt; Series<br>• 一列* 多行-&gt; Series</p>
+<h3 id="Pandas之操作"><a href="#Pandas之操作" class="headerlink" title="Pandas之操作"></a>Pandas之操作</h3><ol>
+<li>DataFrame 大小</li>
+</ol>
+<ul>
+<li><blockquote>
+<p>df.shape</p>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>單行篩選</li>
+</ol>
+<ul>
+<li><blockquote>
+<p>df[‘行名稱’] 或df.loc[‘行名稱’]</p>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>多行篩選</li>
+</ol>
+<ul>
+<li><blockquote>
+<p>df[ [‘行名稱1’, ‘行名稱2’, ‘行名稱3’…] ] 或df.loc[ [‘行名稱1’, ‘行名稱2’, ‘行名稱3’…] ]</p>
+</blockquote>
+</li>
+</ul>
+<ol start="4">
+<li>單列篩選</li>
+</ol>
+<ul>
+<li><blockquote>
+<p>df.iloc[索引值]</p>
+</blockquote>
+</li>
+</ul>
+<ol start="5">
+<li>多列篩選</li>
+</ol>
+<ul>
+<li><blockquote>
+<p>df.iloc[起始索引值(包括):終止索引值(不包括)] 或df.iloc[索引值1,索引值2,索引值3…]</p>
+</blockquote>
+</li>
+</ul>
+<ol start="6">
+<li>多行多列篩選</li>
+</ol>
+<ul>
+<li><blockquote>
+<p>先[] 再.iloc[]，或者先.iloc[] 再[]</p>
+</blockquote>
+</li>
+</ul>
+<ol start="7">
+<li>頭幾列篩選</li>
+</ol>
+<ul>
+<li><blockquote>
+<p>df.head(索引值)</p>
+</blockquote>
+</li>
+</ul>
+<ol start="8">
+<li>尾幾列篩選</li>
+</ol>
+<ul>
+<li><blockquote>
+<p>df.tail(索引值)</p>
+</blockquote>
+</li>
+</ul>
+<ol start="9">
+<li>單行搜尋</li>
+</ol>
+<ul>
+<li><blockquote>
+<p>df[‘行名稱’].str. contains(‘特徵字串’) 作布林判斷</p>
+</blockquote>
+</li>
+</ul>
+<ol start="10">
+<li>列過濾</li>
+</ol>
+<ul>
+<li><p>將單行搜尋結果帶入DataFrame</p>
+</li>
+<li><blockquote>
+<p>df[df[‘行名稱’].str. contains(‘特徵字串’)]</p>
+</blockquote>
+</li>
+</ul>
+<ol start="11">
+<li>刪除行</li>
+</ol>
+<ul>
+<li><blockquote>
+<p>df.drop([‘行名稱1’, ‘行名稱2’, ‘行名稱3’…], axis = 1)</p>
+</blockquote>
+</li>
+</ul>
+<ol start="12">
+<li>刪除列</li>
+</ol>
+<ul>
+<li><blockquote>
+<p>df.drop([索引值1,索引值2,索引值3…], axis = 0)</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="範例-台灣銀行牌告匯率範例"><a href="#範例-台灣銀行牌告匯率範例" class="headerlink" title="範例-台灣銀行牌告匯率範例"></a>範例-台灣銀行牌告匯率範例</h2><p>請參閱台灣銀行牌告匯率實戰練習</p>
+<h2 id="beautifulsoup4-套件"><a href="#beautifulsoup4-套件" class="headerlink" title="beautifulsoup4 套件"></a>beautifulsoup4 套件</h2><ul>
+<li>安裝beautifulsoup4<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install beautifulsoup4 <span class="comment"># 安裝BeautifulSoup4</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Beautifulsoup4-簡介"><a href="#Beautifulsoup4-簡介" class="headerlink" title="Beautifulsoup4 簡介"></a>Beautifulsoup4 簡介</h3><ul>
+<li><code>官方</code> <a target="_blank" rel="noopener" href="https://pypi.org/project/beautifulsoup4/">https://pypi.org/project/beautifulsoup4/</a></li>
+</ul>
+<p>• 可以用來剖析及萃取HTML的內容<br>• 會自動將讀入的內容轉換成 UTF-8 編碼<br>• from bs4 import BeautifulSoup<br>• soup = BeautifulSoup(html, ‘lxml’)</p>
+<h3 id="認識網頁格式-HTML檔"><a href="#認識網頁格式-HTML檔" class="headerlink" title="認識網頁格式(HTML檔)"></a>認識網頁格式(HTML檔)</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"># head檔頭</span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"># css樣式</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-id">#title</span>&#123;</span></span><br><span class="line"><span class="css"><span class="selector-tag">color</span><span class="selector-pseudo">:red</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="css"><span class="selector-class">.link</span>&#123;</span></span><br><span class="line"><span class="css"><span class="selector-tag">font-size</span><span class="selector-pseudo">:20px</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"># script腳本</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">alert(<span class="string">&#x27;歡迎光臨勤益科大！&#x27;</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"># body內文</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;title&quot;</span>&gt;</span>勤益科大首頁<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;ncut.png&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:50px;height:50px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;link&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://web2.ncut.edu.tw&quot;</span>&gt;</span>勤益科大網站<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;link&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://www.google.com&quot;</span>&gt;</span>Google<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="網頁的組成"><a href="#網頁的組成" class="headerlink" title="網頁的組成"></a>網頁的組成</h3><p><img src="/images/Python%E8%AA%9E%E8%A8%80%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E6%87%89%E7%94%A8%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4/2.jpg"></p>
+<h3 id="HTML-解析"><a href="#HTML-解析" class="headerlink" title="HTML 解析"></a>HTML 解析</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">• BeautifulSoup會把網頁形式的文字剖析成一顆DOM tree</span><br><span class="line">    • html中的各個標籤會變成DOM中一個節點(元素)</span><br><span class="line">    • 元素：<span class="tag">&lt;<span class="name">標籤名屬性名=“屬性值”</span>&gt;</span>內容<span class="tag">&lt;/<span class="name">標籤名</span>&gt;</span></span><br><span class="line">• 標籤</span><br><span class="line">    • <span class="tag">&lt;<span class="name">標籤名</span>&gt;</span>內容<span class="tag">&lt;/<span class="name">標籤名</span>&gt;</span></span><br><span class="line">    • 特殊標籤</span><br><span class="line">        • 圖片：<span class="tag">&lt;<span class="name">img</span>&gt;</span>內容<span class="tag">&lt;/<span class="name">img</span>&gt;</span></span><br><span class="line">        • 超連結：<span class="tag">&lt;<span class="name">a</span>&gt;</span>內容<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">• 屬性</span><br><span class="line">    • <span class="tag">&lt;<span class="name">標籤名屬性名=“屬性值”</span>&gt;</span>內容<span class="tag">&lt;/<span class="name">標籤名</span>&gt;</span></span><br><span class="line">    • 特殊屬性</span><br><span class="line">        • src屬性：<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;圖片讀取網址&quot;</span>&gt;</span></span><br><span class="line">        • href屬性：<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;連結到的網址&quot;</span>&gt;</span></span><br><span class="line">• 通用屬性</span><br><span class="line">    • id屬性： <span class="tag">&lt;<span class="name">標籤名id=“屬性值”</span>&gt;</span> ，其中屬性值會對應到CSS中的# 號屬性名</span><br><span class="line">    • class屬性： <span class="tag">&lt;<span class="name">標籤名class=“屬性值”</span>&gt;</span> ，其中屬性值會對應到CSS中的. 號屬性名</span><br></pre></td></tr></table></figure>
+
+<h3 id="BeautifulSoup-Parser"><a href="#BeautifulSoup-Parser" class="headerlink" title="BeautifulSoup Parser"></a>BeautifulSoup Parser</h3><p><code>說明</code> <a target="_blank" rel="noopener" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh">https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh</a><br><img src="/images/Python%E8%AA%9E%E8%A8%80%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E6%87%89%E7%94%A8%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4/3.jpg"></p>
+<h3 id="CSS-Cascading-Style-Sheets-Selector"><a href="#CSS-Cascading-Style-Sheets-Selector" class="headerlink" title="CSS(Cascading Style Sheets) Selector"></a>CSS(Cascading Style Sheets) Selector</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">• 尋找某標籤的元素</span><br><span class="line">    • 找第一個符合條件的標籤：<span class="comment">#傳回一個標籤</span></span><br><span class="line">        • find(‘標籤名’)</span><br><span class="line">        • select_one(‘標籤名’)</span><br><span class="line">• 找所有符合條件的標籤：<span class="comment">#傳回一個List</span></span><br><span class="line">    • find_all(‘標籤名’)</span><br><span class="line">    • select(‘標籤名’)</span><br><span class="line">• 尋找某標籤某id的元素</span><br><span class="line">    • select_one(‘標籤名<span class="comment">#id名’)</span></span><br><span class="line">    • find(‘標籤名’, id=‘id名’)</span><br><span class="line">• 尋找某標籤某<span class="class"><span class="keyword">class</span>的元素</span></span><br><span class="line"><span class="class">    • <span class="title">select_one</span>(<span class="params">‘標籤名.class名’</span>)</span></span><br><span class="line"><span class="class">    • <span class="title">find</span>(<span class="params">‘標籤名’, class_=‘class名’</span>)</span></span><br><span class="line"><span class="class">• 尋找某標籤的元素中的內容</span></span><br><span class="line"><span class="class">    • <span class="title">select_one</span>(<span class="params">‘標籤名’</span>).<span class="title">text</span></span></span><br><span class="line"><span class="class">• 尋找某標籤的元素中的某屬性值</span></span><br><span class="line"><span class="class">    • <span class="title">select_one</span>(<span class="params">‘標籤名’</span>).<span class="title">get</span>(<span class="params">‘屬性名’</span>)</span></span><br><span class="line"><span class="class">• 尋找所有特定標籤的元素中的內容</span></span><br><span class="line"><span class="class">    • <span class="title">for</span> <span class="title">a</span> <span class="title">in</span> <span class="title">soup</span>.<span class="title">select</span>(<span class="params">‘標籤名’</span>)</span></span><br><span class="line"><span class="class">    • <span class="title">a</span>. <span class="title">text</span></span></span><br><span class="line"><span class="class">• 尋找所有特定標籤的元素中的某屬性值</span></span><br><span class="line"><span class="class">    • <span class="title">for</span> <span class="title">a</span> <span class="title">in</span> <span class="title">soup</span>.<span class="title">select</span>(<span class="params">‘標籤名’</span>)</span></span><br><span class="line"><span class="class">    • <span class="title">a</span>.<span class="title">get</span>(<span class="params">‘屬性名’</span>)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="re套件正規表達法"><a href="#re套件正規表達法" class="headerlink" title="re套件正規表達法"></a>re套件正規表達法</h2><h3 id="正規表達法符號之意義"><a href="#正規表達法符號之意義" class="headerlink" title="正規表達法符號之意義"></a>正規表達法符號之意義</h3><p><img src="/images/Python%E8%AA%9E%E8%A8%80%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E6%87%89%E7%94%A8%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4/4.jpg"></p>
+<h3 id="Regular-Expression範例"><a href="#Regular-Expression範例" class="headerlink" title="Regular Expression範例"></a>Regular Expression範例</h3><p><img src="/images/Python%E8%AA%9E%E8%A8%80%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E6%87%89%E7%94%A8%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4/5.jpg"></p>
+<h3 id="re套件簡介"><a href="#re套件簡介" class="headerlink" title="re套件簡介"></a>re套件簡介</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Python 內建 re 套件有Regular Expression函數</span></span><br><span class="line"><span class="comment"># 功能：處理匹配字串</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment"># re.match(‘pattern’,字串) </span></span><br><span class="line">print(re.match(<span class="string">r&#x27;([A‐Z]+(\d+))&#x27;</span>, <span class="string">&#x27;123STR456OIT789&#x27;</span>))</span><br><span class="line"><span class="comment"># 匹配string 开头，成功傳回Match object, 失败傳回None，只匹配一个。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># re.search(‘pattern’,字串)</span></span><br><span class="line">print(re.search(<span class="string">r&#x27;([A‐Z]+(\d+))&#x27;</span>, <span class="string">&#x27;123STR456OIT789&#x27;</span>))</span><br><span class="line"><span class="comment"># 在string中进行搜索，成功傳回Match object, 失败傳回None, 只匹配一个。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># re.findall(‘pattern’,字串)</span></span><br><span class="line">print(re.findall(<span class="string">r&#x27;([A‐Z]+(\d+))&#x27;</span>, <span class="string">&#x27;123STR456OIT789&#x27;</span>))</span><br><span class="line"><span class="comment"># 在string中查找所有 匹配成功的元组, 即用括号括起来的部分。傳回list对象，每个list item是由每个匹配的所 有元组组成的list。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># re.match(‘(pattern)’,字串).groups()</span></span><br><span class="line">print(re.search(<span class="string">r&#x27;([A‐Z]+(\d+))&#x27;</span>, <span class="string">&#x27;123STR456OIT789&#x27;</span>).groups())</span><br><span class="line"><span class="comment"># 如果有匹配成功才可用(pattern)獲取這一匹配成功的元组</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="requests套件"><a href="#requests套件" class="headerlink" title="requests套件"></a>requests套件</h2><ul>
+<li>安裝：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install requests <span class="comment"># 安裝requests套件  </span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="GET-vs-POST"><a href="#GET-vs-POST" class="headerlink" title="GET vs. POST"></a>GET vs. POST</h3><p>• GET: 發送requests，Server 回傳資料</p>
+<ul>
+<li>網址會隨著不同的網頁改變</li>
+<li>例如：台灣銀行歷史牌告匯率查詢<blockquote>
+<p><a target="_blank" rel="noopener" href="https://rate.bot.com.tw/xrt/quote/l6m/JPY">https://rate.bot.com.tw/xrt/quote/l6m/JPY</a><br><a target="_blank" rel="noopener" href="https://rate.bot.com.tw/xrt/quote/l6m/USD">https://rate.bot.com.tw/xrt/quote/l6m/USD</a></p>
+</blockquote>
+</li>
+</ul>
+<p>• POST: 發送requests 並附帶資料，Server 回傳資料</p>
+<ul>
+<li>網址不會改變，但是網頁資料會隨著使用者不同的requests 改變</li>
+<li>例如：台灣高鐵時刻表查詢<blockquote>
+<p><a target="_blank" rel="noopener" href="https://m.thsrc.com.tw/tw/TimeTable/SearchResult">https://m.thsrc.com.tw/tw/TimeTable/SearchResult</a></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="範例-台灣銀行歷史牌告匯率查詢爬取"><a href="#範例-台灣銀行歷史牌告匯率查詢爬取" class="headerlink" title="範例-台灣銀行歷史牌告匯率查詢爬取"></a>範例-台灣銀行歷史牌告匯率查詢爬取</h3><p>暫不更新，將來會添加。</p>
+<h3 id="範例-蘋果即時新聞"><a href="#範例-蘋果即時新聞" class="headerlink" title="範例-蘋果即時新聞"></a>範例-蘋果即時新聞</h3><h4 id="1-蘋果新聞列表爬取"><a href="#1-蘋果新聞列表爬取" class="headerlink" title="1.蘋果新聞列表爬取"></a>1.蘋果新聞列表爬取</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">res = requests.get(<span class="string">&#x27;https://tw.appledaily.com/new/realtime&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(res.text, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> news <span class="keyword">in</span> soup.select(<span class="string">&#x27;li.rtddt&#x27;</span>):</span><br><span class="line">    title = news.select_one(<span class="string">&#x27;h1&#x27;</span>).text</span><br><span class="line">    category = news.select_one(<span class="string">&#x27;h2&#x27;</span>).text</span><br><span class="line">    dt = news.select_one(<span class="string">&#x27;time&#x27;</span>).text</span><br><span class="line">    link = news.select_one(<span class="string">&#x27;a&#x27;</span>).get(<span class="string">&#x27;href&#x27;</span>)</span><br><span class="line">    print(title)</span><br><span class="line">    print(category)</span><br><span class="line">    print(dt)</span><br><span class="line">    print(link)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-蘋果新聞內文爬取"><a href="#2-蘋果新聞內文爬取" class="headerlink" title="2.蘋果新聞內文爬取"></a>2.蘋果新聞內文爬取</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">res = requests.get(<span class="string">&#x27;https://tw.news.appledaily.com/life/realtime/20191018/1650583/&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(res.text , <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line"></span><br><span class="line">soup.select_one(<span class="string">&#x27;.ndArticle_margin p&#x27;</span>).text</span><br><span class="line"></span><br><span class="line">soup.select_one(<span class="string">&#x27;h1&#x27;</span>).text</span><br><span class="line"></span><br><span class="line">print(soup.select_one(<span class="string">&#x27;h1&#x27;</span>).text)</span><br><span class="line"></span><br><span class="line">soup.select_one(<span class="string">&#x27;.ndgTag .current&#x27;</span>).text</span><br><span class="line"></span><br><span class="line">soup.select_one(<span class="string">&#x27;.ndArticle_creat&#x27;</span>).text</span><br></pre></td></tr></table></figure>
+<h3 id="datetime套件"><a href="#datetime套件" class="headerlink" title="datetime套件"></a>datetime套件</h3><h3 id="如何使用-requests-get"><a href="#如何使用-requests-get" class="headerlink" title="如何使用 requests.get"></a>如何使用 requests.get</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">res = requests.get(<span class="string">&#x27;https://rate.bot.com.tw/xrt/quote/l6m/JPY&#x27;</span>)</span><br><span class="line">res</span><br><span class="line">print(res.text)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="【DAY-3】Python與大數據資料分析-2019-11-12"><a href="#【DAY-3】Python與大數據資料分析-2019-11-12" class="headerlink" title="【DAY 3】Python與大數據資料分析(2019/11/12)"></a>【DAY 3】Python與大數據資料分析(2019/11/12)</h1><div class="pdfobject-container" data-target="/pdf/Python語言與大數據應用教育訓練-PART3-machinelearning20191112.pdf" data-height="500px"></div>
+
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Yong Cheng（永成）
+  </li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    <a href="https://pkpk26261.github.io/2019/10/29/%E5%8B%A4%E7%9B%8A%20Python%20%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4%E7%A0%94%E7%BF%92/" title="勤益 Python 教育訓練研習">https://pkpk26261.github.io/2019/10/29/勤益 Python 教育訓練研習/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E5%8B%A4%E7%9B%8A%E7%A7%91%E5%A4%A7/" rel="tag"># 勤益科大</a>
+              <a href="/tags/%E7%A0%94%E7%BF%92/" rel="tag"># 研習</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/10/21/%E5%8B%A4%E7%9B%8A-%E4%BA%8C%E4%B8%8A%20Arduino%20%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/" rel="prev" title="勤益(二上)課程-上課筆記 Arduino 程式設計">
+      <i class="fa fa-chevron-left"></i> 勤益(二上)課程-上課筆記 Arduino 程式設計
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/14/Anaconda%20%E5%AE%89%E8%A3%9D%E5%BC%95%E5%B0%8E/" rel="next" title="Anaconda 安裝引導">
+      Anaconda 安裝引導 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E3%80%90DAY-1%E3%80%91Python%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90-2019-10-29"><span class="nav-number">1.</span> <span class="nav-text">【DAY 1】Python與大數據資料分析(2019&#x2F;10&#x2F;29)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-%E7%B0%A1%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">Python 簡介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%9A%84%E7%89%B9%E8%89%B2"><span class="nav-number">1.1.1.</span> <span class="nav-text">Python 程式語言的特色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E7%9A%84%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90%E5%A5%97%E4%BB%B6"><span class="nav-number">1.1.2.</span> <span class="nav-text">完整的資料分析套件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anaconda-%E9%96%8B%E7%99%BC%E5%B7%A5%E5%85%B7%E7%B0%A1%E4%BB%8B"><span class="nav-number">1.2.</span> <span class="nav-text">Anaconda 開發工具簡介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B7%A8%E8%BC%AF%E5%99%A8%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.3.</span> <span class="nav-text">編輯器介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-%E5%9F%BA%E6%9C%AC%E8%AA%9E%E6%B3%95%E7%B0%A1%E4%BB%8B"><span class="nav-number">1.4.</span> <span class="nav-text">Python 基本語法簡介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8%E3%80%81%E8%A8%BB%E8%A7%A3%E3%80%81%E9%81%8B%E7%AE%97%E5%AD%90"><span class="nav-number">1.4.1.</span> <span class="nav-text">變數、註解、運算子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8-Variable"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">變數(Variable)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A7%A3-Comment"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">註解(Comment)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%81%8B%E7%AE%97%E5%AD%90"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">運算子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B8%E5%AD%97%E3%80%81%E5%AD%97%E4%B8%B2"><span class="nav-number">1.4.2.</span> <span class="nav-text">數字、字串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B8%E5%AD%97-Number"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">數字(Number)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2-String"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">字串(String)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2%E7%B4%A2%E5%BC%95"><span class="nav-number">1.4.2.2.1.</span> <span class="nav-text">字串索引</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2%E6%94%AF%E6%8F%B4%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.2.2.2.</span> <span class="nav-text">字串支援的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%99%E6%BA%96%E8%BC%B8%E5%85%A5%E8%BC%B8%E5%87%BA"><span class="nav-number">1.4.3.</span> <span class="nav-text">標準輸入輸出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%99%E6%BA%96%E8%BC%B8%E5%85%A5input-%E5%92%8C%E8%BC%B8%E5%87%BAPrint"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">標準輸入input()和輸出Print()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#print-%E5%87%BD%E5%BC%8F"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">print 函式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%85%83%E7%B5%84"><span class="nav-number">1.4.4.</span> <span class="nav-text">列表、字典、集合、元組</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%97%E8%A1%A8-List"><span class="nav-number">1.4.4.1.</span> <span class="nav-text">列表(List)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E7%94%9F%E6%88%90%E5%BC%8F"><span class="nav-number">1.4.4.1.1.</span> <span class="nav-text">列表生成式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A5%97%E7%94%A8List-%E6%96%BC%E5%AD%97%E4%B8%B2%E4%B8%AD"><span class="nav-number">1.4.4.1.2.</span> <span class="nav-text">套用List 於字串中</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#List%E7%B4%A2%E5%BC%95"><span class="nav-number">1.4.4.1.3.</span> <span class="nav-text">List索引</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E7%B6%ADList"><span class="nav-number">1.4.4.1.4.</span> <span class="nav-text">二維List</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#List%E7%9A%84%E8%B3%A6%E5%80%BC-Assignment"><span class="nav-number">1.4.4.1.5.</span> <span class="nav-text">List的賦值(Assignment)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#List%E6%94%AF%E6%8F%B4%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.4.1.6.</span> <span class="nav-text">List支援的方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E5%85%B8-Dictionary"><span class="nav-number">1.4.4.2.</span> <span class="nav-text">字典(Dictionary)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9B%86%E5%90%88-Sets"><span class="nav-number">1.4.4.3.</span> <span class="nav-text">集合(Sets)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%B5%84-Tuples"><span class="nav-number">1.4.4.4.</span> <span class="nav-text">元組(Tuples)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7-Condition"><span class="nav-number">1.4.5.</span> <span class="nav-text">條件判斷(Condition)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if%E2%80%A6elif%E2%80%A6else-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">1.4.5.1.</span> <span class="nav-text">if…elif…else 流程控制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%B4%E5%9C%88-Loop"><span class="nav-number">1.5.</span> <span class="nav-text">迴圈(Loop)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#break%E5%92%8Ccontinue"><span class="nav-number">1.5.1.</span> <span class="nav-text">break和continue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while-%E8%BF%B4%E5%9C%88"><span class="nav-number">1.5.2.</span> <span class="nav-text">while 迴圈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F-Function"><span class="nav-number">1.6.</span> <span class="nav-text">函式(Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E8%A8%82%E5%87%BD%E5%BC%8F"><span class="nav-number">1.6.1.</span> <span class="nav-text">自訂函式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A7%E5%BB%BA%E5%87%BD%E5%BC%8F"><span class="nav-number">1.6.2.</span> <span class="nav-text">內建函式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E7%B5%84-Module"><span class="nav-number">1.7.</span> <span class="nav-text">模組(Module)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#import-%E6%A8%A1%E7%B5%84"><span class="nav-number">1.7.1.</span> <span class="nav-text">import 模組</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#datetime-%E6%97%A5%E6%9C%9F%E6%99%82%E9%96%93%E6%A8%A1%E7%B5%84"><span class="nav-number">1.7.2.</span> <span class="nav-text">datetime 日期時間模組</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#math%E6%95%B8%E5%AD%B8%E6%A8%A1%E7%B5%84"><span class="nav-number">1.7.3.</span> <span class="nav-text">math數學模組</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%94%E6%A1%88%E8%99%95%E7%90%86-File-Processing"><span class="nav-number">1.8.</span> <span class="nav-text">檔案處理(File Processing)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#os-path%E6%A8%A1%E7%B5%84"><span class="nav-number">1.8.1.</span> <span class="nav-text">os.path模組</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-%E5%87%BD%E6%95%B8"><span class="nav-number">1.8.2.</span> <span class="nav-text">open()函數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%80%E5%8F%96%E6%AA%94%E6%A1%88"><span class="nav-number">1.8.3.</span> <span class="nav-text">讀取檔案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%AB%E5%85%A5%E6%AA%94%E6%A1%88"><span class="nav-number">1.8.4.</span> <span class="nav-text">寫入檔案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%A4%96%E8%99%95%E7%90%86-Exception-handling"><span class="nav-number">1.8.5.</span> <span class="nav-text">例外處理(Exception handling)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B-%E5%89%AA%E5%88%80%E3%80%81%E7%9F%B3%E9%A0%AD%E3%80%81%E5%B8%83"><span class="nav-number">1.9.</span> <span class="nav-text">範例-剪刀、石頭、布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%89%88%EF%BC%9A%E6%96%87%E5%AD%97%E8%BC%B8%E5%85%A5%E3%80%81%E6%96%87%E5%AD%97%E8%BC%B8%E5%87%BA"><span class="nav-number">1.9.1.</span> <span class="nav-text">第一版：文字輸入、文字輸出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%9A%E8%AA%9E%E9%9F%B3%E8%BC%B8%E5%85%A5%E3%80%81%E6%96%87%E5%AD%97%E8%BC%B8%E5%87%BA"><span class="nav-number">1.9.2.</span> <span class="nav-text">第二版：語音輸入、文字輸出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%89%88%EF%BC%9A%E8%AA%9E%E9%9F%B3%E8%BC%B8%E5%85%A5%E3%80%81%E8%AA%9E%E9%9F%B3%E8%BC%B8%E5%87%BA"><span class="nav-number">1.9.3.</span> <span class="nav-text">第三版：語音輸入、語音輸出</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E3%80%90DAY-2%E3%80%91Python%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90-2019-11-05"><span class="nav-number">2.</span> <span class="nav-text">【DAY 2】Python與大數據資料分析(2019&#x2F;11&#x2F;05)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-%E7%B6%B2%E8%B7%AF%E7%88%AC%E8%9F%B2%E7%B0%A1%E4%BB%8B"><span class="nav-number">2.1.</span> <span class="nav-text">Python 網路爬蟲簡介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B6%B2%E8%B7%AF%E7%88%AC%E8%9F%B2-Web-Crawler"><span class="nav-number">2.1.1.</span> <span class="nav-text">網路爬蟲(Web Crawler)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B6%B2%E8%B7%AF%E7%88%AC%E8%9F%B2%E6%AD%A5%E9%A9%9F"><span class="nav-number">2.1.2.</span> <span class="nav-text">網路爬蟲步驟</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pandas%E5%A5%97%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">pandas套件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pandas%E7%B0%A1%E4%BB%8B"><span class="nav-number">2.2.1.</span> <span class="nav-text">pandas簡介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandas%E5%8F%AF%E4%BB%A5%E8%99%95%E7%90%86%E7%9A%84%E8%A1%A8%E6%A0%BC%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.2.2.</span> <span class="nav-text">Pandas可以處理的表格形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandas-I-O%E8%AE%80%E5%8F%96%E5%92%8C%E5%AF%AB%E5%85%A5%E8%A1%A8%E6%A0%BC"><span class="nav-number">2.2.3.</span> <span class="nav-text">Pandas I&#x2F;O讀取和寫入表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandas-%E5%9F%BA%E6%9C%AC%E8%B3%87%E6%96%99"><span class="nav-number">2.2.4.</span> <span class="nav-text">Pandas 基本資料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandas%E4%B9%8B%E6%93%8D%E4%BD%9C"><span class="nav-number">2.2.5.</span> <span class="nav-text">Pandas之操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B-%E5%8F%B0%E7%81%A3%E9%8A%80%E8%A1%8C%E7%89%8C%E5%91%8A%E5%8C%AF%E7%8E%87%E7%AF%84%E4%BE%8B"><span class="nav-number">2.3.</span> <span class="nav-text">範例-台灣銀行牌告匯率範例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beautifulsoup4-%E5%A5%97%E4%BB%B6"><span class="nav-number">2.4.</span> <span class="nav-text">beautifulsoup4 套件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Beautifulsoup4-%E7%B0%A1%E4%BB%8B"><span class="nav-number">2.4.1.</span> <span class="nav-text">Beautifulsoup4 簡介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%8D%E8%AD%98%E7%B6%B2%E9%A0%81%E6%A0%BC%E5%BC%8F-HTML%E6%AA%94"><span class="nav-number">2.4.2.</span> <span class="nav-text">認識網頁格式(HTML檔)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B6%B2%E9%A0%81%E7%9A%84%E7%B5%84%E6%88%90"><span class="nav-number">2.4.3.</span> <span class="nav-text">網頁的組成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-%E8%A7%A3%E6%9E%90"><span class="nav-number">2.4.4.</span> <span class="nav-text">HTML 解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeautifulSoup-Parser"><span class="nav-number">2.4.5.</span> <span class="nav-text">BeautifulSoup Parser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-Cascading-Style-Sheets-Selector"><span class="nav-number">2.4.6.</span> <span class="nav-text">CSS(Cascading Style Sheets) Selector</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#re%E5%A5%97%E4%BB%B6%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">re套件正規表達法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E6%B3%95%E7%AC%A6%E8%99%9F%E4%B9%8B%E6%84%8F%E7%BE%A9"><span class="nav-number">2.5.1.</span> <span class="nav-text">正規表達法符號之意義</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regular-Expression%E7%AF%84%E4%BE%8B"><span class="nav-number">2.5.2.</span> <span class="nav-text">Regular Expression範例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#re%E5%A5%97%E4%BB%B6%E7%B0%A1%E4%BB%8B"><span class="nav-number">2.5.3.</span> <span class="nav-text">re套件簡介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#requests%E5%A5%97%E4%BB%B6"><span class="nav-number">2.6.</span> <span class="nav-text">requests套件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET-vs-POST"><span class="nav-number">2.6.1.</span> <span class="nav-text">GET vs. POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B-%E5%8F%B0%E7%81%A3%E9%8A%80%E8%A1%8C%E6%AD%B7%E5%8F%B2%E7%89%8C%E5%91%8A%E5%8C%AF%E7%8E%87%E6%9F%A5%E8%A9%A2%E7%88%AC%E5%8F%96"><span class="nav-number">2.6.2.</span> <span class="nav-text">範例-台灣銀行歷史牌告匯率查詢爬取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B-%E8%98%8B%E6%9E%9C%E5%8D%B3%E6%99%82%E6%96%B0%E8%81%9E"><span class="nav-number">2.6.3.</span> <span class="nav-text">範例-蘋果即時新聞</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E8%98%8B%E6%9E%9C%E6%96%B0%E8%81%9E%E5%88%97%E8%A1%A8%E7%88%AC%E5%8F%96"><span class="nav-number">2.6.3.1.</span> <span class="nav-text">1.蘋果新聞列表爬取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%98%8B%E6%9E%9C%E6%96%B0%E8%81%9E%E5%85%A7%E6%96%87%E7%88%AC%E5%8F%96"><span class="nav-number">2.6.3.2.</span> <span class="nav-text">2.蘋果新聞內文爬取</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#datetime%E5%A5%97%E4%BB%B6"><span class="nav-number">2.6.4.</span> <span class="nav-text">datetime套件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-requests-get"><span class="nav-number">2.6.5.</span> <span class="nav-text">如何使用 requests.get</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E3%80%90DAY-3%E3%80%91Python%E8%88%87%E5%A4%A7%E6%95%B8%E6%93%9A%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90-2019-11-12"><span class="nav-number">3.</span> <span class="nav-text">【DAY 3】Python與大數據資料分析(2019&#x2F;11&#x2F;12)</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yong Cheng（永成）"
+      src="https://i.imgur.com/He56zkY.png">
+  <p class="site-author-name" itemprop="name">Yong Cheng（永成）</p>
+  <div class="site-description" itemprop="description">這是永成的學習路程之紀錄。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yong Cheng（永成）</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='195,195,195' opacity='1' zIndex='-1' count='50' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
