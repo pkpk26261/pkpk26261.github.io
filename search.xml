@@ -171,44 +171,6 @@
       </tags>
   </entry>
   <entry>
-    <title>OpenCV 程式指令整理</title>
-    <url>/2020/01/24/OpenCV%20%E7%A8%8B%E5%BC%8F%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<p>這裡整理紀錄 OpenCV 的程式指令，若有新的我會持續更新。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<ol>
-<li><p>讀取圖片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">&quot;test.jpg&quot;</span>) <span class="comment"># img = test.jpg</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>讀取影片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vc=cv2.VideoCapture(<span class="string">&quot;output.mp4&quot;</span>) <span class="comment">#vc = output.mp4</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>等待任何按鍵</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>顯示視窗</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># (&quot;視窗名稱&quot;,要顯示的圖片或影片)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>關閉顯示視窗</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.destroyAllWindows(<span class="string">&quot;test&quot;</span>) <span class="comment"># 關閉指定的&quot;test&quot;視窗</span></span><br><span class="line">cv2.destroyAllWindows()  <span class="comment"># 關閉全部視窗</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自由調整視窗大小</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.namedWindow(<span class="string">&#x27;test&#x27;</span>, cv2.WINDOW_NORMAL) <span class="comment"># 讓視窗可以自由縮放大小</span></span><br><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># 顯示視窗</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>寫入圖片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 寫入圖檔</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寫入不同圖檔格式...</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img)</span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.tiff&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 JPEG 圖片品質為 90（可用值為 0 ~ 100）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img, [cv2.IMWRITE_JPEG_QUALITY, <span class="number">90</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 PNG 壓縮層級為 5（可用值為 0 ~ 9）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img, [cv2.IMWRITE_PNG_COMPRESSION, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Python 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C# 初學者教學文章整理</title>
     <url>/2020/08/09/C%20sharp%20%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<p>C# 學習相關檔案下載參考，網址：<span class="exturl" data-url="aHR0cHM6Ly9nbXN0dWRlbnRuY3V0ZWR1dHctbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvZGE3MTIzMDJfZ21fc3R1ZGVudF9uY3V0X2VkdV90dy9FaHE0UHNqYk90UkRoWUxwQVg4UzZNSUJCcVNkUk41UFNSX25BeEpKVWJHQXBnP2U9UXZzaG1B">請點我一下<i class="fa fa-external-link-alt"></i></span> 。</p>
@@ -313,6 +275,184 @@
       </categories>
       <tags>
         <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenCV 程式指令整理</title>
+    <url>/2020/01/24/OpenCV%20%E7%A8%8B%E5%BC%8F%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>這裡整理紀錄 OpenCV 的程式指令，若有新的我會持續更新。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<ol>
+<li><p>讀取圖片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">&quot;test.jpg&quot;</span>) <span class="comment"># img = test.jpg</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>讀取影片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vc=cv2.VideoCapture(<span class="string">&quot;output.mp4&quot;</span>) <span class="comment">#vc = output.mp4</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>等待任何按鍵</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>顯示視窗</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># (&quot;視窗名稱&quot;,要顯示的圖片或影片)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>關閉顯示視窗</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.destroyAllWindows(<span class="string">&quot;test&quot;</span>) <span class="comment"># 關閉指定的&quot;test&quot;視窗</span></span><br><span class="line">cv2.destroyAllWindows()  <span class="comment"># 關閉全部視窗</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自由調整視窗大小</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.namedWindow(<span class="string">&#x27;test&#x27;</span>, cv2.WINDOW_NORMAL) <span class="comment"># 讓視窗可以自由縮放大小</span></span><br><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># 顯示視窗</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>寫入圖片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 寫入圖檔</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寫入不同圖檔格式...</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img)</span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.tiff&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 JPEG 圖片品質為 90（可用值為 0 ~ 100）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img, [cv2.IMWRITE_JPEG_QUALITY, <span class="number">90</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 PNG 壓縮層級為 5（可用值為 0 ~ 9）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img, [cv2.IMWRITE_PNG_COMPRESSION, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 與 Windows 雙系統安裝引導</title>
+    <url>/2020/05/03/Ubuntu%20install/</url>
+    <content><![CDATA[<p>這裡將教大家如何安裝Ubuntu。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<h1 id="下載ISO光碟映像檔"><a href="#下載ISO光碟映像檔" class="headerlink" title="下載ISO光碟映像檔"></a>下載ISO光碟映像檔</h1><p>至 Ubuntu 正體中文站 <span class="exturl" data-url="aHR0cHM6Ly93d3cudWJ1bnR1LXR3Lm9yZy9tb2R1bGVzL3RpbnlkMC8=">https://www.ubuntu-tw.org/modules/tinyd0/<i class="fa fa-external-link-alt"></i></span> 下載，<br>您想裝的系統版本，這裡我選擇的是 <code>20.04 LTS</code>(長期支援，穩定，五年支援)。<br><img src="/images/Ubuntu%E5%AE%89%E8%A3%9D/%E8%A8%BB%E8%A7%A32020-05-03-1.jpg" alt="官網下載介面"></p>
+<h1 id="ISO-to-USB"><a href="#ISO-to-USB" class="headerlink" title="ISO to USB"></a>ISO to USB</h1><p>至 Rufus 官網 <span class="exturl" data-url="aHR0cHM6Ly9ydWZ1cy5pZS8=">https://rufus.ie/<i class="fa fa-external-link-alt"></i></span> 下載應用程式。<br><img src="/images/Ubuntu%E5%AE%89%E8%A3%9D/%E8%A8%BB%E8%A7%A32020-05-03-2.jpg" alt="官網下載介面"></p>
+<h2 id="開始將-ISO-寫入USB"><a href="#開始將-ISO-寫入USB" class="headerlink" title="開始將 ISO 寫入USB"></a>開始將 ISO 寫入USB</h2><p><font color="red">注意以下步驟將會格式化USB的資料，請備份USB內資料或使用空的USB。</font></p>
+<ol>
+<li><p>選擇裝置<code>USB</code>，再將開機模式選擇為<code>FreeDOS</code></p>
+<img src="/images/Ubuntu安裝/註解2020-05-03-3.jpg" style="margin-left:0px" height="720" >
+</li>
+<li><p>再選擇剛下載好的 <code>Ubuntu ISO 映像檔</code>，選擇完後，<br>確認下方<font color="blue">藍色框</font>是否選擇一樣的，確定好了之後，再按下方的 <code>執行</code>。</p>
+</li>
+</ol>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-4.jpg" style="margin-left:0px" height="720" >
+</li>
+</ul>
+<ol start="3">
+<li>若選擇執行後，跳出方框，一律選擇 <code>建議選項</code> 再按 <code>ok</code> 。</li>
+</ol>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-5.jpg" style="margin-left:0px" height="240" >
+
+</li>
+</ul>
+<h1 id="分割硬碟"><a href="#分割硬碟" class="headerlink" title="分割硬碟"></a>分割硬碟</h1><p><font color="red">若只想安裝一個系統 <code>Ubuntu</code> 此步驟可跳過。</font><br>進入Windows 10 <code>硬碟管理</code>，<br>請依自己電腦硬碟容量，自行分割硬碟大小。(我建議<code>(/)</code>至少要有50GB，<code>(Home)</code>則是自己決定囉!)<br>我這裡分割的是<code>100GB(SSD)</code>+<code>400GB(HDD)</code>。<br>註：100GB為<code>(/)</code>（類似於Ｃ槽系統碟），400GB為<code>(Home)</code>（類似於Ｄ槽資料碟）</p>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-6.jpg" style="margin-left:0px" height="480" ></li>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-7.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h1 id="進入BIOS選擇-USB-為啟動硬碟"><a href="#進入BIOS選擇-USB-為啟動硬碟" class="headerlink" title="進入BIOS選擇 USB 為啟動硬碟"></a>進入BIOS選擇 USB 為啟動硬碟</h1><p>此步驟我跳過，每個主機板的選擇介面不同。<br>不會的人，請自行<code>Google</code>，搜尋關鍵字為<code>BIOS選擇USB</code>。</p>
+<h1 id="進入-Ubuntu-安裝介面"><a href="#進入-Ubuntu-安裝介面" class="headerlink" title="進入 Ubuntu 安裝介面"></a>進入 Ubuntu 安裝介面</h1><h2 id="選擇系統語言"><a href="#選擇系統語言" class="headerlink" title="選擇系統語言"></a>選擇系統語言</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-8.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="選擇鍵盤配置"><a href="#選擇鍵盤配置" class="headerlink" title="選擇鍵盤配置"></a>選擇鍵盤配置</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-9.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="選擇更新及其他選項"><a href="#選擇更新及其他選項" class="headerlink" title="選擇更新及其他選項"></a>選擇更新及其他選項</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-10.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="選擇其它"><a href="#選擇其它" class="headerlink" title="選擇其它"></a>選擇<code>其它</code></h2><p><font color="red">若想安裝一個系統而已，則選擇<code>清除磁碟並安裝Ubuntu</code></font></p>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-11.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="選擇硬碟"><a href="#選擇硬碟" class="headerlink" title="選擇硬碟"></a>選擇硬碟</h2><p>由於我用VMware截圖，所以跟我當初說的分割數字不一樣，請見諒。<br>&ensp;<br>選擇剛分割好的硬碟，點選左下 <code>+</code> 符號，建立分割區，詳情請看圖。<br>註：100GB為<code>(/)</code>（類似於Ｃ槽系統碟），400GB為<code>(Home)</code>（類似於Ｄ槽資料碟）</p>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-12.jpg" style="margin-left:0px" height="480" >
+</li>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-13.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<p>選擇<code>繼續</code>。</p>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-14.jpg" style="margin-left:0px" height="360" >
+
+</li>
+</ul>
+<h2 id="選擇時區"><a href="#選擇時區" class="headerlink" title="選擇時區"></a>選擇時區</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-15.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="設定用戶及密碼"><a href="#設定用戶及密碼" class="headerlink" title="設定用戶及密碼"></a>設定用戶及密碼</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-16.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="等待安裝過程"><a href="#等待安裝過程" class="headerlink" title="等待安裝過程"></a>等待安裝過程</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-17.jpg" style="margin-left:0px" height="480" >
+
+</li>
+</ul>
+<h2 id="安裝完成，重啟電腦"><a href="#安裝完成，重啟電腦" class="headerlink" title="安裝完成，重啟電腦"></a>安裝完成，重啟電腦</h2><ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-18.jpg" style="margin-left:0px" height="120" >
+
+</li>
+</ul>
+<h2 id="拔除USB"><a href="#拔除USB" class="headerlink" title="拔除USB"></a>拔除USB</h2><p>此步驟可安全拔除USB，拔除後，按<code>Enter</code>重啟後便安裝完成。</p>
+<ul>
+<li><img src="/images/Ubuntu安裝/註解2020-05-03-19.jpg" style="margin-left:0px" height="240" >
+
+</li>
+</ul>
+<h2 id="開機選單"><a href="#開機選單" class="headerlink" title="開機選單"></a>開機選單</h2><p>雙系統安裝完成後，會有開機選單。<br><code>第一個選項是Ubuntu</code>，<code>第三個選項是windows</code>，<code>第四個選項是BIOS</code>。</p>
+<p>單系統也是有開機選單，<br><code>第一個選項是Ubuntu</code>，<code>第三個選項是BIOS</code>。</p>
+<h1 id="更改開機默認選單"><a href="#更改開機默認選單" class="headerlink" title="更改開機默認選單"></a>更改開機默認選單</h1><h2 id="查看windows位址"><a href="#查看windows位址" class="headerlink" title="查看windows位址"></a>查看windows位址</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo cat &#x2F;boot&#x2F;grub&#x2F;grub.cfg | grep windows</span><br></pre></td></tr></table></figure>
+<ul>
+<li><img src="/images/Ubuntu安裝/設定開機/2020-05-03 14-56-17 的螢幕擷圖.png" style="margin-left:0px" height="360" >
+首先要先知道自己的 Windows 系統的開機名字和裝在哪個磁碟，所以打入上述指令並且複製引號內的文字供等會使用。
+
+</li>
+</ul>
+<h2 id="更改配置"><a href="#更改配置" class="headerlink" title="更改配置"></a>更改配置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;default&#x2F;grub</span><br></pre></td></tr></table></figure>
+<p>接著用指令打開 GRUB 的設定檔，<br>將 GRUB_DEFAULT=0 後方的數值改為剛剛複製的 Windows 開機名稱後儲存，如下圖所示。</p>
+<ul>
+<li><img src="/images/Ubuntu安裝/設定開機/2020-05-03 14-57-30 的螢幕擷圖.png" style="margin-left:0px" height="360" >
+
+
+</li>
+</ul>
+<h2 id="更新設置"><a href="#更新設置" class="headerlink" title="更新設置"></a>更新設置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo update-grub</span><br><span class="line">sudo update-initramfs -u -k all</span><br></pre></td></tr></table></figure>
+
+<p>這邊提供另一個方法，就是進入 BIOS 直接改變開機順序，將默認第一順位改為 Windows Boot Manager。</p>
+<ul>
+<li><img src="/images/Ubuntu安裝/設定開機/2020-05-03 15-00-03 的螢幕擷圖.png" style="margin-left:0px" height="360" >
+然後就對剛剛的 GRUB 開機選單的改變寫入 Ubuntu 系統，下一次重開機時就會預設為 Windows 系統了。
+
+
+
+</li>
+</ul>
+<h1 id="設定Windows與Ubuntu時區同步"><a href="#設定Windows與Ubuntu時區同步" class="headerlink" title="設定Windows與Ubuntu時區同步"></a>設定Windows與Ubuntu時區同步</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install ntpdate</span><br><span class="line">sudo ntpdate time.windows.com</span><br><span class="line"></span><br><span class="line">sudo hwclock --localtime --systohc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><img src="/images/Ubuntu安裝/時間同步/2020-05-03 15-00-56 的螢幕擷圖.png" style="margin-left:0px" height="360" ></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>系統</tag>
       </tags>
   </entry>
   <entry>
@@ -525,146 +665,6 @@
       </categories>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu 與 Windows 雙系統安裝引導</title>
-    <url>/2020/05/03/Ubuntu%20install/</url>
-    <content><![CDATA[<p>這裡將教大家如何安裝Ubuntu。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<h1 id="下載ISO光碟映像檔"><a href="#下載ISO光碟映像檔" class="headerlink" title="下載ISO光碟映像檔"></a>下載ISO光碟映像檔</h1><p>至 Ubuntu 正體中文站 <span class="exturl" data-url="aHR0cHM6Ly93d3cudWJ1bnR1LXR3Lm9yZy9tb2R1bGVzL3RpbnlkMC8=">https://www.ubuntu-tw.org/modules/tinyd0/<i class="fa fa-external-link-alt"></i></span> 下載，<br>您想裝的系統版本，這裡我選擇的是 <code>20.04 LTS</code>(長期支援，穩定，五年支援)。<br><img src="/images/Ubuntu%E5%AE%89%E8%A3%9D/%E8%A8%BB%E8%A7%A32020-05-03-1.jpg" alt="官網下載介面"></p>
-<h1 id="ISO-to-USB"><a href="#ISO-to-USB" class="headerlink" title="ISO to USB"></a>ISO to USB</h1><p>至 Rufus 官網 <span class="exturl" data-url="aHR0cHM6Ly9ydWZ1cy5pZS8=">https://rufus.ie/<i class="fa fa-external-link-alt"></i></span> 下載應用程式。<br><img src="/images/Ubuntu%E5%AE%89%E8%A3%9D/%E8%A8%BB%E8%A7%A32020-05-03-2.jpg" alt="官網下載介面"></p>
-<h2 id="開始將-ISO-寫入USB"><a href="#開始將-ISO-寫入USB" class="headerlink" title="開始將 ISO 寫入USB"></a>開始將 ISO 寫入USB</h2><p><font color="red">注意以下步驟將會格式化USB的資料，請備份USB內資料或使用空的USB。</font></p>
-<ol>
-<li><p>選擇裝置<code>USB</code>，再將開機模式選擇為<code>FreeDOS</code></p>
-<img src="/images/Ubuntu安裝/註解2020-05-03-3.jpg" style="margin-left:0px" height="720" >
-</li>
-<li><p>再選擇剛下載好的 <code>Ubuntu ISO 映像檔</code>，選擇完後，<br>確認下方<font color="blue">藍色框</font>是否選擇一樣的，確定好了之後，再按下方的 <code>執行</code>。</p>
-</li>
-</ol>
-<ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-4.jpg" style="margin-left:0px" height="720" >
-</li>
-</ul>
-<ol start="3">
-<li>若選擇執行後，跳出方框，一律選擇 <code>建議選項</code> 再按 <code>ok</code> 。</li>
-</ol>
-<ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-5.jpg" style="margin-left:0px" height="240" >
-
-</li>
-</ul>
-<h1 id="分割硬碟"><a href="#分割硬碟" class="headerlink" title="分割硬碟"></a>分割硬碟</h1><p><font color="red">若只想安裝一個系統 <code>Ubuntu</code> 此步驟可跳過。</font><br>進入Windows 10 <code>硬碟管理</code>，<br>請依自己電腦硬碟容量，自行分割硬碟大小。(我建議<code>(/)</code>至少要有50GB，<code>(Home)</code>則是自己決定囉!)<br>我這裡分割的是<code>100GB(SSD)</code>+<code>400GB(HDD)</code>。<br>註：100GB為<code>(/)</code>（類似於Ｃ槽系統碟），400GB為<code>(Home)</code>（類似於Ｄ槽資料碟）</p>
-<ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-6.jpg" style="margin-left:0px" height="480" ></li>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-7.jpg" style="margin-left:0px" height="480" >
-
-</li>
-</ul>
-<h1 id="進入BIOS選擇-USB-為啟動硬碟"><a href="#進入BIOS選擇-USB-為啟動硬碟" class="headerlink" title="進入BIOS選擇 USB 為啟動硬碟"></a>進入BIOS選擇 USB 為啟動硬碟</h1><p>此步驟我跳過，每個主機板的選擇介面不同。<br>不會的人，請自行<code>Google</code>，搜尋關鍵字為<code>BIOS選擇USB</code>。</p>
-<h1 id="進入-Ubuntu-安裝介面"><a href="#進入-Ubuntu-安裝介面" class="headerlink" title="進入 Ubuntu 安裝介面"></a>進入 Ubuntu 安裝介面</h1><h2 id="選擇系統語言"><a href="#選擇系統語言" class="headerlink" title="選擇系統語言"></a>選擇系統語言</h2><ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-8.jpg" style="margin-left:0px" height="480" >
-
-</li>
-</ul>
-<h2 id="選擇鍵盤配置"><a href="#選擇鍵盤配置" class="headerlink" title="選擇鍵盤配置"></a>選擇鍵盤配置</h2><ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-9.jpg" style="margin-left:0px" height="480" >
-
-</li>
-</ul>
-<h2 id="選擇更新及其他選項"><a href="#選擇更新及其他選項" class="headerlink" title="選擇更新及其他選項"></a>選擇更新及其他選項</h2><ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-10.jpg" style="margin-left:0px" height="480" >
-
-</li>
-</ul>
-<h2 id="選擇其它"><a href="#選擇其它" class="headerlink" title="選擇其它"></a>選擇<code>其它</code></h2><p><font color="red">若想安裝一個系統而已，則選擇<code>清除磁碟並安裝Ubuntu</code></font></p>
-<ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-11.jpg" style="margin-left:0px" height="480" >
-
-</li>
-</ul>
-<h2 id="選擇硬碟"><a href="#選擇硬碟" class="headerlink" title="選擇硬碟"></a>選擇硬碟</h2><p>由於我用VMware截圖，所以跟我當初說的分割數字不一樣，請見諒。<br>&ensp;<br>選擇剛分割好的硬碟，點選左下 <code>+</code> 符號，建立分割區，詳情請看圖。<br>註：100GB為<code>(/)</code>（類似於Ｃ槽系統碟），400GB為<code>(Home)</code>（類似於Ｄ槽資料碟）</p>
-<ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-12.jpg" style="margin-left:0px" height="480" >
-</li>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-13.jpg" style="margin-left:0px" height="480" >
-
-</li>
-</ul>
-<p>選擇<code>繼續</code>。</p>
-<ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-14.jpg" style="margin-left:0px" height="360" >
-
-</li>
-</ul>
-<h2 id="選擇時區"><a href="#選擇時區" class="headerlink" title="選擇時區"></a>選擇時區</h2><ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-15.jpg" style="margin-left:0px" height="480" >
-
-</li>
-</ul>
-<h2 id="設定用戶及密碼"><a href="#設定用戶及密碼" class="headerlink" title="設定用戶及密碼"></a>設定用戶及密碼</h2><ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-16.jpg" style="margin-left:0px" height="480" >
-
-</li>
-</ul>
-<h2 id="等待安裝過程"><a href="#等待安裝過程" class="headerlink" title="等待安裝過程"></a>等待安裝過程</h2><ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-17.jpg" style="margin-left:0px" height="480" >
-
-</li>
-</ul>
-<h2 id="安裝完成，重啟電腦"><a href="#安裝完成，重啟電腦" class="headerlink" title="安裝完成，重啟電腦"></a>安裝完成，重啟電腦</h2><ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-18.jpg" style="margin-left:0px" height="120" >
-
-</li>
-</ul>
-<h2 id="拔除USB"><a href="#拔除USB" class="headerlink" title="拔除USB"></a>拔除USB</h2><p>此步驟可安全拔除USB，拔除後，按<code>Enter</code>重啟後便安裝完成。</p>
-<ul>
-<li><img src="/images/Ubuntu安裝/註解2020-05-03-19.jpg" style="margin-left:0px" height="240" >
-
-</li>
-</ul>
-<h2 id="開機選單"><a href="#開機選單" class="headerlink" title="開機選單"></a>開機選單</h2><p>雙系統安裝完成後，會有開機選單。<br><code>第一個選項是Ubuntu</code>，<code>第三個選項是windows</code>，<code>第四個選項是BIOS</code>。</p>
-<p>單系統也是有開機選單，<br><code>第一個選項是Ubuntu</code>，<code>第三個選項是BIOS</code>。</p>
-<h1 id="更改開機默認選單"><a href="#更改開機默認選單" class="headerlink" title="更改開機默認選單"></a>更改開機默認選單</h1><h2 id="查看windows位址"><a href="#查看windows位址" class="headerlink" title="查看windows位址"></a>查看windows位址</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo cat &#x2F;boot&#x2F;grub&#x2F;grub.cfg | grep windows</span><br></pre></td></tr></table></figure>
-<ul>
-<li><img src="/images/Ubuntu安裝/設定開機/2020-05-03 14-56-17 的螢幕擷圖.png" style="margin-left:0px" height="360" >
-首先要先知道自己的 Windows 系統的開機名字和裝在哪個磁碟，所以打入上述指令並且複製引號內的文字供等會使用。
-
-</li>
-</ul>
-<h2 id="更改配置"><a href="#更改配置" class="headerlink" title="更改配置"></a>更改配置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;default&#x2F;grub</span><br></pre></td></tr></table></figure>
-<p>接著用指令打開 GRUB 的設定檔，<br>將 GRUB_DEFAULT=0 後方的數值改為剛剛複製的 Windows 開機名稱後儲存，如下圖所示。</p>
-<ul>
-<li><img src="/images/Ubuntu安裝/設定開機/2020-05-03 14-57-30 的螢幕擷圖.png" style="margin-left:0px" height="360" >
-
-
-</li>
-</ul>
-<h2 id="更新設置"><a href="#更新設置" class="headerlink" title="更新設置"></a>更新設置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo update-grub</span><br><span class="line">sudo update-initramfs -u -k all</span><br></pre></td></tr></table></figure>
-
-<p>這邊提供另一個方法，就是進入 BIOS 直接改變開機順序，將默認第一順位改為 Windows Boot Manager。</p>
-<ul>
-<li><img src="/images/Ubuntu安裝/設定開機/2020-05-03 15-00-03 的螢幕擷圖.png" style="margin-left:0px" height="360" >
-然後就對剛剛的 GRUB 開機選單的改變寫入 Ubuntu 系統，下一次重開機時就會預設為 Windows 系統了。
-
-
-
-</li>
-</ul>
-<h1 id="設定Windows與Ubuntu時區同步"><a href="#設定Windows與Ubuntu時區同步" class="headerlink" title="設定Windows與Ubuntu時區同步"></a>設定Windows與Ubuntu時區同步</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install ntpdate</span><br><span class="line">sudo ntpdate time.windows.com</span><br><span class="line"></span><br><span class="line">sudo hwclock --localtime --systohc</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><img src="/images/Ubuntu安裝/時間同步/2020-05-03 15-00-56 的螢幕擷圖.png" style="margin-left:0px" height="360" ></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>系統</tag>
       </tags>
   </entry>
   <entry>
