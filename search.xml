@@ -171,73 +171,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C# 初學者教學文章整理</title>
-    <url>/2020/08/09/C%20sharp%20%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<p>C# 學習相關檔案下載參考，網址：<a href="https://gmstudentncutedutw-my.sharepoint.com/:f:/g/personal/da712302_gm_student_ncut_edu_tw/Ehq4PsjbOtRDhYLpAX8S6MIBBqSdRN5PSR_nAxJJUbGApg?e=QvshmA">請點我一下</a> 。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<h1 id="使用註釋幫助閱讀代碼"><a href="#使用註釋幫助閱讀代碼" class="headerlink" title="使用註釋幫助閱讀代碼"></a>使用註釋幫助閱讀代碼</h1><blockquote>
-<p>資料參考專案 <code>Learning 01</code>。</p>
-</blockquote>
-<ol>
-<li>單行註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 單行註釋：幫助程序開發者用於閱讀代碼</span></span><br></pre></td></tr></table></figure></li>
-<li>多行註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 多行註釋：幫助程序開發者用於閱讀代碼</span></span><br><span class="line"><span class="comment">   多行註釋：幫助程序開發者用於閱讀代碼</span></span><br><span class="line"><span class="comment">   多行註釋：幫助程序開發者用於閱讀代碼 */</span></span><br></pre></td></tr></table></figure></li>
-<li>摺疊註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 摺疊註釋</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure></li>
-<li>文檔註釋<br> 當滑鼠指標移動到Tset文字時，視窗註釋會顯示<code>文檔註釋</code>。<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 文檔註釋</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h1 id="占位符的使用型態"><a href="#占位符的使用型態" class="headerlink" title="占位符的使用型態"></a>占位符的使用型態</h1><blockquote>
-<p>資料參考專案 <code>Learning 02</code>。</p>
-</blockquote>
-<p>資料型態值：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number;                          <span class="comment">// 宣告int類別的變數</span></span><br><span class="line">number = <span class="number">1000</span>;                       <span class="comment">// number可分行建置數字</span></span><br><span class="line"><span class="keyword">double</span> Decimalpoint = <span class="number">999.0000001</span>;   <span class="comment">// 宣告double類別的變數</span></span><br><span class="line"><span class="keyword">char</span> print = <span class="string">&#x27;字&#x27;</span>;                   <span class="comment">// 單個字符，用&#x27;單引號&#x27;</span></span><br><span class="line"><span class="keyword">string</span> Type = <span class="string">&quot;我是文字&quot;</span>;            <span class="comment">// 字串，用&quot;雙引號&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><p>（方法１）一般用法：(字符加字符=拼接；數字加數字=運算)<br> &ensp;<code>char print</code>  &ensp;的<code>print</code>，不能放在數字後面。<br> &ensp;<code>string Type</code> 的<code>Type</code> ，可放在數字後面。</p>
- <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.WriteLine(number + Decimalpoint + <span class="string">&quot; &quot;</span> + Type + print);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>（方法２） 占位符用法：(“{0}、{1}、{2}、{3}、{4}”,  0, 1, 2, 3, 4);</p>
- <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.WriteLine(<span class="string">&quot;數字:&#123;0&#125;  , 小數點:&#123;1&#125;  , 字符:&#123;2&#125;  , 字串:&#123;3&#125;&quot;</span>, number, Decimalpoint, print, Type);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li><h2 id="輸出顯示字元"><a href="#輸出顯示字元" class="headerlink" title="輸出顯示字元"></a>輸出顯示字元</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.WriteLine(<span class="string">&quot;Hello World!&quot;</span>);   <span class="comment">// 印字</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><h2 id="鍵盤輸入字元"><a href="#鍵盤輸入字元" class="headerlink" title="鍵盤輸入字元"></a>鍵盤輸入字元</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Read();                      <span class="comment">// 等待輸入</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="資料命名"><a href="#資料命名" class="headerlink" title="資料命名"></a>資料命名</h1><blockquote>
-<p>資料參考專案 <code>Learning 03</code>。</p>
-</blockquote>
-<ol>
-<li>Pascal 帕斯卡命名：當有多個單字組成變量或方法時，每個單字的開頭字母要大寫。<br> (常用處：類名、屬性、方法名、接口) <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> UserNameTest;</span><br></pre></td></tr></table></figure></li>
-<li>駝峰命名：多個單字出現，首單字開頭字母要小寫，其餘單字開頭字母要大寫。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> nameYongCheng;</span><br></pre></td></tr></table></figure></li>
-<li>C# 變數：只能由數字，字母和下劃線組成，但是不能以數字做為變數開頭。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> _age1;</span><br></pre></td></tr></table></figure></li>
-<li>見名知意 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> name = <span class="string">&quot;黃永成&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h1 id="運算符的優先級別使用"><a href="#運算符的優先級別使用" class="headerlink" title="運算符的優先級別使用"></a>運算符的優先級別使用</h1><blockquote>
-<p>資料參考專案 <code>Learning 04</code>。</p>
-</blockquote>
-<ol>
-<li>算術運算符 <code>+</code>  <code>-</code>  <code>*</code>  <code>/</code>  <code>%</code><br> (加、減、乘、除、餘)</li>
-<li>關係運算符  <code>&gt;</code>  <code>&lt;</code>  <code>==</code>  <code>&gt;=</code>  <code>&lt;=</code>  <code>!=</code><br> (大於、小於、相同、大於等於、小於等於、不同)</li>
-<li>邏輯運算符  <code>&amp;&amp;</code>  <code>||</code>  <code>!</code><br> (and閘、or閘、not閘)</li>
-<li>賦值運算符  <code>=</code><br> (int number = 1;)</li>
-</ol>
-]]></content>
-      <categories>
-        <category>C# 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>OpenCV 程式指令整理</title>
     <url>/2020/01/24/OpenCV%20%E7%A8%8B%E5%BC%8F%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<p>這裡整理紀錄 OpenCV 的程式指令，若有新的我會持續更新。</p>
@@ -273,6 +206,113 @@
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C# 初學者教學文章整理</title>
+    <url>/2020/08/09/C%20sharp%20%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>C# 學習相關檔案下載參考，網址：<a href="https://gmstudentncutedutw-my.sharepoint.com/:f:/g/personal/da712302_gm_student_ncut_edu_tw/Ehq4PsjbOtRDhYLpAX8S6MIBBqSdRN5PSR_nAxJJUbGApg?e=QvshmA">請點我一下</a> 。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<h1 id="安裝和創建"><a href="#安裝和創建" class="headerlink" title="安裝和創建"></a>安裝和創建</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/f42_gfcWjcg?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="軟件安裝"><a href="#軟件安裝" class="headerlink" title="軟件安裝"></a>軟件安裝</h2><p>官網軟件下載：<a href="https://visualstudio.microsoft.com/zh-hant/downloads/">https://visualstudio.microsoft.com/zh-hant/downloads/</a></p>
+<ol>
+<li>選擇Visual Studio 2019 其中一個下載即可。</li>
+</ol>
+<ul>
+<li><img src="/images/Csharp%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/%E5%9C%96%E7%89%871.png"></li>
+</ul>
+<ol start="2">
+<li>C# 這邊用的是<code>.NET桌面開發</code>，如果還需要其他工作負載，可以自行選擇下載。</li>
+</ol>
+<ul>
+<li><img src="/images/Csharp%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/%E5%9C%96%E7%89%872.png"></li>
+</ul>
+<h2 id="項目安裝"><a href="#項目安裝" class="headerlink" title="項目安裝"></a>項目安裝</h2><h1 id="使用註釋幫助閱讀代碼"><a href="#使用註釋幫助閱讀代碼" class="headerlink" title="使用註釋幫助閱讀代碼"></a>使用註釋幫助閱讀代碼</h1><blockquote>
+<p>資料參考專案 <code>Learning 01</code>。</p>
+</blockquote>
+<iframe width="1195" height="672" src="https://www.youtube.com/embed/mYzVmExMPwg?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<ol>
+<li>單行註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 單行註釋：幫助程序開發者用於閱讀代碼</span></span><br></pre></td></tr></table></figure></li>
+<li>多行註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 多行註釋：幫助程序開發者用於閱讀代碼</span></span><br><span class="line"><span class="comment">   多行註釋：幫助程序開發者用於閱讀代碼</span></span><br><span class="line"><span class="comment">   多行註釋：幫助程序開發者用於閱讀代碼 */</span></span><br></pre></td></tr></table></figure></li>
+<li>摺疊註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 摺疊註釋</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure></li>
+<li>文檔註釋<br> 當滑鼠指標移動到Tset文字時，視窗註釋會顯示<code>文檔註釋</code>。<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 文檔註釋</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="變量理解與使用"><a href="#變量理解與使用" class="headerlink" title="變量理解與使用"></a>變量理解與使用</h1><blockquote>
+<p>資料參考專案 <code>Learning 02</code>。</p>
+</blockquote>
+<iframe width="1195" height="672" src="https://www.youtube.com/embed/RTIlomlgFsU?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>資料型態值：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number;                          <span class="comment">// 宣告int類別的變數</span></span><br><span class="line">number = <span class="number">1000</span>;                       <span class="comment">// number可分行建置數字</span></span><br><span class="line"><span class="keyword">double</span> Decimalpoint = <span class="number">999.0000001</span>;   <span class="comment">// 宣告double類別的變數</span></span><br><span class="line"><span class="keyword">char</span> print = <span class="string">&#x27;字&#x27;</span>;                   <span class="comment">// 單個字符，用&#x27;單引號&#x27;</span></span><br><span class="line"><span class="keyword">string</span> Type = <span class="string">&quot;我是文字&quot;</span>;            <span class="comment">// 字串，用&quot;雙引號&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>（方法１）一般用法：(字符加字符=拼接；數字加數字=運算)<br> &ensp;<code>char print</code>  &ensp;的<code>print</code>，不能放在數字後面。<br> &ensp;<code>string Type</code> 的<code>Type</code> ，可放在數字後面。</p>
+ <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.WriteLine(number + Decimalpoint + <span class="string">&quot; &quot;</span> + Type + print);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（方法２） 占位符用法：(“{0}、{1}、{2}、{3}、{4}”,  0, 1, 2, 3, 4);</p>
+ <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.WriteLine(<span class="string">&quot;數字:&#123;0&#125;  , 小數點:&#123;1&#125;  , 字符:&#123;2&#125;  , 字串:&#123;3&#125;&quot;</span>, number, Decimalpoint, print, Type);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><h2 id="輸出顯示字元"><a href="#輸出顯示字元" class="headerlink" title="輸出顯示字元"></a>輸出顯示字元</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Write(<span class="string">&quot;Hello World!&quot;</span>);       <span class="comment">// 印字</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;Hello World!&quot;</span>);   <span class="comment">// 換行印字</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h2 id="鍵盤輸入字元"><a href="#鍵盤輸入字元" class="headerlink" title="鍵盤輸入字元"></a>鍵盤輸入字元</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Read();                      <span class="comment">// 等待輸入</span></span><br><span class="line">Console.ReadLine(<span class="string">&quot;Hello World!&quot;</span>);    <span class="comment">// 換行輸入</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="變量的命名規則"><a href="#變量的命名規則" class="headerlink" title="變量的命名規則"></a>變量的命名規則</h1><blockquote>
+<p>資料參考專案 <code>Learning 03</code>。</p>
+</blockquote>
+<iframe width="1195" height="672" src="https://www.youtube.com/embed/O4wpCrbiJk8?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<ol>
+<li>Pascal 帕斯卡命名：當有多個單字組成變量或方法時，每個單字的開頭字母要大寫。<br> (常用處：類名、屬性、方法名、接口) <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> UserNameTest;</span><br></pre></td></tr></table></figure></li>
+<li>駝峰命名：多個單字出現，首單字開頭字母要小寫，其餘單字開頭字母要大寫。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> nameYongCheng;</span><br></pre></td></tr></table></figure></li>
+<li>C# 變數：只能由數字，字母和下劃線組成，但是不能以數字做為變數開頭。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> _age1;</span><br></pre></td></tr></table></figure></li>
+<li>見名知意 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> name = <span class="string">&quot;黃永成&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="運算符的優先級別使用"><a href="#運算符的優先級別使用" class="headerlink" title="運算符的優先級別使用"></a>運算符的優先級別使用</h1><blockquote>
+<p>資料參考專案 <code>Learning 04</code>。</p>
+</blockquote>
+<iframe width="1195" height="672" src="https://www.youtube.com/embed/1LV4vMuHfp0?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<ol>
+<li>算術運算符 <code>+</code>  <code>-</code>  <code>*</code>  <code>/</code>  <code>%</code><br> (加、減、乘、除、餘)</li>
+<li>關係運算符  <code>&gt;</code>  <code>&lt;</code>  <code>==</code>  <code>&gt;=</code>  <code>&lt;=</code>  <code>!=</code><br> (大於、小於、相同、大於等於、小於等於、不同)</li>
+<li>邏輯運算符  <code>&amp;&amp;</code>  <code>||</code>  <code>!</code><br> (and閘、or閘、not閘)</li>
+<li>賦值運算符  <code>=</code><br> (int number = 1;)</li>
+</ol>
+<h1 id="占位符的使用方式"><a href="#占位符的使用方式" class="headerlink" title="占位符的使用方式"></a>占位符的使用方式</h1><blockquote>
+<p>資料參考專案 <code>Learning 05</code>。</p>
+</blockquote>
+<iframe width="1195" height="672" src="https://www.youtube.com/embed/YoHWrQ5O-vM?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h1 id="if-else-判斷式的使用方式"><a href="#if-else-判斷式的使用方式" class="headerlink" title="if else 判斷式的使用方式"></a>if else 判斷式的使用方式</h1><blockquote>
+<p>資料參考專案 <code>Learning 06</code>。</p>
+</blockquote>
+<iframe width="1195" height="672" src="https://www.youtube.com/embed/_9cJE7Bu-X8?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>   假如條件是：<code>下雨天</code><br>   有下雨的話：<code>不出門</code><br>   沒下雨的話：<code>出門</code></p>
+<ul>
+<li>  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">bool</span> rain=<span class="literal">true</span>; <span class="comment">// 布林值: true真、false假</span></span><br><span class="line"><span class="keyword">if</span> (rain==<span class="literal">true</span>)</span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;不出門&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;要出門&quot;</span>); &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+]]></content>
+      <categories>
+        <category>C# 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
       </tags>
   </entry>
   <entry>
@@ -2067,7 +2107,7 @@
 <figure class="highlight m"><table><tr><td class="code"><pre><span class="line">$ hexo clean //清除舊發布設定</span><br><span class="line"></span><br><span class="line">$ hexo g //建立新發布設定</span><br><span class="line"></span><br><span class="line">$ hexo deploy // deploy 到伺服器</span><br><span class="line"></span><br><span class="line">$ hexo server // 在本地瀏覽網站內容 (預設 http://localhost:<span class="number">4000</span>)</span><br></pre></td></tr></table></figure>
 <p>&ensp;</p>
 <h3 id="步驟-4-安裝-Next-主題"><a href="#步驟-4-安裝-Next-主題" class="headerlink" title="步驟 4 : 安裝 Next 主題"></a>步驟 4 : 安裝 Next 主題</h3><p>Next <a href="https://github.com/theme-next/hexo-theme-next">連結</a><br>執行下方程式</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd &lt;name&gt;</span><br><span class="line">&#x2F;&#x2F; 切換到 &lt;name&gt;目錄 (必須與第三步驟的name相同名稱)</span><br><span class="line"></span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next.git themes&#x2F;next</span><br><span class="line">&#x2F;&#x2F; clone Next 主題專案到站點裡的themes資料夾中，並把主題專案改成名稱next。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd &lt;name&gt;</span><br><span class="line">&#x2F;&#x2F; 切換到 &lt;name&gt;目錄 (必須與第三步驟的name相同名稱)</span><br><span class="line"></span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next.git themes&#x2F;next</span><br><span class="line">&#x2F;&#x2F; clone Next 主題專案到站點裡的themes資料夾中，並把主題專案改成名稱next。</span><br></pre></td></tr></table></figure>
 
 <p>&ensp;</p>
 <h1 id="【注意】在開始調整下方設定和配置之前，必須先了解這個步驟"><a href="#【注意】在開始調整下方設定和配置之前，必須先了解這個步驟" class="headerlink" title="【注意】在開始調整下方設定和配置之前，必須先了解這個步驟"></a>【注意】在開始調整下方設定和配置之前，必須先了解這個步驟</h1><p>由於開始設定網頁，會有做出一些變更代碼的事情!<br>因為變更代碼，所以我們要確認每一個變更代碼步驟是否有做正確。<br>&ensp;<br>在這邊我建議大家可以開一個新的cmd終端機，cd進入到之前安裝hexo的目錄裡，<br>輸入 <code>hexo s</code> 或 <code>hexo server</code> 執行，在瀏覽器輸入網址<code>http://localhost:4000</code>，<br>(如果輸入網址沒有反應，那就代表你在這個段落的前面安裝沒有做好)<br>不用特意一直按 <strong>Ctrl+C</strong> 退出終端機，就一直讓這個終端機開著在背景運作就好了!!!<br>這樣才能在本機隨時查看網頁更新內容，當然這個網頁也是要記得在瀏覽器按 <code>F5</code> 做重新載入網頁才行。<br>除非有特殊狀況再重新輸入 <code>hexo s</code> 或 <code>hexo server</code> 執行，這樣會比較好。</p>
@@ -2154,7 +2194,7 @@
 <p>效果：<center><img src="/images/Github%E5%89%B5%E5%BB%BA%E9%83%A8%E8%90%BD%E6%A0%BC/%E5%9C%96%E7%89%87%E6%94%BE%E5%A4%A72.jpg"></center></p>
 <p>裡面還有幾個可以調整的地方，如有需要，將來會在新增介紹。<br>&ensp;</p>
 <h1 id="語言設定"><a href="#語言設定" class="headerlink" title="語言設定"></a>語言設定</h1><p>檢查<code>\themes\next\languages</code>目錄下有無<code>zh-TW.yml</code>，<br>**———–新版應該就沒有這個問題了———–**<br>若這個目錄下沒有這個檔案，請建立<code>zh-TW.yml</code>檔案，<br>內容請複製新增：**(以後若要改一些翻譯後的文字，可以在這裡更改)**</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">  archive: 歸檔</span><br><span class="line">  category: 分類</span><br><span class="line">  tag: 標籤</span><br><span class="line">  schedule: 時間表</span><br><span class="line">menu:</span><br><span class="line">  home: 首頁</span><br><span class="line">  archives: 歸檔</span><br><span class="line">  categories: 分類</span><br><span class="line">  tags: 標籤</span><br><span class="line">  about: 關於</span><br><span class="line">  search: 搜尋</span><br><span class="line">  schedule: 時間表</span><br><span class="line">  sitemap: 網站地圖</span><br><span class="line">  commonweal: 公益 404</span><br><span class="line">sidebar:</span><br><span class="line">  overview: 本站概要</span><br><span class="line">  toc: 文章目錄</span><br><span class="line">post:</span><br><span class="line">  posted: 發表於</span><br><span class="line">  edited: 更新於</span><br><span class="line">  created: 創建時間</span><br><span class="line">  modified: 修改時間</span><br><span class="line">  edit: 編輯</span><br><span class="line">  in: 分類於</span><br><span class="line">  more: 更多</span><br><span class="line">  read_more: 閱讀全文</span><br><span class="line">  untitled: 未命名</span><br><span class="line">  sticky: 置頂</span><br><span class="line">  views: 閱讀次數</span><br><span class="line">  related_posts: 相關文章</span><br><span class="line">  copy_button: 複製</span><br><span class="line">  copy_success: 複製成功</span><br><span class="line">  copy_failure: 複製失敗</span><br><span class="line">  copyright:</span><br><span class="line">    author: 作者</span><br><span class="line">    link: 文章連結</span><br><span class="line">    license_title: 版權聲明</span><br><span class="line">    license_content: &quot;本網誌所有文章除特別聲明外，均採用 %s 許可協議。轉載請註明出處！&quot;</span><br><span class="line">page:</span><br><span class="line">  totally: 共有</span><br><span class="line">  tags: 標籤</span><br><span class="line">footer:</span><br><span class="line">  powered: &quot;由 %s 強力驅動&quot;</span><br><span class="line">  theme: 主題</span><br><span class="line">  total_views: 總瀏覽次數</span><br><span class="line">  total_visitors: 訪客總數</span><br><span class="line">counter:</span><br><span class="line">  tag_cloud:</span><br><span class="line">    zero: 沒有標籤</span><br><span class="line">    one: 目前共有 1 個標籤</span><br><span class="line">    other: &quot;目前共有 %d 個標籤&quot;</span><br><span class="line">  categories:</span><br><span class="line">    zero: 沒有分類</span><br><span class="line">    one: 目前共有 1 個分類</span><br><span class="line">    other: &quot;目前共有 %d 個分類&quot;</span><br><span class="line">  archive_posts:</span><br><span class="line">    zero: 沒有文章。</span><br><span class="line">    one: 目前共有 1 篇文章。</span><br><span class="line">    other: &quot;目前共有 %d 篇文章。&quot;</span><br><span class="line">state:</span><br><span class="line">  posts: 文章</span><br><span class="line">  pages: 頁面</span><br><span class="line">  tags: 標籤</span><br><span class="line">  categories: 分類</span><br><span class="line">search:</span><br><span class="line">  placeholder: 搜尋...</span><br><span class="line">cheers:</span><br><span class="line">  um: 嗯..</span><br><span class="line">  ok: 還行</span><br><span class="line">  nice: 好</span><br><span class="line">  good: 很好</span><br><span class="line">  great: 非常好</span><br><span class="line">  excellent: 太棒了</span><br><span class="line">keep_on: 繼續努力。</span><br><span class="line">symbol:</span><br><span class="line">  comma: &quot;，&quot;</span><br><span class="line">  period: &quot;。&quot;</span><br><span class="line">  colon: &quot;：&quot;</span><br><span class="line">reward:</span><br><span class="line">  donate: 捐贈</span><br><span class="line">  wechatpay: 微信支付</span><br><span class="line">  alipay: 支付寶</span><br><span class="line">  bitcoin: 比特幣</span><br><span class="line">accessibility:</span><br><span class="line">  nav_toggle: 切換導航欄</span><br><span class="line">  prev_page: 上一頁</span><br><span class="line">  next_page: 下一頁</span><br><span class="line">symbols_count_time:</span><br><span class="line">  count: 文章字數</span><br><span class="line">  count_total: 總字數</span><br><span class="line">  time: 所需閱讀時間</span><br><span class="line">  time_total: 所需總閱讀時間</span><br><span class="line">  time_minutes: 分鐘</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">  archive: 歸檔</span><br><span class="line">  category: 分類</span><br><span class="line">  tag: 標籤</span><br><span class="line">  schedule: 時間表</span><br><span class="line">menu:</span><br><span class="line">  home: 首頁</span><br><span class="line">  archives: 歸檔</span><br><span class="line">  categories: 分類</span><br><span class="line">  tags: 標籤</span><br><span class="line">  about: 關於</span><br><span class="line">  search: 搜尋</span><br><span class="line">  schedule: 時間表</span><br><span class="line">  sitemap: 網站地圖</span><br><span class="line">  commonweal: 公益 404</span><br><span class="line">sidebar:</span><br><span class="line">  overview: 本站概要</span><br><span class="line">  toc: 文章目錄</span><br><span class="line">post:</span><br><span class="line">  posted: 發表於</span><br><span class="line">  edited: 更新於</span><br><span class="line">  created: 創建時間</span><br><span class="line">  modified: 修改時間</span><br><span class="line">  edit: 編輯</span><br><span class="line">  in: 分類於</span><br><span class="line">  more: 更多</span><br><span class="line">  read_more: 閱讀全文</span><br><span class="line">  untitled: 未命名</span><br><span class="line">  sticky: 置頂</span><br><span class="line">  views: 閱讀次數</span><br><span class="line">  related_posts: 相關文章</span><br><span class="line">  copy_button: 複製</span><br><span class="line">  copy_success: 複製成功</span><br><span class="line">  copy_failure: 複製失敗</span><br><span class="line">  copyright:</span><br><span class="line">    author: 作者</span><br><span class="line">    link: 文章連結</span><br><span class="line">    license_title: 版權聲明</span><br><span class="line">    license_content: &quot;本網誌所有文章除特別聲明外，均採用 %s 許可協議。轉載請註明出處！&quot;</span><br><span class="line">page:</span><br><span class="line">  totally: 共有</span><br><span class="line">  tags: 標籤</span><br><span class="line">footer:</span><br><span class="line">  powered: &quot;由 %s 強力驅動&quot;</span><br><span class="line">  theme: 主題</span><br><span class="line">  total_views: 總瀏覽次數</span><br><span class="line">  total_visitors: 訪客總數</span><br><span class="line">counter:</span><br><span class="line">  tag_cloud:</span><br><span class="line">    zero: 沒有標籤</span><br><span class="line">    one: 目前共有 1 個標籤</span><br><span class="line">    other: &quot;目前共有 %d 個標籤&quot;</span><br><span class="line">  categories:</span><br><span class="line">    zero: 沒有分類</span><br><span class="line">    one: 目前共有 1 個分類</span><br><span class="line">    other: &quot;目前共有 %d 個分類&quot;</span><br><span class="line">  archive_posts:</span><br><span class="line">    zero: 沒有文章。</span><br><span class="line">    one: 目前共有 1 篇文章。</span><br><span class="line">    other: &quot;目前共有 %d 篇文章。&quot;</span><br><span class="line">state:</span><br><span class="line">  posts: 文章</span><br><span class="line">  pages: 頁面</span><br><span class="line">  tags: 標籤</span><br><span class="line">  categories: 分類</span><br><span class="line">search:</span><br><span class="line">  placeholder: 搜尋...</span><br><span class="line">cheers:</span><br><span class="line">  um: 嗯..</span><br><span class="line">  ok: 還行</span><br><span class="line">  nice: 好</span><br><span class="line">  good: 很好</span><br><span class="line">  great: 非常好</span><br><span class="line">  excellent: 太棒了</span><br><span class="line">keep_on: 繼續努力。</span><br><span class="line">symbol:</span><br><span class="line">  comma: &quot;，&quot;</span><br><span class="line">  period: &quot;。&quot;</span><br><span class="line">  colon: &quot;：&quot;</span><br><span class="line">reward:</span><br><span class="line">  donate: 捐贈</span><br><span class="line">  wechatpay: 微信支付</span><br><span class="line">  alipay: 支付寶</span><br><span class="line">  bitcoin: 比特幣</span><br><span class="line">accessibility:</span><br><span class="line">  nav_toggle: 切換導航欄</span><br><span class="line">  prev_page: 上一頁</span><br><span class="line">  next_page: 下一頁</span><br><span class="line">symbols_count_time:</span><br><span class="line">  count: 文章字數</span><br><span class="line">  count_total: 總字數</span><br><span class="line">  time: 所需閱讀時間</span><br><span class="line">  time_total: 所需總閱讀時間</span><br><span class="line">  time_minutes: 分鐘</span><br></pre></td></tr></table></figure>
 <p>&ensp;</p>
 <h1 id="Gemini-版型-色彩配置"><a href="#Gemini-版型-色彩配置" class="headerlink" title="Gemini 版型-色彩配置"></a>Gemini 版型-色彩配置</h1><p>這個部分此部落格原本有做修改，但我因為有些配置顏色怪怪的，所以我後來跳過這個步驟，直接用默認配色＋動態背景，若讀者您也不想設置這個配置，那也可以跳過這個部分，直接進行下一個步驟。</p>
 <p>&ensp;<br>我這裡文章是使用<code>Gemini</code>版型做維護，故以<code>Gemini</code>作為介紹，<br>若對於其他版型有興趣，可以自行研究。</p>
@@ -2179,7 +2219,7 @@
 <blockquote>
 <p>文字顏色的設定<code>\themes\next\source\css\_variables\base.styl</code>變更</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 顏色</span><br><span class="line">&#x2F;&#x2F; 用於整個主題的顏色。</span><br><span class="line">&#x2F;&#x2F; --------------------------------------------------</span><br><span class="line">$whitesmoke   &#x3D; #a15100; &#x2F;&#x2F; 菜單選擇顏色</span><br><span class="line">$gainsboro    &#x3D; #a15100; &#x2F;&#x2F; 本站摘要方框顏色</span><br><span class="line">$gray-lighter &#x3D; #ddd; &#x2F;&#x2F; 暱稱 顏色</span><br><span class="line">$grey-light   &#x3D; #eee; &#x2F;&#x2F; 歸檔 虛線</span><br><span class="line">$grey         &#x3D; #ff7700; &#x2F;&#x2F; 分類 (數量)</span><br><span class="line">$grey-dark    &#x3D; #999;</span><br><span class="line">$grey-dim     &#x3D; #eee;</span><br><span class="line">$black-light  &#x3D; #eeeeee; &#x2F;&#x2F;文字顏色</span><br><span class="line">$black-dim    &#x3D; #333;</span><br><span class="line">$black-deep   &#x3D; #ff7700; &#x2F;&#x2F; 文章右下角箭頭、本站摘要名稱</span><br><span class="line">$red          &#x3D; #333333;</span><br><span class="line">$blue-bright  &#x3D; #87daff;</span><br><span class="line">$blue         &#x3D; #0684bd;</span><br><span class="line">$blue-deep    &#x3D; rgba(255, 255, 255, 0.2); &#x2F;&#x2F; 文章圈選字顏色</span><br><span class="line">$orange       &#x3D; #ff8c00; &#x2F;&#x2F; 菜單目錄字體顏色</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 顏色</span><br><span class="line">&#x2F;&#x2F; 用於整個主題的顏色。</span><br><span class="line">&#x2F;&#x2F; --------------------------------------------------</span><br><span class="line">$whitesmoke   &#x3D; #a15100; &#x2F;&#x2F; 菜單選擇顏色</span><br><span class="line">$gainsboro    &#x3D; #a15100; &#x2F;&#x2F; 本站摘要方框顏色</span><br><span class="line">$gray-lighter &#x3D; #ddd; &#x2F;&#x2F; 暱稱 顏色</span><br><span class="line">$grey-light   &#x3D; #eee; &#x2F;&#x2F; 歸檔 虛線</span><br><span class="line">$grey         &#x3D; #ff7700; &#x2F;&#x2F; 分類 (數量)</span><br><span class="line">$grey-dark    &#x3D; #999;</span><br><span class="line">$grey-dim     &#x3D; #eee;</span><br><span class="line">$black-light  &#x3D; #eeeeee; &#x2F;&#x2F;文字顏色</span><br><span class="line">$black-dim    &#x3D; #333;</span><br><span class="line">$black-deep   &#x3D; #ff7700; &#x2F;&#x2F; 文章右下角箭頭、本站摘要名稱</span><br><span class="line">$red          &#x3D; #333333;</span><br><span class="line">$blue-bright  &#x3D; #87daff;</span><br><span class="line">$blue         &#x3D; #0684bd;</span><br><span class="line">$blue-deep    &#x3D; rgba(255, 255, 255, 0.2); &#x2F;&#x2F; 文章圈選字顏色</span><br><span class="line">$orange       &#x3D; #ff8c00; &#x2F;&#x2F; 菜單目錄字體顏色</span><br></pre></td></tr></table></figure>
 <p>&ensp;</p>
 <h2 id="標題欄位顏色變更"><a href="#標題欄位顏色變更" class="headerlink" title="標題欄位顏色變更"></a>標題欄位顏色變更</h2><p>從<code>\themes\next\source\css\_schemes\&lt;你選擇的版型&gt;\index.styl</code>來做新增，<br>更改的方式只要在最後加上這段即可。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.site-meta &#123;</span><br><span class="line">  background: #000000; &#x2F;&#x2F;我使用黑色為標題欄的背景色</span><br></pre></td></tr></table></figure>
