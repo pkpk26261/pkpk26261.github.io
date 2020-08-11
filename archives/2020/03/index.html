@@ -289,6 +289,40 @@
   <aside class="sidebar">
     <div class="sidebar-inner">
 
+      <div id="muteYouTubeVideoPlayer"></div>
+
+      <script async src="https://www.youtube.com/iframe_api"></script>
+      <script>
+       function onYouTubeIframeAPIReady() {
+        var player;
+        player = new YT.Player('muteYouTubeVideoPlayer', {
+          videoId: 'HMlFZvbCfpo', // YouTube Video ID
+          width: 200,             // 播放器寬度（以像素為單位）
+          height: 0,              // 播放器高度（以像素為單位）
+          playerVars: {
+            autoplay: 1,        // 加載時自動播放視頻
+            controls: 0,        // 在播放器中顯示暫停/播放按鈕
+            showinfo: 0,        // 隱藏視頻標題
+            modestbranding: 1,  // 隱藏Youtube徽標
+            loop: 1,            // 循環播放視頻
+            fs: 0,              // 隱藏全屏按鈕
+            cc_load_policy: 0,  // 隱藏隱藏式字幕
+            iv_load_policy: 3,  // 隱藏視頻註釋
+            autohide: 0         // 播放時隱藏視頻控件
+          },
+          events: {
+            onReady: function(e) {
+              //e.target.mute();//若要取消靜音，把這行註釋掉。
+            }
+          }
+        });
+      }
+      </script>
+      
+      <div>
+      &ensp;
+      </div>
+
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
           文章目錄
@@ -379,9 +413,6 @@
   </div>
 
       </div>
-
-      <!--apple插件-->
-      <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="110" style="width:100%;max-width:300px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tw/album/%E7%A5%9D%E7%A5%AD-feat-%E4%B8%89%E6%B5%A6%E9%80%8F%E5%AD%90/1485833901?i=1485833905"></iframe>
 
     </div>
   </aside>
