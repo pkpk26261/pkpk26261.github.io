@@ -316,47 +316,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Tensorflow-gpu 安裝引導</title>
-    <url>/2020/01/14/Tensorflow-gpu%20%E5%AE%89%E8%A3%9D%E5%BC%95%E5%B0%8E/</url>
-    <content><![CDATA[<p>這裡將教大家如何在Windows、Linux的Anaconda安裝tensorflow-gpu。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<hr>
-<p><code>&lt;name&gt;</code>為自定義名稱。</p>
-<ol>
-<li><p>建立 <code>Python3.6</code> 新環境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n &lt;name&gt; python&#x3D;3.6</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>啟動<code>&lt;name&gt;</code>環境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">activate &lt;name&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>開始安裝<code>tensorflow-gpu</code>，<code>conda</code>會內建安裝tensorflow-gpu之<code>對應版本</code>的CUDA + cuDNN等組合包。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install tensorflow-gpu&#x3D;&#x3D;1.12.0</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<hr>
-<p><font size="5px" color="red">額外補充:</font><br>若要<code>conda</code>刪除組合包，請輸入以下指令，<code>&lt;name包&gt;</code>為包名稱。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda uninstall &lt;name包&gt;</span><br></pre></td></tr></table></figure>
-<p>若要<code>單一</code>刪除套件，請輸入以下指令，<code>&lt;name套&gt;</code>為套件名稱。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip uninstall &lt;name套&gt;</span><br></pre></td></tr></table></figure>
-
-<p>&ensp;<br>若要刪除該整個環境，請輸入以下指令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env remove -n &lt;name&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-]]></content>
-      <categories>
-        <category>Python 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu 與 Windows 雙系統安裝引導</title>
     <url>/2020/05/03/Ubuntu%20install/</url>
     <content><![CDATA[<p>這裡將教大家如何安裝Ubuntu。</p>
@@ -494,6 +453,47 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>系統</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tensorflow-gpu 安裝引導</title>
+    <url>/2020/01/14/Tensorflow-gpu%20%E5%AE%89%E8%A3%9D%E5%BC%95%E5%B0%8E/</url>
+    <content><![CDATA[<p>這裡將教大家如何在Windows、Linux的Anaconda安裝tensorflow-gpu。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<hr>
+<p><code>&lt;name&gt;</code>為自定義名稱。</p>
+<ol>
+<li><p>建立 <code>Python3.6</code> 新環境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n &lt;name&gt; python&#x3D;3.6</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>啟動<code>&lt;name&gt;</code>環境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">activate &lt;name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>開始安裝<code>tensorflow-gpu</code>，<code>conda</code>會內建安裝tensorflow-gpu之<code>對應版本</code>的CUDA + cuDNN等組合包。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install tensorflow-gpu&#x3D;&#x3D;1.12.0</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<p><font size="5px" color="red">額外補充:</font><br>若要<code>conda</code>刪除組合包，請輸入以下指令，<code>&lt;name包&gt;</code>為包名稱。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda uninstall &lt;name包&gt;</span><br></pre></td></tr></table></figure>
+<p>若要<code>單一</code>刪除套件，請輸入以下指令，<code>&lt;name套&gt;</code>為套件名稱。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip uninstall &lt;name套&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&ensp;<br>若要刪除該整個環境，請輸入以下指令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env remove -n &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+]]></content>
+      <categories>
+        <category>Python 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
