@@ -336,10 +336,9 @@
       function onYouTubeIframeAPIReady() {
         var player;
         player = new YT.Player('muteYouTubeVideoPlayer', {
-          videoId: '99tGRSYvwxA', // YouTube Video ID
+          videoId: 'w15ZY_6azi4', // YouTube Video ID
           width: 200,             // 播放器寬度（以像素為單位）
           height: 0,              // 播放器高度（以像素為單位）
-          loop: 1,            // 循環播放視頻
           playerVars: {
             autoplay: 1,        // 加載時自動播放視頻
             controls: 0,        // 在播放器中顯示暫停/播放按鈕
@@ -350,7 +349,8 @@
             cc_load_policy: 0,  // 隱藏隱藏式字幕
             iv_load_policy: 3,  // 隱藏視頻註釋
             autohide: 0,        // 播放時隱藏視頻控件
-            rel: 0
+            rel: 0,             // 片尾不顯示相關影片
+            playlist: 'w15ZY_6azi4'
           },
           events: {
             onReady: function(e) {
