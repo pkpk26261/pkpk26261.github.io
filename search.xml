@@ -69,6 +69,108 @@
       </tags>
   </entry>
   <entry>
+    <title>Anaconda 安裝引導</title>
+    <url>/2020/01/14/Anaconda%20%E5%AE%89%E8%A3%9D%E5%BC%95%E5%B0%8E/</url>
+    <content><![CDATA[<p>這裡將教大家如何在Windows、Linux安裝Anaconda。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<h1 id="下載"><a href="#下載" class="headerlink" title="下載"></a>下載</h1><p>至 Anaconda官網 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYW5hY29uZGEuY29tL2Rpc3RyaWJ1dGlvbi8=">https://www.anaconda.com/distribution/<i class="fa fa-external-link-alt"></i></span> 下載，<br>下載<code>各系統</code>所需的安裝檔案完成後，開始進行下方安裝動作。</p>
+<p><img src="https://i.imgur.com/TJHOhh0.png" alt="官網下載介面"></p>
+<h2 id="Windows-10"><a href="#Windows-10" class="headerlink" title="Windows 10"></a>Windows 10</h2><p>等待時間下載完結束後，進行下載之Anaconda程式安裝引導，安裝程序介面如下：</p>
+<ol>
+<li><p>選擇Next&gt; (下一步&gt;)</p>
+<img src="https://i.imgur.com/J6XGCF3.png" style="margin-left:0px" height="360" >
+</li>
+<li><p>選擇I Agree (我同意)</p>
+<img src="https://i.imgur.com/5cSmwsU.png" style="margin-left:0px" height="360" >
+</li>
+<li><p>電腦之可使用者 選擇Just Me (只有我) (官網推薦)</p>
+<img src="https://i.imgur.com/hQmVf4f.png" style="margin-left:0px" height="360" >
+</li>
+<li><p>選擇Anaconda安裝路徑，再點選Next&gt; (下一步)</p>
+<img src="https://i.imgur.com/zCjfVsK.png" style="margin-left:0px" height="360" >
+</li>
+<li><p>選擇Advanced Options (高級選項) 之 安裝默認 即可</p>
+<img src="https://i.imgur.com/XRdanRV.png" style="margin-left:0px" height="360" >
+</li>
+<li><p>等待安裝過程</p>
+<img src="https://i.imgur.com/wZMmfVo.png" style="margin-left:0px" height="360" >
+</li>
+<li><p>安裝過程結束後，點選Next&gt; (下一步)</p>
+<img src="https://i.imgur.com/iGyXyU1.png" style="margin-left:0px" height="360" >
+</li>
+<li><p>點選Next&gt; (下一步)</p>
+<img src="https://i.imgur.com/3iXsSUb.png" style="margin-left:0px" height="360" >
+</li>
+<li><p>點選Finish (完成)</p>
+<img src="https://i.imgur.com/pX1Ylid.png" style="margin-left:0px" height="360" >
+
+</li>
+</ol>
+<p>&ensp;</p>
+<blockquote>
+<ul>
+<li>安裝完成（Anaconda Prompt初始介面）<img src="https://i.imgur.com/0H4ULlI.png" style="margin-left:0px" height="360" >
+</li>
+</ul>
+</blockquote>
+<p>&ensp;</p>
+<hr>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>這裡安裝引導，以<code>python3.7</code>版本為例(<code>python2.7</code>只須改檔案名稱)。</p>
+<ul>
+<li>安裝指令<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># bash ~/下載目錄/檔名.sh</span></span><br><span class="line">bash ~/下載/Anaconda3<span class="number">-2019.10</span>-Linux-x86_64.sh</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li><p>輸入<code>上方</code>的安裝指令</p>
+<img src="https://i.imgur.com/k78DeTL.png" style="margin-left:0px" height="360" >
+</li>
+<li><p>請按<code>ENTER</code>繼續</p>
+<img src="https://i.imgur.com/Wr8F1Ht.png" style="margin-left:0px" height="360" >
+</li>
+<li><p>按<code>任意鍵</code>閱讀文章</p>
+<img src="https://i.imgur.com/IwGBJbm.png" style="margin-left:0px" height="360" >
+
+
+</li>
+</ol>
+<ol start="4">
+<li>您接受許可條款嗎？<code>[是|否]</code><br>輸入<code>yes</code>接受許可條款。<img src="https://i.imgur.com/gFJmt25.png" style="margin-left:0px" height="360" >
+
+</li>
+</ol>
+<p><font size="16px" color="red">注意</font></p>
+<ol start="5">
+<li><p>這裡請注意，請按一次<code>ENTER</code>就好，不要多按，否則下一步動作會直接跳過。<br>若不小心多按，請重新安裝Anaconda。</p>
+<img src="https://i.imgur.com/k5hWpBd.png" style="margin-left:0px" height="360" >
+</li>
+<li><p>通過運行conda init？ <code>[是|否]</code><br>輸入<code>yes</code>運行conda init。</p>
+<img src="https://i.imgur.com/7j5bpEm.png" style="margin-left:0px" height="360" >
+
+</li>
+</ol>
+<p>&ensp;</p>
+<blockquote>
+<ul>
+<li>安裝完成<img src="https://i.imgur.com/7HP0tuv.png" style="margin-left:0px" height="360" >
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>重開終端機，確認有無(base)<img src="https://i.imgur.com/FZTIv3O.png" style="margin-left:0px" height="360" >
+</li>
+</ul>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Python 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C# 初學者教學文章整理</title>
     <url>/2020/08/09/C%20sharp%20%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<p>C# 學習相關檔案下載參考，網址：<span class="exturl" data-url="aHR0cHM6Ly9nbXN0dWRlbnRuY3V0ZWR1dHctbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvZGE3MTIzMDJfZ21fc3R1ZGVudF9uY3V0X2VkdV90dy9FaHE0UHNqYk90UkRoWUxwQVg4UzZNSUJCcVNkUk41UFNSX25BeEpKVWJHQXBnP2U9UXZzaG1B">請點我一下<i class="fa fa-external-link-alt"></i></span> 。</p>
@@ -175,108 +277,6 @@
       </categories>
       <tags>
         <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Anaconda 安裝引導</title>
-    <url>/2020/01/14/Anaconda%20%E5%AE%89%E8%A3%9D%E5%BC%95%E5%B0%8E/</url>
-    <content><![CDATA[<p>這裡將教大家如何在Windows、Linux安裝Anaconda。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<h1 id="下載"><a href="#下載" class="headerlink" title="下載"></a>下載</h1><p>至 Anaconda官網 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYW5hY29uZGEuY29tL2Rpc3RyaWJ1dGlvbi8=">https://www.anaconda.com/distribution/<i class="fa fa-external-link-alt"></i></span> 下載，<br>下載<code>各系統</code>所需的安裝檔案完成後，開始進行下方安裝動作。</p>
-<p><img src="https://i.imgur.com/TJHOhh0.png" alt="官網下載介面"></p>
-<h2 id="Windows-10"><a href="#Windows-10" class="headerlink" title="Windows 10"></a>Windows 10</h2><p>等待時間下載完結束後，進行下載之Anaconda程式安裝引導，安裝程序介面如下：</p>
-<ol>
-<li><p>選擇Next&gt; (下一步&gt;)</p>
-<img src="https://i.imgur.com/J6XGCF3.png" style="margin-left:0px" height="360" >
-</li>
-<li><p>選擇I Agree (我同意)</p>
-<img src="https://i.imgur.com/5cSmwsU.png" style="margin-left:0px" height="360" >
-</li>
-<li><p>電腦之可使用者 選擇Just Me (只有我) (官網推薦)</p>
-<img src="https://i.imgur.com/hQmVf4f.png" style="margin-left:0px" height="360" >
-</li>
-<li><p>選擇Anaconda安裝路徑，再點選Next&gt; (下一步)</p>
-<img src="https://i.imgur.com/zCjfVsK.png" style="margin-left:0px" height="360" >
-</li>
-<li><p>選擇Advanced Options (高級選項) 之 安裝默認 即可</p>
-<img src="https://i.imgur.com/XRdanRV.png" style="margin-left:0px" height="360" >
-</li>
-<li><p>等待安裝過程</p>
-<img src="https://i.imgur.com/wZMmfVo.png" style="margin-left:0px" height="360" >
-</li>
-<li><p>安裝過程結束後，點選Next&gt; (下一步)</p>
-<img src="https://i.imgur.com/iGyXyU1.png" style="margin-left:0px" height="360" >
-</li>
-<li><p>點選Next&gt; (下一步)</p>
-<img src="https://i.imgur.com/3iXsSUb.png" style="margin-left:0px" height="360" >
-</li>
-<li><p>點選Finish (完成)</p>
-<img src="https://i.imgur.com/pX1Ylid.png" style="margin-left:0px" height="360" >
-
-</li>
-</ol>
-<p>&ensp;</p>
-<blockquote>
-<ul>
-<li>安裝完成（Anaconda Prompt初始介面）<img src="https://i.imgur.com/0H4ULlI.png" style="margin-left:0px" height="360" >
-</li>
-</ul>
-</blockquote>
-<p>&ensp;</p>
-<hr>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>這裡安裝引導，以<code>python3.7</code>版本為例(<code>python2.7</code>只須改檔案名稱)。</p>
-<ul>
-<li>安裝指令<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># bash ~/下載目錄/檔名.sh</span></span><br><span class="line">bash ~/下載/Anaconda3<span class="number">-2019.10</span>-Linux-x86_64.sh</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol>
-<li><p>輸入<code>上方</code>的安裝指令</p>
-<img src="https://i.imgur.com/k78DeTL.png" style="margin-left:0px" height="360" >
-</li>
-<li><p>請按<code>ENTER</code>繼續</p>
-<img src="https://i.imgur.com/Wr8F1Ht.png" style="margin-left:0px" height="360" >
-</li>
-<li><p>按<code>任意鍵</code>閱讀文章</p>
-<img src="https://i.imgur.com/IwGBJbm.png" style="margin-left:0px" height="360" >
-
-
-</li>
-</ol>
-<ol start="4">
-<li>您接受許可條款嗎？<code>[是|否]</code><br>輸入<code>yes</code>接受許可條款。<img src="https://i.imgur.com/gFJmt25.png" style="margin-left:0px" height="360" >
-
-</li>
-</ol>
-<p><font size="16px" color="red">注意</font></p>
-<ol start="5">
-<li><p>這裡請注意，請按一次<code>ENTER</code>就好，不要多按，否則下一步動作會直接跳過。<br>若不小心多按，請重新安裝Anaconda。</p>
-<img src="https://i.imgur.com/k5hWpBd.png" style="margin-left:0px" height="360" >
-</li>
-<li><p>通過運行conda init？ <code>[是|否]</code><br>輸入<code>yes</code>運行conda init。</p>
-<img src="https://i.imgur.com/7j5bpEm.png" style="margin-left:0px" height="360" >
-
-</li>
-</ol>
-<p>&ensp;</p>
-<blockquote>
-<ul>
-<li>安裝完成<img src="https://i.imgur.com/7HP0tuv.png" style="margin-left:0px" height="360" >
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>重開終端機，確認有無(base)<img src="https://i.imgur.com/FZTIv3O.png" style="margin-left:0px" height="360" >
-</li>
-</ul>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Python 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
