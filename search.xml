@@ -69,113 +69,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C# 初學者教學文章整理</title>
-    <url>/2020/08/09/C%20sharp%20%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<p>C# 學習相關檔案下載參考，網址：<span class="exturl" data-url="aHR0cHM6Ly9nbXN0dWRlbnRuY3V0ZWR1dHctbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvZGE3MTIzMDJfZ21fc3R1ZGVudF9uY3V0X2VkdV90dy9FaHE0UHNqYk90UkRoWUxwQVg4UzZNSUJCcVNkUk41UFNSX25BeEpKVWJHQXBnP2U9UXZzaG1B">請點我一下<i class="fa fa-external-link-alt"></i></span> 。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<h1 id="安裝和創建"><a href="#安裝和創建" class="headerlink" title="安裝和創建"></a>安裝和創建</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/f42_gfcWjcg?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<h2 id="軟件安裝"><a href="#軟件安裝" class="headerlink" title="軟件安裝"></a>軟件安裝</h2><p>官網軟件下載：<span class="exturl" data-url="aHR0cHM6Ly92aXN1YWxzdHVkaW8ubWljcm9zb2Z0LmNvbS96aC1oYW50L2Rvd25sb2Fkcy8=">https://visualstudio.microsoft.com/zh-hant/downloads/<i class="fa fa-external-link-alt"></i></span></p>
-<ol>
-<li>選擇Visual Studio 2019 其中一個下載即可。</li>
-</ol>
-<ul>
-<li><img src="/images/Csharp%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/%E5%9C%96%E7%89%871.png"></li>
-</ul>
-<ol start="2">
-<li>C# 這邊用的是<code>.NET桌面開發</code>，如果還需要其他工作負載，可以自行選擇下載。</li>
-</ol>
-<ul>
-<li><img src="/images/Csharp%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/%E5%9C%96%E7%89%872.png"></li>
-</ul>
-<h2 id="項目安裝"><a href="#項目安裝" class="headerlink" title="項目安裝"></a>項目安裝</h2><h1 id="使用註釋幫助閱讀代碼"><a href="#使用註釋幫助閱讀代碼" class="headerlink" title="使用註釋幫助閱讀代碼"></a>使用註釋幫助閱讀代碼</h1><blockquote>
-<p>資料參考專案 <code>Learning 01</code>。</p>
-</blockquote>
-<iframe width="1195" height="672" src="https://www.youtube.com/embed/mYzVmExMPwg?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<ol>
-<li>單行註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 單行註釋：幫助程序開發者用於閱讀代碼</span></span><br></pre></td></tr></table></figure></li>
-<li>多行註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 多行註釋：幫助程序開發者用於閱讀代碼</span></span><br><span class="line"><span class="comment">   多行註釋：幫助程序開發者用於閱讀代碼</span></span><br><span class="line"><span class="comment">   多行註釋：幫助程序開發者用於閱讀代碼 */</span></span><br></pre></td></tr></table></figure></li>
-<li>摺疊註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 摺疊註釋</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure></li>
-<li>文檔註釋<br> 當滑鼠指標移動到Tset文字時，視窗註釋會顯示<code>文檔註釋</code>。<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 文檔註釋</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h1 id="變量理解與使用"><a href="#變量理解與使用" class="headerlink" title="變量理解與使用"></a>變量理解與使用</h1><blockquote>
-<p>資料參考專案 <code>Learning 02</code>。</p>
-</blockquote>
-<iframe width="1195" height="672" src="https://www.youtube.com/embed/RTIlomlgFsU?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>資料型態值：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number;                          <span class="comment">// 宣告int類別的變數</span></span><br><span class="line">number = <span class="number">1000</span>;                       <span class="comment">// number可分行建置數字</span></span><br><span class="line"><span class="keyword">double</span> Decimalpoint = <span class="number">999.0000001</span>;   <span class="comment">// 宣告double類別的變數</span></span><br><span class="line"><span class="keyword">char</span> print = <span class="string">&#x27;字&#x27;</span>;                   <span class="comment">// 單個字符，用&#x27;單引號&#x27;</span></span><br><span class="line"><span class="keyword">string</span> Type = <span class="string">&quot;我是文字&quot;</span>;            <span class="comment">// 字串，用&quot;雙引號&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><p>（方法１）一般用法：(字符加字符=拼接；數字加數字=運算)<br> &ensp;<code>char print</code>  &ensp;的<code>print</code>，不能放在數字後面。<br> &ensp;<code>string Type</code> 的<code>Type</code> ，可放在數字後面。</p>
- <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.WriteLine(number + Decimalpoint + <span class="string">&quot; &quot;</span> + Type + print);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>（方法２） 占位符用法：(“{0}、{1}、{2}、{3}、{4}”,  0, 1, 2, 3, 4);</p>
- <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.WriteLine(<span class="string">&quot;數字:&#123;0&#125;  , 小數點:&#123;1&#125;  , 字符:&#123;2&#125;  , 字串:&#123;3&#125;&quot;</span>, number, Decimalpoint, print, Type);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li><h2 id="輸出顯示字元"><a href="#輸出顯示字元" class="headerlink" title="輸出顯示字元"></a>輸出顯示字元</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Write(<span class="string">&quot;Hello World!&quot;</span>);       <span class="comment">// 印字</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;Hello World!&quot;</span>);   <span class="comment">// 換行印字</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><h2 id="鍵盤輸入字元"><a href="#鍵盤輸入字元" class="headerlink" title="鍵盤輸入字元"></a>鍵盤輸入字元</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Read();                      <span class="comment">// 等待輸入</span></span><br><span class="line">Console.ReadLine(<span class="string">&quot;Hello World!&quot;</span>);    <span class="comment">// 換行輸入</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="變量的命名規則"><a href="#變量的命名規則" class="headerlink" title="變量的命名規則"></a>變量的命名規則</h1><blockquote>
-<p>資料參考專案 <code>Learning 03</code>。</p>
-</blockquote>
-<iframe width="1195" height="672" src="https://www.youtube.com/embed/O4wpCrbiJk8?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<ol>
-<li>Pascal 帕斯卡命名：當有多個單字組成變量或方法時，每個單字的開頭字母要大寫。<br> (常用處：類名、屬性、方法名、接口) <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> UserNameTest;</span><br></pre></td></tr></table></figure></li>
-<li>駝峰命名：多個單字出現，首單字開頭字母要小寫，其餘單字開頭字母要大寫。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> nameYongCheng;</span><br></pre></td></tr></table></figure></li>
-<li>C# 變數：只能由數字，字母和下劃線組成，但是不能以數字做為變數開頭。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> _age1;</span><br></pre></td></tr></table></figure></li>
-<li>見名知意 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> name = <span class="string">&quot;黃永成&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h1 id="運算符的優先級別使用"><a href="#運算符的優先級別使用" class="headerlink" title="運算符的優先級別使用"></a>運算符的優先級別使用</h1><blockquote>
-<p>資料參考專案 <code>Learning 04</code>。</p>
-</blockquote>
-<iframe width="1195" height="672" src="https://www.youtube.com/embed/1LV4vMuHfp0?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<ol>
-<li>算術運算符 <code>+</code>  <code>-</code>  <code>*</code>  <code>/</code>  <code>%</code><br> (加、減、乘、除、餘)</li>
-<li>關係運算符  <code>&gt;</code>  <code>&lt;</code>  <code>==</code>  <code>&gt;=</code>  <code>&lt;=</code>  <code>!=</code><br> (大於、小於、相同、大於等於、小於等於、不同)</li>
-<li>邏輯運算符  <code>&amp;&amp;</code>  <code>||</code>  <code>!</code><br> (and閘、or閘、not閘)</li>
-<li>賦值運算符  <code>=</code><br> (int number = 1;)</li>
-</ol>
-<h1 id="占位符的使用方式"><a href="#占位符的使用方式" class="headerlink" title="占位符的使用方式"></a>占位符的使用方式</h1><blockquote>
-<p>資料參考專案 <code>Learning 05</code>。</p>
-</blockquote>
-<iframe width="1195" height="672" src="https://www.youtube.com/embed/YoHWrQ5O-vM?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<h1 id="if-else-判斷式的使用方式"><a href="#if-else-判斷式的使用方式" class="headerlink" title="if else 判斷式的使用方式"></a>if else 判斷式的使用方式</h1><blockquote>
-<p>資料參考專案 <code>Learning 06</code>。</p>
-</blockquote>
-<iframe width="1195" height="672" src="https://www.youtube.com/embed/_9cJE7Bu-X8?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>   假如條件是：<code>下雨天</code><br>   有下雨的話：<code>不出門</code><br>   沒下雨的話：<code>出門</code></p>
-<ul>
-<li>  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">bool</span> rain=<span class="literal">true</span>; <span class="comment">// 布林值: true真、false假</span></span><br><span class="line"><span class="keyword">if</span> (rain==<span class="literal">true</span>)</span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;不出門&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;要出門&quot;</span>); &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-]]></content>
-      <categories>
-        <category>C# 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Anaconda 安裝引導</title>
     <url>/2020/01/14/Anaconda%20%E5%AE%89%E8%A3%9D%E5%BC%95%E5%B0%8E/</url>
     <content><![CDATA[<p>這裡將教大家如何在Windows、Linux安裝Anaconda。</p>
@@ -278,6 +171,115 @@
       </tags>
   </entry>
   <entry>
+    <title>C# 初學者教學文章整理</title>
+    <url>/2020/08/09/C%20sharp%20%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>C# 學習相關檔案下載參考，網址：<span class="exturl" data-url="aHR0cHM6Ly9nbXN0dWRlbnRuY3V0ZWR1dHctbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvZGE3MTIzMDJfZ21fc3R1ZGVudF9uY3V0X2VkdV90dy9FaHE0UHNqYk90UkRoWUxwQVg4UzZNSUJCcVNkUk41UFNSX25BeEpKVWJHQXBnP2U9UXZzaG1B">請點我一下<i class="fa fa-external-link-alt"></i></span> 。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<h1 id="安裝和創建"><a href="#安裝和創建" class="headerlink" title="安裝和創建"></a>安裝和創建</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/f42_gfcWjcg?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="軟件安裝"><a href="#軟件安裝" class="headerlink" title="軟件安裝"></a>軟件安裝</h2><p>官網軟件下載：<span class="exturl" data-url="aHR0cHM6Ly92aXN1YWxzdHVkaW8ubWljcm9zb2Z0LmNvbS96aC1oYW50L2Rvd25sb2Fkcy8=">https://visualstudio.microsoft.com/zh-hant/downloads/<i class="fa fa-external-link-alt"></i></span></p>
+<ol>
+<li>選擇Visual Studio 2019 其中一個下載即可。</li>
+</ol>
+<ul>
+<li><img src="/images/Csharp%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/%E5%9C%96%E7%89%871.png"></li>
+</ul>
+<ol start="2">
+<li>C# 這邊用的是<code>.NET桌面開發</code>，如果還需要其他工作負載，可以自行選擇下載。</li>
+</ol>
+<ul>
+<li><img src="/images/Csharp%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/%E5%9C%96%E7%89%872.png"></li>
+</ul>
+<h2 id="項目安裝"><a href="#項目安裝" class="headerlink" title="項目安裝"></a>項目安裝</h2><h1 id="使用註釋幫助閱讀代碼"><a href="#使用註釋幫助閱讀代碼" class="headerlink" title="使用註釋幫助閱讀代碼"></a>使用註釋幫助閱讀代碼</h1><blockquote>
+<p>資料參考專案 <code>Learning 01</code>。</p>
+</blockquote>
+<iframe width="1195" height="672" src="https://www.youtube.com/embed/mYzVmExMPwg?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<ol>
+<li>單行註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 單行註釋：幫助程序開發者用於閱讀代碼</span></span><br></pre></td></tr></table></figure></li>
+<li>多行註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 多行註釋：幫助程序開發者用於閱讀代碼</span></span><br><span class="line"><span class="comment">   多行註釋：幫助程序開發者用於閱讀代碼</span></span><br><span class="line"><span class="comment">   多行註釋：幫助程序開發者用於閱讀代碼 */</span></span><br></pre></td></tr></table></figure></li>
+<li>摺疊註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 摺疊註釋</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure></li>
+<li>文檔註釋<br> 當滑鼠指標移動到Tset文字時，視窗註釋會顯示<code>文檔註釋</code>。<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 文檔註釋</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="變量理解與使用"><a href="#變量理解與使用" class="headerlink" title="變量理解與使用"></a>變量理解與使用</h1><blockquote>
+<p>資料參考專案 <code>Learning 02</code>。</p>
+</blockquote>
+<iframe width="1195" height="672" src="https://www.youtube.com/embed/RTIlomlgFsU?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>資料型態值：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number;                          <span class="comment">// 宣告int類別的變數</span></span><br><span class="line">number = <span class="number">1000</span>;                       <span class="comment">// number可分行建置數字</span></span><br><span class="line"><span class="keyword">double</span> Decimalpoint = <span class="number">999.0000001</span>;   <span class="comment">// 宣告double類別的變數</span></span><br><span class="line"><span class="keyword">char</span> print = <span class="string">&#x27;字&#x27;</span>;                   <span class="comment">// 單個字符，用&#x27;單引號&#x27;</span></span><br><span class="line"><span class="keyword">string</span> Type = <span class="string">&quot;我是文字&quot;</span>;            <span class="comment">// 字串，用&quot;雙引號&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>（方法１）一般用法：(字符加字符=拼接；數字加數字=運算)<br> &ensp;<code>char print</code>  &ensp;的<code>print</code>，不能放在數字後面。<br> &ensp;<code>string Type</code> 的<code>Type</code> ，可放在數字後面。</p>
+ <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.WriteLine(number + Decimalpoint + <span class="string">&quot; &quot;</span> + Type + print);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（方法２） 占位符用法：(“{0}、{1}、{2}、{3}、{4}”,  0, 1, 2, 3, 4);</p>
+ <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.WriteLine(<span class="string">&quot;數字:&#123;0&#125;  , 小數點:&#123;1&#125;  , 字符:&#123;2&#125;  , 字串:&#123;3&#125;&quot;</span>, number, Decimalpoint, print, Type);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><h2 id="輸出顯示字元"><a href="#輸出顯示字元" class="headerlink" title="輸出顯示字元"></a>輸出顯示字元</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Write(<span class="string">&quot;Hello World!&quot;</span>);       <span class="comment">// 印字</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;Hello World!&quot;</span>);   <span class="comment">// 換行印字</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h2 id="鍵盤輸入字元"><a href="#鍵盤輸入字元" class="headerlink" title="鍵盤輸入字元"></a>鍵盤輸入字元</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Read();                      <span class="comment">// 等待輸入</span></span><br><span class="line">Console.ReadLine(<span class="string">&quot;Hello World!&quot;</span>);    <span class="comment">// 換行輸入</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="變量的命名規則"><a href="#變量的命名規則" class="headerlink" title="變量的命名規則"></a>變量的命名規則</h1><blockquote>
+<p>資料參考專案 <code>Learning 03</code>。</p>
+</blockquote>
+<iframe width="1195" height="672" src="https://www.youtube.com/embed/O4wpCrbiJk8?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<ol>
+<li>Pascal 帕斯卡命名：當有多個單字組成變量或方法時，每個單字的開頭字母要大寫。<br> (常用處：類名、屬性、方法名、接口) <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> UserNameTest;</span><br></pre></td></tr></table></figure></li>
+<li>駝峰命名：多個單字出現，首單字開頭字母要小寫，其餘單字開頭字母要大寫。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> nameYongCheng;</span><br></pre></td></tr></table></figure></li>
+<li>C# 變數：只能由數字，字母和下劃線組成，但是不能以數字做為變數開頭。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> _age1;</span><br></pre></td></tr></table></figure></li>
+<li>見名知意 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> name = <span class="string">&quot;黃永成&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="運算符的優先級別使用"><a href="#運算符的優先級別使用" class="headerlink" title="運算符的優先級別使用"></a>運算符的優先級別使用</h1><blockquote>
+<p>資料參考專案 <code>Learning 04</code>。</p>
+</blockquote>
+<iframe width="1195" height="672" src="https://www.youtube.com/embed/1LV4vMuHfp0?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<ol>
+<li>算術運算符 <code>+</code>  <code>-</code>  <code>*</code>  <code>/</code>  <code>%</code><br> (加、減、乘、除、餘)</li>
+<li>關係運算符  <code>&gt;</code>  <code>&lt;</code>  <code>==</code>  <code>&gt;=</code>  <code>&lt;=</code>  <code>!=</code><br> (大於、小於、相同、大於等於、小於等於、不同)</li>
+<li>邏輯運算符  <code>&amp;&amp;</code>  <code>||</code>  <code>!</code><br> (and閘、or閘、not閘)</li>
+<li>賦值運算符  <code>=</code><br> (int number = 1;)</li>
+</ol>
+<h1 id="占位符的使用方式"><a href="#占位符的使用方式" class="headerlink" title="占位符的使用方式"></a>占位符的使用方式</h1><blockquote>
+<p>資料參考專案 <code>Learning 05</code>。</p>
+</blockquote>
+<iframe width="1195" height="672" src="https://www.youtube.com/embed/YoHWrQ5O-vM?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="if-else-判斷式的使用方式"><a href="#if-else-判斷式的使用方式" class="headerlink" title="if else 判斷式的使用方式"></a>if else 判斷式的使用方式</h1><blockquote>
+<p>資料參考專案 <code>Learning 06</code>。</p>
+</blockquote>
+<iframe width="1195" height="672" src="https://www.youtube.com/embed/_9cJE7Bu-X8?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>   假如條件是：<code>下雨天</code><br>   有下雨的話：<code>不出門</code><br>   沒下雨的話：<code>出門</code></p>
+<ul>
+<li>  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">bool</span> rain=<span class="literal">true</span>; <span class="comment">// 布林值: true真、false假</span></span><br><span class="line"><span class="keyword">if</span> (rain==<span class="literal">true</span>)</span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;不出門&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;要出門&quot;</span>); &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+]]></content>
+      <categories>
+        <category>C# 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenCV 程式指令整理</title>
     <url>/2020/01/24/OpenCV%20%E7%A8%8B%E5%BC%8F%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<p>這裡整理紀錄 OpenCV 的程式指令，若有新的我會持續更新。</p>
@@ -354,6 +356,57 @@
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module &quot;canberra-gtk-module&quot;}</title>
+    <url>/2020/05/03/Ubuntu%20%E5%9F%B7%E8%A1%8C%20MATLAB%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF/</url>
+    <content><![CDATA[<p>這裡將教大家如何解決 <code>&#123;Failed to load module &quot;canberra-gtk-module&quot;&#125;</code> 的啟動錯誤問題。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<h1 id="安裝必要包"><a href="#安裝必要包" class="headerlink" title="安裝必要包"></a>安裝必要包</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">sudo apt-get install packagekit-gtk3-module</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一（暫時）"><a href="#方法一（暫時）" class="headerlink" title="方法一（暫時）"></a>方法一（暫時）</h2><p>你有一個需要在運行MATLAB之前，設置環境變量：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0</span><br></pre></td></tr></table></figure>
+
+<p>或者，您可以通過輸入以下內容在bash shell中，直接運行matlab：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0 &#x2F;usr&#x2F;local&#x2F;MATLAB&#x2F;R2019b&#x2F;bin&#x2F;matlab</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二（永久）"><a href="#方法二（永久）" class="headerlink" title="方法二（永久）"></a>方法二（永久）</h2><ol>
+<li>進入root權限</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="2">
+<li>輸入gedit(文字編輯器)開啟profile檔案</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="3">
+<li><code>profile</code>的最下面加入</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0:$GTK_PATH</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="4">
+<li>重啟</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+        <category>Linux</category>
+        <category>MATLAB</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Linux</tag>
+        <tag>MATLAB</tag>
       </tags>
   </entry>
   <entry>
@@ -494,57 +547,6 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>系統</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module &quot;canberra-gtk-module&quot;}</title>
-    <url>/2020/05/03/Ubuntu%20%E5%9F%B7%E8%A1%8C%20MATLAB%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF/</url>
-    <content><![CDATA[<p>這裡將教大家如何解決 <code>&#123;Failed to load module &quot;canberra-gtk-module&quot;&#125;</code> 的啟動錯誤問題。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<h1 id="安裝必要包"><a href="#安裝必要包" class="headerlink" title="安裝必要包"></a>安裝必要包</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">sudo apt-get install packagekit-gtk3-module</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法一（暫時）"><a href="#方法一（暫時）" class="headerlink" title="方法一（暫時）"></a>方法一（暫時）</h2><p>你有一個需要在運行MATLAB之前，設置環境變量：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0</span><br></pre></td></tr></table></figure>
-
-<p>或者，您可以通過輸入以下內容在bash shell中，直接運行matlab：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0 &#x2F;usr&#x2F;local&#x2F;MATLAB&#x2F;R2019b&#x2F;bin&#x2F;matlab</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二（永久）"><a href="#方法二（永久）" class="headerlink" title="方法二（永久）"></a>方法二（永久）</h2><ol>
-<li>進入root權限</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="2">
-<li>輸入gedit(文字編輯器)開啟profile檔案</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="3">
-<li><code>profile</code>的最下面加入</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0:$GTK_PATH</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="4">
-<li>重啟</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-        <category>Linux</category>
-        <category>MATLAB</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>Linux</tag>
-        <tag>MATLAB</tag>
       </tags>
   </entry>
   <entry>
