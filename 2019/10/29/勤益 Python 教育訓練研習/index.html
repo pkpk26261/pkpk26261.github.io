@@ -158,9 +158,9 @@
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">8</span></a>
 
   </li>
-        <li class="menu-item menu-item-學習筆札">
+        <li class="menu-item menu-item-筆札">
 
-    <a href="/book/" rel="section"><i class="fas fa-book fa-fw"></i>學習筆札</a>
+    <a href="/book/" rel="section"><i class="fas fa-book fa-fw"></i>筆札</a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -838,6 +838,7 @@
     <span class="toggle-line toggle-line-middle"></span>
     <span class="toggle-line toggle-line-last"></span>
   </div>
+
   <aside class="sidebar">
     <div class="sidebar-inner">
 
@@ -849,42 +850,6 @@
           本站概要
         </li>
       </ul>
-
-      <div id="muteYouTubeVideoPlayer"></div>
-      <script async src="https://www.youtube.com/iframe_api"></script>
-      <script>
-      function onYouTubeIframeAPIReady() {
-        var player;
-        player = new YT.Player('muteYouTubeVideoPlayer', {
-          videoId: 'w15ZY_6azi4', // YouTube Video ID
-          width: 197,             // 播放器寬度（以像素為單位）
-          height: 112,              // 播放器高度（以像素為單位）
-          playerVars: {
-            autoplay: 1,        // 加載時自動播放視頻
-            controls: 0,        // 在播放器中顯示暫停/播放按鈕
-            showinfo: 0,        // 隱藏視頻標題
-            modestbranding: 1,  // 隱藏Youtube徽標
-            loop: 1,            // 循環播放視頻
-            fs: 0,              // 隱藏全屏按鈕
-            cc_load_policy: 0,  // 隱藏隱藏式字幕
-            iv_load_policy: 3,  // 隱藏視頻註釋
-            autohide: 0,        // 播放時隱藏視頻控件
-            rel: 0,             // 片尾不顯示相關影片
-            disablekb: 1,
-            controls: 0,
-            playlist: 'w15ZY_6azi4', // 播放清單
-          },
-          events: {
-            onReady: function(e) {
-              //e.target.mute();//若要取消靜音，把這行註釋掉。
-            }
-          }
-        });
-      }
-      </script>  
-      <div>
-      &ensp;
-      </div>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
@@ -944,6 +909,39 @@
         <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9wa3BrMjYyNjEvP2hsPXpoLXR3" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;pkpk26261&#x2F;?hl&#x3D;zh-tw"><i class="fab fa-instagram fa-fw"></i></span>
       </span>
   </div>
+
+      <div id="muteYouTubeVideoPlayer"></div>
+      <script async src="https://www.youtube.com/iframe_api"></script>
+      <script>
+      function onYouTubeIframeAPIReady() {
+        var player;
+        player = new YT.Player('muteYouTubeVideoPlayer', {
+          videoId: 'w15ZY_6azi4', // YouTube Video ID
+          width: 197,             // 播放器寬度（以像素為單位）
+          height: 112,            // 播放器高度（以像素為單位）
+          playerVars: {
+            autoplay: 1,        // 加載時自動播放視頻
+            controls: 0,        // 在播放器中顯示暫停/播放按鈕
+            showinfo: 0,        // 隱藏視頻標題
+            modestbranding: 1,  // 隱藏Youtube徽標
+            loop: 1,            // 循環播放視頻
+            fs: 0,              // 隱藏全屏按鈕
+            cc_load_policy: 0,  // 隱藏隱藏式字幕
+            iv_load_policy: 3,  // 隱藏視頻註釋
+            autohide: 0,        // 播放時隱藏視頻控件
+            rel: 0,             // 片尾不顯示相關影片
+            disablekb: 1,
+            controls: 0,
+            playlist: 'w15ZY_6azi4', // 播放清單
+          },
+          events: {
+            onReady: function(e) {
+              //e.target.mute();//若要取消靜音，把這行註釋掉。
+            }
+          }
+        });
+      }
+      </script>
   <div class="cc-license motion-element" itemprop="license">
     <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC9kZWVkLnpoX1RX"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
   </div>
@@ -998,7 +996,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">總字數：</span>
-    <span title="總字數">103k</span>
+    <span title="總字數">104k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
