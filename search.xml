@@ -359,57 +359,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module &quot;canberra-gtk-module&quot;}</title>
-    <url>/2020/05/03/Ubuntu%20%E5%9F%B7%E8%A1%8C%20MATLAB%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF/</url>
-    <content><![CDATA[<p>這裡將教大家如何解決 <code>&#123;Failed to load module &quot;canberra-gtk-module&quot;&#125;</code> 的啟動錯誤問題。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<h1 id="安裝必要包"><a href="#安裝必要包" class="headerlink" title="安裝必要包"></a>安裝必要包</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">sudo apt-get install packagekit-gtk3-module</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法一（暫時）"><a href="#方法一（暫時）" class="headerlink" title="方法一（暫時）"></a>方法一（暫時）</h2><p>你有一個需要在運行MATLAB之前，設置環境變量：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0</span><br></pre></td></tr></table></figure>
-
-<p>或者，您可以通過輸入以下內容在bash shell中，直接運行matlab：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0 &#x2F;usr&#x2F;local&#x2F;MATLAB&#x2F;R2019b&#x2F;bin&#x2F;matlab</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二（永久）"><a href="#方法二（永久）" class="headerlink" title="方法二（永久）"></a>方法二（永久）</h2><ol>
-<li>進入root權限</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="2">
-<li>輸入gedit(文字編輯器)開啟profile檔案</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="3">
-<li><code>profile</code>的最下面加入</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0:$GTK_PATH</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="4">
-<li>重啟</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-        <category>Linux</category>
-        <category>MATLAB</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>Linux</tag>
-        <tag>MATLAB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu 與 Windows 雙系統安裝引導</title>
     <url>/2020/05/03/Ubuntu%20install/</url>
     <content><![CDATA[<p>這裡將教大家如何安裝Ubuntu。</p>
@@ -547,6 +496,57 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>系統</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module &quot;canberra-gtk-module&quot;}</title>
+    <url>/2020/05/03/Ubuntu%20%E5%9F%B7%E8%A1%8C%20MATLAB%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF/</url>
+    <content><![CDATA[<p>這裡將教大家如何解決 <code>&#123;Failed to load module &quot;canberra-gtk-module&quot;&#125;</code> 的啟動錯誤問題。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<h1 id="安裝必要包"><a href="#安裝必要包" class="headerlink" title="安裝必要包"></a>安裝必要包</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">sudo apt-get install packagekit-gtk3-module</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一（暫時）"><a href="#方法一（暫時）" class="headerlink" title="方法一（暫時）"></a>方法一（暫時）</h2><p>你有一個需要在運行MATLAB之前，設置環境變量：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0</span><br></pre></td></tr></table></figure>
+
+<p>或者，您可以通過輸入以下內容在bash shell中，直接運行matlab：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0 &#x2F;usr&#x2F;local&#x2F;MATLAB&#x2F;R2019b&#x2F;bin&#x2F;matlab</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二（永久）"><a href="#方法二（永久）" class="headerlink" title="方法二（永久）"></a>方法二（永久）</h2><ol>
+<li>進入root權限</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="2">
+<li>輸入gedit(文字編輯器)開啟profile檔案</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="3">
+<li><code>profile</code>的最下面加入</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0:$GTK_PATH</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="4">
+<li>重啟</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+        <category>Linux</category>
+        <category>MATLAB</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Linux</tag>
+        <tag>MATLAB</tag>
       </tags>
   </entry>
   <entry>
