@@ -796,6 +796,14 @@
 
 </li>
 </ol>
+<h1 id="常用快捷鍵"><a href="#常用快捷鍵" class="headerlink" title="常用快捷鍵"></a>常用快捷鍵</h1><ol>
+<li>新增新專案<br> 在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>N</code>，即可跳出<code>建立新專案</code>的視窗。</li>
+<li>新增檔案<br> 在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>N</code>，即可跳出<code>建立新專案</code>的視窗。</li>
+<li>加入新增專案項目<br> 在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>A</code>，即可跳出<code>新增項目</code>的視窗。</li>
+<li>加入現有專案項目<br> 在該專案裡面，按<code>Shift</code> <code>+</code> <code>Alt</code> <code>+</code> <code>A</code>，即可跳出<code>加入現有項目</code>的視窗。</li>
+<li>區域註釋<br> <code>Ctrl</code> <code>+</code> <code>K</code> <code>+ </code> <code>C</code>  選取區域註釋<br> <code>Ctrl</code> <code>+</code> <code>K</code> <code>+ </code> <code>U</code>  選取區域取消註釋</li>
+<li>Console.WriteLine()<br> 鍵盤輸入<code>cw</code>，即可跳出<code>Console.WriteLine();</code></li>
+</ol>
 <hr>
 <h1 id="變量理解與使用"><a href="#變量理解與使用" class="headerlink" title="變量理解與使用"></a>變量理解與使用</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/RTIlomlgFsU?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -1078,12 +1086,33 @@
 </li>
 </ul>
 <hr>
-<h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/yhvx_4WQ0Uw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h1 id="流程控制關鍵詞"><a href="#流程控制關鍵詞" class="headerlink" title="流程控制關鍵詞"></a>流程控制關鍵詞</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/yhvx_4WQ0Uw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <blockquote>
 <p>資料參考專案 <code>Learning 17</code>。</p>
 </blockquote>
-<h2 id="開始-13"><a href="#開始-13" class="headerlink" title="開始"></a>開始</h2>]]></content>
+<h2 id="開始-13"><a href="#開始-13" class="headerlink" title="開始"></a>開始</h2><ul>
+<li>流程控制關鍵詞  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">break</span>;      <span class="comment">// 終止，結束之意</span></span><br><span class="line"><span class="keyword">continue</span>;   <span class="comment">// 繼續，效率之意</span></span><br><span class="line"><span class="keyword">return</span>;     <span class="comment">// 返回，傳遞之意</span></span><br></pre></td></tr></table></figure>
+<h3 id="範例解釋"><a href="#範例解釋" class="headerlink" title="範例解釋"></a>範例解釋</h3><h4 id="1-break-終止"><a href="#1-break-終止" class="headerlink" title="1. break 終止"></a>1. break 終止</h4><blockquote>
+<ul>
+<li>switch<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Write(<span class="string">&quot;請輸入number值：&quot;</span>);</span><br><span class="line"><span class="keyword">int</span> number = <span class="keyword">int</span>.Parse(Console.ReadLine());</span><br><span class="line"><span class="keyword">switch</span> (number)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;數字一&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">default</span>:    <span class="comment">// 默認</span></span><br><span class="line">        Console.WriteLine(<span class="string">&quot;沒有東西&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;  <span class="comment">// 終止</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>for<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">1</span>; n &lt; <span class="number">100</span>; n += <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">$&quot;第一個偶數: <span class="subst">&#123;n&#125;</span>&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>while<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (m &lt; <span class="number">20</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;m: <span class="subst">&#123;m&#125;</span>&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (m == <span class="number">10</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">break</span>; <span class="comment">// 到m=10時，跳脫while迴圈。</span></span><br><span class="line">    &#125;</span><br><span class="line">    m += <span class="number">2</span>;</span><br><span class="line">&#125;            </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h4 id="2-continue-繼續"><a href="#2-continue-繼續" class="headerlink" title="2. continue 繼續"></a>2. continue 繼續</h4><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">10</span>; i += <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sum += i;</span><br><span class="line">        <span class="keyword">continue</span>; <span class="comment">// 循環繼續，效率更高。 </span></span><br><span class="line">        <span class="comment">/* 【i】的結果：</span></span><br><span class="line"><span class="comment">                加入continue：1、3、5、7、9</span></span><br><span class="line"><span class="comment">                取消continue：1、2、3、4、5、6、7、8、9 </span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    &#125;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;我來亂的<span class="subst">&#123;i&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">Console.WriteLine(<span class="string">$&quot;sum :<span class="subst">&#123;sum&#125;</span>&quot;</span>);        </span><br></pre></td></tr></table></figure>
+<h4 id="3-return-返回"><a href="#3-return-返回" class="headerlink" title="3. return 返回"></a>3. return 返回</h4><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">string</span> str = Test();</span><br><span class="line">    Console.WriteLine(str);</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> return 返回，測試</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">Test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;這是一個return 的字串&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h1 id="訪問修飾符"><a href="#訪問修飾符" class="headerlink" title="訪問修飾符"></a>訪問修飾符</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/Mz-8PpvflaQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 18</code>。</p>
+</blockquote>
+<h2 id="開始-14"><a href="#開始-14" class="headerlink" title="開始"></a>開始</h2>]]></content>
       <categories>
         <category>C# 程式語言學習</category>
       </categories>
