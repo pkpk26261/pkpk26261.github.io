@@ -429,13 +429,12 @@
   </div>
   <div id="muteYouTubeVideoPlayer"></div>
   <script async src="https://www.youtube.com/iframe_api"></script>
-  <script>
-  function onYouTubeIframeAPIReady() {
+  <script>function onYouTubeIframeAPIReady() {
     var player;
-    player = new YT.Player('muteYouTubeVideoPlayer', {
+    player = new YT.Player('muteYouTubeVideoPlayer',{
       videoId: 'gtaCnLWWGPs', // YouTube Video ID
       width: 197,             // 播放器寬度（以像素為單位）
-      height: 112,            // 播放器高度（以像素為單位）
+      height: 111,            // 播放器高度（以像素為單位）
       playerVars: {
         autoplay: 1,        // 加載時自動播放視頻
         controls: 0,        // 在播放器中顯示暫停/播放按鈕
@@ -449,14 +448,8 @@
         rel: 0,             // 片尾不顯示相關影片
         disablekb: 0,
         controls: 0,
-        playlist: 'gtaCnLWWGPs,,', // 播放清單         
-        },
-      //events: {                   //若要取消靜音，把這行註釋掉。
-        //onReady: function(e) {    //若要取消靜音，把這行註釋掉。
-      //e.target.mute();        //若要取消靜音，把這行註釋掉。
-        //}                         //若要取消靜音，把這行註釋掉。
-      //}                           //若要取消靜音，把這行註釋掉。
-    });
+        playlist: 'gtaCnLWWGPs,,'} // 播放清單         
+    })
   }
   </script>
   <div class="cc-license motion-element" itemprop="license">
