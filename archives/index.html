@@ -546,34 +546,33 @@
         <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9wa3BrMjYyNjEvP2hsPXpoLXR3" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;pkpk26261&#x2F;?hl&#x3D;zh-tw"><i class="fab fa-instagram fa-fw"></i></span>
       </span>
   </div>
-  
   <div id="muteYouTubeVideoPlayer"></div>
   <script async src="https://www.youtube.com/iframe_api"></script>
   <script>
   function onYouTubeIframeAPIReady() {
     var player;
     player = new YT.Player('muteYouTubeVideoPlayer', {
-      videoId: 'bMzuexSBV7k', // YouTube Video ID
+      videoId: 'w15ZY_6azi4', // YouTube Video ID
       width: 197,             // 播放器寬度（以像素為單位）
-      height: 111,            // 播放器高度（以像素為單位）
+      height: 112,            // 播放器高度（以像素為單位）
       playerVars: {
         autoplay: 1,        // 加載時自動播放視頻
         controls: 0,        // 在播放器中顯示暫停/播放按鈕
-        showinfo: 1,        // 隱藏視頻標題
+        showinfo: 0,        // 隱藏視頻標題
         modestbranding: 1,  // 隱藏Youtube徽標
         loop: 1,            // 循環播放視頻
-        fs: 1,              // 隱藏全屏按鈕
+        fs: 0,              // 隱藏全屏按鈕
         cc_load_policy: 0,  // 隱藏隱藏式字幕
         iv_load_policy: 3,  // 隱藏視頻註釋
-        autohide: 1,        // 播放時隱藏視頻控件
+        autohide: 0,        // 播放時隱藏視頻控件
         rel: 0,             // 片尾不顯示相關影片
         disablekb: 0,
         controls: 0,
-        playlist: 'bMzuexSBV7k,,', // 播放清單         
+        playlist: '99tGRSYvwxA,EQ94zflNqn4,t6Z0oSm4F-o', // 播放清單         
         },
       //events: {                   //若要取消靜音，把這行註釋掉。
         //onReady: function(e) {    //若要取消靜音，把這行註釋掉。
-          //e.target.mute();        //若要取消靜音，把這行註釋掉。
+      //e.target.mute();        //若要取消靜音，把這行註釋掉。
         //}                         //若要取消靜音，把這行註釋掉。
       //}                           //若要取消靜音，把這行註釋掉。
     });
