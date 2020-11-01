@@ -394,10 +394,10 @@
 </ul>
 <h3 id="5-21-2"><a href="#5-21-2" class="headerlink" title="5.21-2"></a>5.21-2</h3><p>下列哪些運算式的運算結果為true？哪些運算式的運算結果為false？</p>
 <ol>
-<li>‘a’&lt;28        ，答案為<code>false</code> </li>
-<li>4+3==8-1        ，答案為<code>true</code> </li>
-<li>8&gt;2            ，答案為<code>true</code> </li>
-<li>‘a’!=97        ，答案為<code>false </code></li>
+<li><code>&#39;a&#39;&lt;28</code>            ，答案為<code>false</code> </li>
+<li><code>4+3==8-1</code>        ，答案為<code>true</code> </li>
+<li><code>8&gt;2</code>            ，答案為<code>true</code> </li>
+<li><code>&#39;a&#39;!=97</code>        ，答案為<code>false </code></li>
 </ol>
 <h3 id="5-22-3"><a href="#5-22-3" class="headerlink" title="5.22-3"></a>5.22-3</h3><p>下列的運算式中，試指出那些是<code>運算元</code>？哪些是<code>運算子</code>？</p>
 <ol>
@@ -439,6 +439,12 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> num1,num2;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;請輸入華氏溫度：&quot;</span>); </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%f&quot;</span>,&amp;num1); </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;華氏溫度為：%3.1f\n&quot;</span>,num1);</span><br><span class="line">    </span><br><span class="line">    num2=(num1<span class="number">-32</span>)/<span class="number">1.8</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;攝氏溫度為：%3.1f\n&quot;</span>,num2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="5-24-15"><a href="#5-24-15" class="headerlink" title="5.24-15"></a>5.24-15</h3><p>試撰寫一程式，可由鍵盤輸入平行四邊形的底和高，然後計算其面積。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> bottom,high,area;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;請輸入平行四邊形的底：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%f&quot;</span>,&amp;bottom);</span><br><span class="line">    fflush(<span class="built_in">stdin</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;請輸入平行四邊形的高：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%f&quot;</span>,&amp;high);</span><br><span class="line">    </span><br><span class="line">    area=bottom*high;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;平行四邊形的面積為：%5.2f\n&quot;</span>,area);</span><br><span class="line">    </span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>鍵盤輸入數字後，輸出結果為：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">請輸入平行四邊形的底：912</span><br><span class="line">請輸入平行四邊形的高：012</span><br><span class="line">平行四邊形的面積為：10944.00</span><br><span class="line">請按任意鍵繼續 . . .</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
 <h3 id="5-24-16"><a href="#5-24-16" class="headerlink" title="5.24-16"></a>5.24-16</h3><p>已知圓形體積為<strong>4/3πr³</strong>，試撰寫一程式，可輸入圓球半徑，經計算後輸出圓形體積。</p>
 <h3 id="5-24-17"><a href="#5-24-17" class="headerlink" title="5.24-17"></a>5.24-17</h3><p>設有一程式碼，期便書的初值宣告如下：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> a=<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line"><span class="keyword">short</span> b=<span class="number">12</span>;</span><br><span class="line"><span class="keyword">float</span> c=<span class="number">12.4f</span>;</span><br><span class="line"><span class="keyword">int</span> d=<span class="number">15</span>;</span><br><span class="line">dounle e=<span class="number">13.62</span>;</span><br></pre></td></tr></table></figure>
@@ -457,47 +463,6 @@
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tensorflow-gpu 安裝引導</title>
-    <url>/2020/01/14/Tensorflow-gpu%20%E5%AE%89%E8%A3%9D%E5%BC%95%E5%B0%8E/</url>
-    <content><![CDATA[<p>這裡將教大家如何在Windows、Linux的Anaconda安裝tensorflow-gpu。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<hr>
-<p><code>&lt;name&gt;</code>為自定義名稱。</p>
-<ol>
-<li><p>建立 <code>Python3.6</code> 新環境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n &lt;name&gt; python&#x3D;3.6</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>啟動<code>&lt;name&gt;</code>環境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">activate &lt;name&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>開始安裝<code>tensorflow-gpu</code>，<code>conda</code>會內建安裝tensorflow-gpu之<code>對應版本</code>的CUDA + cuDNN等組合包。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install tensorflow-gpu&#x3D;&#x3D;1.12.0</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<hr>
-<p><font size="5px" color="red">額外補充:</font><br>若要<code>conda</code>刪除組合包，請輸入以下指令，<code>&lt;name包&gt;</code>為包名稱。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda uninstall &lt;name包&gt;</span><br></pre></td></tr></table></figure>
-<p>若要<code>單一</code>刪除套件，請輸入以下指令，<code>&lt;name套&gt;</code>為套件名稱。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip uninstall &lt;name套&gt;</span><br></pre></td></tr></table></figure>
-
-<p>&ensp;<br>若要刪除該整個環境，請輸入以下指令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env remove -n &lt;name&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-]]></content>
-      <categories>
-        <category>Python 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -641,6 +606,47 @@
       </tags>
   </entry>
   <entry>
+    <title>Tensorflow-gpu 安裝引導</title>
+    <url>/2020/01/14/Tensorflow-gpu%20%E5%AE%89%E8%A3%9D%E5%BC%95%E5%B0%8E/</url>
+    <content><![CDATA[<p>這裡將教大家如何在Windows、Linux的Anaconda安裝tensorflow-gpu。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<hr>
+<p><code>&lt;name&gt;</code>為自定義名稱。</p>
+<ol>
+<li><p>建立 <code>Python3.6</code> 新環境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n &lt;name&gt; python&#x3D;3.6</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>啟動<code>&lt;name&gt;</code>環境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">activate &lt;name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>開始安裝<code>tensorflow-gpu</code>，<code>conda</code>會內建安裝tensorflow-gpu之<code>對應版本</code>的CUDA + cuDNN等組合包。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install tensorflow-gpu&#x3D;&#x3D;1.12.0</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<p><font size="5px" color="red">額外補充:</font><br>若要<code>conda</code>刪除組合包，請輸入以下指令，<code>&lt;name包&gt;</code>為包名稱。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda uninstall &lt;name包&gt;</span><br></pre></td></tr></table></figure>
+<p>若要<code>單一</code>刪除套件，請輸入以下指令，<code>&lt;name套&gt;</code>為套件名稱。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip uninstall &lt;name套&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&ensp;<br>若要刪除該整個環境，請輸入以下指令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env remove -n &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+]]></content>
+      <categories>
+        <category>Python 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module &quot;canberra-gtk-module&quot;}</title>
     <url>/2020/05/03/Ubuntu%20%E5%9F%B7%E8%A1%8C%20MATLAB%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF/</url>
     <content><![CDATA[<p>這裡將教大家如何解決 <code>&#123;Failed to load module &quot;canberra-gtk-module&quot;&#125;</code> 的啟動錯誤問題。</p>
@@ -687,6 +693,81 @@
         <tag>Ubuntu</tag>
         <tag>Linux</tag>
         <tag>MATLAB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用shutil、os模組協助複製、移動、刪除、新增目錄或檔案</title>
+    <url>/2020/01/16/%E4%BD%BF%E7%94%A8shutil%E3%80%81os%E6%A8%A1%E7%B5%84%E5%8D%94%E5%8A%A9%E8%A4%87%E8%A3%BD%E3%80%81%E7%A7%BB%E5%8B%95%E3%80%81%E5%88%AA%E9%99%A4%E3%80%81%E6%96%B0%E5%A2%9E%E7%9B%AE%E9%8C%84%E6%88%96%E6%AA%94%E6%A1%88/</url>
+    <content><![CDATA[<p>使用shutil、os模組協助複製、移動、刪除、新增目錄或檔案</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<hr>
+<h1 id="shutil模組"><a href="#shutil模組" class="headerlink" title="shutil模組"></a>shutil模組</h1><ul>
+<li>安裝模組: <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install pytest-shutil</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ol>
+<li><p>複製資料夾所有檔案至新建資料夾內</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">shutil.copytree(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A和B都可能是目錄位置，但B必須為不存在</span></span><br><span class="line"><span class="comment"># shutil.copytree會自動產生B目錄，如果B目錄存在會出現錯誤訊息。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>參考寫法  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copytree(<span class="string">&#x27;./test1/&#x27;</span>,<span class="string">&#x27;D:/test2/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>刪除目錄及目錄內所有檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.rmtree(<span class="string">&#x27;./test/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>複製文件</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copyfile(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A和B只能是檔案，不能是目錄位址</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>參考寫法  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">shutil.copyfile(<span class="string">&#x27;test1.jpg&#x27;</span>,<span class="string">&#x27;test2.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>複製目錄或者複製目錄內的檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copy(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A只能是目錄，B可以是目錄或檔案</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移動文件</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.move(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A可以是目錄或檔案，B只能是目錄</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h1 id="os模組"><a href="#os模組" class="headerlink" title="os模組"></a>os模組</h1><p><code>不必安裝，內建模組</code></p>
+<ol>
+<li><p>刪除單個文件</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.remove(<span class="string">&#x27;test.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判斷資料夾(目錄)是否存在</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(<span class="string">&#x27;./test/&#x27;</span>):</span><br><span class="line">    print(<span class="string">&#x27;資料夾不存在&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新增資料夾(單層目錄)</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.mkdir(<span class="string">&#x27;./test/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新增資料夾(多層目錄)<br><code>如果前一層test資料夾不存在，將會自動新建</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.makedirs(<span class="string">&#x27;./test/hello/&#x27;</span>,exist_ok=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># os.makedirs的exist_ok預設為False，如果資料夾存在的話，將會發生錯誤訊息，因此要記得修改為True，無論目錄是否存在，都會自動判斷新增。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>合併目錄位址</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.join(<span class="string">&#x27;./test/&#x27;</span>,<span class="string">&#x27;hello,jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>輸出為<code>./test/hello,jpg</code></li>
+</ul>
+<p>&ensp;</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.join(<span class="string">&#x27;./testA/&#x27;</span>,<span class="string">&#x27;./testB/,&#x27;</span>hello.jpg<span class="string">&#x27;)</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>輸出為<code>./testA/testB/hello.jpg</code></li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -879,81 +960,6 @@
         <tag>Arduino</tag>
         <tag>上課筆記</tag>
         <tag>勤益科大</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用shutil、os模組協助複製、移動、刪除、新增目錄或檔案</title>
-    <url>/2020/01/16/%E4%BD%BF%E7%94%A8shutil%E3%80%81os%E6%A8%A1%E7%B5%84%E5%8D%94%E5%8A%A9%E8%A4%87%E8%A3%BD%E3%80%81%E7%A7%BB%E5%8B%95%E3%80%81%E5%88%AA%E9%99%A4%E3%80%81%E6%96%B0%E5%A2%9E%E7%9B%AE%E9%8C%84%E6%88%96%E6%AA%94%E6%A1%88/</url>
-    <content><![CDATA[<p>使用shutil、os模組協助複製、移動、刪除、新增目錄或檔案</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<hr>
-<h1 id="shutil模組"><a href="#shutil模組" class="headerlink" title="shutil模組"></a>shutil模組</h1><ul>
-<li>安裝模組: <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install pytest-shutil</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<ol>
-<li><p>複製資料夾所有檔案至新建資料夾內</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">shutil.copytree(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A和B都可能是目錄位置，但B必須為不存在</span></span><br><span class="line"><span class="comment"># shutil.copytree會自動產生B目錄，如果B目錄存在會出現錯誤訊息。</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>參考寫法  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copytree(<span class="string">&#x27;./test1/&#x27;</span>,<span class="string">&#x27;D:/test2/&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>刪除目錄及目錄內所有檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.rmtree(<span class="string">&#x27;./test/&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>複製文件</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copyfile(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A和B只能是檔案，不能是目錄位址</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>參考寫法  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">shutil.copyfile(<span class="string">&#x27;test1.jpg&#x27;</span>,<span class="string">&#x27;test2.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>複製目錄或者複製目錄內的檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copy(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A只能是目錄，B可以是目錄或檔案</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>移動文件</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.move(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A可以是目錄或檔案，B只能是目錄</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<hr>
-<h1 id="os模組"><a href="#os模組" class="headerlink" title="os模組"></a>os模組</h1><p><code>不必安裝，內建模組</code></p>
-<ol>
-<li><p>刪除單個文件</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.remove(<span class="string">&#x27;test.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判斷資料夾(目錄)是否存在</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(<span class="string">&#x27;./test/&#x27;</span>):</span><br><span class="line">    print(<span class="string">&#x27;資料夾不存在&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新增資料夾(單層目錄)</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.mkdir(<span class="string">&#x27;./test/&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新增資料夾(多層目錄)<br><code>如果前一層test資料夾不存在，將會自動新建</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.makedirs(<span class="string">&#x27;./test/hello/&#x27;</span>,exist_ok=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># os.makedirs的exist_ok預設為False，如果資料夾存在的話，將會發生錯誤訊息，因此要記得修改為True，無論目錄是否存在，都會自動判斷新增。</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>合併目錄位址</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.join(<span class="string">&#x27;./test/&#x27;</span>,<span class="string">&#x27;hello,jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>輸出為<code>./test/hello,jpg</code></li>
-</ul>
-<p>&ensp;</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.join(<span class="string">&#x27;./testA/&#x27;</span>,<span class="string">&#x27;./testB/,&#x27;</span>hello.jpg<span class="string">&#x27;)</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>輸出為<code>./testA/testB/hello.jpg</code></li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Python 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>

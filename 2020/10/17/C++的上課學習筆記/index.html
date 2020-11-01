@@ -32,7 +32,7 @@
 <meta property="og:description" content="計算機程式(三上)-上課筆記 IDE開發軟件選用Dev-C++ ⬇⬇⬇文章開始⬇⬇⬇">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-17T06:40:00.000Z">
-<meta property="article:modified_time" content="2020-10-24T06:05:58.308Z">
+<meta property="article:modified_time" content="2020-10-24T07:13:05.000Z">
 <meta property="article:author" content="Yong Cheng（永成）">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -249,7 +249,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-24 14:05:58" itemprop="dateModified" datetime="2020-10-24T14:05:58+08:00">2020-10-24</time>
+                <time title="修改時間：2020-10-24 15:13:05" itemprop="dateModified" datetime="2020-10-24T15:13:05+08:00">2020-10-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -267,7 +267,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>8.5k</span>
+              <span>8.9k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -469,10 +469,10 @@
 </ul>
 <h3 id="5-21-2"><a href="#5-21-2" class="headerlink" title="5.21-2"></a>5.21-2</h3><p>下列哪些運算式的運算結果為true？哪些運算式的運算結果為false？</p>
 <ol>
-<li>‘a’&lt;28        ，答案為<code>false</code> </li>
-<li>4+3==8-1        ，答案為<code>true</code> </li>
-<li>8&gt;2            ，答案為<code>true</code> </li>
-<li>‘a’!=97        ，答案為<code>false </code></li>
+<li><code>&#39;a&#39;&lt;28</code>            ，答案為<code>false</code> </li>
+<li><code>4+3==8-1</code>        ，答案為<code>true</code> </li>
+<li><code>8&gt;2</code>            ，答案為<code>true</code> </li>
+<li><code>&#39;a&#39;!=97</code>        ，答案為<code>false </code></li>
 </ol>
 <h3 id="5-22-3"><a href="#5-22-3" class="headerlink" title="5.22-3"></a>5.22-3</h3><p>下列的運算式中，試指出那些是<code>運算元</code>？哪些是<code>運算子</code>？</p>
 <ol>
@@ -514,6 +514,12 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> num1,num2;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;請輸入華氏溫度：&quot;</span>); </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%f&quot;</span>,&amp;num1); </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;華氏溫度為：%3.1f\n&quot;</span>,num1);</span><br><span class="line">    </span><br><span class="line">    num2=(num1<span class="number">-32</span>)/<span class="number">1.8</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;攝氏溫度為：%3.1f\n&quot;</span>,num2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="5-24-15"><a href="#5-24-15" class="headerlink" title="5.24-15"></a>5.24-15</h3><p>試撰寫一程式，可由鍵盤輸入平行四邊形的底和高，然後計算其面積。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> bottom,high,area;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;請輸入平行四邊形的底：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%f&quot;</span>,&amp;bottom);</span><br><span class="line">    fflush(<span class="built_in">stdin</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;請輸入平行四邊形的高：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%f&quot;</span>,&amp;high);</span><br><span class="line">    </span><br><span class="line">    area=bottom*high;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;平行四邊形的面積為：%5.2f\n&quot;</span>,area);</span><br><span class="line">    </span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>鍵盤輸入數字後，輸出結果為：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">請輸入平行四邊形的底：912</span><br><span class="line">請輸入平行四邊形的高：012</span><br><span class="line">平行四邊形的面積為：10944.00</span><br><span class="line">請按任意鍵繼續 . . .</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
 <h3 id="5-24-16"><a href="#5-24-16" class="headerlink" title="5.24-16"></a>5.24-16</h3><p>已知圓形體積為<strong>4/3πr³</strong>，試撰寫一程式，可輸入圓球半徑，經計算後輸出圓形體積。</p>
 <h3 id="5-24-17"><a href="#5-24-17" class="headerlink" title="5.24-17"></a>5.24-17</h3><p>設有一程式碼，期便書的初值宣告如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> a=<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line"><span class="keyword">short</span> b=<span class="number">12</span>;</span><br><span class="line"><span class="keyword">float</span> c=<span class="number">12.4f</span>;</span><br><span class="line"><span class="keyword">int</span> d=<span class="number">15</span>;</span><br><span class="line">dounle e=<span class="number">13.62</span>;</span><br></pre></td></tr></table></figure>
