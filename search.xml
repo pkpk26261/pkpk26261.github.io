@@ -250,55 +250,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module &quot;canberra-gtk-module&quot;}</title>
-    <url>/2020/05/03/Ubuntu%20%E5%9F%B7%E8%A1%8C%20MATLAB%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF/</url>
-    <content><![CDATA[<p>這裡將教大家如何解決 <code>&#123;Failed to load module &quot;canberra-gtk-module&quot;&#125;</code> 的啟動錯誤問題。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<h1 id="安裝必要包"><a href="#安裝必要包" class="headerlink" title="安裝必要包"></a>安裝必要包</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">sudo apt-get install packagekit-gtk3-module</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法一（暫時）"><a href="#方法一（暫時）" class="headerlink" title="方法一（暫時）"></a>方法一（暫時）</h2><p>你有一個需要在運行MATLAB之前，設置環境變量：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0</span><br></pre></td></tr></table></figure>
-
-<p>或者，您可以通過輸入以下內容在bash shell中，直接運行matlab：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0 &#x2F;usr&#x2F;local&#x2F;MATLAB&#x2F;R2019b&#x2F;bin&#x2F;matlab</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二（永久）"><a href="#方法二（永久）" class="headerlink" title="方法二（永久）"></a>方法二（永久）</h2><ol>
-<li>進入root權限</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="2">
-<li>輸入gedit(文字編輯器)開啟profile檔案</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="3">
-<li><code>profile</code>的最下面加入</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0:$GTK_PATH</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="4">
-<li>重啟</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>Linux</tag>
-        <tag>MATLAB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu 與 Windows 雙系統安裝引導</title>
     <url>/2020/05/03/Ubuntu%20install/</url>
     <content><![CDATA[<p>這裡將教大家如何安裝Ubuntu。</p>
@@ -436,6 +387,55 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>系統</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module &quot;canberra-gtk-module&quot;}</title>
+    <url>/2020/05/03/Ubuntu%20%E5%9F%B7%E8%A1%8C%20MATLAB%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF/</url>
+    <content><![CDATA[<p>這裡將教大家如何解決 <code>&#123;Failed to load module &quot;canberra-gtk-module&quot;&#125;</code> 的啟動錯誤問題。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<h1 id="安裝必要包"><a href="#安裝必要包" class="headerlink" title="安裝必要包"></a>安裝必要包</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">sudo apt-get install packagekit-gtk3-module</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一（暫時）"><a href="#方法一（暫時）" class="headerlink" title="方法一（暫時）"></a>方法一（暫時）</h2><p>你有一個需要在運行MATLAB之前，設置環境變量：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0</span><br></pre></td></tr></table></figure>
+
+<p>或者，您可以通過輸入以下內容在bash shell中，直接運行matlab：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0 &#x2F;usr&#x2F;local&#x2F;MATLAB&#x2F;R2019b&#x2F;bin&#x2F;matlab</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二（永久）"><a href="#方法二（永久）" class="headerlink" title="方法二（永久）"></a>方法二（永久）</h2><ol>
+<li>進入root權限</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="2">
+<li>輸入gedit(文字編輯器)開啟profile檔案</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="3">
+<li><code>profile</code>的最下面加入</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0:$GTK_PATH</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="4">
+<li>重啟</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Linux</tag>
+        <tag>MATLAB</tag>
       </tags>
   </entry>
   <entry>
@@ -747,474 +747,6 @@
       </categories>
       <tags>
         <tag>軟體下載</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C# 入門者快速教學文章（資料整理）</title>
-    <url>/2020/08/09/C%20sharp%20%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<p>C# 學習相關檔案下載參考，網址：<span class="exturl" data-url="aHR0cHM6Ly9nbXN0dWRlbnRuY3V0ZWR1dHctbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvZGE3MTIzMDJfZ21fc3R1ZGVudF9uY3V0X2VkdV90dy9FaHE0UHNqYk90UkRoWUxwQVg4UzZNSUJCcVNkUk41UFNSX25BeEpKVWJHQXBnP2U9UXZzaG1B">請點我一下<i class="fa fa-external-link-alt"></i></span> 。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<hr>
-<h1 id="軟件安裝-和-創建方案-專案"><a href="#軟件安裝-和-創建方案-專案" class="headerlink" title="軟件安裝 和 創建方案 / 專案"></a>軟件安裝 和 創建方案 / 專案</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/f42_gfcWjcg?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<h2 id="軟件安裝"><a href="#軟件安裝" class="headerlink" title="軟件安裝"></a>軟件安裝</h2><p>官網軟件下載：<span class="exturl" data-url="aHR0cHM6Ly92aXN1YWxzdHVkaW8ubWljcm9zb2Z0LmNvbS96aC1oYW50L2Rvd25sb2Fkcy8=">https://visualstudio.microsoft.com/zh-hant/downloads/<i class="fa fa-external-link-alt"></i></span></p>
-<ol>
-<li>選擇Visual Studio 2019 其中一個下載即可。</li>
-</ol>
-<ul>
-<li><img src="/images/Csharp%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/%E5%9C%96%E7%89%871.png"></li>
-</ul>
-<ol start="2">
-<li>C# 這邊用的是<code>.NET桌面開發</code>，如果還需要其他工作負載，可以自行選擇下載。</li>
-</ol>
-<ul>
-<li><img src="/images/Csharp%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/%E5%9C%96%E7%89%872.png"></li>
-</ul>
-<h2 id="創建方案-專案"><a href="#創建方案-專案" class="headerlink" title="創建方案 / 專案"></a>創建方案 / 專案</h2><ul>
-<li><img src="/images/Csharp%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/%E5%9C%96%E7%89%873.png"></li>
-</ul>
-<hr>
-<h1 id="使用註釋幫助閱讀代碼"><a href="#使用註釋幫助閱讀代碼" class="headerlink" title="使用註釋幫助閱讀代碼"></a>使用註釋幫助閱讀代碼</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/mYzVmExMPwg?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 01</code>。</p>
-</blockquote>
-<ol>
-<li>單行註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 單行註釋：幫助程序開發者用於閱讀代碼</span></span><br></pre></td></tr></table></figure></li>
-<li>多行註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 多行註釋：幫助程序開發者用於閱讀代碼</span></span><br><span class="line"><span class="comment">   多行註釋：幫助程序開發者用於閱讀代碼</span></span><br><span class="line"><span class="comment">   多行註釋：幫助程序開發者用於閱讀代碼 */</span></span><br></pre></td></tr></table></figure></li>
-<li>摺疊註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 摺疊註釋</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure></li>
-<li>文檔註釋<br> 當滑鼠指標移動到Tset文字時，視窗註釋會顯示<code>文檔註釋</code>。<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 文檔註釋</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h1 id="常用快捷鍵"><a href="#常用快捷鍵" class="headerlink" title="常用快捷鍵"></a>常用快捷鍵</h1><ol>
-<li>新增新專案<br> 在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>N</code>，即可跳出<code>建立新專案</code>的視窗。</li>
-<li>新增檔案<br> 在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>N</code>，即可跳出<code>建立新專案</code>的視窗。</li>
-<li>加入新增專案項目<br> 在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>A</code>，即可跳出<code>新增項目</code>的視窗。</li>
-<li>加入現有專案項目<br> 在該專案裡面，按<code>Shift</code> <code>+</code> <code>Alt</code> <code>+</code> <code>A</code>，即可跳出<code>加入現有項目</code>的視窗。</li>
-<li>區域註釋<br> <code>Ctrl</code> <code>+</code> <code>K</code> <code>+ </code> <code>C</code>  選取區域註釋<br> <code>Ctrl</code> <code>+</code> <code>K</code> <code>+ </code> <code>U</code>  選取區域取消註釋</li>
-<li>Console.WriteLine()<br> 鍵盤輸入<code>cw</code>，即可跳出<code>Console.WriteLine();</code></li>
-</ol>
-<hr>
-<h1 id="變量理解與使用"><a href="#變量理解與使用" class="headerlink" title="變量理解與使用"></a>變量理解與使用</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/RTIlomlgFsU?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 02</code>。</p>
-</blockquote>
-<h2 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h2><p>資料型態值：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number;                          <span class="comment">// 宣告int類別的變數</span></span><br><span class="line">number = <span class="number">1000</span>;                       <span class="comment">// number可分行建置數字</span></span><br><span class="line"><span class="keyword">double</span> Decimalpoint = <span class="number">999.0000001</span>;   <span class="comment">// 宣告double類別的變數</span></span><br><span class="line"><span class="keyword">char</span> print = <span class="string">&#x27;字&#x27;</span>;                   <span class="comment">// 單個字符，用&#x27;單引號&#x27;</span></span><br><span class="line"><span class="keyword">string</span> Type = <span class="string">&quot;我是文字&quot;</span>;            <span class="comment">// 字串，用&quot;雙引號&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><p>（方法１）一般用法：(字符加字符=拼接；數字加數字=運算)<br> &ensp;<code>char print</code>  &ensp;的<code>print</code>，不能放在數字後面。<br> &ensp;<code>string Type</code> 的<code>Type</code> ，可放在數字後面。</p>
- <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.WriteLine(number + Decimalpoint + <span class="string">&quot; &quot;</span> + Type + print);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>（方法２） 占位符用法：(“{0}、{1}、{2}、{3}、{4}”,  0, 1, 2, 3, 4);</p>
- <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.WriteLine(<span class="string">&quot;數字:&#123;0&#125;  , 小數點:&#123;1&#125;  , 字符:&#123;2&#125;  , 字串:&#123;3&#125;&quot;</span>, number, Decimalpoint, print, Type);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li><h3 id="顯示輸出字元"><a href="#顯示輸出字元" class="headerlink" title="顯示輸出字元"></a>顯示輸出字元</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Write(<span class="string">&quot;Hello World!&quot;</span>);       <span class="comment">// 印字</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;Hello World!&quot;</span>);   <span class="comment">// 換行印字</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><h3 id="鍵盤輸入字元"><a href="#鍵盤輸入字元" class="headerlink" title="鍵盤輸入字元"></a>鍵盤輸入字元</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Read();                      <span class="comment">// 等待輸入</span></span><br><span class="line">Console.ReadLine(<span class="string">&quot;Hello World!&quot;</span>);    <span class="comment">// 換行輸入</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h1 id="變量的命名規則"><a href="#變量的命名規則" class="headerlink" title="變量的命名規則"></a>變量的命名規則</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/O4wpCrbiJk8?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 03</code>。</p>
-</blockquote>
-<ol>
-<li>Pascal 帕斯卡命名：當有多個單字組成變量或方法時，每個單字的開頭字母要大寫。<br> (常用處：類名、屬性、方法名、接口) <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> UserNameTest;</span><br></pre></td></tr></table></figure></li>
-<li>駝峰命名：多個單字出現，首單字開頭字母要小寫，其餘單字開頭字母要大寫。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> nameYongCheng;</span><br></pre></td></tr></table></figure></li>
-<li>C# 變數：只能由數字，字母和下劃線組成，但是不能以數字做為變數開頭。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> _age1;</span><br></pre></td></tr></table></figure></li>
-<li>見名知意 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> name = <span class="string">&quot;黃永成&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<hr>
-<h1 id="運算符的優先級別使用"><a href="#運算符的優先級別使用" class="headerlink" title="運算符的優先級別使用"></a>運算符的優先級別使用</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/1LV4vMuHfp0?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 04</code>。</p>
-</blockquote>
-<ol>
-<li>算術運算符 <code>+</code>  <code>-</code>  <code>*</code>  <code>/</code>  <code>%</code><br> (加、減、乘、除、餘)</li>
-<li>關係運算符  <code>&gt;</code>  <code>&lt;</code>  <code>==</code>  <code>&gt;=</code>  <code>&lt;=</code>  <code>!=</code><br> (大於、小於、相同、大於等於、小於等於、不同)</li>
-<li>邏輯運算符  <code>&amp;&amp;</code>  <code>||</code>  <code>!</code><br> (and閘、or閘、not閘)</li>
-<li>賦值運算符  <code>=</code><br> (int number = 1;)</li>
-</ol>
-<hr>
-<h1 id="占位符的使用方式"><a href="#占位符的使用方式" class="headerlink" title="占位符的使用方式"></a>占位符的使用方式</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/YoHWrQ5O-vM?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 05</code>。</p>
-</blockquote>
-<h2 id="開始-1"><a href="#開始-1" class="headerlink" title="開始"></a>開始</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// C#占位符的使用</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 資料數值</span></span><br><span class="line">Console.Write(<span class="string">&quot;請輸入帳號：&quot;</span>);</span><br><span class="line"><span class="keyword">string</span> User = Console.ReadLine();</span><br><span class="line"><span class="keyword">string</span> password = <span class="string">&quot;password&quot;</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法一</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;帳號:&#123;0&#125;&quot;</span>,User);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二</span></span><br><span class="line"><span class="keyword">string</span> good = <span class="keyword">string</span>.Format(<span class="string">&quot;您輸入的帳號是：&#123;0&#125;&quot;</span>, User);</span><br><span class="line">Console.WriteLine(good);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法三</span></span><br><span class="line"><span class="keyword">string</span> nice = <span class="string">$&quot;輸入的帳號是：<span class="subst">&#123;User&#125;</span>，輸入的密碼是：<span class="subst">&#123;password&#125;</span>&quot;</span>;</span><br><span class="line">Console.WriteLine(nice);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法四</span></span><br><span class="line"><span class="keyword">string</span> great = <span class="string">&quot;帳號是：&quot;</span> + <span class="string">$&quot;<span class="subst">&#123;User&#125;</span>&quot;</span> + <span class="string">&quot; | 密碼是：&quot;</span> + <span class="string">$&quot;<span class="subst">&#123;password&#125;</span>&quot;</span>;</span><br><span class="line">Console.WriteLine(great);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 任何按鍵跳脫</span></span><br><span class="line">Console.Read();</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="if-else-判斷式的使用方式"><a href="#if-else-判斷式的使用方式" class="headerlink" title="if else 判斷式的使用方式"></a>if else 判斷式的使用方式</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/_9cJE7Bu-X8?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 06</code>。</p>
-</blockquote>
-<h2 id="開始-2"><a href="#開始-2" class="headerlink" title="開始"></a>開始</h2><h3 id="情境一"><a href="#情境一" class="headerlink" title="情境一"></a>情境一</h3><blockquote>
-<p>  假如條件是：<code>下雨天</code><br>  有下雨的話：<code>不出門</code><br>  沒下雨的話：<code>出門</code></p>
-<blockquote>
-<ul>
-<li>代碼：  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">bool</span> rain=<span class="literal">true</span>; <span class="comment">// 布林值: true真、false假</span></span><br><span class="line"><span class="keyword">if</span> (rain==<span class="literal">true</span>)</span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;不出門&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;要出門&quot;</span>); &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-</blockquote>
-<hr>
-<h3 id="情境二"><a href="#情境二" class="headerlink" title="情境二"></a>情境二</h3><blockquote>
-<p>  假如條件是：你存款的錢有80萬元<br>  若低於80萬元：我的女兒不能嫁給你<br>  若高於80萬元：我的女兒才能嫁給你</p>
-<blockquote>
-<ul>
-<li>代碼：  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Write(<span class="string">&quot;請說出你的存款金額：&quot;</span>);</span><br><span class="line"><span class="keyword">int</span> money = <span class="keyword">int</span>.Parse(Console.ReadLine());</span><br><span class="line"><span class="comment">// Console.ReadLine()是字串，需使用int.Parse轉成數字。</span></span><br><span class="line"><span class="keyword">bool</span> result = money &gt;= <span class="number">800000</span>; <span class="comment">// 布林值: true真、false假</span></span><br><span class="line"><span class="keyword">if</span> (money &gt;= <span class="number">800000</span>)</span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;我的女兒可以嫁給你&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你&quot;</span>); &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-</blockquote>
-<hr>
-<h3 id="情境三"><a href="#情境三" class="headerlink" title="情境三"></a>情境三</h3><blockquote>
-<p>  假如條件是：你存款的錢有80萬元，有房子，有車，沒老婆<br>  若低於80萬元：我的女兒不能嫁給你<br>  若高於80萬元：我的女兒才能嫁給你</p>
-<blockquote>
-<ul>
-<li>條件宣布代碼： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 條件宣布    </span></span><br><span class="line">Console.Write(<span class="string">&quot;請說出你的存款金額：&quot;</span>);</span><br><span class="line"><span class="keyword">int</span> money_2 = <span class="keyword">int</span>.Parse(Console.ReadLine());</span><br><span class="line"><span class="comment">// Console.ReadLine()是字串，需使用int.Parse轉成數字。</span></span><br><span class="line"><span class="comment">// 布林值: true真、false假</span></span><br><span class="line"><span class="keyword">bool</span> result_2 = money_2 &gt;= <span class="number">800000</span>; </span><br><span class="line"><span class="keyword">bool</span> room = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">bool</span> car = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">bool</span> wife = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<ol>
-<li>方法一： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (room &amp;&amp; car &amp;&amp;!wife &amp;&amp; result_2)</span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;我的女兒可以嫁給你&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你&quot;</span>); &#125;</span><br></pre></td></tr></table></figure></li>
-<li>方法二： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (result_2 != <span class="literal">true</span>) &#123; Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你!&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (room != <span class="literal">true</span>) &#123; Console.WriteLine(<span class="string">&quot;有房子再說吧~&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (car != <span class="literal">true</span>) &#123; Console.WriteLine(<span class="string">&quot;有車再說吧~&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (wife != <span class="literal">false</span>) &#123; Console.WriteLine(<span class="string">&quot;先離婚再說~&quot;</span>);  &#125;</span><br><span class="line"><span class="keyword">else</span> &#123; Console.WriteLine(<span class="string">&quot;我的女兒可以嫁給你!&quot;</span>); &#125;</span><br></pre></td></tr></table></figure></li>
-<li>方法三： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (result_2 == <span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (room == <span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (car == <span class="literal">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (wife == <span class="literal">false</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;我的女兒可以嫁給你&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-</blockquote>
-</blockquote>
-<hr>
-<h1 id="switch-和-if-的差別"><a href="#switch-和-if-的差別" class="headerlink" title="switch 和 if 的差別"></a>switch 和 if 的差別</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/ZEq2Tp93c2A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 07</code>。</p>
-</blockquote>
-<h2 id="開始-3"><a href="#開始-3" class="headerlink" title="開始"></a>開始</h2><blockquote>
-<p>   條件：</p>
-<blockquote>
-<p>  告訴我<code>你的年齡</code><br>  幼稚園：<code>3～5歲</code><br>  國小：<code>6～11歲</code><br>  國中：<code>12～14歲</code></p>
-<blockquote>
-<ul>
-<li>條件宣布代碼： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 條件宣布</span></span><br><span class="line">Console.Write(<span class="string">&quot;請輸入您的年齡:&quot;</span>);</span><br><span class="line"><span class="comment">//int age = int.Parse(Console.ReadLine());</span></span><br><span class="line"><span class="keyword">int</span> age;</span><br><span class="line"><span class="keyword">bool</span> good = <span class="keyword">int</span>.TryParse(Console.ReadLine(),<span class="keyword">out</span> age);</span><br><span class="line"><span class="keyword">if</span> (good)</span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;您的年齡是：&quot;</span>);</span><br><span class="line">    Console.WriteLine(age+<span class="string">&quot;歲&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;你填錯了，請填數字就好&quot;</span>);</span><br><span class="line">    System.Environment.Exit(<span class="number">0</span>);     <span class="comment">//  終止所有程序</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> Kindergarten = <span class="number">6</span> &gt; age &amp;&amp; age &gt;= <span class="number">3</span>;</span><br><span class="line"><span class="keyword">bool</span> ElementarySchool = <span class="number">12</span> &gt; age &amp;&amp; age &gt;= <span class="number">6</span>;</span><br><span class="line"><span class="keyword">bool</span> secondary = <span class="number">15</span> &gt; age &amp;&amp; age &gt;= <span class="number">12</span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<ol>
-<li>方法一： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方法一</span></span><br><span class="line">Console.Write(<span class="string">&quot;方法一：&quot;</span>);</span><br><span class="line"><span class="keyword">switch</span> (age) <span class="comment">// 選擇</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我要上幼稚園了&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;  <span class="comment">// 跳脫</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我要上小學了&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;  <span class="comment">// 跳脫</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">12</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">13</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">14</span>:</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我要上國中了&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;  <span class="comment">// case 最後一項一定要加break;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">default</span>: <span class="comment">// 默認:沒有指定的case</span></span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我來亂的&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>方法二： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方法二</span></span><br><span class="line"><span class="keyword">if</span> (Kindergarten == <span class="literal">true</span>) <span class="comment">// 判斷</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;方法二：&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;可以上幼稚園了&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (ElementarySchool == <span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;方法二：&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;可以上國小了&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (secondary == <span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;方法二：&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;可以上國中了&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;方法二：&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;我來亂的&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<hr>
-<h1 id="【練習題】C-綜合基礎語法"><a href="#【練習題】C-綜合基礎語法" class="headerlink" title="【練習題】C# 綜合基礎語法"></a>【練習題】C# 綜合基礎語法</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/dZ5-ISe2hTs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 08</code>。</p>
-</blockquote>
-<h2 id="開始-4"><a href="#開始-4" class="headerlink" title="開始"></a>開始</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 友善訊息</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;################永成銀行網銀登入################&quot;</span>);</span><br><span class="line">            </span><br><span class="line"><span class="comment">// 銀行ATM網銀</span></span><br><span class="line"><span class="comment">// 輸入用戶帳密</span></span><br><span class="line">Console.Write(<span class="string">&quot;請輸入帳號：&quot;</span>);</span><br><span class="line"><span class="keyword">string</span> User = Console.ReadLine();</span><br><span class="line">Console.Write(<span class="string">&quot;請輸入密碼：&quot;</span>);</span><br><span class="line"><span class="keyword">string</span> password = Console.ReadLine();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用戶帳密設置</span></span><br><span class="line"><span class="keyword">string</span> User_test = <span class="string">&quot;pkpk26261&quot;</span>;</span><br><span class="line"><span class="keyword">string</span> password_test = <span class="string">&quot;12345678&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 資料值核對</span></span><br><span class="line"><span class="keyword">bool</span> User_good = User == User_test;</span><br><span class="line"><span class="keyword">bool</span> password_good = password == password_test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (User_good &amp;&amp; password_good)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;登入成功&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;請輸入數字，選擇服務選項： 1.查詢餘額 2.提款 3.轉帳 4.存款&quot;</span>);</span><br><span class="line">    <span class="keyword">int</span> number;</span><br><span class="line">    <span class="keyword">bool</span> nice = <span class="keyword">int</span>.TryParse(Console.ReadLine(),<span class="keyword">out</span> number);</span><br><span class="line">    <span class="keyword">if</span> (nice != <span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;無此服務項目&quot;</span>);</span><br><span class="line">        System.Environment.Exit(<span class="number">0</span>);     <span class="comment">//  終止所有程序</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">switch</span> (number)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;您的餘額為：100000&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                Console.Write(<span class="string">&quot;請輸入提款金額：&quot;</span>);</span><br><span class="line">                <span class="keyword">int</span> money_number1 = <span class="keyword">int</span>.Parse(Console.ReadLine());</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                Console.Write(<span class="string">&quot;請輸入轉帳帳號：&quot;</span>);</span><br><span class="line">                <span class="keyword">int</span> bank;</span><br><span class="line">                <span class="keyword">bool</span> bank_good = <span class="keyword">int</span>.TryParse(Console.ReadLine(), <span class="keyword">out</span> bank);</span><br><span class="line">                <span class="keyword">if</span> (bank_good != <span class="literal">true</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(<span class="string">&quot;無此帳號&quot;</span>);</span><br><span class="line">                    System.Environment.Exit(<span class="number">0</span>);     <span class="comment">//  終止所有程序</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    Console.Write(<span class="string">&quot;請輸入轉帳金額：&quot;</span>);</span><br><span class="line">                    <span class="keyword">int</span> money_number2 = <span class="keyword">int</span>.Parse(Console.ReadLine());</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                Console.Write(<span class="string">&quot;請輸入存款金額：&quot;</span>);</span><br><span class="line">                <span class="keyword">int</span> money_number3 = <span class="keyword">int</span>.Parse(Console.ReadLine());</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;輸入帳號或密碼不正確&quot;</span>);</span><br><span class="line">    System.Environment.Exit(<span class="number">0</span>);     <span class="comment">//  終止所有程序</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="while-循環"><a href="#while-循環" class="headerlink" title="while 循環"></a>while 循環</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/Mt5qRkoVxCs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 09</code>。</p>
-</blockquote>
-<h2 id="開始-5"><a href="#開始-5" class="headerlink" title="開始"></a>開始</h2><blockquote>
-<p>  假設使0~500，每次增值為10，直到500為止<br>  註:【number++;】等於【number+=1;】等於【number = number + 1;】</p>
-<blockquote>
-<ol>
-<li>方法一： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number1 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(number1);</span><br><span class="line">    <span class="keyword">if</span> (number1 == <span class="number">500</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(number1); </span><br><span class="line">        <span class="keyword">break</span>;      <span class="comment">// 跳出while</span></span><br><span class="line">    &#125;</span><br><span class="line">    number1 += <span class="number">10</span>;  <span class="comment">// number1 = number1 + 10;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>方法二： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number2 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (number2 &lt;= <span class="number">500</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(number2);</span><br><span class="line">    number2 += <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-</blockquote>
-<hr>
-<h1 id="do-while-循環"><a href="#do-while-循環" class="headerlink" title="do while 循環"></a>do while 循環</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/zXXrWyGSlTo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 10</code>。</p>
-</blockquote>
-<h2 id="開始-6"><a href="#開始-6" class="headerlink" title="開始"></a>開始</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number;  <span class="comment">// 宣告區域變數</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// do while 先執行，後判斷            </span></span><br><span class="line"><span class="keyword">do</span> <span class="comment">// 執行</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;請輸入成績：&quot;</span>);</span><br><span class="line">    <span class="keyword">bool</span> pass = <span class="keyword">int</span>.TryParse(Console.ReadLine(), <span class="keyword">out</span> number);</span><br><span class="line">    <span class="keyword">if</span> ((pass &amp;&amp; number &lt;= <span class="number">100</span>) != <span class="literal">true</span>)  <span class="comment">// 輸入數字以外的文字，且大於100分，就顯示輸入錯誤</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;輸入錯誤&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((number &gt;= <span class="number">60</span>) != <span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;成績不及格，繼續補考!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;成績及格了!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (number&gt;<span class="number">60</span>); <span class="comment">// 設定條件值關閉while迴圈</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="for-循環"><a href="#for-循環" class="headerlink" title="for 循環"></a>for 循環</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/k8Sh6yAqrV8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 11</code>。</p>
-</blockquote>
-<h2 id="開始-7"><a href="#開始-7" class="headerlink" title="開始"></a>開始</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// for(變量宣告；變量條件；變量增量)</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">100</span>; i += <span class="number">5</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;數字:<span class="subst">&#123;i&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<hr>
-<h1 id="循環運算的九九乘法表"><a href="#循環運算的九九乘法表" class="headerlink" title="循環運算的九九乘法表"></a>循環運算的九九乘法表</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/FhWWGya5vBE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 12</code>。</p>
-</blockquote>
-<h2 id="開始-8"><a href="#開始-8" class="headerlink" title="開始"></a>開始</h2><p>九九乘法表有規可尋，所以我們可以分辨它的條件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1x1&#x3D;1</span><br><span class="line">1x2&#x3D;2   2x2&#x3D;4</span><br><span class="line">1x3&#x3D;3   2x3&#x3D;6   3x3&#x3D;9   </span><br><span class="line">1x4&#x3D;4   2x4&#x3D;8   3x4&#x3D;12  4x4&#x3D;16</span><br><span class="line">1x5&#x3D;5   2x5&#x3D;10  3x5&#x3D;15  4x5&#x3D;20  5x5&#x3D;25</span><br><span class="line">1x6&#x3D;6   2x6&#x3D;12  3x6&#x3D;18  4x6&#x3D;24  5x6&#x3D;30  6x6&#x3D;36     </span><br><span class="line">1x7&#x3D;7   2x7&#x3D;14  3x7&#x3D;21  4x7&#x3D;28  5x7&#x3D;35  6x7&#x3D;42  7x7&#x3D;49  </span><br><span class="line">1x8&#x3D;8   2x8&#x3D;16  3x8&#x3D;24  4x8&#x3D;32  5x8&#x3D;40  6x8&#x3D;48  7x8&#x3D;56  8x8&#x3D;64</span><br><span class="line">1x9&#x3D;9   2x9&#x3D;18  3x9&#x3D;27  4x9&#x3D;36  5x9&#x3D;45  6x9&#x3D;54  7x9&#x3D;63  8x9&#x3D;72  9x9&#x3D;81</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<ul>
-<li>代碼：  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &lt;= <span class="number">9</span>; x += <span class="number">1</span>) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">1</span>; y &lt;= x; y += <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.Write(<span class="string">$&quot;<span class="subst">&#123;y&#125;</span>x<span class="subst">&#123;x&#125;</span>=&quot;</span> + (x * y)+<span class="string">&quot;\t&quot;</span>);      <span class="comment">// 【&quot;\t&quot;】段落對齊</span></span><br><span class="line">    &#125;</span><br><span class="line">    Console.WriteLine();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<hr>
-<h1 id="數組的理解與使用"><a href="#數組的理解與使用" class="headerlink" title="數組的理解與使用"></a>數組的理解與使用</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/gHzjC4xi8rw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 13</code>。</p>
-</blockquote>
-<h2 id="開始-9"><a href="#開始-9" class="headerlink" title="開始"></a>開始</h2><blockquote>
-<ol>
-<li>方式一： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span>[]names = <span class="keyword">new</span> <span class="keyword">string</span>[<span class="number">3</span>]; <span class="comment">//宣布數組的數量，創建一組字符串內存空間</span></span><br><span class="line">names[<span class="number">0</span>] = <span class="string">&quot;編號一&quot;</span>;</span><br><span class="line">names[<span class="number">1</span>] = <span class="string">&quot;編號二&quot;</span>;</span><br><span class="line">names[<span class="number">2</span>] = <span class="string">&quot;編號三&quot;</span>;</span><br><span class="line">Console.WriteLine(names[<span class="number">0</span>]+<span class="string">&quot;\t&quot;</span>+ names[<span class="number">1</span>] + <span class="string">&quot;\t&quot;</span> + names[<span class="number">2</span>]);</span><br></pre></td></tr></table></figure></li>
-<li>方式二： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span>[] numbers = <span class="keyword">new</span> <span class="keyword">string</span> &#123; <span class="string">&quot;數字一&quot;</span>, <span class="string">&quot;數字二&quot;</span>, <span class="string">&quot;數字三&quot;</span> &#125;;　<span class="comment">// new初始化</span></span><br><span class="line"><span class="comment">//string[] numbers = &#123; &quot;數字一&quot;, &quot;數字二&quot;, &quot;數字三&quot; &#125;;</span></span><br><span class="line">Console.WriteLine(numbers[<span class="number">0</span>] + <span class="string">&quot;\t&quot;</span> + numbers[<span class="number">1</span>] + <span class="string">&quot;\t&quot;</span> + numbers[<span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<hr>
-<h1 id="“指定”類別的使用方式"><a href="#“指定”類別的使用方式" class="headerlink" title="“指定”類別的使用方式"></a>“指定”類別的使用方式</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/R-CPOm4OZGo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 14</code>。</p>
-</blockquote>
-<h2 id="開始-10"><a href="#開始-10" class="headerlink" title="開始"></a>開始</h2><h3 id="類別"><a href="#類別" class="headerlink" title="類別"></a>類別</h3><p>在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>A</code>，即可跳出<code>新增項目</code>的視窗。<br><img src="https://i.imgur.com/exFHMs2.png"></p>
-<ol>
-<li>類別名稱建立為<code>Student</code>.cs。</li>
-<li><code>class Student&#123;&#125;</code>更改為<code>public class Student&#123;&#125;</code></li>
-<li>靜態特徵：<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 靜態特徵</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 學生姓名</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> Name;</span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 年齡</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> Age;</span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 性別</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">char</span> Sex;</span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 電話</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> Phone;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure></li>
-<li>動態特徵： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 動態特徵</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 學習</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Learn</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="keyword">this</span>.Name + <span class="string">&quot;\t&quot;</span> + <span class="string">&quot;正在看書學習...&quot;</span>); <span class="comment">// this.Name 當前名稱.姓名</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="Program-主運行程式"><a href="#Program-主運行程式" class="headerlink" title="Program 主運行程式"></a>Program 主運行程式</h3><ol>
-<li>索引關聯資料建立： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Student stu_1 = <span class="keyword">new</span> Student();</span><br><span class="line">stu_1.Name = <span class="string">&quot;標號一&quot;</span>;</span><br><span class="line">stu_1.Age = <span class="number">18</span>;</span><br><span class="line">stu_1.Sex = <span class="string">&#x27;女&#x27;</span>;</span><br><span class="line">stu_1.Phone = <span class="string">&quot;0987878787&quot;</span>;</span><br><span class="line"></span><br><span class="line">Student stu_2 = <span class="keyword">new</span> Student();</span><br><span class="line">stu_2.Name = <span class="string">&quot;標號二&quot;</span>;</span><br><span class="line">stu_2.Age = <span class="number">19</span>;</span><br><span class="line">stu_2.Sex = <span class="string">&#x27;女&#x27;</span>;</span><br><span class="line">stu_2.Phone = <span class="string">&quot;0978787878&quot;</span>;</span><br><span class="line"></span><br><span class="line">Student stu_3 = <span class="keyword">new</span> Student();</span><br><span class="line">stu_3.Name = <span class="string">&quot;標號二&quot;</span>;</span><br><span class="line">stu_3.Age = <span class="number">20</span>;</span><br><span class="line">stu_3.Sex = <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line">stu_3.Phone = <span class="string">&quot;0969696969&quot;</span>;</span><br></pre></td></tr></table></figure></li>
-<li>主要程式： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Student[] stu = &#123; stu_1, stu_2, stu_3 &#125;; <span class="comment">// 占位符的使用</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stu.Length; i += <span class="number">1</span>)  <span class="comment">// stu.Length 是 stu 的長度。</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 靜態特徵</span></span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;姓名:<span class="subst">&#123;stu[i].Name&#125;</span>　性別:<span class="subst">&#123;stu[i].Sex&#125;</span>　年紀:<span class="subst">&#123;stu[i].Age&#125;</span>　電話號碼:<span class="subst">&#123;stu[i].Phone&#125;</span>&quot;</span>);</span><br><span class="line">    <span class="comment">// 動態特徵</span></span><br><span class="line">    stu[i].Learn();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<hr>
-<h1 id="調用類別的動態特徵”執行”"><a href="#調用類別的動態特徵”執行”" class="headerlink" title="調用類別的動態特徵”執行”"></a>調用類別的動態特徵”執行”</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/rk07FoR5br0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 15</code>。</p>
-</blockquote>
-<h2 id="開始-11"><a href="#開始-11" class="headerlink" title="開始"></a>開始</h2><h3 id="類別-1"><a href="#類別-1" class="headerlink" title="類別"></a>類別</h3><p>在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>A</code>，即可跳出<code>新增項目</code>的視窗。<br><img src="https://i.imgur.com/uvQkGH5.png"></p>
-<ol>
-<li>類別名稱建立為<code>Dog</code>.cs。</li>
-<li><code>class Dog&#123;&#125;</code>更改為<code>public class Dog&#123;&#125;</code></li>
-<li>靜態特徵： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 靜態特徵</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 玩具名稱</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> name;</span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 玩具顏色</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> color;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure></li>
-<li>動態特徵：<br> 訪問硬件有可能會報錯，所以要設定相對應的 return 回傳值。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> string_Run</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">Run_string</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;<span class="keyword">this</span>.name&#125;</span>的<span class="subst">&#123;<span class="keyword">this</span>.color&#125;</span>真難看~&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;abc&quot;</span>;   <span class="comment">// 回傳值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> int_Run</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Run_int</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;<span class="keyword">this</span>.name&#125;</span>的<span class="subst">&#123;<span class="keyword">this</span>.color&#125;</span>真難看~&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;       <span class="comment">// 回傳值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> bool_Run</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">Run_bool</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;<span class="keyword">this</span>.name&#125;</span>的<span class="subst">&#123;<span class="keyword">this</span>.color&#125;</span>真難看~&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;    <span class="comment">// 回傳值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="Program-主運行程式-1"><a href="#Program-主運行程式-1" class="headerlink" title="Program 主運行程式"></a>Program 主運行程式</h3><ol>
-<li>索引關聯資料建立： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 資料關聯建立</span></span><br><span class="line">Dog dog1 = <span class="keyword">new</span> Dog();</span><br><span class="line">dog1.name = <span class="string">&quot;醜八怪&quot;</span>;</span><br><span class="line">dog1.color = <span class="string">&quot;黃色&quot;</span>;</span><br></pre></td></tr></table></figure></li>
-<li>調用類別的”動態特徵”執行： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// string</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">region</span> string_Run</span></span><br><span class="line"><span class="keyword">string</span> result_string = dog1.Run_string(); <span class="comment">// 調用類別的&quot;動態特徵&quot;執行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (result_string ==<span class="string">&quot;abc&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;string調用成功&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;string調用失敗&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">region</span> int_Run</span></span><br><span class="line"><span class="keyword">int</span> result_int = dog1.Run_int(); <span class="comment">// 調用類別的&quot;動態特徵&quot;執行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (result_int == <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;int調用成功&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;int調用失敗&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// bool</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">region</span> bool_Run</span></span><br><span class="line"><span class="keyword">bool</span> result_bool = dog1.Run_bool(); <span class="comment">// 調用類別的&quot;動態特徵&quot;執行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (result_bool == <span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;bool調用成功&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;bool調用失敗&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<hr>
-<h1 id="帶參數的動態特徵"><a href="#帶參數的動態特徵" class="headerlink" title="帶參數的動態特徵"></a>帶參數的動態特徵</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/ZQr7mwijd4M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 16</code>。</p>
-</blockquote>
-<h2 id="開始-12"><a href="#開始-12" class="headerlink" title="開始"></a>開始</h2><h3 id="非帶參數"><a href="#非帶參數" class="headerlink" title="非帶參數"></a>非帶參數</h3><h4 id="類別-2"><a href="#類別-2" class="headerlink" title="類別"></a>類別</h4><p>在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>A</code>，即可跳出<code>新增項目</code>的視窗。<br><img src="https://i.imgur.com/zy4z6xp.png"></p>
-<ol>
-<li>類別名稱建立為<code>Lamp</code>.cs。</li>
-<li><code>class Lamp&#123;&#125;</code>更改為<code>public class Lamp&#123;&#125;</code></li>
-<li>代碼： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Open</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;開燈&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Close</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;關燈&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h4 id="Program-主運行程式-2"><a href="#Program-主運行程式-2" class="headerlink" title="Program 主運行程式"></a>Program 主運行程式</h4><ul>
-<li>代碼：  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Lamp lamp = <span class="keyword">new</span> Lamp(); </span><br><span class="line">lamp.Open();</span><br><span class="line">lamp.Close();</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h3 id="帶參數"><a href="#帶參數" class="headerlink" title="帶參數"></a>帶參數</h3><h4 id="類別-3"><a href="#類別-3" class="headerlink" title="類別"></a>類別</h4><p>在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>A</code>，即可跳出<code>新增項目</code>的視窗。<br><img src="https://i.imgur.com/G0lIczN.png"></p>
-<ol>
-<li>類別名稱建立為<code>PPAP</code>.cs。</li>
-<li><code>class PPAP&#123;&#125;</code>更改為<code>public class PPAP&#123;&#125;</code></li>
-<li>代碼： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">ppap</span>(<span class="params"><span class="keyword">string</span> fruit</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">string</span> result = fruit + <span class="string">&quot;Pen&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> result; <span class="comment">// 回傳值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h4 id="Program-主運行程式-3"><a href="#Program-主運行程式-3" class="headerlink" title="Program 主運行程式"></a>Program 主運行程式</h4><ul>
-<li>代碼：<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">PPAP PPAP = <span class="keyword">new</span> PPAP();</span><br><span class="line"><span class="keyword">string</span> result = PPAP.ppap(<span class="string">&quot;Apple&quot;</span>);</span><br><span class="line">Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;result&#125;</span>&quot;</span>); </span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h1 id="流程控制關鍵詞"><a href="#流程控制關鍵詞" class="headerlink" title="流程控制關鍵詞"></a>流程控制關鍵詞</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/yhvx_4WQ0Uw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 17</code>。</p>
-</blockquote>
-<h2 id="開始-13"><a href="#開始-13" class="headerlink" title="開始"></a>開始</h2><ul>
-<li>流程控制關鍵詞  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">break</span>;      <span class="comment">// 終止，結束之意</span></span><br><span class="line"><span class="keyword">continue</span>;   <span class="comment">// 繼續，效率之意</span></span><br><span class="line"><span class="keyword">return</span>;     <span class="comment">// 返回，傳遞之意</span></span><br></pre></td></tr></table></figure>
-<h3 id="範例解釋"><a href="#範例解釋" class="headerlink" title="範例解釋"></a>範例解釋</h3><h4 id="1-break-終止"><a href="#1-break-終止" class="headerlink" title="1. break 終止"></a>1. break 終止</h4><blockquote>
-<ul>
-<li>switch<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Write(<span class="string">&quot;請輸入number值：&quot;</span>);</span><br><span class="line"><span class="keyword">int</span> number = <span class="keyword">int</span>.Parse(Console.ReadLine());</span><br><span class="line"><span class="keyword">switch</span> (number)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;數字一&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">default</span>:    <span class="comment">// 默認</span></span><br><span class="line">        Console.WriteLine(<span class="string">&quot;沒有東西&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;  <span class="comment">// 終止</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>for<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">1</span>; n &lt; <span class="number">100</span>; n += <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">$&quot;第一個偶數: <span class="subst">&#123;n&#125;</span>&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>while<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (m &lt; <span class="number">20</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;m: <span class="subst">&#123;m&#125;</span>&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (m == <span class="number">10</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">break</span>; <span class="comment">// 到m=10時，跳脫while迴圈。</span></span><br><span class="line">    &#125;</span><br><span class="line">    m += <span class="number">2</span>;</span><br><span class="line">&#125;            </span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<h4 id="2-continue-繼續"><a href="#2-continue-繼續" class="headerlink" title="2. continue 繼續"></a>2. continue 繼續</h4><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">10</span>; i += <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sum += i;</span><br><span class="line">        <span class="keyword">continue</span>; <span class="comment">// 循環繼續，效率更高。 </span></span><br><span class="line">        <span class="comment">/* 【i】的結果：</span></span><br><span class="line"><span class="comment">                加入continue：1、3、5、7、9</span></span><br><span class="line"><span class="comment">                取消continue：1、2、3、4、5、6、7、8、9 </span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    &#125;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;我來亂的<span class="subst">&#123;i&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">Console.WriteLine(<span class="string">$&quot;sum :<span class="subst">&#123;sum&#125;</span>&quot;</span>);        </span><br></pre></td></tr></table></figure>
-<h4 id="3-return-返回"><a href="#3-return-返回" class="headerlink" title="3. return 返回"></a>3. return 返回</h4><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">string</span> str = Test();</span><br><span class="line">    Console.WriteLine(str);</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> return 返回，測試</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">Test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;這是一個return 的字串&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<hr>
-<h1 id="訪問修飾符"><a href="#訪問修飾符" class="headerlink" title="訪問修飾符"></a>訪問修飾符</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/Mz-8PpvflaQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<h2 id="開始-14"><a href="#開始-14" class="headerlink" title="開始"></a>開始</h2><h3 id="訪問權限"><a href="#訪問權限" class="headerlink" title="訪問權限"></a>訪問權限</h3><blockquote>
-<ol>
-<li><code>private</code>：私有的，僅類的內部程式可以使用</li>
-<li><code>protected</code>：受保護的，類的內部和繼承子類可以訪問。</li>
-<li><code>internal</code>：內部的，在同一個專案命名空間可以訪問。</li>
-<li><code>public</code>：公共的，完全公開，沒有訪問限制。</li>
-</ol>
-</blockquote>
-<p>在這裡可能無法更明確解釋，可能要實際操作才能理解。</p>
-<h1 id="VS調適Bug的方法"><a href="#VS調適Bug的方法" class="headerlink" title="VS調適Bug的方法"></a>VS調適Bug的方法</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/hjCJ8I5AxdA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<ul>
-<li>三種調試方運行方式</li>
-</ul>
-<ol>
-<li><code>F5</code>：啟動運行，跳轉到下一個斷點。<br> 斷點方式：在VS 2019中，左鍵雙擊點選每行數字的左邊空白處，有亮起紅色圓形體即可。</li>
-<li><code>F10</code>：逐步調適。</li>
-<li><code>F11</code>：逐句調適。</li>
-</ol>
-<p>在這裡可能無法更明確解釋，可能要實際操作才能理解。</p>
-<h1 id="引用類型和值類型"><a href="#引用類型和值類型" class="headerlink" title="引用類型和值類型"></a>引用類型和值類型</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/6lndSFyfo7U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<blockquote>
-<p>資料參考專案 <code>Learning 18</code>。</p>
-</blockquote>
-<h2 id="開始-15"><a href="#開始-15" class="headerlink" title="開始"></a>開始</h2><h3 id="整數型別的特性"><a href="#整數型別的特性" class="headerlink" title="整數型別的特性"></a>整數型別的特性</h3><h4 id="值類型"><a href="#值類型" class="headerlink" title="值類型"></a>值類型</h4><ul>
-<li>C# 支援下列預先定義的整數型別：<table>
-<thead>
-<tr>
-<th align="center">C# 型別/關鍵字</th>
-<th align="left">範圍</th>
-<th align="left">大小</th>
-<th align="left">.NET 類型</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">sbyte</td>
-<td align="left">-128 到 127</td>
-<td align="left">帶正負號的 8 位元整數</td>
-<td align="left">System.SByte</td>
-</tr>
-<tr>
-<td align="center">byte</td>
-<td align="left">0 至 255</td>
-<td align="left">不帶正負號的 8 位元整數</td>
-<td align="left">System.Byte</td>
-</tr>
-<tr>
-<td align="center">short</td>
-<td align="left">-32,768 至 32,767</td>
-<td align="left">帶正負號的 16 位元整數</td>
-<td align="left">System.Int16</td>
-</tr>
-<tr>
-<td align="center">ushort</td>
-<td align="left">0 到 65,535</td>
-<td align="left">不帶正負號的 16 位元整數</td>
-<td align="left">System.UInt16</td>
-</tr>
-<tr>
-<td align="center">int</td>
-<td align="left">-2,147,483,648 至 2,147,483,647</td>
-<td align="left">帶正負號的 32 位元整數</td>
-<td align="left">System.Int32</td>
-</tr>
-<tr>
-<td align="center">uint</td>
-<td align="left">0 到 4,294,967,295</td>
-<td align="left">不帶正負號的 32 位元整數</td>
-<td align="left">System.UInt32</td>
-</tr>
-<tr>
-<td align="center">long</td>
-<td align="left">-9,223,372,036,854,775,808 至 9,223,372,036,854,775,807</td>
-<td align="left">帶正負號的 64 位元整數</td>
-<td align="left">System.Int64</td>
-</tr>
-<tr>
-<td align="center">ulong</td>
-<td align="left">0 到 18,446,744,073,709,551,615</td>
-<td align="left">不帶正負號的 64 位元整數</td>
-<td align="left">System.UInt64</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h4 id="實值型別有兩種類別︰struct-和-enum。"><a href="#實值型別有兩種類別︰struct-和-enum。" class="headerlink" title="實值型別有兩種類別︰struct 和 enum。"></a>實值型別有兩種類別︰struct 和 enum。</h4><ol>
-<li><p>struct<br>您使用 struct 關鍵字來建立您自己自訂的實值型別。 一般來說，會使用結構做為一小組相關變數的容器，如下列範例所示︰</p>
- <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">struct</span> Coords</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x, y;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Coords</span>(<span class="params"><span class="keyword">int</span> p1, <span class="keyword">int</span> p2</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    x = p1;</span><br><span class="line">    y = p2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>enum</p>
-</li>
-</ol>
-<ul>
-<li><p>列舉型態(或列舉類型)是由基礎整體數值類型的一組命名常量定義的值類型。 要定義的枚舉類型,請使用關鍵enum字並指定枚舉成員的名稱:</p>
-  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> Season</span><br><span class="line">&#123;</span><br><span class="line">    Spring,</span><br><span class="line">    Summer,</span><br><span class="line">    Autumn,</span><br><span class="line">    Winter</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>預設情況下,枚舉成員的關聯常量值為int類型 ;它們以零開始,然後按照定義文本順序增加一個。您可以顯示式指定任何其他積分數值類型作為枚舉類型的基礎類型。 您還可以顯示式指定關聯的常量值,如以下範例所示:</p>
-  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> ErrorCode : <span class="keyword">ushort</span></span><br><span class="line">&#123;</span><br><span class="line">    None = <span class="number">0</span>,</span><br><span class="line">    Unknown = <span class="number">1</span>,</span><br><span class="line">    ConnectionLost = <span class="number">100</span>,</span><br><span class="line">    OutlierReading = <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h1 id="參考文章"><a href="#參考文章" class="headerlink" title="參考文章"></a>參考文章</h1><ol>
-<li>Microsoft C# 程式設計手冊（ <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vemgtdHcvZG90bmV0L2NzaGFycC9wcm9ncmFtbWluZy1ndWlkZS8=">文章連結<i class="fa fa-external-link-alt"></i></span>）</li>
-</ol>
-]]></content>
-      <categories>
-        <category>C# 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
       </tags>
   </entry>
   <entry>
@@ -1900,6 +1432,474 @@
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C# 入門者快速教學文章（資料整理）</title>
+    <url>/2020/08/09/C%20sharp%20%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>C# 學習相關檔案下載參考，網址：<span class="exturl" data-url="aHR0cHM6Ly9nbXN0dWRlbnRuY3V0ZWR1dHctbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvZGE3MTIzMDJfZ21fc3R1ZGVudF9uY3V0X2VkdV90dy9FaHE0UHNqYk90UkRoWUxwQVg4UzZNSUJCcVNkUk41UFNSX25BeEpKVWJHQXBnP2U9UXZzaG1B">請點我一下<i class="fa fa-external-link-alt"></i></span> 。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<hr>
+<h1 id="軟件安裝-和-創建方案-專案"><a href="#軟件安裝-和-創建方案-專案" class="headerlink" title="軟件安裝 和 創建方案 / 專案"></a>軟件安裝 和 創建方案 / 專案</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/f42_gfcWjcg?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="軟件安裝"><a href="#軟件安裝" class="headerlink" title="軟件安裝"></a>軟件安裝</h2><p>官網軟件下載：<span class="exturl" data-url="aHR0cHM6Ly92aXN1YWxzdHVkaW8ubWljcm9zb2Z0LmNvbS96aC1oYW50L2Rvd25sb2Fkcy8=">https://visualstudio.microsoft.com/zh-hant/downloads/<i class="fa fa-external-link-alt"></i></span></p>
+<ol>
+<li>選擇Visual Studio 2019 其中一個下載即可。</li>
+</ol>
+<ul>
+<li><img src="/images/Csharp%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/%E5%9C%96%E7%89%871.png"></li>
+</ul>
+<ol start="2">
+<li>C# 這邊用的是<code>.NET桌面開發</code>，如果還需要其他工作負載，可以自行選擇下載。</li>
+</ol>
+<ul>
+<li><img src="/images/Csharp%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/%E5%9C%96%E7%89%872.png"></li>
+</ul>
+<h2 id="創建方案-專案"><a href="#創建方案-專案" class="headerlink" title="創建方案 / 專案"></a>創建方案 / 專案</h2><ul>
+<li><img src="/images/Csharp%E5%88%9D%E5%AD%B8%E8%80%85%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0%E6%95%B4%E7%90%86/%E5%9C%96%E7%89%873.png"></li>
+</ul>
+<hr>
+<h1 id="使用註釋幫助閱讀代碼"><a href="#使用註釋幫助閱讀代碼" class="headerlink" title="使用註釋幫助閱讀代碼"></a>使用註釋幫助閱讀代碼</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/mYzVmExMPwg?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 01</code>。</p>
+</blockquote>
+<ol>
+<li>單行註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 單行註釋：幫助程序開發者用於閱讀代碼</span></span><br></pre></td></tr></table></figure></li>
+<li>多行註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 多行註釋：幫助程序開發者用於閱讀代碼</span></span><br><span class="line"><span class="comment">   多行註釋：幫助程序開發者用於閱讀代碼</span></span><br><span class="line"><span class="comment">   多行註釋：幫助程序開發者用於閱讀代碼 */</span></span><br></pre></td></tr></table></figure></li>
+<li>摺疊註釋<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 摺疊註釋</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure></li>
+<li>文檔註釋<br> 當滑鼠指標移動到Tset文字時，視窗註釋會顯示<code>文檔註釋</code>。<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 文檔註釋</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="常用快捷鍵"><a href="#常用快捷鍵" class="headerlink" title="常用快捷鍵"></a>常用快捷鍵</h1><ol>
+<li>新增新專案<br> 在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>N</code>，即可跳出<code>建立新專案</code>的視窗。</li>
+<li>新增檔案<br> 在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>N</code>，即可跳出<code>建立新專案</code>的視窗。</li>
+<li>加入新增專案項目<br> 在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>A</code>，即可跳出<code>新增項目</code>的視窗。</li>
+<li>加入現有專案項目<br> 在該專案裡面，按<code>Shift</code> <code>+</code> <code>Alt</code> <code>+</code> <code>A</code>，即可跳出<code>加入現有項目</code>的視窗。</li>
+<li>區域註釋<br> <code>Ctrl</code> <code>+</code> <code>K</code> <code>+ </code> <code>C</code>  選取區域註釋<br> <code>Ctrl</code> <code>+</code> <code>K</code> <code>+ </code> <code>U</code>  選取區域取消註釋</li>
+<li>Console.WriteLine()<br> 鍵盤輸入<code>cw</code>，即可跳出<code>Console.WriteLine();</code></li>
+</ol>
+<hr>
+<h1 id="變量理解與使用"><a href="#變量理解與使用" class="headerlink" title="變量理解與使用"></a>變量理解與使用</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/RTIlomlgFsU?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 02</code>。</p>
+</blockquote>
+<h2 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h2><p>資料型態值：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number;                          <span class="comment">// 宣告int類別的變數</span></span><br><span class="line">number = <span class="number">1000</span>;                       <span class="comment">// number可分行建置數字</span></span><br><span class="line"><span class="keyword">double</span> Decimalpoint = <span class="number">999.0000001</span>;   <span class="comment">// 宣告double類別的變數</span></span><br><span class="line"><span class="keyword">char</span> print = <span class="string">&#x27;字&#x27;</span>;                   <span class="comment">// 單個字符，用&#x27;單引號&#x27;</span></span><br><span class="line"><span class="keyword">string</span> Type = <span class="string">&quot;我是文字&quot;</span>;            <span class="comment">// 字串，用&quot;雙引號&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>（方法１）一般用法：(字符加字符=拼接；數字加數字=運算)<br> &ensp;<code>char print</code>  &ensp;的<code>print</code>，不能放在數字後面。<br> &ensp;<code>string Type</code> 的<code>Type</code> ，可放在數字後面。</p>
+ <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.WriteLine(number + Decimalpoint + <span class="string">&quot; &quot;</span> + Type + print);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（方法２） 占位符用法：(“{0}、{1}、{2}、{3}、{4}”,  0, 1, 2, 3, 4);</p>
+ <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.WriteLine(<span class="string">&quot;數字:&#123;0&#125;  , 小數點:&#123;1&#125;  , 字符:&#123;2&#125;  , 字串:&#123;3&#125;&quot;</span>, number, Decimalpoint, print, Type);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><h3 id="顯示輸出字元"><a href="#顯示輸出字元" class="headerlink" title="顯示輸出字元"></a>顯示輸出字元</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Write(<span class="string">&quot;Hello World!&quot;</span>);       <span class="comment">// 印字</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;Hello World!&quot;</span>);   <span class="comment">// 換行印字</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="鍵盤輸入字元"><a href="#鍵盤輸入字元" class="headerlink" title="鍵盤輸入字元"></a>鍵盤輸入字元</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Read();                      <span class="comment">// 等待輸入</span></span><br><span class="line">Console.ReadLine(<span class="string">&quot;Hello World!&quot;</span>);    <span class="comment">// 換行輸入</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h1 id="變量的命名規則"><a href="#變量的命名規則" class="headerlink" title="變量的命名規則"></a>變量的命名規則</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/O4wpCrbiJk8?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 03</code>。</p>
+</blockquote>
+<ol>
+<li>Pascal 帕斯卡命名：當有多個單字組成變量或方法時，每個單字的開頭字母要大寫。<br> (常用處：類名、屬性、方法名、接口) <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> UserNameTest;</span><br></pre></td></tr></table></figure></li>
+<li>駝峰命名：多個單字出現，首單字開頭字母要小寫，其餘單字開頭字母要大寫。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> nameYongCheng;</span><br></pre></td></tr></table></figure></li>
+<li>C# 變數：只能由數字，字母和下劃線組成，但是不能以數字做為變數開頭。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> _age1;</span><br></pre></td></tr></table></figure></li>
+<li>見名知意 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span> name = <span class="string">&quot;黃永成&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h1 id="運算符的優先級別使用"><a href="#運算符的優先級別使用" class="headerlink" title="運算符的優先級別使用"></a>運算符的優先級別使用</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/1LV4vMuHfp0?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 04</code>。</p>
+</blockquote>
+<ol>
+<li>算術運算符 <code>+</code>  <code>-</code>  <code>*</code>  <code>/</code>  <code>%</code><br> (加、減、乘、除、餘)</li>
+<li>關係運算符  <code>&gt;</code>  <code>&lt;</code>  <code>==</code>  <code>&gt;=</code>  <code>&lt;=</code>  <code>!=</code><br> (大於、小於、相同、大於等於、小於等於、不同)</li>
+<li>邏輯運算符  <code>&amp;&amp;</code>  <code>||</code>  <code>!</code><br> (and閘、or閘、not閘)</li>
+<li>賦值運算符  <code>=</code><br> (int number = 1;)</li>
+</ol>
+<hr>
+<h1 id="占位符的使用方式"><a href="#占位符的使用方式" class="headerlink" title="占位符的使用方式"></a>占位符的使用方式</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/YoHWrQ5O-vM?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 05</code>。</p>
+</blockquote>
+<h2 id="開始-1"><a href="#開始-1" class="headerlink" title="開始"></a>開始</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// C#占位符的使用</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 資料數值</span></span><br><span class="line">Console.Write(<span class="string">&quot;請輸入帳號：&quot;</span>);</span><br><span class="line"><span class="keyword">string</span> User = Console.ReadLine();</span><br><span class="line"><span class="keyword">string</span> password = <span class="string">&quot;password&quot;</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法一</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;帳號:&#123;0&#125;&quot;</span>,User);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二</span></span><br><span class="line"><span class="keyword">string</span> good = <span class="keyword">string</span>.Format(<span class="string">&quot;您輸入的帳號是：&#123;0&#125;&quot;</span>, User);</span><br><span class="line">Console.WriteLine(good);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法三</span></span><br><span class="line"><span class="keyword">string</span> nice = <span class="string">$&quot;輸入的帳號是：<span class="subst">&#123;User&#125;</span>，輸入的密碼是：<span class="subst">&#123;password&#125;</span>&quot;</span>;</span><br><span class="line">Console.WriteLine(nice);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法四</span></span><br><span class="line"><span class="keyword">string</span> great = <span class="string">&quot;帳號是：&quot;</span> + <span class="string">$&quot;<span class="subst">&#123;User&#125;</span>&quot;</span> + <span class="string">&quot; | 密碼是：&quot;</span> + <span class="string">$&quot;<span class="subst">&#123;password&#125;</span>&quot;</span>;</span><br><span class="line">Console.WriteLine(great);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 任何按鍵跳脫</span></span><br><span class="line">Console.Read();</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="if-else-判斷式的使用方式"><a href="#if-else-判斷式的使用方式" class="headerlink" title="if else 判斷式的使用方式"></a>if else 判斷式的使用方式</h1><iframe width="1195" height="672" src="https://www.youtube.com/embed/_9cJE7Bu-X8?list=PLJgD_fXVXZKppT4stJ09s9nu3byvyMERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 06</code>。</p>
+</blockquote>
+<h2 id="開始-2"><a href="#開始-2" class="headerlink" title="開始"></a>開始</h2><h3 id="情境一"><a href="#情境一" class="headerlink" title="情境一"></a>情境一</h3><blockquote>
+<p>  假如條件是：<code>下雨天</code><br>  有下雨的話：<code>不出門</code><br>  沒下雨的話：<code>出門</code></p>
+<blockquote>
+<ul>
+<li>代碼：  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">bool</span> rain=<span class="literal">true</span>; <span class="comment">// 布林值: true真、false假</span></span><br><span class="line"><span class="keyword">if</span> (rain==<span class="literal">true</span>)</span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;不出門&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;要出門&quot;</span>); &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="情境二"><a href="#情境二" class="headerlink" title="情境二"></a>情境二</h3><blockquote>
+<p>  假如條件是：你存款的錢有80萬元<br>  若低於80萬元：我的女兒不能嫁給你<br>  若高於80萬元：我的女兒才能嫁給你</p>
+<blockquote>
+<ul>
+<li>代碼：  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Write(<span class="string">&quot;請說出你的存款金額：&quot;</span>);</span><br><span class="line"><span class="keyword">int</span> money = <span class="keyword">int</span>.Parse(Console.ReadLine());</span><br><span class="line"><span class="comment">// Console.ReadLine()是字串，需使用int.Parse轉成數字。</span></span><br><span class="line"><span class="keyword">bool</span> result = money &gt;= <span class="number">800000</span>; <span class="comment">// 布林值: true真、false假</span></span><br><span class="line"><span class="keyword">if</span> (money &gt;= <span class="number">800000</span>)</span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;我的女兒可以嫁給你&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你&quot;</span>); &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="情境三"><a href="#情境三" class="headerlink" title="情境三"></a>情境三</h3><blockquote>
+<p>  假如條件是：你存款的錢有80萬元，有房子，有車，沒老婆<br>  若低於80萬元：我的女兒不能嫁給你<br>  若高於80萬元：我的女兒才能嫁給你</p>
+<blockquote>
+<ul>
+<li>條件宣布代碼： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 條件宣布    </span></span><br><span class="line">Console.Write(<span class="string">&quot;請說出你的存款金額：&quot;</span>);</span><br><span class="line"><span class="keyword">int</span> money_2 = <span class="keyword">int</span>.Parse(Console.ReadLine());</span><br><span class="line"><span class="comment">// Console.ReadLine()是字串，需使用int.Parse轉成數字。</span></span><br><span class="line"><span class="comment">// 布林值: true真、false假</span></span><br><span class="line"><span class="keyword">bool</span> result_2 = money_2 &gt;= <span class="number">800000</span>; </span><br><span class="line"><span class="keyword">bool</span> room = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">bool</span> car = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">bool</span> wife = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<ol>
+<li>方法一： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (room &amp;&amp; car &amp;&amp;!wife &amp;&amp; result_2)</span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;我的女兒可以嫁給你&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123; Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你&quot;</span>); &#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法二： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (result_2 != <span class="literal">true</span>) &#123; Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你!&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (room != <span class="literal">true</span>) &#123; Console.WriteLine(<span class="string">&quot;有房子再說吧~&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (car != <span class="literal">true</span>) &#123; Console.WriteLine(<span class="string">&quot;有車再說吧~&quot;</span>); &#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (wife != <span class="literal">false</span>) &#123; Console.WriteLine(<span class="string">&quot;先離婚再說~&quot;</span>);  &#125;</span><br><span class="line"><span class="keyword">else</span> &#123; Console.WriteLine(<span class="string">&quot;我的女兒可以嫁給你!&quot;</span>); &#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法三： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (result_2 == <span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (room == <span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (car == <span class="literal">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (wife == <span class="literal">false</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;我的女兒可以嫁給你&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;我的女兒不可以嫁給你&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+</blockquote>
+</blockquote>
+<hr>
+<h1 id="switch-和-if-的差別"><a href="#switch-和-if-的差別" class="headerlink" title="switch 和 if 的差別"></a>switch 和 if 的差別</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/ZEq2Tp93c2A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 07</code>。</p>
+</blockquote>
+<h2 id="開始-3"><a href="#開始-3" class="headerlink" title="開始"></a>開始</h2><blockquote>
+<p>   條件：</p>
+<blockquote>
+<p>  告訴我<code>你的年齡</code><br>  幼稚園：<code>3～5歲</code><br>  國小：<code>6～11歲</code><br>  國中：<code>12～14歲</code></p>
+<blockquote>
+<ul>
+<li>條件宣布代碼： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 條件宣布</span></span><br><span class="line">Console.Write(<span class="string">&quot;請輸入您的年齡:&quot;</span>);</span><br><span class="line"><span class="comment">//int age = int.Parse(Console.ReadLine());</span></span><br><span class="line"><span class="keyword">int</span> age;</span><br><span class="line"><span class="keyword">bool</span> good = <span class="keyword">int</span>.TryParse(Console.ReadLine(),<span class="keyword">out</span> age);</span><br><span class="line"><span class="keyword">if</span> (good)</span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;您的年齡是：&quot;</span>);</span><br><span class="line">    Console.WriteLine(age+<span class="string">&quot;歲&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;你填錯了，請填數字就好&quot;</span>);</span><br><span class="line">    System.Environment.Exit(<span class="number">0</span>);     <span class="comment">//  終止所有程序</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> Kindergarten = <span class="number">6</span> &gt; age &amp;&amp; age &gt;= <span class="number">3</span>;</span><br><span class="line"><span class="keyword">bool</span> ElementarySchool = <span class="number">12</span> &gt; age &amp;&amp; age &gt;= <span class="number">6</span>;</span><br><span class="line"><span class="keyword">bool</span> secondary = <span class="number">15</span> &gt; age &amp;&amp; age &gt;= <span class="number">12</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<ol>
+<li>方法一： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方法一</span></span><br><span class="line">Console.Write(<span class="string">&quot;方法一：&quot;</span>);</span><br><span class="line"><span class="keyword">switch</span> (age) <span class="comment">// 選擇</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我要上幼稚園了&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;  <span class="comment">// 跳脫</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我要上小學了&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;  <span class="comment">// 跳脫</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">12</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">13</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">14</span>:</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我要上國中了&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;  <span class="comment">// case 最後一項一定要加break;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">default</span>: <span class="comment">// 默認:沒有指定的case</span></span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我來亂的&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法二： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方法二</span></span><br><span class="line"><span class="keyword">if</span> (Kindergarten == <span class="literal">true</span>) <span class="comment">// 判斷</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;方法二：&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;可以上幼稚園了&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (ElementarySchool == <span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;方法二：&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;可以上國小了&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (secondary == <span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;方法二：&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;可以上國中了&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;方法二：&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;我來亂的&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<hr>
+<h1 id="【練習題】C-綜合基礎語法"><a href="#【練習題】C-綜合基礎語法" class="headerlink" title="【練習題】C# 綜合基礎語法"></a>【練習題】C# 綜合基礎語法</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/dZ5-ISe2hTs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 08</code>。</p>
+</blockquote>
+<h2 id="開始-4"><a href="#開始-4" class="headerlink" title="開始"></a>開始</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 友善訊息</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;################永成銀行網銀登入################&quot;</span>);</span><br><span class="line">            </span><br><span class="line"><span class="comment">// 銀行ATM網銀</span></span><br><span class="line"><span class="comment">// 輸入用戶帳密</span></span><br><span class="line">Console.Write(<span class="string">&quot;請輸入帳號：&quot;</span>);</span><br><span class="line"><span class="keyword">string</span> User = Console.ReadLine();</span><br><span class="line">Console.Write(<span class="string">&quot;請輸入密碼：&quot;</span>);</span><br><span class="line"><span class="keyword">string</span> password = Console.ReadLine();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用戶帳密設置</span></span><br><span class="line"><span class="keyword">string</span> User_test = <span class="string">&quot;pkpk26261&quot;</span>;</span><br><span class="line"><span class="keyword">string</span> password_test = <span class="string">&quot;12345678&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 資料值核對</span></span><br><span class="line"><span class="keyword">bool</span> User_good = User == User_test;</span><br><span class="line"><span class="keyword">bool</span> password_good = password == password_test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (User_good &amp;&amp; password_good)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;登入成功&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;請輸入數字，選擇服務選項： 1.查詢餘額 2.提款 3.轉帳 4.存款&quot;</span>);</span><br><span class="line">    <span class="keyword">int</span> number;</span><br><span class="line">    <span class="keyword">bool</span> nice = <span class="keyword">int</span>.TryParse(Console.ReadLine(),<span class="keyword">out</span> number);</span><br><span class="line">    <span class="keyword">if</span> (nice != <span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;無此服務項目&quot;</span>);</span><br><span class="line">        System.Environment.Exit(<span class="number">0</span>);     <span class="comment">//  終止所有程序</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">switch</span> (number)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;您的餘額為：100000&quot;</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                Console.Write(<span class="string">&quot;請輸入提款金額：&quot;</span>);</span><br><span class="line">                <span class="keyword">int</span> money_number1 = <span class="keyword">int</span>.Parse(Console.ReadLine());</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                Console.Write(<span class="string">&quot;請輸入轉帳帳號：&quot;</span>);</span><br><span class="line">                <span class="keyword">int</span> bank;</span><br><span class="line">                <span class="keyword">bool</span> bank_good = <span class="keyword">int</span>.TryParse(Console.ReadLine(), <span class="keyword">out</span> bank);</span><br><span class="line">                <span class="keyword">if</span> (bank_good != <span class="literal">true</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(<span class="string">&quot;無此帳號&quot;</span>);</span><br><span class="line">                    System.Environment.Exit(<span class="number">0</span>);     <span class="comment">//  終止所有程序</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    Console.Write(<span class="string">&quot;請輸入轉帳金額：&quot;</span>);</span><br><span class="line">                    <span class="keyword">int</span> money_number2 = <span class="keyword">int</span>.Parse(Console.ReadLine());</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                Console.Write(<span class="string">&quot;請輸入存款金額：&quot;</span>);</span><br><span class="line">                <span class="keyword">int</span> money_number3 = <span class="keyword">int</span>.Parse(Console.ReadLine());</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;輸入帳號或密碼不正確&quot;</span>);</span><br><span class="line">    System.Environment.Exit(<span class="number">0</span>);     <span class="comment">//  終止所有程序</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="while-循環"><a href="#while-循環" class="headerlink" title="while 循環"></a>while 循環</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/Mt5qRkoVxCs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 09</code>。</p>
+</blockquote>
+<h2 id="開始-5"><a href="#開始-5" class="headerlink" title="開始"></a>開始</h2><blockquote>
+<p>  假設使0~500，每次增值為10，直到500為止<br>  註:【number++;】等於【number+=1;】等於【number = number + 1;】</p>
+<blockquote>
+<ol>
+<li>方法一： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number1 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(number1);</span><br><span class="line">    <span class="keyword">if</span> (number1 == <span class="number">500</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(number1); </span><br><span class="line">        <span class="keyword">break</span>;      <span class="comment">// 跳出while</span></span><br><span class="line">    &#125;</span><br><span class="line">    number1 += <span class="number">10</span>;  <span class="comment">// number1 = number1 + 10;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法二： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number2 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (number2 &lt;= <span class="number">500</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(number2);</span><br><span class="line">    number2 += <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+</blockquote>
+<hr>
+<h1 id="do-while-循環"><a href="#do-while-循環" class="headerlink" title="do while 循環"></a>do while 循環</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/zXXrWyGSlTo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 10</code>。</p>
+</blockquote>
+<h2 id="開始-6"><a href="#開始-6" class="headerlink" title="開始"></a>開始</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number;  <span class="comment">// 宣告區域變數</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// do while 先執行，後判斷            </span></span><br><span class="line"><span class="keyword">do</span> <span class="comment">// 執行</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;請輸入成績：&quot;</span>);</span><br><span class="line">    <span class="keyword">bool</span> pass = <span class="keyword">int</span>.TryParse(Console.ReadLine(), <span class="keyword">out</span> number);</span><br><span class="line">    <span class="keyword">if</span> ((pass &amp;&amp; number &lt;= <span class="number">100</span>) != <span class="literal">true</span>)  <span class="comment">// 輸入數字以外的文字，且大於100分，就顯示輸入錯誤</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;輸入錯誤&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((number &gt;= <span class="number">60</span>) != <span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;成績不及格，繼續補考!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;成績及格了!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (number&gt;<span class="number">60</span>); <span class="comment">// 設定條件值關閉while迴圈</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="for-循環"><a href="#for-循環" class="headerlink" title="for 循環"></a>for 循環</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/k8Sh6yAqrV8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 11</code>。</p>
+</blockquote>
+<h2 id="開始-7"><a href="#開始-7" class="headerlink" title="開始"></a>開始</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// for(變量宣告；變量條件；變量增量)</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">100</span>; i += <span class="number">5</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;數字:<span class="subst">&#123;i&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h1 id="循環運算的九九乘法表"><a href="#循環運算的九九乘法表" class="headerlink" title="循環運算的九九乘法表"></a>循環運算的九九乘法表</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/FhWWGya5vBE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 12</code>。</p>
+</blockquote>
+<h2 id="開始-8"><a href="#開始-8" class="headerlink" title="開始"></a>開始</h2><p>九九乘法表有規可尋，所以我們可以分辨它的條件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1x1&#x3D;1</span><br><span class="line">1x2&#x3D;2   2x2&#x3D;4</span><br><span class="line">1x3&#x3D;3   2x3&#x3D;6   3x3&#x3D;9   </span><br><span class="line">1x4&#x3D;4   2x4&#x3D;8   3x4&#x3D;12  4x4&#x3D;16</span><br><span class="line">1x5&#x3D;5   2x5&#x3D;10  3x5&#x3D;15  4x5&#x3D;20  5x5&#x3D;25</span><br><span class="line">1x6&#x3D;6   2x6&#x3D;12  3x6&#x3D;18  4x6&#x3D;24  5x6&#x3D;30  6x6&#x3D;36     </span><br><span class="line">1x7&#x3D;7   2x7&#x3D;14  3x7&#x3D;21  4x7&#x3D;28  5x7&#x3D;35  6x7&#x3D;42  7x7&#x3D;49  </span><br><span class="line">1x8&#x3D;8   2x8&#x3D;16  3x8&#x3D;24  4x8&#x3D;32  5x8&#x3D;40  6x8&#x3D;48  7x8&#x3D;56  8x8&#x3D;64</span><br><span class="line">1x9&#x3D;9   2x9&#x3D;18  3x9&#x3D;27  4x9&#x3D;36  5x9&#x3D;45  6x9&#x3D;54  7x9&#x3D;63  8x9&#x3D;72  9x9&#x3D;81</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li>代碼：  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &lt;= <span class="number">9</span>; x += <span class="number">1</span>) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">1</span>; y &lt;= x; y += <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.Write(<span class="string">$&quot;<span class="subst">&#123;y&#125;</span>x<span class="subst">&#123;x&#125;</span>=&quot;</span> + (x * y)+<span class="string">&quot;\t&quot;</span>);      <span class="comment">// 【&quot;\t&quot;】段落對齊</span></span><br><span class="line">    &#125;</span><br><span class="line">    Console.WriteLine();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="數組的理解與使用"><a href="#數組的理解與使用" class="headerlink" title="數組的理解與使用"></a>數組的理解與使用</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/gHzjC4xi8rw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 13</code>。</p>
+</blockquote>
+<h2 id="開始-9"><a href="#開始-9" class="headerlink" title="開始"></a>開始</h2><blockquote>
+<ol>
+<li>方式一： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span>[]names = <span class="keyword">new</span> <span class="keyword">string</span>[<span class="number">3</span>]; <span class="comment">//宣布數組的數量，創建一組字符串內存空間</span></span><br><span class="line">names[<span class="number">0</span>] = <span class="string">&quot;編號一&quot;</span>;</span><br><span class="line">names[<span class="number">1</span>] = <span class="string">&quot;編號二&quot;</span>;</span><br><span class="line">names[<span class="number">2</span>] = <span class="string">&quot;編號三&quot;</span>;</span><br><span class="line">Console.WriteLine(names[<span class="number">0</span>]+<span class="string">&quot;\t&quot;</span>+ names[<span class="number">1</span>] + <span class="string">&quot;\t&quot;</span> + names[<span class="number">2</span>]);</span><br></pre></td></tr></table></figure></li>
+<li>方式二： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span>[] numbers = <span class="keyword">new</span> <span class="keyword">string</span> &#123; <span class="string">&quot;數字一&quot;</span>, <span class="string">&quot;數字二&quot;</span>, <span class="string">&quot;數字三&quot;</span> &#125;;　<span class="comment">// new初始化</span></span><br><span class="line"><span class="comment">//string[] numbers = &#123; &quot;數字一&quot;, &quot;數字二&quot;, &quot;數字三&quot; &#125;;</span></span><br><span class="line">Console.WriteLine(numbers[<span class="number">0</span>] + <span class="string">&quot;\t&quot;</span> + numbers[<span class="number">1</span>] + <span class="string">&quot;\t&quot;</span> + numbers[<span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<hr>
+<h1 id="“指定”類別的使用方式"><a href="#“指定”類別的使用方式" class="headerlink" title="“指定”類別的使用方式"></a>“指定”類別的使用方式</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/R-CPOm4OZGo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 14</code>。</p>
+</blockquote>
+<h2 id="開始-10"><a href="#開始-10" class="headerlink" title="開始"></a>開始</h2><h3 id="類別"><a href="#類別" class="headerlink" title="類別"></a>類別</h3><p>在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>A</code>，即可跳出<code>新增項目</code>的視窗。<br><img src="https://i.imgur.com/exFHMs2.png"></p>
+<ol>
+<li>類別名稱建立為<code>Student</code>.cs。</li>
+<li><code>class Student&#123;&#125;</code>更改為<code>public class Student&#123;&#125;</code></li>
+<li>靜態特徵：<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 靜態特徵</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 學生姓名</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> Name;</span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 年齡</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> Age;</span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 性別</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">char</span> Sex;</span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 電話</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> Phone;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure></li>
+<li>動態特徵： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 動態特徵</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 學習</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Learn</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="keyword">this</span>.Name + <span class="string">&quot;\t&quot;</span> + <span class="string">&quot;正在看書學習...&quot;</span>); <span class="comment">// this.Name 當前名稱.姓名</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="Program-主運行程式"><a href="#Program-主運行程式" class="headerlink" title="Program 主運行程式"></a>Program 主運行程式</h3><ol>
+<li>索引關聯資料建立： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Student stu_1 = <span class="keyword">new</span> Student();</span><br><span class="line">stu_1.Name = <span class="string">&quot;標號一&quot;</span>;</span><br><span class="line">stu_1.Age = <span class="number">18</span>;</span><br><span class="line">stu_1.Sex = <span class="string">&#x27;女&#x27;</span>;</span><br><span class="line">stu_1.Phone = <span class="string">&quot;0987878787&quot;</span>;</span><br><span class="line"></span><br><span class="line">Student stu_2 = <span class="keyword">new</span> Student();</span><br><span class="line">stu_2.Name = <span class="string">&quot;標號二&quot;</span>;</span><br><span class="line">stu_2.Age = <span class="number">19</span>;</span><br><span class="line">stu_2.Sex = <span class="string">&#x27;女&#x27;</span>;</span><br><span class="line">stu_2.Phone = <span class="string">&quot;0978787878&quot;</span>;</span><br><span class="line"></span><br><span class="line">Student stu_3 = <span class="keyword">new</span> Student();</span><br><span class="line">stu_3.Name = <span class="string">&quot;標號二&quot;</span>;</span><br><span class="line">stu_3.Age = <span class="number">20</span>;</span><br><span class="line">stu_3.Sex = <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line">stu_3.Phone = <span class="string">&quot;0969696969&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li>主要程式： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Student[] stu = &#123; stu_1, stu_2, stu_3 &#125;; <span class="comment">// 占位符的使用</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stu.Length; i += <span class="number">1</span>)  <span class="comment">// stu.Length 是 stu 的長度。</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 靜態特徵</span></span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;姓名:<span class="subst">&#123;stu[i].Name&#125;</span>　性別:<span class="subst">&#123;stu[i].Sex&#125;</span>　年紀:<span class="subst">&#123;stu[i].Age&#125;</span>　電話號碼:<span class="subst">&#123;stu[i].Phone&#125;</span>&quot;</span>);</span><br><span class="line">    <span class="comment">// 動態特徵</span></span><br><span class="line">    stu[i].Learn();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<hr>
+<h1 id="調用類別的動態特徵”執行”"><a href="#調用類別的動態特徵”執行”" class="headerlink" title="調用類別的動態特徵”執行”"></a>調用類別的動態特徵”執行”</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/rk07FoR5br0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 15</code>。</p>
+</blockquote>
+<h2 id="開始-11"><a href="#開始-11" class="headerlink" title="開始"></a>開始</h2><h3 id="類別-1"><a href="#類別-1" class="headerlink" title="類別"></a>類別</h3><p>在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>A</code>，即可跳出<code>新增項目</code>的視窗。<br><img src="https://i.imgur.com/uvQkGH5.png"></p>
+<ol>
+<li>類別名稱建立為<code>Dog</code>.cs。</li>
+<li><code>class Dog&#123;&#125;</code>更改為<code>public class Dog&#123;&#125;</code></li>
+<li>靜態特徵： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 靜態特徵</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 玩具名稱</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> name;</span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 玩具顏色</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> color;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure></li>
+<li>動態特徵：<br> 訪問硬件有可能會報錯，所以要設定相對應的 return 回傳值。 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> string_Run</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">Run_string</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;<span class="keyword">this</span>.name&#125;</span>的<span class="subst">&#123;<span class="keyword">this</span>.color&#125;</span>真難看~&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;abc&quot;</span>;   <span class="comment">// 回傳值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> int_Run</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Run_int</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;<span class="keyword">this</span>.name&#125;</span>的<span class="subst">&#123;<span class="keyword">this</span>.color&#125;</span>真難看~&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;       <span class="comment">// 回傳值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> bool_Run</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">Run_bool</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;<span class="keyword">this</span>.name&#125;</span>的<span class="subst">&#123;<span class="keyword">this</span>.color&#125;</span>真難看~&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;    <span class="comment">// 回傳值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="Program-主運行程式-1"><a href="#Program-主運行程式-1" class="headerlink" title="Program 主運行程式"></a>Program 主運行程式</h3><ol>
+<li>索引關聯資料建立： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 資料關聯建立</span></span><br><span class="line">Dog dog1 = <span class="keyword">new</span> Dog();</span><br><span class="line">dog1.name = <span class="string">&quot;醜八怪&quot;</span>;</span><br><span class="line">dog1.color = <span class="string">&quot;黃色&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li>調用類別的”動態特徵”執行： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// string</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">region</span> string_Run</span></span><br><span class="line"><span class="keyword">string</span> result_string = dog1.Run_string(); <span class="comment">// 調用類別的&quot;動態特徵&quot;執行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (result_string ==<span class="string">&quot;abc&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;string調用成功&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;string調用失敗&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">region</span> int_Run</span></span><br><span class="line"><span class="keyword">int</span> result_int = dog1.Run_int(); <span class="comment">// 調用類別的&quot;動態特徵&quot;執行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (result_int == <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;int調用成功&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;int調用失敗&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// bool</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">region</span> bool_Run</span></span><br><span class="line"><span class="keyword">bool</span> result_bool = dog1.Run_bool(); <span class="comment">// 調用類別的&quot;動態特徵&quot;執行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (result_bool == <span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;bool調用成功&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;bool調用失敗&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h1 id="帶參數的動態特徵"><a href="#帶參數的動態特徵" class="headerlink" title="帶參數的動態特徵"></a>帶參數的動態特徵</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/ZQr7mwijd4M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 16</code>。</p>
+</blockquote>
+<h2 id="開始-12"><a href="#開始-12" class="headerlink" title="開始"></a>開始</h2><h3 id="非帶參數"><a href="#非帶參數" class="headerlink" title="非帶參數"></a>非帶參數</h3><h4 id="類別-2"><a href="#類別-2" class="headerlink" title="類別"></a>類別</h4><p>在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>A</code>，即可跳出<code>新增項目</code>的視窗。<br><img src="https://i.imgur.com/zy4z6xp.png"></p>
+<ol>
+<li>類別名稱建立為<code>Lamp</code>.cs。</li>
+<li><code>class Lamp&#123;&#125;</code>更改為<code>public class Lamp&#123;&#125;</code></li>
+<li>代碼： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Open</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;開燈&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Close</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;關燈&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="Program-主運行程式-2"><a href="#Program-主運行程式-2" class="headerlink" title="Program 主運行程式"></a>Program 主運行程式</h4><ul>
+<li>代碼：  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Lamp lamp = <span class="keyword">new</span> Lamp(); </span><br><span class="line">lamp.Open();</span><br><span class="line">lamp.Close();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h3 id="帶參數"><a href="#帶參數" class="headerlink" title="帶參數"></a>帶參數</h3><h4 id="類別-3"><a href="#類別-3" class="headerlink" title="類別"></a>類別</h4><p>在該專案裡面，按<code>Ctrl</code> <code>+</code> <code>Shift</code> <code>+</code> <code>A</code>，即可跳出<code>新增項目</code>的視窗。<br><img src="https://i.imgur.com/G0lIczN.png"></p>
+<ol>
+<li>類別名稱建立為<code>PPAP</code>.cs。</li>
+<li><code>class PPAP&#123;&#125;</code>更改為<code>public class PPAP&#123;&#125;</code></li>
+<li>代碼： <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">ppap</span>(<span class="params"><span class="keyword">string</span> fruit</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">string</span> result = fruit + <span class="string">&quot;Pen&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> result; <span class="comment">// 回傳值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="Program-主運行程式-3"><a href="#Program-主運行程式-3" class="headerlink" title="Program 主運行程式"></a>Program 主運行程式</h4><ul>
+<li>代碼：<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">PPAP PPAP = <span class="keyword">new</span> PPAP();</span><br><span class="line"><span class="keyword">string</span> result = PPAP.ppap(<span class="string">&quot;Apple&quot;</span>);</span><br><span class="line">Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;result&#125;</span>&quot;</span>); </span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h1 id="流程控制關鍵詞"><a href="#流程控制關鍵詞" class="headerlink" title="流程控制關鍵詞"></a>流程控制關鍵詞</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/yhvx_4WQ0Uw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 17</code>。</p>
+</blockquote>
+<h2 id="開始-13"><a href="#開始-13" class="headerlink" title="開始"></a>開始</h2><ul>
+<li>流程控制關鍵詞  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">break</span>;      <span class="comment">// 終止，結束之意</span></span><br><span class="line"><span class="keyword">continue</span>;   <span class="comment">// 繼續，效率之意</span></span><br><span class="line"><span class="keyword">return</span>;     <span class="comment">// 返回，傳遞之意</span></span><br></pre></td></tr></table></figure>
+<h3 id="範例解釋"><a href="#範例解釋" class="headerlink" title="範例解釋"></a>範例解釋</h3><h4 id="1-break-終止"><a href="#1-break-終止" class="headerlink" title="1. break 終止"></a>1. break 終止</h4><blockquote>
+<ul>
+<li>switch<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.Write(<span class="string">&quot;請輸入number值：&quot;</span>);</span><br><span class="line"><span class="keyword">int</span> number = <span class="keyword">int</span>.Parse(Console.ReadLine());</span><br><span class="line"><span class="keyword">switch</span> (number)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;數字一&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">default</span>:    <span class="comment">// 默認</span></span><br><span class="line">        Console.WriteLine(<span class="string">&quot;沒有東西&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;  <span class="comment">// 終止</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>for<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">1</span>; n &lt; <span class="number">100</span>; n += <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">$&quot;第一個偶數: <span class="subst">&#123;n&#125;</span>&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>while<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (m &lt; <span class="number">20</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;m: <span class="subst">&#123;m&#125;</span>&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (m == <span class="number">10</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">break</span>; <span class="comment">// 到m=10時，跳脫while迴圈。</span></span><br><span class="line">    &#125;</span><br><span class="line">    m += <span class="number">2</span>;</span><br><span class="line">&#125;            </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h4 id="2-continue-繼續"><a href="#2-continue-繼續" class="headerlink" title="2. continue 繼續"></a>2. continue 繼續</h4><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">10</span>; i += <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sum += i;</span><br><span class="line">        <span class="keyword">continue</span>; <span class="comment">// 循環繼續，效率更高。 </span></span><br><span class="line">        <span class="comment">/* 【i】的結果：</span></span><br><span class="line"><span class="comment">                加入continue：1、3、5、7、9</span></span><br><span class="line"><span class="comment">                取消continue：1、2、3、4、5、6、7、8、9 </span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    &#125;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;我來亂的<span class="subst">&#123;i&#125;</span>&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">Console.WriteLine(<span class="string">$&quot;sum :<span class="subst">&#123;sum&#125;</span>&quot;</span>);        </span><br></pre></td></tr></table></figure>
+<h4 id="3-return-返回"><a href="#3-return-返回" class="headerlink" title="3. return 返回"></a>3. return 返回</h4><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">string</span> str = Test();</span><br><span class="line">    Console.WriteLine(str);</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> return 返回，測試</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">Test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;這是一個return 的字串&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<hr>
+<h1 id="訪問修飾符"><a href="#訪問修飾符" class="headerlink" title="訪問修飾符"></a>訪問修飾符</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/Mz-8PpvflaQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="開始-14"><a href="#開始-14" class="headerlink" title="開始"></a>開始</h2><h3 id="訪問權限"><a href="#訪問權限" class="headerlink" title="訪問權限"></a>訪問權限</h3><blockquote>
+<ol>
+<li><code>private</code>：私有的，僅類的內部程式可以使用</li>
+<li><code>protected</code>：受保護的，類的內部和繼承子類可以訪問。</li>
+<li><code>internal</code>：內部的，在同一個專案命名空間可以訪問。</li>
+<li><code>public</code>：公共的，完全公開，沒有訪問限制。</li>
+</ol>
+</blockquote>
+<p>在這裡可能無法更明確解釋，可能要實際操作才能理解。</p>
+<h1 id="VS調適Bug的方法"><a href="#VS調適Bug的方法" class="headerlink" title="VS調適Bug的方法"></a>VS調適Bug的方法</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/hjCJ8I5AxdA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<ul>
+<li>三種調試方運行方式</li>
+</ul>
+<ol>
+<li><code>F5</code>：啟動運行，跳轉到下一個斷點。<br> 斷點方式：在VS 2019中，左鍵雙擊點選每行數字的左邊空白處，有亮起紅色圓形體即可。</li>
+<li><code>F10</code>：逐步調適。</li>
+<li><code>F11</code>：逐句調適。</li>
+</ol>
+<p>在這裡可能無法更明確解釋，可能要實際操作才能理解。</p>
+<h1 id="引用類型和值類型"><a href="#引用類型和值類型" class="headerlink" title="引用類型和值類型"></a>引用類型和值類型</h1><iframe width="1920" height="1080" src="https://www.youtube.com/embed/6lndSFyfo7U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<blockquote>
+<p>資料參考專案 <code>Learning 18</code>。</p>
+</blockquote>
+<h2 id="開始-15"><a href="#開始-15" class="headerlink" title="開始"></a>開始</h2><h3 id="整數型別的特性"><a href="#整數型別的特性" class="headerlink" title="整數型別的特性"></a>整數型別的特性</h3><h4 id="值類型"><a href="#值類型" class="headerlink" title="值類型"></a>值類型</h4><ul>
+<li>C# 支援下列預先定義的整數型別：<table>
+<thead>
+<tr>
+<th align="center">C# 型別/關鍵字</th>
+<th align="left">範圍</th>
+<th align="left">大小</th>
+<th align="left">.NET 類型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sbyte</td>
+<td align="left">-128 到 127</td>
+<td align="left">帶正負號的 8 位元整數</td>
+<td align="left">System.SByte</td>
+</tr>
+<tr>
+<td align="center">byte</td>
+<td align="left">0 至 255</td>
+<td align="left">不帶正負號的 8 位元整數</td>
+<td align="left">System.Byte</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="left">-32,768 至 32,767</td>
+<td align="left">帶正負號的 16 位元整數</td>
+<td align="left">System.Int16</td>
+</tr>
+<tr>
+<td align="center">ushort</td>
+<td align="left">0 到 65,535</td>
+<td align="left">不帶正負號的 16 位元整數</td>
+<td align="left">System.UInt16</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="left">-2,147,483,648 至 2,147,483,647</td>
+<td align="left">帶正負號的 32 位元整數</td>
+<td align="left">System.Int32</td>
+</tr>
+<tr>
+<td align="center">uint</td>
+<td align="left">0 到 4,294,967,295</td>
+<td align="left">不帶正負號的 32 位元整數</td>
+<td align="left">System.UInt32</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="left">-9,223,372,036,854,775,808 至 9,223,372,036,854,775,807</td>
+<td align="left">帶正負號的 64 位元整數</td>
+<td align="left">System.Int64</td>
+</tr>
+<tr>
+<td align="center">ulong</td>
+<td align="left">0 到 18,446,744,073,709,551,615</td>
+<td align="left">不帶正負號的 64 位元整數</td>
+<td align="left">System.UInt64</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="實值型別有兩種類別︰struct-和-enum。"><a href="#實值型別有兩種類別︰struct-和-enum。" class="headerlink" title="實值型別有兩種類別︰struct 和 enum。"></a>實值型別有兩種類別︰struct 和 enum。</h4><ol>
+<li><p>struct<br>您使用 struct 關鍵字來建立您自己自訂的實值型別。 一般來說，會使用結構做為一小組相關變數的容器，如下列範例所示︰</p>
+ <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">struct</span> Coords</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x, y;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Coords</span>(<span class="params"><span class="keyword">int</span> p1, <span class="keyword">int</span> p2</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    x = p1;</span><br><span class="line">    y = p2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>enum</p>
+</li>
+</ol>
+<ul>
+<li><p>列舉型態(或列舉類型)是由基礎整體數值類型的一組命名常量定義的值類型。 要定義的枚舉類型,請使用關鍵enum字並指定枚舉成員的名稱:</p>
+  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> Season</span><br><span class="line">&#123;</span><br><span class="line">    Spring,</span><br><span class="line">    Summer,</span><br><span class="line">    Autumn,</span><br><span class="line">    Winter</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>預設情況下,枚舉成員的關聯常量值為int類型 ;它們以零開始,然後按照定義文本順序增加一個。您可以顯示式指定任何其他積分數值類型作為枚舉類型的基礎類型。 您還可以顯示式指定關聯的常量值,如以下範例所示:</p>
+  <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> ErrorCode : <span class="keyword">ushort</span></span><br><span class="line">&#123;</span><br><span class="line">    None = <span class="number">0</span>,</span><br><span class="line">    Unknown = <span class="number">1</span>,</span><br><span class="line">    ConnectionLost = <span class="number">100</span>,</span><br><span class="line">    OutlierReading = <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h1 id="參考文章"><a href="#參考文章" class="headerlink" title="參考文章"></a>參考文章</h1><ol>
+<li>Microsoft C# 程式設計手冊（ <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vemgtdHcvZG90bmV0L2NzaGFycC9wcm9ncmFtbWluZy1ndWlkZS8=">文章連結<i class="fa fa-external-link-alt"></i></span>）</li>
+</ol>
+]]></content>
+      <categories>
+        <category>C# 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
       </tags>
   </entry>
   <entry>
