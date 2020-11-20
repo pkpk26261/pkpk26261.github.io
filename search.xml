@@ -171,6 +171,44 @@
       </tags>
   </entry>
   <entry>
+    <title>OpenCV 程式指令整理</title>
+    <url>/2020/01/24/OpenCV%20%E7%A8%8B%E5%BC%8F%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>這裡整理紀錄 OpenCV 的程式指令，若有新的我會持續更新。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<ol>
+<li><p>讀取圖片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">&quot;test.jpg&quot;</span>) <span class="comment"># img = test.jpg</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>讀取影片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vc=cv2.VideoCapture(<span class="string">&quot;output.mp4&quot;</span>) <span class="comment">#vc = output.mp4</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>等待任何按鍵</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>顯示視窗</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># (&quot;視窗名稱&quot;,要顯示的圖片或影片)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>關閉顯示視窗</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.destroyAllWindows(<span class="string">&quot;test&quot;</span>) <span class="comment"># 關閉指定的&quot;test&quot;視窗</span></span><br><span class="line">cv2.destroyAllWindows()  <span class="comment"># 關閉全部視窗</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自由調整視窗大小</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.namedWindow(<span class="string">&#x27;test&#x27;</span>, cv2.WINDOW_NORMAL) <span class="comment"># 讓視窗可以自由縮放大小</span></span><br><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># 顯示視窗</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>寫入圖片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 寫入圖檔</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寫入不同圖檔格式...</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img)</span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.tiff&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 JPEG 圖片品質為 90（可用值為 0 ~ 100）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img, [cv2.IMWRITE_JPEG_QUALITY, <span class="number">90</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 PNG 壓縮層級為 5（可用值為 0 ~ 9）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img, [cv2.IMWRITE_PNG_COMPRESSION, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tensorflow-gpu 安裝引導</title>
     <url>/2020/01/14/Tensorflow-gpu%20%E5%AE%89%E8%A3%9D%E5%BC%95%E5%B0%8E/</url>
     <content><![CDATA[<p>這裡將教大家如何在Windows、Linux的Anaconda安裝tensorflow-gpu。</p>
@@ -203,44 +241,6 @@
 
 
 
-]]></content>
-      <categories>
-        <category>Python 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenCV 程式指令整理</title>
-    <url>/2020/01/24/OpenCV%20%E7%A8%8B%E5%BC%8F%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<p>這裡整理紀錄 OpenCV 的程式指令，若有新的我會持續更新。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<ol>
-<li><p>讀取圖片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">&quot;test.jpg&quot;</span>) <span class="comment"># img = test.jpg</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>讀取影片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vc=cv2.VideoCapture(<span class="string">&quot;output.mp4&quot;</span>) <span class="comment">#vc = output.mp4</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>等待任何按鍵</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>顯示視窗</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># (&quot;視窗名稱&quot;,要顯示的圖片或影片)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>關閉顯示視窗</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.destroyAllWindows(<span class="string">&quot;test&quot;</span>) <span class="comment"># 關閉指定的&quot;test&quot;視窗</span></span><br><span class="line">cv2.destroyAllWindows()  <span class="comment"># 關閉全部視窗</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自由調整視窗大小</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.namedWindow(<span class="string">&#x27;test&#x27;</span>, cv2.WINDOW_NORMAL) <span class="comment"># 讓視窗可以自由縮放大小</span></span><br><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># 顯示視窗</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>寫入圖片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 寫入圖檔</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寫入不同圖檔格式...</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img)</span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.tiff&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 JPEG 圖片品質為 90（可用值為 0 ~ 100）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img, [cv2.IMWRITE_JPEG_QUALITY, <span class="number">90</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 PNG 壓縮層級為 5（可用值為 0 ~ 9）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img, [cv2.IMWRITE_PNG_COMPRESSION, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
 ]]></content>
       <categories>
         <category>Python 程式語言學習</category>
