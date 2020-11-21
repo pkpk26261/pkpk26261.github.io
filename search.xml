@@ -1,6 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Anaconda 基本指令介紹</title>
+    <url>/2020/01/14/Anaconda%20%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4%E4%BB%8B%E7%B4%B9/</url>
+    <content><![CDATA[<p>需要者，請自行閱讀此文章。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+
+
+<a id="more"></a>
+
+<p>請至 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYW5hY29uZGEuY29tL2Rpc3RyaWJ1dGlvbi8=">Anaconda 官網<i class="fa fa-external-link-alt"></i></span> 下載安裝應用程式。<br>&ensp;</p>
+<h1 id="Anaconda-管理模組"><a href="#Anaconda-管理模組" class="headerlink" title="Anaconda 管理模組　"></a>Anaconda 管理模組　</h1><ol>
+<li>模組安裝<br><code>pip</code>為單一模組安裝，<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip list</span><br><span class="line">pip install &lt;模組名稱&gt;</span><br><span class="line">pip install  --upgrade &lt;模組名稱&gt;</span><br><span class="line">pip uninstall &lt;模組名稱&gt;</span><br></pre></td></tr></table></figure>
+<code>conda</code>會幫你安裝該包，也會幫忙安裝其他所需模組。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda list</span><br><span class="line">conda install &lt;模組名稱&gt;</span><br><span class="line">conda install --upgrade &lt;模組名稱&gt;</span><br><span class="line">conda uninstall &lt;模組名稱&gt;</span><br></pre></td></tr></table></figure></li>
+<li>anaconda 升級<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda update anaconda</span><br></pre></td></tr></table></figure></li>
+<li>pip 升級<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h1 id="安裝及更新conda"><a href="#安裝及更新conda" class="headerlink" title="安裝及更新conda"></a>安裝及更新conda</h1><ol>
+<li>查看conda版本<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda –V</span><br></pre></td></tr></table></figure></li>
+<li>conda 更新<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda update conda</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<h1 id="建立虛擬環境"><a href="#建立虛擬環境" class="headerlink" title="建立虛擬環境"></a>建立虛擬環境</h1><ol>
+<li>查看目前有哪些環境<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure></li>
+<li>建立名為<name>虛擬環境(name為自定義名稱)，並且安裝為<code>python3.6</code>版本。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n &lt;name&gt; python&#x3D;3.6</span><br></pre></td></tr></table></figure></li>
+<li>啟動環境(name為要啟動的環境名稱)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">activate &lt;name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>離開環境<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure></li>
+<li>刪除環境(name為該環境名稱)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env remove -n &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h1 id="使用方式優缺點"><a href="#使用方式優缺點" class="headerlink" title="使用方式優缺點"></a>使用方式優缺點</h1><p>從命令列執行 Python 互動式Shell </p>
+<blockquote>
+<p><code>C:\Users\user&gt;python</code> ，即時看到結果，難以編修程式。</p>
+</blockquote>
+<p>從檔案執行Python</p>
+<blockquote>
+<p><code>C:\Users\user&gt;python test.py</code>，容易編修程式，無法即時看到結果。</p>
+</blockquote>
+<hr>
+<h1 id="Jupyter-Notebook-編輯器"><a href="#Jupyter-Notebook-編輯器" class="headerlink" title="Jupyter Notebook 編輯器"></a>Jupyter Notebook 編輯器</h1><blockquote>
+<p>啟動<code>Jupyter Notebook</code>編輯器的方式有兩種，</p>
+</blockquote>
+<ol>
+<li>在<code>Anaconda Prompt</code>下打入<code>jupyter notebook</code></li>
+<li>點選桌面的應用<code>Jupyter Notebook</code></li>
+</ol>
+<h2 id="常用熱鍵"><a href="#常用熱鍵" class="headerlink" title="常用熱鍵"></a>常用熱鍵</h2><ol>
+<li>Shift + Enter 執行再新增一列</li>
+<li>Ctrl + Enter 執行目前列</li>
+<li>Esc + a 在上方插入一列</li>
+<li>Esc + b 在下方插入一列</li>
+<li>Esc + dd 刪除一列</li>
+<li>Esc + h 顯示快速鍵列表</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Anaconda 安裝引導</title>
     <url>/2020/01/14/Anaconda%20%E5%AE%89%E8%A3%9D%E5%BC%95%E5%B0%8E/</url>
     <content><![CDATA[<p>這裡將教大家如何在Windows、Linux安裝Anaconda。</p>
@@ -103,64 +171,34 @@
       </tags>
   </entry>
   <entry>
-    <title>Anaconda 基本指令介紹</title>
-    <url>/2020/01/14/Anaconda%20%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4%E4%BB%8B%E7%B4%B9/</url>
-    <content><![CDATA[<p>需要者，請自行閱讀此文章。</p>
+    <title>OpenCV 程式指令整理</title>
+    <url>/2020/01/24/OpenCV%20%E7%A8%8B%E5%BC%8F%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>這裡整理紀錄 OpenCV 的程式指令，若有新的我會持續更新。</p>
 <center>⬇⬇⬇文章開始⬇⬇⬇</center>
-
-
 <a id="more"></a>
 
-<p>請至 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYW5hY29uZGEuY29tL2Rpc3RyaWJ1dGlvbi8=">Anaconda 官網<i class="fa fa-external-link-alt"></i></span> 下載安裝應用程式。<br>&ensp;</p>
-<h1 id="Anaconda-管理模組"><a href="#Anaconda-管理模組" class="headerlink" title="Anaconda 管理模組　"></a>Anaconda 管理模組　</h1><ol>
-<li>模組安裝<br><code>pip</code>為單一模組安裝，<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip list</span><br><span class="line">pip install &lt;模組名稱&gt;</span><br><span class="line">pip install  --upgrade &lt;模組名稱&gt;</span><br><span class="line">pip uninstall &lt;模組名稱&gt;</span><br></pre></td></tr></table></figure>
-<code>conda</code>會幫你安裝該包，也會幫忙安裝其他所需模組。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda list</span><br><span class="line">conda install &lt;模組名稱&gt;</span><br><span class="line">conda install --upgrade &lt;模組名稱&gt;</span><br><span class="line">conda uninstall &lt;模組名稱&gt;</span><br></pre></td></tr></table></figure></li>
-<li>anaconda 升級<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda update anaconda</span><br></pre></td></tr></table></figure></li>
-<li>pip 升級<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<hr>
-<h1 id="安裝及更新conda"><a href="#安裝及更新conda" class="headerlink" title="安裝及更新conda"></a>安裝及更新conda</h1><ol>
-<li>查看conda版本<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda –V</span><br></pre></td></tr></table></figure></li>
-<li>conda 更新<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda update conda</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<h1 id="建立虛擬環境"><a href="#建立虛擬環境" class="headerlink" title="建立虛擬環境"></a>建立虛擬環境</h1><ol>
-<li>查看目前有哪些環境<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure></li>
-<li>建立名為<name>虛擬環境(name為自定義名稱)，並且安裝為<code>python3.6</code>版本。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n &lt;name&gt; python&#x3D;3.6</span><br></pre></td></tr></table></figure></li>
-<li>啟動環境(name為要啟動的環境名稱)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">activate &lt;name&gt;</span><br></pre></td></tr></table></figure></li>
-<li>離開環境<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure></li>
-<li>刪除環境(name為該環境名稱)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env remove -n &lt;name&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<hr>
-<h1 id="使用方式優缺點"><a href="#使用方式優缺點" class="headerlink" title="使用方式優缺點"></a>使用方式優缺點</h1><p>從命令列執行 Python 互動式Shell </p>
-<blockquote>
-<p><code>C:\Users\user&gt;python</code> ，即時看到結果，難以編修程式。</p>
-</blockquote>
-<p>從檔案執行Python</p>
-<blockquote>
-<p><code>C:\Users\user&gt;python test.py</code>，容易編修程式，無法即時看到結果。</p>
-</blockquote>
-<hr>
-<h1 id="Jupyter-Notebook-編輯器"><a href="#Jupyter-Notebook-編輯器" class="headerlink" title="Jupyter Notebook 編輯器"></a>Jupyter Notebook 編輯器</h1><blockquote>
-<p>啟動<code>Jupyter Notebook</code>編輯器的方式有兩種，</p>
-</blockquote>
 <ol>
-<li>在<code>Anaconda Prompt</code>下打入<code>jupyter notebook</code></li>
-<li>點選桌面的應用<code>Jupyter Notebook</code></li>
-</ol>
-<h2 id="常用熱鍵"><a href="#常用熱鍵" class="headerlink" title="常用熱鍵"></a>常用熱鍵</h2><ol>
-<li>Shift + Enter 執行再新增一列</li>
-<li>Ctrl + Enter 執行目前列</li>
-<li>Esc + a 在上方插入一列</li>
-<li>Esc + b 在下方插入一列</li>
-<li>Esc + dd 刪除一列</li>
-<li>Esc + h 顯示快速鍵列表</li>
+<li><p>讀取圖片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">&quot;test.jpg&quot;</span>) <span class="comment"># img = test.jpg</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>讀取影片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vc=cv2.VideoCapture(<span class="string">&quot;output.mp4&quot;</span>) <span class="comment">#vc = output.mp4</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>等待任何按鍵</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>顯示視窗</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># (&quot;視窗名稱&quot;,要顯示的圖片或影片)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>關閉顯示視窗</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.destroyAllWindows(<span class="string">&quot;test&quot;</span>) <span class="comment"># 關閉指定的&quot;test&quot;視窗</span></span><br><span class="line">cv2.destroyAllWindows()  <span class="comment"># 關閉全部視窗</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自由調整視窗大小</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.namedWindow(<span class="string">&#x27;test&#x27;</span>, cv2.WINDOW_NORMAL) <span class="comment"># 讓視窗可以自由縮放大小</span></span><br><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># 顯示視窗</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>寫入圖片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 寫入圖檔</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寫入不同圖檔格式...</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img)</span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.tiff&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 JPEG 圖片品質為 90（可用值為 0 ~ 100）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img, [cv2.IMWRITE_JPEG_QUALITY, <span class="number">90</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 PNG 壓縮層級為 5（可用值為 0 ~ 9）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img, [cv2.IMWRITE_PNG_COMPRESSION, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 ]]></content>
       <categories>
@@ -203,44 +241,6 @@
 
 
 
-]]></content>
-      <categories>
-        <category>Python 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenCV 程式指令整理</title>
-    <url>/2020/01/24/OpenCV%20%E7%A8%8B%E5%BC%8F%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<p>這裡整理紀錄 OpenCV 的程式指令，若有新的我會持續更新。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<ol>
-<li><p>讀取圖片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">&quot;test.jpg&quot;</span>) <span class="comment"># img = test.jpg</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>讀取影片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vc=cv2.VideoCapture(<span class="string">&quot;output.mp4&quot;</span>) <span class="comment">#vc = output.mp4</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>等待任何按鍵</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>顯示視窗</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># (&quot;視窗名稱&quot;,要顯示的圖片或影片)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>關閉顯示視窗</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.destroyAllWindows(<span class="string">&quot;test&quot;</span>) <span class="comment"># 關閉指定的&quot;test&quot;視窗</span></span><br><span class="line">cv2.destroyAllWindows()  <span class="comment"># 關閉全部視窗</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自由調整視窗大小</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.namedWindow(<span class="string">&#x27;test&#x27;</span>, cv2.WINDOW_NORMAL) <span class="comment"># 讓視窗可以自由縮放大小</span></span><br><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># 顯示視窗</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>寫入圖片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 寫入圖檔</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寫入不同圖檔格式...</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img)</span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.tiff&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 JPEG 圖片品質為 90（可用值為 0 ~ 100）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img, [cv2.IMWRITE_JPEG_QUALITY, <span class="number">90</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 PNG 壓縮層級為 5（可用值為 0 ~ 9）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img, [cv2.IMWRITE_PNG_COMPRESSION, <span class="number">5</span>])</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
 ]]></content>
       <categories>
         <category>Python 程式語言學習</category>
@@ -390,55 +390,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module &quot;canberra-gtk-module&quot;}</title>
-    <url>/2020/05/03/Ubuntu%20%E5%9F%B7%E8%A1%8C%20MATLAB%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF/</url>
-    <content><![CDATA[<p>這裡將教大家如何解決 <code>&#123;Failed to load module &quot;canberra-gtk-module&quot;&#125;</code> 的啟動錯誤問題。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<a id="more"></a>
-
-<h1 id="安裝必要包"><a href="#安裝必要包" class="headerlink" title="安裝必要包"></a>安裝必要包</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">sudo apt-get install packagekit-gtk3-module</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法一（暫時）"><a href="#方法一（暫時）" class="headerlink" title="方法一（暫時）"></a>方法一（暫時）</h2><p>你有一個需要在運行MATLAB之前，設置環境變量：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0</span><br></pre></td></tr></table></figure>
-
-<p>或者，您可以通過輸入以下內容在bash shell中，直接運行matlab：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0 &#x2F;usr&#x2F;local&#x2F;MATLAB&#x2F;R2019b&#x2F;bin&#x2F;matlab</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二（永久）"><a href="#方法二（永久）" class="headerlink" title="方法二（永久）"></a>方法二（永久）</h2><ol>
-<li>進入root權限</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="2">
-<li>輸入gedit(文字編輯器)開啟profile檔案</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="3">
-<li><code>profile</code>的最下面加入</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0:$GTK_PATH</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="4">
-<li>重啟</li>
-</ol>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>Linux</tag>
-        <tag>MATLAB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用shutil、os模組協助複製、移動、刪除、新增目錄或檔案</title>
     <url>/2020/01/16/%E4%BD%BF%E7%94%A8shutil%E3%80%81os%E6%A8%A1%E7%B5%84%E5%8D%94%E5%8A%A9%E8%A4%87%E8%A3%BD%E3%80%81%E7%A7%BB%E5%8B%95%E3%80%81%E5%88%AA%E9%99%A4%E3%80%81%E6%96%B0%E5%A2%9E%E7%9B%AE%E9%8C%84%E6%88%96%E6%AA%94%E6%A1%88/</url>
     <content><![CDATA[<p>使用shutil、os模組協助複製、移動、刪除、新增目錄或檔案</p>
@@ -511,6 +462,55 @@
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module &quot;canberra-gtk-module&quot;}</title>
+    <url>/2020/05/03/Ubuntu%20%E5%9F%B7%E8%A1%8C%20MATLAB%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF/</url>
+    <content><![CDATA[<p>這裡將教大家如何解決 <code>&#123;Failed to load module &quot;canberra-gtk-module&quot;&#125;</code> 的啟動錯誤問題。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<a id="more"></a>
+
+<h1 id="安裝必要包"><a href="#安裝必要包" class="headerlink" title="安裝必要包"></a>安裝必要包</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">sudo apt-get install packagekit-gtk3-module</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一（暫時）"><a href="#方法一（暫時）" class="headerlink" title="方法一（暫時）"></a>方法一（暫時）</h2><p>你有一個需要在運行MATLAB之前，設置環境變量：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0</span><br></pre></td></tr></table></figure>
+
+<p>或者，您可以通過輸入以下內容在bash shell中，直接運行matlab：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0 &#x2F;usr&#x2F;local&#x2F;MATLAB&#x2F;R2019b&#x2F;bin&#x2F;matlab</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二（永久）"><a href="#方法二（永久）" class="headerlink" title="方法二（永久）"></a>方法二（永久）</h2><ol>
+<li>進入root權限</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="2">
+<li>輸入gedit(文字編輯器)開啟profile檔案</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="3">
+<li><code>profile</code>的最下面加入</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_PATH&#x3D;&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;gtk-2.0:$GTK_PATH</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="4">
+<li>重啟</li>
+</ol>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Linux</tag>
+        <tag>MATLAB</tag>
       </tags>
   </entry>
   <entry>
@@ -1125,8 +1125,8 @@
 
 </li>
 </ul>
-<h3 id="7-39-13"><a href="#7-39-13" class="headerlink" title="7.39-13"></a>7.39-13</h3><p>試利用while迴圈計算2+4+6+…+n的總和，其中n為整數，可由使用者自行輸入。若輸入的值不是正偶數，則程式會要求使用者再次輸入，直到輸入的數是正偶數為止。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">0</span>,n=<span class="number">0</span>,sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;請輸入n的數值：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">        <span class="keyword">if</span>(n&gt;<span class="number">0</span> &amp;&amp; n%<span class="number">2</span>==<span class="number">0</span>)&#123;        <span class="comment">//判斷正偶數 </span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(a&lt;=n)&#123;</span><br><span class="line">        sum+=a;</span><br><span class="line">        a+=<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;2+4+6+...+n＝%d&quot;</span>,sum);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7-39-13"><a href="#7-39-13" class="headerlink" title="7.39-13"></a>7.39-13</h3><p>試利用<code>while迴圈</code>計算2+4+6+…+n的總和，其中n為整數，可由使用者自行輸入。若輸入的值不是正偶數，則程式會要求使用者再次輸入，直到輸入的數是正偶數為止。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">0</span>,n=<span class="number">0</span>,sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;請輸入n的數值：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">        <span class="keyword">if</span>(n&gt;<span class="number">0</span> &amp;&amp; n%<span class="number">2</span>==<span class="number">0</span>)&#123;        <span class="comment">//判斷正偶數 </span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(a&lt;=n)&#123;</span><br><span class="line">        sum+=a;</span><br><span class="line">        a+=<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;2+4+6+...+n＝%d\n&quot;</span>,sum);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>輸出結果為：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">請輸入n的數值：50</span><br><span class="line">2+4+6+...+n＝650</span><br><span class="line">請按任意鍵繼續 . . .</span><br></pre></td></tr></table></figure>
 
@@ -1139,21 +1139,25 @@
 
 </li>
 </ul>
-<h3 id="7-39-17"><a href="#7-39-17" class="headerlink" title="7.39-17"></a>7.39-17</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="7-39-17"><a href="#7-39-17" class="headerlink" title="7.39-17"></a>7.39-17</h3><p>試撰寫一程式，利用while迴圈印出1~10之間的所有整數的平方值，最後在印出這些平方值的總和。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">1</span>,b=<span class="number">10</span>,num=<span class="number">0</span>,sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(a&lt;=<span class="number">10</span>)&#123;</span><br><span class="line">        num=<span class="built_in">pow</span>(a,<span class="number">2</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d.&quot;</span>,num);</span><br><span class="line">        sum+=num;</span><br><span class="line">        a+=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);    <span class="comment">//換行 </span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;1~10的平方值總和＝ %d\n&quot;</span>,sum);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>輸出結果為：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<li>輸出結果為：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.4.9.16.25.36.49.64.81.100.</span><br><span class="line">1~10的平方值總和＝ 385</span><br><span class="line">請按任意鍵繼續 . . .</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h3 id="7-39-18"><a href="#7-39-18" class="headerlink" title="7.39-18"></a>7.39-18</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="7-39-18"><a href="#7-39-18" class="headerlink" title="7.39-18"></a>7.39-18</h3><h4 id="a"><a href="#a" class="headerlink" title="(a)"></a>(a)</h4><p>試利用<code>do while迴圈</code>計算2+4+6+…+n的總和，其中n為整數，可由使用者自行輸入。若輸入的值不是正偶數，則程式會要求使用者再次輸入，直到輸入的數是正偶數為止。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">0</span>,n=<span class="number">0</span>,sum=<span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;請輸入n的數值：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">        <span class="keyword">if</span>(n&gt;<span class="number">0</span> &amp;&amp; n%<span class="number">2</span>==<span class="number">0</span>)&#123;        <span class="comment">//判斷正偶數 </span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        a+=<span class="number">2</span>;</span><br><span class="line">        sum+=a;</span><br><span class="line">    &#125;<span class="keyword">while</span>(a&lt;n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;2+4+6+...+n＝%d\n&quot;</span>,sum);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>輸出結果為：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<li>輸出結果為：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">請輸入n的數值：50</span><br><span class="line">2+4+6+...+n＝650</span><br><span class="line">請按任意鍵繼續 . . .</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h3 id="7-39-19"><a href="#7-39-19" class="headerlink" title="7.39-19"></a>7.39-19</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="b"><a href="#b" class="headerlink" title="(b)"></a>(b)</h4><p>和習題13相比，您覺得哪一種迴圈比較適合用來計算2+4+6+…+n的總和呢？為什麼？<br><code>while迴圈</code><br><code>因為while迴圈，由上往下看，看起來比較簡單明瞭，在debug時，也比較容易看出來</code></p>
+<h3 id="7-39-19"><a href="#7-39-19" class="headerlink" title="7.39-19"></a>7.39-19</h3><p>試利用do while迴圈來找出最小的n值，使得 1+2+3+…+n 大於等於1000。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n=<span class="number">1</span>,a=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        a+=n;</span><br><span class="line">        n+=<span class="number">1</span>;    </span><br><span class="line">    &#125;<span class="keyword">while</span>(a&lt;<span class="number">1000</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,n);</span><br><span class="line">    </span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
 <ul>
-<li>輸出結果為：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<li>輸出結果為：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">46</span><br><span class="line">請按任意鍵繼續 . . .</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
