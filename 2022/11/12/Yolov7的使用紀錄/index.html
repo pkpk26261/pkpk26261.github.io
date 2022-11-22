@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="3Gg_DXWjGio6FEIB-ARrwaMbjfLismSD4kKjoMkCVV8">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-loading-bar.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"pkpk26261.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":260,"display":"post","padding":18,"offset":18,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#FFFFFF","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"fadeIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="YOLO V7 永成紀錄學習的地方！  參考文獻：  Youtube：Official YOLO v7 Custom Object Detection Tutorial | Windows &amp; Linux   （若有新的了解，會持續更新～） ⬇⬇⬇文章開始⬇⬇⬇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yolov7 的 初學使用紀錄">
+<meta property="og:url" content="https://pkpk26261.github.io/2022/11/12/Yolov7%E7%9A%84%E4%BD%BF%E7%94%A8%E7%B4%80%E9%8C%84/index.html">
+<meta property="og:site_name" content="永成的學習部落格">
+<meta property="og:description" content="YOLO V7 永成紀錄學習的地方！  參考文獻：  Youtube：Official YOLO v7 Custom Object Detection Tutorial | Windows &amp; Linux   （若有新的了解，會持續更新～） ⬇⬇⬇文章開始⬇⬇⬇">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/EmVTHRa.png">
+<meta property="og:image" content="https://i.imgur.com/xpHmwJK.png">
+<meta property="og:image" content="https://i.imgur.com/9meKfh4.png">
+<meta property="og:image" content="https://i.imgur.com/hWXTWzo.png">
+<meta property="og:image" content="https://i.imgur.com/hrfw7O7.png">
+<meta property="og:image" content="https://i.imgur.com/ADAsxOG.png">
+<meta property="og:image" content="https://i.imgur.com/ThJ9DWD.png">
+<meta property="og:image" content="https://i.imgur.com/mMfnTc3.png">
+<meta property="og:image" content="https://i.imgur.com/rS8p4pl.png">
+<meta property="og:image" content="https://i.imgur.com/QnqdgpQ.png">
+<meta property="og:image" content="https://i.imgur.com/JJc2Ksx.png">
+<meta property="og:image" content="https://i.imgur.com/wELOdNS.png">
+<meta property="article:published_time" content="2022-11-11T17:28:18.000Z">
+<meta property="article:modified_time" content="2022-11-17T08:42:33.000Z">
+<meta property="article:author" content="Yong Cheng">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Yolov7">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/EmVTHRa.png">
+
+<link rel="canonical" href="https://pkpk26261.github.io/2022/11/12/Yolov7%E7%9A%84%E4%BD%BF%E7%94%A8%E7%B4%80%E9%8C%84/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('請輸入密碼') !== ''){
+                alert('密碼不正確！請訪問作者索取');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <title>Yolov7 的 初學使用紀錄 | 永成的學習部落格</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">永成的學習部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">這裡會記錄永成學習的一部分</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-筆札">
+
+    <a href="/pen/" rel="section"><i class="fas fa-pen-nib fa-fw"></i>筆札</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/pkpk26261" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://pkpk26261.github.io/2022/11/12/Yolov7%E7%9A%84%E4%BD%BF%E7%94%A8%E7%B4%80%E9%8C%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/lanlancat.gif">
+      <meta itemprop="name" content="Yong Cheng">
+      <meta itemprop="description" content="我一旦決定，就為了夢前進👍">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永成的學習部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Yolov7 的 初學使用紀錄
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-11-12 01:28:18" itemprop="dateCreated datePublished" datetime="2022-11-12T01:28:18+08:00">2022-11-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-11-17 16:42:33" itemprop="dateModified" datetime="2022-11-17T16:42:33+08:00">2022-11-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/Yolov7/" itemprop="url" rel="index"><span itemprop="name">Yolov7</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>YOLO V7 永成紀錄學習的地方！</p>
+<blockquote>
+<p>參考文獻：</p>
+<ul>
+<li>Youtube：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=-QWxJ0j9EY8&t=608s">Official YOLO v7 Custom Object Detection Tutorial | Windows &amp; Linux</a></li>
+</ul>
+</blockquote>
+<p>（若有新的了解，會持續更新～）</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<span id="more"></span>
+
+<hr>
+<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><ul>
+<li>使用<code>Anaconda</code>軟體，來進行本次研究。</li>
+<li>至<code>Anaconda</code>官網下載安裝最新版本：<a target="_blank" rel="noopener" href="https://www.anaconda.com/products/distribution">https://www.anaconda.com/products/distribution</a></li>
+<li>安裝完成後，使用 <code>Anaconda Prompt (anaconda3)</code> 來建立Yolov7環境。</li>
+</ul>
+<h1 id="建立Yolov7環境"><a href="#建立Yolov7環境" class="headerlink" title="建立Yolov7環境"></a>建立Yolov7環境</h1><ol>
+<li><p>建立 <code>Python 新環境</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n yolov7 python=3.9.13</span><br><span class="line">conda activate yolov7</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>至<code>Yolov7的Github</code>下載：<a target="_blank" rel="noopener" href="https://github.com/WongKinYiu/yolov7">https://github.com/WongKinYiu/yolov7</a><br><img src="https://i.imgur.com/EmVTHRa.png"></p>
+</li>
+<li><p>解壓縮第2步驟下載的<code>yolov7-main.zip</code>的檔案</p>
+</li>
+<li><p>由於<code>Yolo</code>各版本都會有提供安裝模組清單，cd 至 <code>yolov7-main</code> 的資料夾，就可以安裝 Yolov7 所需套件</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+<p><img  src="https://i.imgur.com/xpHmwJK.png" style="float:left"><br><br><br><br><br><br><br></p>
+</blockquote>
+</li>
+<li><p>開啟<code>Anaconda Navigator</code>，切換環境到剛剛建立的<code>yolov7</code><br><img src="https://i.imgur.com/9meKfh4.png" alt="Anaconda Navigator"></p>
+</li>
+<li><p>在上個步驟的<code>Anaconda Navigator</code>介面下安裝：</p>
+</li>
+</ol>
+<ul>
+<li><blockquote>
+<p><code>Notebook</code>、<code>CMD.exe Prompt</code><br>(若有其他需要，可在安裝其它的軟件)</p>
+</blockquote>
+</li>
+</ul>
+<ol start="7">
+<li>安裝<code>Pytorch-cuda</code>，官網：<a target="_blank" rel="noopener" href="https://pytorch.org/">https://pytorch.org/</a><br><code>Pytorch</code>官網歷史版本：<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/">https://pytorch.org/get-started/previous-versions/</a><br><font color="red">由於Yolo提供的安裝模組清單裡，提到版本不能是v1.12以上版本，避免版本影響程式的後續處理，所以要下載v1.11的Pytorch版本。</font></li>
+</ol>
+<p><img src="https://i.imgur.com/hWXTWzo.png"></p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示意圖：<br><img src="https://i.imgur.com/hrfw7O7.png"></li>
+</ul>
+</blockquote>
+<ol start="8">
+<li>這樣 <code>Yolov7</code> 的環境就建立完成了！</li>
+</ol>
+<hr>
+<h1 id="使用labelimg框圖片建立樣本"><a href="#使用labelimg框圖片建立樣本" class="headerlink" title="使用labelimg框圖片建立樣本"></a>使用labelimg框圖片建立樣本</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install labelimg</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>執行時，在<code>Anaconda Prompt (yolov7)</code>上輸入<code>labelimg</code>，會跳出以下畫面：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">labelimg</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p><img src="https://i.imgur.com/ADAsxOG.png" alt="示意圖"></p>
+<ul>
+<li><code>Open Dir</code> 打開要訓練圖片的資料夾</li>
+<li><code>Change Save Dir</code> 放置儲存labels的資料夾<br>詳閱：<a target="_blank" rel="noopener" href="https://blog.csdn.net/klaus_x/article/details/106854136">Yolo標註工具-labelImg的詳細使用</a></li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="建立新增AI辨識的圖片樣本"><a href="#建立新增AI辨識的圖片樣本" class="headerlink" title="建立新增AI辨識的圖片樣本"></a>建立新增AI辨識的圖片樣本</h1><p>利用工業相機拍攝影片，將影片的每一幀數的畫面擷取成照片，每一張以名稱+編號數字存在影像資料夾。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"></span><br><span class="line">a=<span class="built_in">input</span>(<span class="string">&quot;請輸入資料夾名稱(請以英文命名)：&quot;</span>)</span><br><span class="line">b=<span class="built_in">input</span>(<span class="string">&quot;請輸入張數：&quot;</span>)</span><br><span class="line">enter=<span class="built_in">int</span>(b)</span><br><span class="line"><span class="comment"># ----------</span></span><br><span class="line"><span class="comment"># 開啟攝像頭</span></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>) <span class="comment"># 選擇運行攝影機(預設為0)</span></span><br><span class="line"><span class="comment"># 視訊大小設定，獲取幀寬度，獲取幀高度</span></span><br><span class="line">sz = (<span class="built_in">int</span>(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), <span class="built_in">int</span>(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)))</span><br><span class="line">fps = <span class="number">30</span></span><br><span class="line"><span class="comment"># 輸出格式</span></span><br><span class="line">fourcc = cv2.VideoWriter_fourcc(*<span class="string">&#x27;mp4v&#x27;</span>)</span><br><span class="line"><span class="comment"># open and set props</span></span><br><span class="line">vout = cv2.VideoWriter()</span><br><span class="line">vout.<span class="built_in">open</span>(a+<span class="string">&#x27;.mp4&#x27;</span>, fourcc, fps, sz, <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">cnt = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> cnt &lt;= enter:</span><br><span class="line">    _, frame = cap.read()</span><br><span class="line">    <span class="comment"># putText輸出到視訊上，各引數依次是：照片/新增的文字/左上角座標/字型/字型大小/顏色/字型粗細</span></span><br><span class="line">    cv2.putText(frame, <span class="built_in">str</span>(cnt), (<span class="number">10</span>, <span class="number">20</span>), cv2.FONT_HERSHEY_PLAIN, <span class="number">1</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">1</span>, cv2.LINE_AA)</span><br><span class="line">    vout.write(frame)</span><br><span class="line">    cnt += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    cv2.imshow(<span class="string">&#x27;vidio&#x27;</span>, frame)</span><br><span class="line">    cv2.waitKey(<span class="number">30</span>)</span><br><span class="line"></span><br><span class="line">vout.release()</span><br><span class="line">cap.release()</span><br><span class="line"><span class="comment"># ----------------------------------------</span></span><br><span class="line">video_path = a+<span class="string">&#x27;.mp4&#x27;</span></span><br><span class="line">output_folder = <span class="string">&#x27;./&#x27;</span>+a+<span class="string">&#x27;/&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> os.path.isdir(output_folder):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;刪除資料夾: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(output_folder))</span><br><span class="line">    shutil.rmtree(output_folder)</span><br><span class="line">	 </span><br><span class="line">os.mkdir(output_folder)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;新建資料夾: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(output_folder))</span><br><span class="line"><span class="comment"># ----------------------------------------</span></span><br><span class="line"><span class="comment"># 建立圖片</span></span><br><span class="line">vc = cv2.VideoCapture(video_path)</span><br><span class="line">fps = vc.get(cv2.CAP_PROP_FPS)</span><br><span class="line">frame_count = <span class="built_in">int</span>(vc.get(cv2.CAP_PROP_FRAME_COUNT))</span><br><span class="line"><span class="comment">#print(frame_count)</span></span><br><span class="line">video = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(frame_count):</span><br><span class="line">    vc.<span class="built_in">set</span>(<span class="number">1</span>, idx)</span><br><span class="line">    ret, frame = vc.read()</span><br><span class="line">    height, width, layers = frame.shape</span><br><span class="line">    size = (width, height)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> frame <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        file_name = <span class="string">&#x27;&#123;&#125;&#123;&#125;&#123;:04d&#125;.jpg&#x27;</span>.<span class="built_in">format</span>(output_folder,a,idx+<span class="number">1</span>)</span><br><span class="line">        cv2.imwrite(file_name, frame)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\rprocess: &#123;&#125;/&#123;&#125;&quot;</span>.<span class="built_in">format</span>(idx+<span class="number">1</span> , frame_count), end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">vc.release()</span><br><span class="line"><span class="comment"># ----------------------------------------</span></span><br><span class="line"><span class="comment"># 移動影片到資料夾</span></span><br><span class="line">shutil.move(<span class="built_in">str</span>(a)+<span class="string">&#x27;.mp4&#x27;</span>,<span class="built_in">str</span>(a))</span><br></pre></td></tr></table></figure>
+
+<p>參考：<a target="_blank" rel="noopener" href="https://www.wongwonggoods.com/python/python_opencv/opencv-get-images-from-video/">【OpenCV】OpenCV 利用 python OpenCV 將一部影片拆成一張張圖片 sample code (內附程式碼) get images from video</a><br>詳閱：<a href="https://pkpk26261.github.io/2020/01/15/%E4%BD%BF%E7%94%A8%E7%9B%B8%E6%A9%9F%E6%94%9D%E5%BD%B1%E6%88%AA%E5%9C%96%E5%8F%96AI%E8%BE%A8%E8%AD%98%E6%A8%A3%E6%9C%AC/#more">【永成的學習部落格】使用相機攝影截圖取AI辨識樣本</a><br>這一篇是我過去所寫的一篇文章。</p>
+<hr>
+<h1 id="訓練-amp-驗證圖片"><a href="#訓練-amp-驗證圖片" class="headerlink" title="訓練&amp;驗證圖片"></a>訓練&amp;驗證圖片</h1><p>將要辨識的圖片庫，分為兩大類：</p>
+<ol>
+<li>訓練模型<br>圖片越多越好，但相對的訓練時間會越久。<br>將訓練圖案放在<code>.\yolov7-main\data\train</code>裡面</li>
+</ol>
+<ul>
+<li>示意圖：<br><img  src="https://i.imgur.com/ThJ9DWD.png" style="float:left"><br><br><br><br></li>
+</ul>
+<ol start="2">
+<li>驗證模型<br>圖片至少為20張以上。<br>將訓練圖案放在<code>.\yolov7-main\data\val</code>裡面</li>
+</ol>
+<ul>
+<li>示意圖：<br><img  src="https://i.imgur.com/mMfnTc3.png" style="float:left"><br><br><br><br></li>
+</ul>
+<p>通常訓練和驗證的張數比例，大概為 <code>7:3</code> 或 <code>8:2</code>。</p>
+<hr>
+<h1 id="訓練驗證前的準備參數"><a href="#訓練驗證前的準備參數" class="headerlink" title="訓練驗證前的準備參數"></a>訓練驗證前的準備參數</h1><ol>
+<li><p>將<code>.\yolov7-main\data\coco.yaml</code>的檔案複製，將檔名取為<code>custom_data.yaml</code>，然後編輯檔案：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">train:</span> <span class="string">./data/train</span>  <span class="comment"># 訓練的圖片&amp;labels的資料夾索引</span></span><br><span class="line"><span class="attr">val:</span> <span class="string">./data/val</span>      <span class="comment"># 驗證的圖片&amp;labels的資料夾索引</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># number of classes  # 數字為訓練圖片類別的數量</span></span><br><span class="line"><span class="attr">nc:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># class names</span></span><br><span class="line"><span class="attr">names:</span> [ <span class="string">&#x27;bad&#x27;</span> ]     <span class="comment"># 類別名稱的設置</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>將<code>.\yolov7-main\cfg\training\yolov7.yaml</code>的檔案複製，將檔名取為<code>yolov7-custom.yaml</code>，然後編輯檔案：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># parameters</span></span><br><span class="line"><span class="attr">nc:</span> <span class="number">1</span>  <span class="comment"># number of classes # 數字為訓練圖片類別的數量</span></span><br><span class="line"><span class="attr">depth_multiple:</span> <span class="number">1.0</span>  <span class="comment"># model depth multiple # 模型深度倍數</span></span><br><span class="line"><span class="attr">width_multiple:</span> <span class="number">1.0</span>  <span class="comment"># layer channel multiple # 層通道多</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>到<code>Yolov7-Github</code>的<code>Releases</code>地方下載兩個檔案（<code>yolov7-tiny.pt</code>和<code>yolov7.pt</code>），將檔案存放在<code>.\yolov7-main</code>目錄下：<br>下載連結：<a target="_blank" rel="noopener" href="https://github.com/WongKinYiu/yolov7/releases">https://github.com/WongKinYiu/yolov7/releases</a></p>
+<blockquote>
+<p><img src="https://i.imgur.com/rS8p4pl.png"></p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h1 id="框好的圖片【訓練】"><a href="#框好的圖片【訓練】" class="headerlink" title="框好的圖片【訓練】"></a>框好的圖片【訓練】</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python train.py --workers 1 --device 0 --batch-size 11 --epochs 200 --img 640 640 --data data/custom_data.yaml --hyp data/hyp.scratch.custom.yaml --cfg cfg/training/yolov7-custom.yaml --weights yolov7.pt --name yolov7-train --project runs/train</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>訓練完之後，將最新的<code>.\runs\train</code>的目錄下，<code>yolov7-train</code>最新資料夾之<code>.\weights\best.pt</code>的檔案複製到主目錄<code>.\yolov7-main</code>之下！<br><font color="red">這樣才能往下一個 detect (檢測) 步驟！！！</font>因為 detect (檢測) 需要讀取訓練完後的 <code>best.pt</code> 檔案。</p>
+</blockquote>
+<ul>
+<li>如示意圖：<br><img src="https://i.imgur.com/QnqdgpQ.png"></li>
+</ul>
+<p><code>--weights</code>：初始weights路徑。ex：<code>--weights yolov7.pt</code><br><code>--cfg</code>：model.yaml路徑。 ex：<code>--cfg cfg/training/yolov7-custom.yaml</code><br><code>--data</code>：data.yaml路徑。ex：<code>--data data/custom_data.yaml</code><br><code>--hyp</code>：hyperparameters路徑。ex：<code>--hyp data/hyp.scratch.custom.yaml</code><br><code>--epochs</code>：訓練回合，預設為300回合。ex：<code>--epochs 200</code><br><code>--batch-size</code>：預設&#x3D;16, 所有 GPU 的總批大小。ex：<code>--batch-size 11</code><br><code>--img-size</code>：[訓練, 測試] 圖片大小，預設為【640,640】。ex：<code>--img 640 640</code><br><code>--workers</code>：訓練資料讀取工作的最大數量。ex：<code>--workers 1</code><br><code>--name</code>：將訓練結果資料夾名稱命名。ex：<code>--name yolov7-train</code><br><code>--project</code>：將訓練結果保存到自訂資料夾。ex：<code>--project runs/train</code><br><code>--device</code> ：預設0，可調整0,1,2,3 or cpu。ex：<code>--device 0</code></p>
+<ul>
+<li><font color="red">（查看更多指令說明）：</font><blockquote>
+<p>在 <code>Anaconda Prompt (yolov7)</code> 上輸入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python train.py -h</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="圖片-amp-影片-amp-串流【檢測】"><a href="#圖片-amp-影片-amp-串流【檢測】" class="headerlink" title="圖片&amp;影片&amp;串流【檢測】"></a>圖片&amp;影片&amp;串流【檢測】</h1><p>#除了可偵測圖片外，也能偵測影片、資料夾、webcam、即時串流、網頁上的影片</p>
+<ul>
+<li>範例（即時辨識）：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python detect.py --weights best.pt --conf-thres 0.5 --img-size 640 --source 0 --view-img --no-trace --exist-ok --name yolov7-detect --project runs/detect</span><br></pre></td></tr></table></figure>
+<code>--weights</code> ：則可用來指定預訓練的模型。ex：<code>--weights best.pt</code><br><code>--source</code>：<code>file.jpg</code>#圖片、<code>file.mp4</code>#影片、<code>dir/</code>#資料夾、<code>0</code>#攝像頭(即時辨識)。<br><code>--img-size</code> ：可以指定影像的大小，對於偵測比較小的物件時，可以加大影像的大小，預設的影像大小為 640。<br><code>--iou-thres</code> ：是設定 IoU 門檻值。<br><code>--conf-thres</code> ：則是設定信心度門檻值。<br><code>--cuda device</code> ：預設0，可調整0,1,2,3 or cpu。<br><code>--save-txt</code>：保存結果到*.txt。<br><code>--save-conf</code>：在 –save-txt 標籤中保存信心。<br><code>--view-img</code>：顯示視窗圖片。<br><code>--nosave</code>：不保存圖片&#x2F;視頻。<br><code>--classes</code>：按類別過濾，如【–class 0, or –class 0 2 3】。<br><code>--update</code>：更新所有模型。<br><code>--project</code>：將驗證結果保存到自訂資料夾。ex：<code>--project runs/detect</code><br><code>--name</code>：將結果保存到項目&#x2F;名稱。ex：<code>--name yolov7-detect</code><br><code>--exist-ok</code>：現有項目&#x2F;名稱ok，不遞增。<br><code>--no-trace</code>：不跟踪模型。</li>
+<li><font color="red">（查看更多指令說明）：</font><blockquote>
+<p>在 <code>Anaconda Prompt (yolov7)</code> 上輸入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python detect.py -h</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="如果遇到錯誤問題，再來參考這邊"><a href="#如果遇到錯誤問題，再來參考這邊" class="headerlink" title="如果遇到錯誤問題，再來參考這邊"></a>如果遇到錯誤問題，再來參考這邊</h1><ol>
+<li><code>OMP: Error #15: Initializing libomp.dylib, but found libiomp5.dylib already initialize</code><br>在執行<code>train.py</code>程式內，最上方添加輸入此代碼：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">&quot;KMP_DUPLICATE_LIB_OK&quot;</span>]=<span class="string">&quot;TRUE&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>示意圖：<br><img src="https://i.imgur.com/JJc2Ksx.png"></li>
+</ul>
+<ol start="2">
+<li><code>UnicodeDecodeError: &#39;cp950&#39; codec can&#39;t decode byte 0x93 in position 25: illegal multibyte sequence</code><br>如果出現以上錯誤，這是Windows的問題，所以我們如果要避免類似問題發生，盡量在要編輯的<code>.yaml</code>檔案裡不要添加任何<font color="red"><del>中文(Chinese)</del></font>。</li>
+</ol>
+<ul>
+<li><code>注意：檔案必須為UTF-8的編碼</code><br><img src="https://i.imgur.com/wELOdNS.png"></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Yong Cheng
+  </li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    <a href="https://pkpk26261.github.io/2022/11/12/Yolov7%E7%9A%84%E4%BD%BF%E7%94%A8%E7%B4%80%E9%8C%84/" title="Yolov7 的 初學使用紀錄">https://pkpk26261.github.io/2022/11/12/Yolov7的使用紀錄/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/Yolov7/" rel="tag"># Yolov7</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/11/12/%E4%B8%8B%E8%BC%89%E5%9C%96%E7%89%87%E6%95%B8%E6%93%9A%E5%BA%AB/" rel="prev" title="下載相關圖片數據庫">
+      <i class="fa fa-chevron-left"></i> 下載相關圖片數據庫
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/11/17/Python%E5%B0%81%E8%A3%9Dexe/" rel="next" title="Python封裝exe應用程式">
+      Python封裝exe應用程式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%96%8B%E5%A7%8B"><span class="nav-number">1.</span> <span class="nav-text">開始</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BYolov7%E7%92%B0%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">建立Yolov7環境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8labelimg%E6%A1%86%E5%9C%96%E7%89%87%E5%BB%BA%E7%AB%8B%E6%A8%A3%E6%9C%AC"><span class="nav-number">3.</span> <span class="nav-text">使用labelimg框圖片建立樣本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E6%96%B0%E5%A2%9EAI%E8%BE%A8%E8%AD%98%E7%9A%84%E5%9C%96%E7%89%87%E6%A8%A3%E6%9C%AC"><span class="nav-number">4.</span> <span class="nav-text">建立新增AI辨識的圖片樣本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%93%E7%B7%B4-amp-%E9%A9%97%E8%AD%89%E5%9C%96%E7%89%87"><span class="nav-number">5.</span> <span class="nav-text">訓練&amp;驗證圖片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%93%E7%B7%B4%E9%A9%97%E8%AD%89%E5%89%8D%E7%9A%84%E6%BA%96%E5%82%99%E5%8F%83%E6%95%B8"><span class="nav-number">6.</span> <span class="nav-text">訓練驗證前的準備參數</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A1%86%E5%A5%BD%E7%9A%84%E5%9C%96%E7%89%87%E3%80%90%E8%A8%93%E7%B7%B4%E3%80%91"><span class="nav-number">7.</span> <span class="nav-text">框好的圖片【訓練】</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%96%E7%89%87-amp-%E5%BD%B1%E7%89%87-amp-%E4%B8%B2%E6%B5%81%E3%80%90%E6%AA%A2%E6%B8%AC%E3%80%91"><span class="nav-number">8.</span> <span class="nav-text">圖片&amp;影片&amp;串流【檢測】</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E9%81%87%E5%88%B0%E9%8C%AF%E8%AA%A4%E5%95%8F%E9%A1%8C%EF%BC%8C%E5%86%8D%E4%BE%86%E5%8F%83%E8%80%83%E9%80%99%E9%82%8A"><span class="nav-number">9.</span> <span class="nav-text">如果遇到錯誤問題，再來參考這邊</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+
+	<a href="/"> <!--添加此行代碼-->
+    		<img class="site-author-image" itemprop="image" alt="Yong Cheng"
+      	src="/images/lanlancat.gif">
+	</a> <!--添加此行代碼-->
+  
+  <p class="site-author-name" itemprop="name">Yong Cheng</p>
+  <div class="site-description" itemprop="description">我一旦決定，就為了夢前進👍</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:a0979488285@gmail.com" title="E-Mail → mailto:a0979488285@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/pkpk26261" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;pkpk26261" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/channel/UCdCh7GL1WCTsXJ-6PkTBZZw?view_as=subscriber" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCdCh7GL1WCTsXJ-6PkTBZZw?view_as&#x3D;subscriber" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://line.me/ti/p/XGjZN3WZhs" title="LINE → https:&#x2F;&#x2F;line.me&#x2F;ti&#x2F;p&#x2F;XGjZN3WZhs" rel="noopener" target="_blank"><i class="fab fa-line fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://discord.gg/vber8KV" title="Discord → https:&#x2F;&#x2F;discord.gg&#x2F;vber8KV" rel="noopener" target="_blank"><i class="fab fa-discord fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/profile.php?id=100002320400912" title="Facebook → https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100002320400912" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/pkpk26261/?hl=zh-tw" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;pkpk26261&#x2F;?hl&#x3D;zh-tw" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+  <!--添加此行代碼-->
+  <div class="video-container" style="padding-top: 5%;">
+  <iframe width="214" height="120" src="https://www.youtube.com/embed/videoseries?rel=0&autoplay=1&loop=1&list=PLk9vv5Pa7hdbzqOdIklJNBNnfj478TyeC&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+  <!--添加此行代碼-->
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh_TW" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fab fa-line fa-fw"></i>
+      LINE 社群加入連結：&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://line.me/ti/g2/AA48uijUET5-xBolEFBPsA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" title="https:&#x2F;&#x2F;line.me&#x2F;ti&#x2F;g2&#x2F;AA48uijUET5-xBolEFBPsA?utm_source&#x3D;invitation&amp;utm_medium&#x3D;link_copy&amp;utm_campaign&#x3D;default" rel="noopener" target="_blank"><div align="right">Python Taiwan 交流聚會 &emsp;&ensp;</div></a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://line.me/ti/g2/P-Fm0gxHbgonmsTAUHB1sA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" title="https:&#x2F;&#x2F;line.me&#x2F;ti&#x2F;g2&#x2F;P-Fm0gxHbgonmsTAUHB1sA?utm_source&#x3D;invitation&amp;utm_medium&#x3D;link_copy&amp;utm_campaign&#x3D;default" rel="noopener" target="_blank"><div align="right">C# Taiwan 交流聚會 &emsp;&ensp;</div></a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://line.me/ti/g2/HCn_HLQvlZMGesiMY-Gp2A?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" title="https:&#x2F;&#x2F;line.me&#x2F;ti&#x2F;g2&#x2F;HCn_HLQvlZMGesiMY-Gp2A?utm_source&#x3D;invitation&amp;utm_medium&#x3D;link_copy&amp;utm_campaign&#x3D;default" rel="noopener" target="_blank"><div align="right">C/C++ Taiwan 交流聚會 &emsp;&ensp;</div></a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://line.me/ti/g2/AcgdbapQ8GgyC_xju3VXbA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" title="https:&#x2F;&#x2F;line.me&#x2F;ti&#x2F;g2&#x2F;AcgdbapQ8GgyC_xju3VXbA?utm_source&#x3D;invitation&amp;utm_medium&#x3D;link_copy&amp;utm_campaign&#x3D;default" rel="noopener" target="_blank"><div align="right">Java Taiwan 交流聚會 &emsp;&ensp;</div></a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yong Cheng</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+</body>
+</html>

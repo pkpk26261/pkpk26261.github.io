@@ -1,0 +1,15 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /home/
+Allow: /about/
+Allow: /筆札/
+Allow: /tags/
+Allow: /categories/
+Allow: /archives/
+
+# Disallow: /js/
+# Disallow: /css/
+# Disallow: /fancybox/
+
+Sitemap: https://augustushsu.github.io/sitemap.xml
