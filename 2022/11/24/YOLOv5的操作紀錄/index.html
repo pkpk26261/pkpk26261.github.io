@@ -23,34 +23,39 @@
     var CONFIG = {"hostname":"pkpk26261.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":260,"display":"post","padding":18,"offset":18,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#FFFFFF","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"fadeIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="YOLO V7 永成紀錄學習的地方！  參考文獻：  Youtube：Official YOLO v7 Custom Object Detection Tutorial | Windows &amp; Linux   （若有新的了解，會持續更新～） ⬇⬇⬇文章開始⬇⬇⬇">
+  <meta name="description" content="YOLOv5 永成紀錄學習的地方！ YOLOv7 使用工業相機時會出現以下報錯：1&#x2F;1: 0...  success (640x480 at 0.00 FPS).， 0.00 FPS表示無法即時更新畫面。YOLOv5 跟 YOLOv7 的使用指令代碼類似，由於 YOLOv7 無法用工業相機即時辨識，所以我改用 YOLOv5 來做之後的研究。                    YOLOv5-ul">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YOLOv7 的 初學使用紀錄">
-<meta property="og:url" content="https://pkpk26261.github.io/2022/11/12/YOLOv7%E7%9A%84%E4%BD%BF%E7%94%A8%E7%B4%80%E9%8C%84/index.html">
+<meta property="og:title" content="YOLOv5 的 使用紀錄">
+<meta property="og:url" content="https://pkpk26261.github.io/2022/11/24/YOLOv5%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B4%80%E9%8C%84/index.html">
 <meta property="og:site_name" content="永成的學習部落格">
-<meta property="og:description" content="YOLO V7 永成紀錄學習的地方！  參考文獻：  Youtube：Official YOLO v7 Custom Object Detection Tutorial | Windows &amp; Linux   （若有新的了解，會持續更新～） ⬇⬇⬇文章開始⬇⬇⬇">
+<meta property="og:description" content="YOLOv5 永成紀錄學習的地方！ YOLOv7 使用工業相機時會出現以下報錯：1&#x2F;1: 0...  success (640x480 at 0.00 FPS).， 0.00 FPS表示無法即時更新畫面。YOLOv5 跟 YOLOv7 的使用指令代碼類似，由於 YOLOv7 無法用工業相機即時辨識，所以我改用 YOLOv5 來做之後的研究。                    YOLOv5-ul">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/EmVTHRa.png">
-<meta property="og:image" content="https://i.imgur.com/xpHmwJK.png">
-<meta property="og:image" content="https://i.imgur.com/9meKfh4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ultralytics/assets/master/yolov5/v70/splash.png">
+<meta property="og:image" content="https://i.imgur.com/rim65X6.png">
+<meta property="og:image" content="https://i.imgur.com/G4Re7jl.png">
+<meta property="og:image" content="https://i.imgur.com/tcUokqe.png">
+<meta property="og:image" content="https://i.imgur.com/Cbisw1g.png">
 <meta property="og:image" content="https://i.imgur.com/hWXTWzo.png">
 <meta property="og:image" content="https://i.imgur.com/hrfw7O7.png">
 <meta property="og:image" content="https://i.imgur.com/ADAsxOG.png">
 <meta property="og:image" content="https://i.imgur.com/ThJ9DWD.png">
 <meta property="og:image" content="https://i.imgur.com/mMfnTc3.png">
-<meta property="og:image" content="https://i.imgur.com/rS8p4pl.png">
-<meta property="og:image" content="https://i.imgur.com/QnqdgpQ.png">
+<meta property="og:image" content="https://i.imgur.com/SlAnxDn.png">
+<meta property="og:image" content="https://i.imgur.com/Si6fOM4.png">
+<meta property="og:image" content="https://i.imgur.com/B2QNOsP.png">
+<meta property="og:image" content="https://i.imgur.com/Hy5JDYv.png">
+<meta property="og:image" content="https://i.imgur.com/kQQMQhs.png">
 <meta property="og:image" content="https://i.imgur.com/JJc2Ksx.png">
 <meta property="og:image" content="https://i.imgur.com/wELOdNS.png">
-<meta property="article:published_time" content="2022-11-11T17:28:18.000Z">
-<meta property="article:modified_time" content="2022-11-17T08:42:33.000Z">
+<meta property="article:published_time" content="2022-11-24T12:08:42.000Z">
+<meta property="article:modified_time" content="2022-11-24T12:08:46.000Z">
 <meta property="article:author" content="Yong Cheng">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="YOLO">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/EmVTHRa.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ultralytics/assets/master/yolov5/v70/splash.png">
 
-<link rel="canonical" href="https://pkpk26261.github.io/2022/11/12/YOLOv7%E7%9A%84%E4%BD%BF%E7%94%A8%E7%B4%80%E9%8C%84/">
+<link rel="canonical" href="https://pkpk26261.github.io/2022/11/24/YOLOv5%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B4%80%E9%8C%84/">
 
 
 <script id="page-configurations">
@@ -74,7 +79,7 @@
         }
     })();
 </script>
-  <title>YOLOv7 的 初學使用紀錄 | 永成的學習部落格</title>
+  <title>YOLOv5 的 使用紀錄 | 永成的學習部落格</title>
   
 
 
@@ -231,7 +236,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://pkpk26261.github.io/2022/11/12/YOLOv7%E7%9A%84%E4%BD%BF%E7%94%A8%E7%B4%80%E9%8C%84/">
+    <link itemprop="mainEntityOfPage" href="https://pkpk26261.github.io/2022/11/24/YOLOv5%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B4%80%E9%8C%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/lanlancat.gif">
@@ -244,7 +249,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          YOLOv7 的 初學使用紀錄
+          YOLOv5 的 使用紀錄
         </h1>
 
         <div class="post-meta">
@@ -253,16 +258,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2022-11-12 01:28:18" itemprop="dateCreated datePublished" datetime="2022-11-12T01:28:18+08:00">2022-11-12</time>
+              <time title="創建時間：2022-11-24 20:08:42 / 修改時間：20:08:46" itemprop="dateCreated datePublished" datetime="2022-11-24T20:08:42+08:00">2022-11-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-11-17 16:42:33" itemprop="dateModified" datetime="2022-11-17T16:42:33+08:00">2022-11-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -288,38 +287,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>YOLO V7 永成紀錄學習的地方！</p>
-<blockquote>
-<p>參考文獻：</p>
-<ul>
-<li>Youtube：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=-QWxJ0j9EY8&t=608s">Official YOLO v7 Custom Object Detection Tutorial | Windows &amp; Linux</a></li>
-</ul>
-</blockquote>
-<p>（若有新的了解，會持續更新～）</p>
+        <p>YOLOv5 永成紀錄學習的地方！</p>
+<p><code>YOLOv7</code> 使用工業相機時會出現以下報錯：<code>1/1: 0...  success (640x480 at 0.00 FPS).</code>， <font color="red">0.00 FPS</font>表示無法即時更新畫面。<br><code>YOLOv5</code> 跟 <code>YOLOv7</code> 的使用指令代碼類似，由於 <code>YOLOv7</code> <font color="red">無法用工業相機即時辨識</font>，所以我改用 <code>YOLOv5</code> 來做之後的研究。</p>
+  <p>
+    <a align="center" href="https://ultralytics.com/yolov5" target="_blank">
+      <img width="1680" src="https://raw.githubusercontent.com/ultralytics/assets/master/yolov5/v70/splash.png"></a>
+  </p>
+
+<p>YOLOv5-ultralytics-Github：<a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5">https://github.com/ultralytics/yolov5</a>  （<a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5/blob/master/.github/README_cn.md">Chinese 中文簡體說明</a>）<br>（若有新的了解，會持續更新～）</p>
 <center>⬇⬇⬇文章開始⬇⬇⬇</center>
 <span id="more"></span>
 
-<hr>
 <h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><ul>
 <li>使用<code>Anaconda</code>軟體，來進行本次研究。</li>
 <li>至<code>Anaconda</code>官網下載安裝最新版本：<a target="_blank" rel="noopener" href="https://www.anaconda.com/products/distribution">https://www.anaconda.com/products/distribution</a></li>
-<li>安裝完成後，使用 <code>Anaconda Prompt (anaconda3)</code> 來建立Yolov7環境。</li>
+<li>安裝完成後，使用 <code>Anaconda Prompt (anaconda3)</code> 來建立YOLOv5環境。</li>
 </ul>
-<h1 id="建立Yolov7環境"><a href="#建立Yolov7環境" class="headerlink" title="建立Yolov7環境"></a>建立Yolov7環境</h1><ol>
+<h1 id="建立YOLOv5環境"><a href="#建立YOLOv5環境" class="headerlink" title="建立YOLOv5環境"></a>建立YOLOv5環境</h1><ol>
 <li><p>建立 <code>Python 新環境</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n yolov7 python=3.9.13</span><br><span class="line">conda activate yolov7</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n yolov5 python=3.9.13</span><br><span class="line">conda activate yolov5</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>至<code>Yolov7的Github</code>下載：<a target="_blank" rel="noopener" href="https://github.com/WongKinYiu/yolov7">https://github.com/WongKinYiu/yolov7</a><br><img src="https://i.imgur.com/EmVTHRa.png"></p>
+<li><p>至 <code>YOLOv5 的 Github</code> 下載：<a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5">https://github.com/ultralytics/yolov5</a><br><img src="https://i.imgur.com/rim65X6.png"></p>
 </li>
-<li><p>解壓縮第2步驟下載的<code>yolov7-main.zip</code>的檔案</p>
+<li><p>解壓縮第2步驟下載的<code>yolov5-master.zip</code>的檔案</p>
 </li>
-<li><p>由於<code>YOLO</code>各版本都會有提供安裝模組清單，cd 至 <code>yolov7-main</code> 的資料夾，就可以安裝 Yolov7 所需套件</p>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
-<p><img  src="https://i.imgur.com/xpHmwJK.png" style="float:left"><br><br><br><br><br><br><br></p>
-</blockquote>
+<li><p>由於<code>YOLO</code>各版本都會有提供安裝模組清單，cd 至 <code>yolov5-master</code> 的資料夾，就可以安裝 YOLOv5 所需套件</p>
+ <details>
+ <summary>（點擊展開）<font color="red">如果有報錯 `warning: ignore distutils configs in setup.cfg due to encoding errors.`</font></summary>
+ 解決辦法：
+ <img width="850" src="https://i.imgur.com/G4Re7jl.png">
+ </details>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+<img  src="https://i.imgur.com/tcUokqe.png" style="float:left"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
 </li>
-<li><p>開啟<code>Anaconda Navigator</code>，切換環境到剛剛建立的<code>yolov7</code><br><img src="https://i.imgur.com/9meKfh4.png" alt="Anaconda Navigator"></p>
+<li><p>開啟<code>Anaconda Navigator</code>，切換環境到剛剛建立的<code>yolov5</code><br><img src="https://i.imgur.com/Cbisw1g.png" alt="Anaconda Navigator"></p>
 </li>
 <li><p>在上個步驟的<code>Anaconda Navigator</code>介面下安裝：</p>
 </li>
@@ -331,7 +334,7 @@
 </li>
 </ul>
 <ol start="7">
-<li>安裝<code>Pytorch-cuda</code>，官網：<a target="_blank" rel="noopener" href="https://pytorch.org/">https://pytorch.org/</a><br><code>Pytorch</code>官網歷史版本：<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/">https://pytorch.org/get-started/previous-versions/</a><br><font color="red">由於Yolo提供的安裝模組清單裡，提到版本不能是v1.12以上版本，避免版本影響程式的後續處理，所以要下載v1.11的Pytorch版本。</font></li>
+<li>安裝<code>Pytorch-cuda</code>，官網：<a target="_blank" rel="noopener" href="https://pytorch.org/">https://pytorch.org/</a><br><code>Pytorch</code>官網歷史版本：<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/">https://pytorch.org/get-started/previous-versions/</a><br><font color="red">YOLOv5提供的安裝模組清單裡可以安裝v1.7.0以上版本，但YOLOv7提供的安裝模組清單裡，有提到版本不能是v1.12以上版本，避免版本影響程式的後續處理，所以要下載v1.11的Pytorch版本。</font></li>
 </ol>
 <p><img src="https://i.imgur.com/hWXTWzo.png"></p>
 <blockquote>
@@ -341,13 +344,13 @@
 </ul>
 </blockquote>
 <ol start="8">
-<li>這樣 <code>Yolov7</code> 的環境就建立完成了！</li>
+<li>這樣 <code>YOLOv5</code> 的環境就建立完成了！</li>
 </ol>
 <hr>
 <h1 id="使用labelimg框圖片建立樣本"><a href="#使用labelimg框圖片建立樣本" class="headerlink" title="使用labelimg框圖片建立樣本"></a>使用labelimg框圖片建立樣本</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install labelimg</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>執行時，在<code>Anaconda Prompt (yolov7)</code>上輸入<code>labelimg</code>，會跳出以下畫面：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">labelimg</span><br></pre></td></tr></table></figure></li>
+<li>執行時，在<code>Anaconda Prompt (yolov5)</code>上輸入<code>labelimg</code>，會跳出以下畫面：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">labelimg</span><br></pre></td></tr></table></figure></li>
 </ul>
 <blockquote>
 <p><img src="https://i.imgur.com/ADAsxOG.png" alt="示意圖"></p>
@@ -364,54 +367,66 @@
 <hr>
 <h1 id="訓練-amp-驗證圖片"><a href="#訓練-amp-驗證圖片" class="headerlink" title="訓練&amp;驗證圖片"></a>訓練&amp;驗證圖片</h1><p>將要辨識的圖片庫，分為兩大類：</p>
 <ol>
-<li>訓練模型<br>圖片越多越好，但相對的訓練時間會越久。<br>將訓練圖案放在<code>.\yolov7-main\data\train</code>裡面</li>
+<li>訓練模型<br>圖片越多越好，但相對的訓練時間會越久。<br>將訓練圖案放在<code>.\yolov5-master\data\train</code>裡面</li>
 </ol>
 <ul>
 <li>示意圖：<br><img  src="https://i.imgur.com/ThJ9DWD.png" style="float:left"><br><br><br><br></li>
 </ul>
 <ol start="2">
-<li>驗證模型<br>圖片至少為20張以上。<br>將訓練圖案放在<code>.\yolov7-main\data\val</code>裡面</li>
+<li>驗證模型<br>圖片至少為20張以上。<br>將訓練圖案放在<code>.\yolov5-master\data\val</code>裡面</li>
 </ol>
 <ul>
 <li>示意圖：<br><img  src="https://i.imgur.com/mMfnTc3.png" style="float:left"><br><br><br><br></li>
 </ul>
 <p>通常訓練和驗證的張數比例，大概為 <code>7:3</code> 或 <code>8:2</code>。</p>
 <hr>
-<h1 id="訓練驗證前的準備參數"><a href="#訓練驗證前的準備參數" class="headerlink" title="訓練驗證前的準備參數"></a>訓練驗證前的準備參數</h1><ol>
-<li><p>將<code>.\yolov7-main\data\coco.yaml</code>的檔案複製，將檔名取為<code>custom_data.yaml</code>，然後編輯檔案：</p>
+<h1 id="框好的圖片【訓練】"><a href="#框好的圖片【訓練】" class="headerlink" title="框好的圖片【訓練】"></a>框好的圖片【訓練】</h1><h2 id="訓練自定義數據"><a href="#訓練自定義數據" class="headerlink" title="訓練自定義數據"></a>訓練自定義數據</h2><p><code>YOLOv5</code> 模型必須在標記數據上進行訓練，以便學習該數據中的對像類別。</p>
+<ol>
+<li><p>將<code>.\yolov5-master\data\coco.yaml</code>的檔案複製，將檔名取為<code>custom_data.yaml</code>，然後編輯檔案：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">train:</span> <span class="string">./data/train</span>  <span class="comment"># 訓練的圖片&amp;labels的資料夾索引</span></span><br><span class="line"><span class="attr">val:</span> <span class="string">./data/val</span>      <span class="comment"># 驗證的圖片&amp;labels的資料夾索引</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># number of classes  # 數字為訓練圖片類別的數量</span></span><br><span class="line"><span class="attr">nc:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># class names</span></span><br><span class="line"><span class="attr">names:</span> [ <span class="string">&#x27;bad&#x27;</span> ]     <span class="comment"># 類別名稱的設置</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>將<code>.\yolov7-main\cfg\training\yolov7.yaml</code>的檔案複製，將檔名取為<code>yolov7-custom.yaml</code>，然後編輯檔案：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># parameters</span></span><br><span class="line"><span class="attr">nc:</span> <span class="number">1</span>  <span class="comment"># number of classes # 數字為訓練圖片類別的數量</span></span><br><span class="line"><span class="attr">depth_multiple:</span> <span class="number">1.0</span>  <span class="comment"># model depth multiple # 模型深度倍數</span></span><br><span class="line"><span class="attr">width_multiple:</span> <span class="number">1.0</span>  <span class="comment"># layer channel multiple # 層通道多</span></span><br></pre></td></tr></table></figure>
+<li><p>將<code>.\yolov5-master\models\yolov5s.yaml</code>的檔案複製，將檔名取為<code>yolov5s-custom.yaml</code>，然後編輯檔案：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># parameters</span></span><br><span class="line"><span class="attr">nc:</span> <span class="number">1</span>  <span class="comment"># number of classes # 數字為訓練圖片類別的數量</span></span><br><span class="line"><span class="attr">depth_multiple:</span> <span class="number">0.33</span>  <span class="comment"># model depth multiple # 模型深度倍數</span></span><br><span class="line"><span class="attr">width_multiple:</span> <span class="number">0.25</span>  <span class="comment"># layer channel multiple # 層通道多</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>到<code>Yolov7-Github</code>的<code>Releases</code>地方下載兩個檔案（<code>yolov7-tiny.pt</code>和<code>yolov7.pt</code>），將檔案存放在<code>.\yolov7-main</code>目錄下：<br>下載連結：<a target="_blank" rel="noopener" href="https://github.com/WongKinYiu/yolov7/releases">https://github.com/WongKinYiu/yolov7/releases</a></p>
+<li><p>到<code>YOLOv5-Github</code>的<code>Releases</code>地方下載兩個檔案（<code>yolov5s.pt</code>和<code>yolov5s.pt</code>），將檔案存放在<code>.\yolov5-master\weights</code>目錄下：</p>
+ <details>
+ <summary><font color="red">示意圖（點擊展開）</font></summary>
+ 解決辦法：
+ <img width="850" src="https://i.imgur.com/SlAnxDn.png">
+ </details>
+
+<p> （如果沒有<code>.\yolov5-master\weights</code>目錄，請自行建立一個<code>weights</code>目錄）<br> 下載連結：<a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5/releases/tag/v7.0">https://github.com/ultralytics/yolov5/releases/tag/v7.0</a></p>
 <blockquote>
-<p><img src="https://i.imgur.com/rS8p4pl.png"></p>
+<p><img src="https://i.imgur.com/Si6fOM4.png"></p>
 </blockquote>
 </li>
 </ol>
 <hr>
-<h1 id="框好的圖片【訓練】"><a href="#框好的圖片【訓練】" class="headerlink" title="框好的圖片【訓練】"></a>框好的圖片【訓練】</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python train.py --workers 1 --device 0 --batch-size 11 --epochs 200 --img 640 640 --data data/custom_data.yaml --hyp data/hyp.scratch.custom.yaml --cfg cfg/training/yolov7-custom.yaml --weights yolov7.pt --name yolov7-train --project runs/train</span><br></pre></td></tr></table></figure>
+<h2 id="選擇型號"><a href="#選擇型號" class="headerlink" title="選擇型號"></a>選擇型號</h2><p>選擇一個預訓練模型開始訓練。在這裡，我們選擇<code>YOLOv5s</code>，第二小和最快的可用模型。請參閱README表，了解所有型號的完整比較。<br><img src="https://i.imgur.com/B2QNOsP.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python train.py --workers 1 --device 0 --batch-size 11 --epochs 200 --imgsz 640 --data data/custom_data.yaml --hyp data/hyps/hyp.scratch-low.yaml --cfg models/yolov5s-custom.yaml --weights weights/yolov5s.pt --name yolov5s-train --project runs/train</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>訓練完之後，將最新的<code>.\runs\train</code>的目錄下，<code>yolov7-train</code>最新資料夾之<code>.\weights\best.pt</code>的檔案複製到主目錄<code>.\yolov7-main</code>之下！<br><font color="red">這樣才能往下一個 detect (檢測) 步驟！！！</font>因為 detect (檢測) 需要讀取訓練完後的 <code>best.pt</code> 檔案。</p>
+<p>訓練完之後，將最新的<code>.\runs\train</code>的目錄下，<code>yolov5s-train</code>最新資料夾之<code>.\weights\best.pt</code>的檔案複製到主目錄<code>.\yolov5-master</code>之下！<br><font color="red">這樣才能往下一個 detect (檢測) 步驟！！！</font>因為 detect (檢測) 需要讀取訓練完後的 <code>best.pt</code> 檔案。</p>
 </blockquote>
 <ul>
-<li>如示意圖：<br><img src="https://i.imgur.com/QnqdgpQ.png"></li>
+<li>如示意圖：<br><img src="https://i.imgur.com/Hy5JDYv.png"></li>
 </ul>
-<p><code>--weights</code>：初始weights路徑。ex：<code>--weights yolov7.pt</code><br><code>--cfg</code>：model.yaml路徑。 ex：<code>--cfg cfg/training/yolov7-custom.yaml</code><br><code>--data</code>：data.yaml路徑。ex：<code>--data data/custom_data.yaml</code><br><code>--hyp</code>：hyperparameters路徑。ex：<code>--hyp data/hyp.scratch.custom.yaml</code><br><code>--epochs</code>：訓練回合，預設為300回合。ex：<code>--epochs 200</code><br><code>--batch-size</code>：預設&#x3D;16, 所有 GPU 的總批大小。ex：<code>--batch-size 11</code><br><code>--img-size</code>：[訓練, 測試] 圖片大小，預設為【640,640】。ex：<code>--img 640 640</code><br><code>--workers</code>：訓練資料讀取工作的最大數量。ex：<code>--workers 1</code><br><code>--name</code>：將訓練結果資料夾名稱命名。ex：<code>--name yolov7-train</code><br><code>--project</code>：將訓練結果保存到自訂資料夾。ex：<code>--project runs/train</code><br><code>--device</code> ：預設0，可調整0,1,2,3 or cpu。ex：<code>--device 0</code></p>
+<p><code>--weights</code>：初始weights路徑。ex：<code>--weights yolov5s.pt</code><br><code>--cfg</code>：model.yaml路徑。 ex：<code>--cfg cfg/training/yolov5s-custom.yaml</code><br><code>--data</code>：data.yaml路徑。ex：<code>--data data/custom_data.yaml</code><br><code>--hyp</code>：hyperparameters路徑。ex：<code>--hyp data/hyp.scratch.custom.yaml</code><br><code>--epochs</code>：訓練回合，預設為300回合。ex：<code>--epochs 200</code><br><code>--batch-size</code>：預設&#x3D;16, 所有 GPU 的總批大小。ex：<code>--batch-size 11</code><br><code>--img-size</code>：[訓練, 測試] 圖片大小，預設為【640,640】。ex：<code>--img 640 640</code><br><code>--workers</code>：訓練資料讀取工作的最大數量。ex：<code>--workers 1</code><br><code>--name</code>：將訓練結果資料夾名稱命名。ex：<code>--name yolov5s-train</code><br><code>--project</code>：將訓練結果保存到自訂資料夾。ex：<code>--project runs/train</code><br><code>--device</code> ：預設0，可調整0,1,2,3 or cpu。ex：<code>--device 0</code></p>
 <ul>
 <li><font color="red">（查看更多指令說明）：</font><blockquote>
-<p>在 <code>Anaconda Prompt (yolov7)</code> 上輸入：</p>
+<p>在 <code>Anaconda Prompt (yolov5)</code> 上輸入：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python train.py -h</span><br></pre></td></tr></table></figure></blockquote>
 </li>
 </ul>
+<blockquote>
+<p><font color="red" size="6px"> ● 訓練過程，請耐心等候～ </font><br><img src="https://i.imgur.com/kQQMQhs.png"></p>
+</blockquote>
 <hr>
 <h1 id="圖片-amp-影片-amp-串流【檢測】"><a href="#圖片-amp-影片-amp-串流【檢測】" class="headerlink" title="圖片&amp;影片&amp;串流【檢測】"></a>圖片&amp;影片&amp;串流【檢測】</h1><p>#除了可偵測圖片外，也能偵測影片、資料夾、webcam、即時串流、網頁上的影片</p>
 <ul>
-<li>範例（即時辨識）：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python detect.py --weights best.pt --conf-thres 0.5 --img-size 640 --source 0 --view-img --no-trace --exist-ok --name yolov7-detect --project runs/detect</span><br></pre></td></tr></table></figure>
-<code>--weights</code> ：則可用來指定預訓練的模型。ex：<code>--weights best.pt</code><br><code>--source</code>：<code>file.jpg</code>#圖片、<code>file.mp4</code>#影片、<code>dir/</code>#資料夾、<code>0</code>#攝像頭(即時辨識)。<br><code>--img-size</code> ：可以指定影像的大小，對於偵測比較小的物件時，可以加大影像的大小，預設的影像大小為 640。<br><code>--iou-thres</code> ：是設定 IoU 門檻值。<br><code>--conf-thres</code> ：則是設定信心度門檻值。<br><code>--cuda device</code> ：預設0，可調整0,1,2,3 or cpu。<br><code>--save-txt</code>：保存結果到*.txt。<br><code>--save-conf</code>：在 –save-txt 標籤中保存信心。<br><code>--view-img</code>：顯示視窗圖片。<br><code>--nosave</code>：不保存圖片&#x2F;視頻。<br><code>--classes</code>：按類別過濾，如【–class 0, or –class 0 2 3】。<br><code>--update</code>：更新所有模型。<br><code>--project</code>：將驗證結果保存到自訂資料夾。ex：<code>--project runs/detect</code><br><code>--name</code>：將結果保存到項目&#x2F;名稱。ex：<code>--name yolov7-detect</code><br><code>--exist-ok</code>：現有項目&#x2F;名稱ok，不遞增。<br><code>--no-trace</code>：不跟踪模型。</li>
+<li>範例（即時辨識）：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python detect.py --weights best.pt --conf-thres 0.5 --img-size 640 --source 0 --view-img --exist-ok --name yolov5s-detect --project runs/detect</span><br></pre></td></tr></table></figure>
+<code>--weights</code> ：則可用來指定預訓練的模型。ex：<code>--weights best.pt</code><br><code>--source</code>：<code>file.jpg</code>#圖片、<code>file.mp4</code>#影片、<code>dir/</code>#資料夾、<code>0</code>#攝像頭(即時辨識)。<br><code>--img-size</code> ：可以指定影像的大小，對於偵測比較小的物件時，可以加大影像的大小，預設的影像大小為 640。<br><code>--iou-thres</code> ：是設定 IoU 門檻值。<br><code>--conf-thres</code> ：則是設定信心度門檻值。<br><code>--cuda device</code> ：預設0，可調整0,1,2,3 or cpu。<br><code>--save-txt</code>：保存結果到*.txt。<br><code>--save-conf</code>：在 –save-txt 標籤中保存信心。<br><code>--view-img</code>：顯示視窗圖片。<br><code>--nosave</code>：不保存圖片&#x2F;視頻。<br><code>--classes</code>：按類別過濾，如【–class 0, or –class 0 2 3】。<br><code>--update</code>：更新所有模型。<br><code>--project</code>：將驗證結果保存到自訂資料夾。ex：<code>--project runs/detect</code><br><code>--name</code>：將結果保存到項目&#x2F;名稱。ex：<code>--name yolov5s-detect</code><br><code>--exist-ok</code>：現有項目&#x2F;名稱ok，不遞增。</li>
 <li><font color="red">（查看更多指令說明）：</font><blockquote>
-<p>在 <code>Anaconda Prompt (yolov7)</code> 上輸入：</p>
+<p>在 <code>Anaconda Prompt (yolov5)</code> 上輸入：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python detect.py -h</span><br></pre></td></tr></table></figure></blockquote>
 </li>
 </ul>
@@ -443,7 +458,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>文章連結：</strong>
-    <a href="https://pkpk26261.github.io/2022/11/12/YOLOv7%E7%9A%84%E4%BD%BF%E7%94%A8%E7%B4%80%E9%8C%84/" title="YOLOv7 的 初學使用紀錄">https://pkpk26261.github.io/2022/11/12/YOLOv7的使用紀錄/</a>
+    <a href="https://pkpk26261.github.io/2022/11/24/YOLOv5%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B4%80%E9%8C%84/" title="YOLOv5 的 使用紀錄">https://pkpk26261.github.io/2022/11/24/YOLOv5的操作紀錄/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh_TW" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 許可協議。轉載請註明出處！
@@ -464,13 +479,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/11/12/%E4%B8%8B%E8%BC%89%E5%9C%96%E7%89%87%E6%95%B8%E6%93%9A%E5%BA%AB/" rel="prev" title="下載相關圖片數據庫">
-      <i class="fa fa-chevron-left"></i> 下載相關圖片數據庫
+    <a href="/2022/11/17/Python%E5%B0%81%E8%A3%9Dexe/" rel="prev" title="Python封裝exe應用程式">
+      <i class="fa fa-chevron-left"></i> Python封裝exe應用程式
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/11/17/Python%E5%B0%81%E8%A3%9Dexe/" rel="next" title="Python封裝exe應用程式">
-      Python封裝exe應用程式 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -529,7 +541,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%96%8B%E5%A7%8B"><span class="nav-number">1.</span> <span class="nav-text">開始</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BYolov7%E7%92%B0%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">建立Yolov7環境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8labelimg%E6%A1%86%E5%9C%96%E7%89%87%E5%BB%BA%E7%AB%8B%E6%A8%A3%E6%9C%AC"><span class="nav-number">3.</span> <span class="nav-text">使用labelimg框圖片建立樣本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E6%96%B0%E5%A2%9EAI%E8%BE%A8%E8%AD%98%E7%9A%84%E5%9C%96%E7%89%87%E6%A8%A3%E6%9C%AC"><span class="nav-number">4.</span> <span class="nav-text">建立新增AI辨識的圖片樣本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%93%E7%B7%B4-amp-%E9%A9%97%E8%AD%89%E5%9C%96%E7%89%87"><span class="nav-number">5.</span> <span class="nav-text">訓練&amp;驗證圖片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%93%E7%B7%B4%E9%A9%97%E8%AD%89%E5%89%8D%E7%9A%84%E6%BA%96%E5%82%99%E5%8F%83%E6%95%B8"><span class="nav-number">6.</span> <span class="nav-text">訓練驗證前的準備參數</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A1%86%E5%A5%BD%E7%9A%84%E5%9C%96%E7%89%87%E3%80%90%E8%A8%93%E7%B7%B4%E3%80%91"><span class="nav-number">7.</span> <span class="nav-text">框好的圖片【訓練】</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%96%E7%89%87-amp-%E5%BD%B1%E7%89%87-amp-%E4%B8%B2%E6%B5%81%E3%80%90%E6%AA%A2%E6%B8%AC%E3%80%91"><span class="nav-number">8.</span> <span class="nav-text">圖片&amp;影片&amp;串流【檢測】</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E9%81%87%E5%88%B0%E9%8C%AF%E8%AA%A4%E5%95%8F%E9%A1%8C%EF%BC%8C%E5%86%8D%E4%BE%86%E5%8F%83%E8%80%83%E9%80%99%E9%82%8A"><span class="nav-number">9.</span> <span class="nav-text">如果遇到錯誤問題，再來參考這邊</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%96%8B%E5%A7%8B"><span class="nav-number">1.</span> <span class="nav-text">開始</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BYOLOv5%E7%92%B0%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">建立YOLOv5環境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8labelimg%E6%A1%86%E5%9C%96%E7%89%87%E5%BB%BA%E7%AB%8B%E6%A8%A3%E6%9C%AC"><span class="nav-number">3.</span> <span class="nav-text">使用labelimg框圖片建立樣本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E6%96%B0%E5%A2%9EAI%E8%BE%A8%E8%AD%98%E7%9A%84%E5%9C%96%E7%89%87%E6%A8%A3%E6%9C%AC"><span class="nav-number">4.</span> <span class="nav-text">建立新增AI辨識的圖片樣本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%93%E7%B7%B4-amp-%E9%A9%97%E8%AD%89%E5%9C%96%E7%89%87"><span class="nav-number">5.</span> <span class="nav-text">訓練&amp;驗證圖片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A1%86%E5%A5%BD%E7%9A%84%E5%9C%96%E7%89%87%E3%80%90%E8%A8%93%E7%B7%B4%E3%80%91"><span class="nav-number">6.</span> <span class="nav-text">框好的圖片【訓練】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%93%E7%B7%B4%E8%87%AA%E5%AE%9A%E7%BE%A9%E6%95%B8%E6%93%9A"><span class="nav-number">6.1.</span> <span class="nav-text">訓練自定義數據</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%B8%E6%93%87%E5%9E%8B%E8%99%9F"><span class="nav-number">6.2.</span> <span class="nav-text">選擇型號</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%96%E7%89%87-amp-%E5%BD%B1%E7%89%87-amp-%E4%B8%B2%E6%B5%81%E3%80%90%E6%AA%A2%E6%B8%AC%E3%80%91"><span class="nav-number">7.</span> <span class="nav-text">圖片&amp;影片&amp;串流【檢測】</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E9%81%87%E5%88%B0%E9%8C%AF%E8%AA%A4%E5%95%8F%E9%A1%8C%EF%BC%8C%E5%86%8D%E4%BE%86%E5%8F%83%E8%80%83%E9%80%99%E9%82%8A"><span class="nav-number">8.</span> <span class="nav-text">如果遇到錯誤問題，再來參考這邊</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
