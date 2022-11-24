@@ -43,6 +43,7 @@
 <meta property="og:image" content="https://i.imgur.com/SlAnxDn.png">
 <meta property="og:image" content="https://i.imgur.com/Si6fOM4.png">
 <meta property="og:image" content="https://i.imgur.com/B2QNOsP.png">
+<meta property="og:image" content="https://i.imgur.com/PmvGt4I.png">
 <meta property="og:image" content="https://i.imgur.com/Hy5JDYv.png">
 <meta property="og:image" content="https://i.imgur.com/kQQMQhs.png">
 <meta property="og:image" content="https://i.imgur.com/JJc2Ksx.png">
@@ -402,7 +403,7 @@
 </li>
 </ol>
 <hr>
-<h2 id="選擇型號"><a href="#選擇型號" class="headerlink" title="選擇型號"></a>選擇型號</h2><p>選擇一個預訓練模型開始訓練。在這裡，我們選擇<code>YOLOv5s</code>，第二小和最快的可用模型。請參閱README表，了解所有型號的完整比較。<br><img src="https://i.imgur.com/B2QNOsP.png"></p>
+<h2 id="選擇型號"><a href="#選擇型號" class="headerlink" title="選擇型號"></a>選擇型號</h2><p>選擇一個預訓練模型開始訓練。在這裡，我們選擇<code>YOLOv5s</code>，第二小和最快的可用模型。請參閱README表，了解所有型號的完整比較。<br><img src="https://i.imgur.com/B2QNOsP.png"><br><img src="https://i.imgur.com/PmvGt4I.png"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python train.py --workers 1 --device 0 --batch-size 11 --epochs 200 --imgsz 640 --data data/custom_data.yaml --hyp data/hyps/hyp.scratch-low.yaml --cfg models/yolov5s-custom.yaml --weights weights/yolov5s.pt --name yolov5s-train --project runs/train</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>訓練完之後，將最新的<code>.\runs\train</code>的目錄下，<code>yolov5s-train</code>最新資料夾之<code>.\weights\best.pt</code>的檔案複製到主目錄<code>.\yolov5-master</code>之下！<br><font color="red">這樣才能往下一個 detect (檢測) 步驟！！！</font>因為 detect (檢測) 需要讀取訓練完後的 <code>best.pt</code> 檔案。</p>
