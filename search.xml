@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Anaconda 基本指令介紹</title>
+    <url>/2020/01/14/Anaconda%20%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4%E4%BB%8B%E7%B4%B9/</url>
+    <content><![CDATA[<p>需要者，請自行閱讀此文章。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+
+
+<span id="more"></span>
+
+<p>請至 <a href="https://www.anaconda.com/distribution/">Anaconda 官網</a> 下載安裝應用程式。<br>&amp;ensp;</p>
+<h1 id="Anaconda-管理模組"><a href="#Anaconda-管理模組" class="headerlink" title="Anaconda 管理模組"></a>Anaconda 管理模組</h1><ol>
+<li>模組安裝<br><code>pip</code>為單一模組安裝，<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip list</span><br><span class="line">pip install &lt;模組名稱&gt;</span><br><span class="line">pip install  --upgrade &lt;模組名稱&gt;</span><br><span class="line">pip uninstall &lt;模組名稱&gt;</span><br></pre></td></tr></table></figure>
+<code>conda</code>會幫你安裝該包，也會幫忙安裝其他所需模組。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda list</span><br><span class="line">conda install &lt;模組名稱&gt;</span><br><span class="line">conda install --upgrade &lt;模組名稱&gt;</span><br><span class="line">conda uninstall &lt;模組名稱&gt;</span><br></pre></td></tr></table></figure></li>
+<li>anaconda 升級<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda update anaconda</span><br></pre></td></tr></table></figure></li>
+<li>pip 升級<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h1 id="安裝及更新conda"><a href="#安裝及更新conda" class="headerlink" title="安裝及更新conda"></a>安裝及更新conda</h1><ol>
+<li>查看conda版本<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda –V</span><br></pre></td></tr></table></figure></li>
+<li>conda 更新<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda update conda</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="建立虛擬環境"><a href="#建立虛擬環境" class="headerlink" title="建立虛擬環境"></a>建立虛擬環境</h1><ol>
+<li>查看目前有哪些環境<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure></li>
+<li>建立名為<name>虛擬環境(name為自定義名稱)，並且安裝為<code>python3.6</code>版本。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda create -n &lt;name&gt; python=3.6</span><br></pre></td></tr></table></figure></li>
+<li>啟動環境(name為要啟動的環境名稱)<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">activate &lt;name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>離開環境<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure></li>
+<li>刪除環境(name為該環境名稱)<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda env remove -n &lt;name&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h1 id="使用方式優缺點"><a href="#使用方式優缺點" class="headerlink" title="使用方式優缺點"></a>使用方式優缺點</h1><p>從命令列執行 Python 互動式Shell </p>
+<blockquote>
+<p><code>C:\Users\user&gt;python</code> ，即時看到結果，難以編修程式。</p>
+</blockquote>
+<p>從檔案執行Python</p>
+<blockquote>
+<p><code>C:\Users\user&gt;python test.py</code>，容易編修程式，無法即時看到結果。</p>
+</blockquote>
+<hr>
+<h1 id="Jupyter-Notebook-編輯器"><a href="#Jupyter-Notebook-編輯器" class="headerlink" title="Jupyter Notebook 編輯器"></a>Jupyter Notebook 編輯器</h1><blockquote>
+<p>啟動<code>Jupyter Notebook</code>編輯器的方式有兩種，</p>
+</blockquote>
+<ol>
+<li>在<code>Anaconda Prompt</code>下打入<code>jupyter notebook</code></li>
+<li>點選桌面的應用<code>Jupyter Notebook</code></li>
+</ol>
+<h2 id="常用熱鍵"><a href="#常用熱鍵" class="headerlink" title="常用熱鍵"></a>常用熱鍵</h2><ol>
+<li>Shift + Enter 執行再新增一列</li>
+<li>Ctrl + Enter 執行目前列</li>
+<li>Esc + a 在上方插入一列</li>
+<li>Esc + b 在下方插入一列</li>
+<li>Esc + dd 刪除一列</li>
+<li>Esc + h 顯示快速鍵列表</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Anaconda 安裝引導</title>
     <url>/2020/01/14/Anaconda%20%E5%AE%89%E8%A3%9D%E5%BC%95%E5%B0%8E/</url>
     <content><![CDATA[<p>這裡將教大家如何在Windows、Linux安裝Anaconda。</p>
@@ -83,67 +144,6 @@
 <li>重開終端機，確認有無(base)<img src="https://i.imgur.com/FZTIv3O.png" style="margin-left:0px" height="360" ></li>
 </ul>
 </blockquote>
-]]></content>
-      <categories>
-        <category>Python 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Anaconda 基本指令介紹</title>
-    <url>/2020/01/14/Anaconda%20%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4%E4%BB%8B%E7%B4%B9/</url>
-    <content><![CDATA[<p>需要者，請自行閱讀此文章。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-
-
-<span id="more"></span>
-
-<p>請至 <a href="https://www.anaconda.com/distribution/">Anaconda 官網</a> 下載安裝應用程式。<br>&amp;ensp;</p>
-<h1 id="Anaconda-管理模組"><a href="#Anaconda-管理模組" class="headerlink" title="Anaconda 管理模組"></a>Anaconda 管理模組</h1><ol>
-<li>模組安裝<br><code>pip</code>為單一模組安裝，<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip list</span><br><span class="line">pip install &lt;模組名稱&gt;</span><br><span class="line">pip install  --upgrade &lt;模組名稱&gt;</span><br><span class="line">pip uninstall &lt;模組名稱&gt;</span><br></pre></td></tr></table></figure>
-<code>conda</code>會幫你安裝該包，也會幫忙安裝其他所需模組。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda list</span><br><span class="line">conda install &lt;模組名稱&gt;</span><br><span class="line">conda install --upgrade &lt;模組名稱&gt;</span><br><span class="line">conda uninstall &lt;模組名稱&gt;</span><br></pre></td></tr></table></figure></li>
-<li>anaconda 升級<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda update anaconda</span><br></pre></td></tr></table></figure></li>
-<li>pip 升級<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br></pre></td></tr></table></figure></li>
-</ol>
-<hr>
-<h1 id="安裝及更新conda"><a href="#安裝及更新conda" class="headerlink" title="安裝及更新conda"></a>安裝及更新conda</h1><ol>
-<li>查看conda版本<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda –V</span><br></pre></td></tr></table></figure></li>
-<li>conda 更新<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda update conda</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="建立虛擬環境"><a href="#建立虛擬環境" class="headerlink" title="建立虛擬環境"></a>建立虛擬環境</h1><ol>
-<li>查看目前有哪些環境<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure></li>
-<li>建立名為<name>虛擬環境(name為自定義名稱)，並且安裝為<code>python3.6</code>版本。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda create -n &lt;name&gt; python=3.6</span><br></pre></td></tr></table></figure></li>
-<li>啟動環境(name為要啟動的環境名稱)<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">activate &lt;name&gt;</span><br></pre></td></tr></table></figure></li>
-<li>離開環境<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure></li>
-<li>刪除環境(name為該環境名稱)<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda env remove -n &lt;name&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<hr>
-<h1 id="使用方式優缺點"><a href="#使用方式優缺點" class="headerlink" title="使用方式優缺點"></a>使用方式優缺點</h1><p>從命令列執行 Python 互動式Shell </p>
-<blockquote>
-<p><code>C:\Users\user&gt;python</code> ，即時看到結果，難以編修程式。</p>
-</blockquote>
-<p>從檔案執行Python</p>
-<blockquote>
-<p><code>C:\Users\user&gt;python test.py</code>，容易編修程式，無法即時看到結果。</p>
-</blockquote>
-<hr>
-<h1 id="Jupyter-Notebook-編輯器"><a href="#Jupyter-Notebook-編輯器" class="headerlink" title="Jupyter Notebook 編輯器"></a>Jupyter Notebook 編輯器</h1><blockquote>
-<p>啟動<code>Jupyter Notebook</code>編輯器的方式有兩種，</p>
-</blockquote>
-<ol>
-<li>在<code>Anaconda Prompt</code>下打入<code>jupyter notebook</code></li>
-<li>點選桌面的應用<code>Jupyter Notebook</code></li>
-</ol>
-<h2 id="常用熱鍵"><a href="#常用熱鍵" class="headerlink" title="常用熱鍵"></a>常用熱鍵</h2><ol>
-<li>Shift + Enter 執行再新增一列</li>
-<li>Ctrl + Enter 執行目前列</li>
-<li>Esc + a 在上方插入一列</li>
-<li>Esc + b 在下方插入一列</li>
-<li>Esc + dd 刪除一列</li>
-<li>Esc + h 顯示快速鍵列表</li>
-</ol>
 ]]></content>
       <categories>
         <category>Python 程式語言學習</category>
@@ -581,6 +581,68 @@
       </categories>
       <tags>
         <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenCV 程式指令整理</title>
+    <url>/2020/01/24/OpenCV%20%E7%A8%8B%E5%BC%8F%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>這裡整理紀錄 OpenCV 的程式指令，若有新的我會持續更新。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<span id="more"></span>
+
+<ol>
+<li><p>讀取圖片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">&quot;test.jpg&quot;</span>) <span class="comment"># img = test.jpg</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>讀取影片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vc=cv2.VideoCapture(<span class="string">&quot;output.mp4&quot;</span>) <span class="comment">#vc = output.mp4</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>等待任何按鍵</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>顯示視窗</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># (&quot;視窗名稱&quot;,要顯示的圖片或影片)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>關閉顯示視窗</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.destroyAllWindows(<span class="string">&quot;test&quot;</span>) <span class="comment"># 關閉指定的&quot;test&quot;視窗</span></span><br><span class="line">cv2.destroyAllWindows()  <span class="comment"># 關閉全部視窗</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自由調整視窗大小</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.namedWindow(<span class="string">&#x27;test&#x27;</span>, cv2.WINDOW_NORMAL) <span class="comment"># 讓視窗可以自由縮放大小</span></span><br><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># 顯示視窗</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>寫入圖片檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 寫入圖檔</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寫入不同圖檔格式...</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img)</span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.tiff&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 JPEG 圖片品質為 90（可用值為 0 ~ 100）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img, [cv2.IMWRITE_JPEG_QUALITY, <span class="number">90</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 PNG 壓縮層級為 5（可用值為 0 ~ 9）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img, [cv2.IMWRITE_PNG_COMPRESSION, <span class="number">5</span>])</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python 勤益上課筆記</title>
+    <url>/2021/10/12/Python%E5%8B%A4%E7%9B%8A%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/</url>
+    <content><![CDATA[<p>這裡記錄上課學習筆記～</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<span id="more"></span>
+
+
+<h2 id="type型態的介紹"><a href="#type型態的介紹" class="headerlink" title="type型態的介紹"></a>type型態的介紹</h2><p><code>type</code>可以辨識該型態資料的類別！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">資料型態的type辨識</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">a=<span class="number">9</span></span><br><span class="line"><span class="built_in">print</span>(a, <span class="built_in">type</span>(a)) <span class="comment">#a=int</span></span><br><span class="line"></span><br><span class="line">textA=&#123;<span class="string">&quot;測試&quot;</span>,<span class="string">&quot;勤益&quot;</span>,<span class="string">&quot;科大&quot;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(textA,<span class="built_in">type</span>(textA)) <span class="comment">#textA=set</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>輸出為：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">9 9</span><br><span class="line">&#123;&#x27;勤益&#x27;, &#x27;科大&#x27;, &#x27;測試&#x27;&#125; &lt;class &#x27;set&#x27;&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">t1=(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">t2=(t1,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line"><span class="built_in">print</span>(t2,<span class="built_in">type</span>(t2),<span class="built_in">len</span>(t2),<span class="built_in">len</span>(t1))</span><br><span class="line"><span class="built_in">print</span>(t2[<span class="number">0</span>][<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(t1[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>輸出為：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">((1, 2, 3), 5, 6) &lt;class &#x27;tuple&#x27;&gt; 3 3</span><br><span class="line">3</span><br><span class="line">1</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Python 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1035,68 +1097,6 @@
       </tags>
   </entry>
   <entry>
-    <title>OpenCV 程式指令整理</title>
-    <url>/2020/01/24/OpenCV%20%E7%A8%8B%E5%BC%8F%E6%8C%87%E4%BB%A4%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<p>這裡整理紀錄 OpenCV 的程式指令，若有新的我會持續更新。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<span id="more"></span>
-
-<ol>
-<li><p>讀取圖片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">&quot;test.jpg&quot;</span>) <span class="comment"># img = test.jpg</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>讀取影片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vc=cv2.VideoCapture(<span class="string">&quot;output.mp4&quot;</span>) <span class="comment">#vc = output.mp4</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>等待任何按鍵</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>顯示視窗</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># (&quot;視窗名稱&quot;,要顯示的圖片或影片)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>關閉顯示視窗</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.destroyAllWindows(<span class="string">&quot;test&quot;</span>) <span class="comment"># 關閉指定的&quot;test&quot;視窗</span></span><br><span class="line">cv2.destroyAllWindows()  <span class="comment"># 關閉全部視窗</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自由調整視窗大小</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.namedWindow(<span class="string">&#x27;test&#x27;</span>, cv2.WINDOW_NORMAL) <span class="comment"># 讓視窗可以自由縮放大小</span></span><br><span class="line">cv2.imshow(<span class="string">&quot;test&quot;</span>,img) <span class="comment"># 顯示視窗</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>寫入圖片檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 寫入圖檔</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寫入不同圖檔格式...</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img)</span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.tiff&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 JPEG 圖片品質為 90（可用值為 0 ~ 100）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.jpg&#x27;</span>, img, [cv2.IMWRITE_JPEG_QUALITY, <span class="number">90</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 PNG 壓縮層級為 5（可用值為 0 ~ 9）</span></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;output.png&#x27;</span>, img, [cv2.IMWRITE_PNG_COMPRESSION, <span class="number">5</span>])</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Python 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python 勤益上課筆記</title>
-    <url>/2021/10/12/Python%E5%8B%A4%E7%9B%8A%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/</url>
-    <content><![CDATA[<p>這裡記錄上課學習筆記～</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<span id="more"></span>
-
-
-<h2 id="type型態的介紹"><a href="#type型態的介紹" class="headerlink" title="type型態的介紹"></a>type型態的介紹</h2><p><code>type</code>可以辨識該型態資料的類別！</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">資料型態的type辨識</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">a=<span class="number">9</span></span><br><span class="line"><span class="built_in">print</span>(a, <span class="built_in">type</span>(a)) <span class="comment">#a=int</span></span><br><span class="line"></span><br><span class="line">textA=&#123;<span class="string">&quot;測試&quot;</span>,<span class="string">&quot;勤益&quot;</span>,<span class="string">&quot;科大&quot;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(textA,<span class="built_in">type</span>(textA)) <span class="comment">#textA=set</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>輸出為：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">9 9</span><br><span class="line">&#123;&#x27;勤益&#x27;, &#x27;科大&#x27;, &#x27;測試&#x27;&#125; &lt;class &#x27;set&#x27;&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">t1=(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">t2=(t1,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line"><span class="built_in">print</span>(t2,<span class="built_in">type</span>(t2),<span class="built_in">len</span>(t2),<span class="built_in">len</span>(t1))</span><br><span class="line"><span class="built_in">print</span>(t2[<span class="number">0</span>][<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(t1[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<ul>
-<li>輸出為：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">((1, 2, 3), 5, 6) &lt;class &#x27;tuple&#x27;&gt; 3 3</span><br><span class="line">3</span><br><span class="line">1</span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Python 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python封裝exe應用程式</title>
     <url>/2022/11/17/Python%E5%B0%81%E8%A3%9Dexe/</url>
     <content><![CDATA[<p><code>auto-py-to-exe</code>模組<br>說明：這一模組提供使用簡單的圖形界面和Python中的PyInstaller的 <code>.py</code> 到 <code>.exe</code> 轉換器。</p>
@@ -1152,6 +1152,55 @@
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module &quot;canberra-gtk-module&quot;}</title>
+    <url>/2020/05/03/Ubuntu%20%E5%9F%B7%E8%A1%8C%20MATLAB%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF/</url>
+    <content><![CDATA[<p>這裡將教大家如何解決 <code>&#123;Failed to load module &quot;canberra-gtk-module&quot;&#125;</code> 的啟動錯誤問題。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<span id="more"></span>
+
+<h1 id="安裝必要包"><a href="#安裝必要包" class="headerlink" title="安裝必要包"></a>安裝必要包</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">sudo apt-get install packagekit-gtk3-module</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一（暫時）"><a href="#方法一（暫時）" class="headerlink" title="方法一（暫時）"></a>方法一（暫時）</h2><p>你有一個需要在運行MATLAB之前，設置環境變量：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export GTK_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0</span><br></pre></td></tr></table></figure>
+
+<p>或者，您可以通過輸入以下內容在bash shell中，直接運行matlab：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GTK_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0 /usr/local/MATLAB/R2019b/bin/matlab</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二（永久）"><a href="#方法二（永久）" class="headerlink" title="方法二（永久）"></a>方法二（永久）</h2><ol>
+<li>進入root權限</li>
+</ol>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="2">
+<li>輸入gedit(文字編輯器)開啟profile檔案</li>
+</ol>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gedit /etc/profile</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="3">
+<li><code>profile</code>的最下面加入</li>
+</ol>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export GTK_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0:$GTK_PATH</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="4">
+<li>重啟</li>
+</ol>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Linux</tag>
+        <tag>MATLAB</tag>
       </tags>
   </entry>
   <entry>
@@ -1256,78 +1305,6 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>系統</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module &quot;canberra-gtk-module&quot;}</title>
-    <url>/2020/05/03/Ubuntu%20%E5%9F%B7%E8%A1%8C%20MATLAB%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF/</url>
-    <content><![CDATA[<p>這裡將教大家如何解決 <code>&#123;Failed to load module &quot;canberra-gtk-module&quot;&#125;</code> 的啟動錯誤問題。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<span id="more"></span>
-
-<h1 id="安裝必要包"><a href="#安裝必要包" class="headerlink" title="安裝必要包"></a>安裝必要包</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">sudo apt-get install packagekit-gtk3-module</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法一（暫時）"><a href="#方法一（暫時）" class="headerlink" title="方法一（暫時）"></a>方法一（暫時）</h2><p>你有一個需要在運行MATLAB之前，設置環境變量：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export GTK_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0</span><br></pre></td></tr></table></figure>
-
-<p>或者，您可以通過輸入以下內容在bash shell中，直接運行matlab：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GTK_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0 /usr/local/MATLAB/R2019b/bin/matlab</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法二（永久）"><a href="#方法二（永久）" class="headerlink" title="方法二（永久）"></a>方法二（永久）</h2><ol>
-<li>進入root權限</li>
-</ol>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="2">
-<li>輸入gedit(文字編輯器)開啟profile檔案</li>
-</ol>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gedit /etc/profile</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="3">
-<li><code>profile</code>的最下面加入</li>
-</ol>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export GTK_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0:$GTK_PATH</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="4">
-<li>重啟</li>
-</ol>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>Linux</tag>
-        <tag>MATLAB</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>下載相關圖片數據庫</title>
-    <url>/2022/11/12/%E4%B8%8B%E8%BC%89%E5%9C%96%E7%89%87%E6%95%B8%E6%93%9A%E5%BA%AB/</url>
-    <content><![CDATA[<p>從 Google 圖像中搜索圖像自動將它們下載到您的計算機上！</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<span id="more"></span>
-
-<h1 id="安裝套件"><a href="#安裝套件" class="headerlink" title="安裝套件"></a>安裝套件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install simple_image_download==0.4</span><br></pre></td></tr></table></figure>
-<h1 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h1><p>建立一個<code>dowmload_images.py</code>檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> simple_image_download <span class="keyword">import</span> simple_image_download <span class="keyword">as</span> simp</span><br><span class="line"></span><br><span class="line">response = simp.simple_image_download</span><br><span class="line"></span><br><span class="line">keywords = [<span class="string">&quot;白爛貓&quot;</span>,<span class="string">&quot;LanLanCat&quot;</span>]   <span class="comment">#找出類似名稱圖庫相片</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> kw <span class="keyword">in</span> keywords:</span><br><span class="line">    response().download(kw,<span class="number">30</span>)      <span class="comment">#下載產出圖片總張數</span></span><br></pre></td></tr></table></figure>
-
-<p>Python 執行<code>dowmload_images.py</code>檔案：</p>
-<ul>
-<li>示意圖<br><img src="https://i.imgur.com/yBwC22z.png"></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1456,7 +1433,7 @@
 <ul>
 <li>如示意圖：<br><img src="https://i.imgur.com/Hy5JDYv.png"></li>
 </ul>
-<p><code>--weights</code>：初始weights路徑。ex：<code>--weights yolov5s.pt</code><br><code>--cfg</code>：model.yaml路徑。 ex：<code>--cfg cfg/training/yolov5s-custom.yaml</code><br><code>--data</code>：data.yaml路徑。ex：<code>--data data/custom_data.yaml</code><br><code>--hyp</code>：hyperparameters路徑。ex：<code>--hyp data/hyp.scratch.custom.yaml</code><br><code>--epochs</code>：訓練回合，預設為300回合。ex：<code>--epochs 200</code><br><code>--batch-size</code>：預設&#x3D;16, 所有 GPU 的總批大小。ex：<code>--batch-size 11</code><br><code>--img-size</code>：[訓練, 測試] 圖片大小，預設為【640,640】。ex：<code>--img 640 640</code><br><code>--workers</code>：訓練資料讀取工作的最大數量。ex：<code>--workers 1</code><br><code>--name</code>：將訓練結果資料夾名稱命名。ex：<code>--name yolov5s-train</code><br><code>--project</code>：將訓練結果保存到自訂資料夾。ex：<code>--project runs/train</code><br><code>--device</code> ：預設0，可調整0,1,2,3 or cpu。ex：<code>--device 0</code></p>
+<p><code>--weights</code>：初始weights路徑。ex：<code>--weights yolov5s.pt</code><br><code>--cfg</code>：model.yaml路徑。 ex：<code>--cfg cfg/training/yolov5s-custom.yaml</code><br><code>--data</code>：data.yaml路徑。ex：<code>--data data/custom_data.yaml</code><br><code>--hyp</code>：hyperparameters路徑。ex：<code>--hyp data/hyp.scratch.custom.yaml</code><br><code>--epochs</code>：訓練回合，預設為100回合。ex：<code>--epochs 200</code><br><code>--batch-size</code>：預設&#x3D;16, 所有 GPU 的總批大小。ex：<code>--batch-size 11</code><br><code>--img-size</code>：[訓練, 測試] 圖片大小，預設為【640,640】。ex：<code>--img 640 640</code><br><code>--workers</code>：訓練資料讀取工作的最大數量。ex：<code>--workers 1</code><br><code>--name</code>：將訓練結果資料夾名稱命名。ex：<code>--name yolov5s-train</code><br><code>--project</code>：將訓練結果保存到自訂資料夾。ex：<code>--project runs/train</code><br><code>--device</code> ：預設0，可調整0,1,2,3 or cpu。ex：<code>--device 0</code></p>
 <ul>
 <li><font color="red">（查看更多指令說明）：</font><blockquote>
 <p>在 <code>Anaconda Prompt (yolov5)</code> 上輸入：</p>
@@ -1497,6 +1474,29 @@
       <tags>
         <tag>Python</tag>
         <tag>YOLO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>下載相關圖片數據庫</title>
+    <url>/2022/11/12/%E4%B8%8B%E8%BC%89%E5%9C%96%E7%89%87%E6%95%B8%E6%93%9A%E5%BA%AB/</url>
+    <content><![CDATA[<p>從 Google 圖像中搜索圖像自動將它們下載到您的計算機上！</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<span id="more"></span>
+
+<h1 id="安裝套件"><a href="#安裝套件" class="headerlink" title="安裝套件"></a>安裝套件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install simple_image_download==0.4</span><br></pre></td></tr></table></figure>
+<h1 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h1><p>建立一個<code>dowmload_images.py</code>檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> simple_image_download <span class="keyword">import</span> simple_image_download <span class="keyword">as</span> simp</span><br><span class="line"></span><br><span class="line">response = simp.simple_image_download</span><br><span class="line"></span><br><span class="line">keywords = [<span class="string">&quot;白爛貓&quot;</span>,<span class="string">&quot;LanLanCat&quot;</span>]   <span class="comment">#找出類似名稱圖庫相片</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> kw <span class="keyword">in</span> keywords:</span><br><span class="line">    response().download(kw,<span class="number">30</span>)      <span class="comment">#下載產出圖片總張數</span></span><br></pre></td></tr></table></figure>
+
+<p>Python 執行<code>dowmload_images.py</code>檔案：</p>
+<ul>
+<li>示意圖<br><img src="https://i.imgur.com/yBwC22z.png"></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1764,6 +1764,145 @@
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>勤益(二上)課程-上課筆記 Arduino 程式設計</title>
+    <url>/2019/10/21/%E5%8B%A4%E7%9B%8A-%E4%BA%8C%E4%B8%8A%20Arduino%20%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/</url>
+    <content><![CDATA[<p>這裡記錄著我在課堂中的學習</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+
+<span id="more"></span>
+
+<p>請至 <a href="https://www.tinkercad.com/">Tinkercad</a> 註冊帳號。<br>若已經有Autodesk的帳號，就不用在註冊一次，使用原本註冊的帳號密碼登入即可。<br>登入後，點選左上就<code>LOGO</code>，找到<code>Circuits</code>(<code>電路</code>)的按鈕，再建立新電路，即可在網站模擬Arduino的實體樣子。</p>
+<hr>
+<h1 id="2019年10月24日"><a href="#2019年10月24日" class="headerlink" title="2019年10月24日"></a>2019年10月24日</h1><h2 id="傳資料到-PC"><a href="#傳資料到-PC" class="headerlink" title="傳資料到 PC"></a>傳資料到 PC</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">byte</span> ledPin = <span class="number">13</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">&quot;Hello,&quot;</span> );  <span class="comment">// ln換行</span></span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;\tLED pin is: &quot;</span>);</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">print</span>(ledPin);</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;\nBYE!&quot;</span>);          </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>執行後，結果為<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hello,</span><br><span class="line">	LED pin is: 13</span><br><span class="line">BYE!</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="更改內容test"><a href="#更改內容test" class="headerlink" title="更改內容test"></a>更改內容test</h3><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">long</span> ledPin = <span class="number">525566</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">&quot;Hello,&quot;</span> );  <span class="comment">// ln換行</span></span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;\tYongCheng: &quot;</span>);</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">print</span>(ledPin);</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;\nBYE!&quot;</span>);             </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>執行後，結果為<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hello,</span><br><span class="line">	YongCheng: 525566</span><br><span class="line">BYE!</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="顯示正弦波"><a href="#顯示正弦波" class="headerlink" title="顯示正弦波"></a>顯示正弦波</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>); <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">float</span> angle = <span class="number">0</span>;<span class="type">float</span> sineData;</span><br><span class="line">    <span class="keyword">for</span> (angle = <span class="number">0.0</span>; angle &lt;= <span class="number">90</span>; angle += <span class="number">0.1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sineData = <span class="built_in">sin</span>(angle);</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(sineData);</span><br><span class="line">        <span class="built_in">delay</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-21-1.jpg"></li>
+</ul>
+<h2 id="串列監視器畫出心形"><a href="#串列監視器畫出心形" class="headerlink" title="串列監視器畫出心形"></a>串列監視器畫出心形</h2><p>這裡可以參考一下上一篇<code>顯示正弦波</code><br>我自己Google到的心形公式</p>
+<blockquote>
+<p><code>(sqrt(cos(x))*cos(200*x)+sqrt(abs(x))-0.7)*(4-x^2)^0.01)</code><br>由於Arduino不支援上面打法，所必須改為：（pow的意思可以參考這邊<a href="https://www.arduino.cc/reference/en/language/functions/math/pow/">連結</a>）<br><code>(sqrt(cos(x))*cos(200*x)+sqrt(abs(x))-0.7)*pow((4-x^2),0.01)</code></p>
+</blockquote>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line">    <span class="type">double</span> angle = <span class="number">0</span>;<span class="type">float</span> sineData;</span><br><span class="line">    <span class="keyword">for</span> (angle = <span class="number">-4.5</span>; angle &lt;= <span class="number">4.5</span>; angle += <span class="number">0.008</span>)&#123;</span><br><span class="line">        <span class="type">double</span> x=angle;</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="built_in">sqrt</span>(<span class="built_in">cos</span>(x))*<span class="built_in">cos</span>(<span class="number">200</span>*x)+<span class="built_in">sqrt</span>(<span class="built_in">abs</span>(x))<span class="number">-0.7</span>)*<span class="built_in">pow</span>((<span class="number">4</span>-x*x),<span class="number">0.01</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-21-3.jpg"></li>
+</ul>
+<p>老師找到的心形公式</p>
+<blockquote>
+<p><code>(sqrt(cos(x))*cos(300*x)+sqrt(abs(x))-0.2)*pow((4-x*x),0.01)</code></p>
+</blockquote>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line">    <span class="type">double</span> angle = <span class="number">0</span>;<span class="type">float</span> sineData;</span><br><span class="line">    <span class="keyword">for</span> (angle = <span class="number">-4.5</span>; angle &lt;= <span class="number">4.5</span>; angle += <span class="number">0.008</span>)&#123;</span><br><span class="line">        <span class="type">double</span> x=angle;</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="built_in">sqrt</span>(<span class="built_in">cos</span>(x))*<span class="built_in">cos</span>(<span class="number">300</span>*x)+<span class="built_in">sqrt</span>(<span class="built_in">abs</span>(x))<span class="number">-0.2</span>)*<span class="built_in">pow</span>((<span class="number">4</span>-x*x),<span class="number">0.01</span>);  <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-21-2.jpg"></li>
+</ul>
+<h2 id="試做一個電壓調節器"><a href="#試做一個電壓調節器" class="headerlink" title="試做一個電壓調節器"></a>試做一個電壓調節器</h2><p>新建一個電路專案，新建<code>一個Arduino Uno R3</code>和<code>電位器</code>。<br>程式碼新增：</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 詳細的程式說明，請參閱第六章，6-4頁。</span></span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> potPin = A0;</span><br><span class="line"><span class="type">int</span> val;  <span class="comment">// 接收類比輸入值的變數，類型為整數。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    val = <span class="built_in">analogRead</span>(potPin);</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">println</span>(val);</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">500</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-21-4.jpg"></li>
+</ul>
+<h3 id="更改內容test-1"><a href="#更改內容test-1" class="headerlink" title="更改內容test"></a>更改內容test</h3><p>設置一個LED接收到512值以上，燈亮；<br>反之，接收到512值以下，燈滅。</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">byte</span> potPin = A0;</span><br><span class="line"><span class="type">int</span> val;  <span class="comment">// 接收類比輸入值的變數，類型為整數。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line">    <span class="built_in">pinMode</span>(<span class="number">13</span>,<span class="literal">OUTPUT</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    val = <span class="built_in">analogRead</span>(potPin);</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">println</span>(val);</span><br><span class="line">    <span class="keyword">if</span>(val&gt;<span class="number">512</span>)&#123;</span><br><span class="line">        <span class="built_in">digitalWrite</span>(<span class="number">13</span>,<span class="literal">HIGH</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">digitalWrite</span>(<span class="number">13</span>,<span class="literal">LOW</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-21-5.jpg"></li>
+</ul>
+<hr>
+<h1 id="2019年10月28日"><a href="#2019年10月28日" class="headerlink" title="2019年10月28日"></a>2019年10月28日</h1><h2 id="使用光敏電阻控制LED"><a href="#使用光敏電阻控制LED" class="headerlink" title="使用光敏電阻控制LED"></a>使用光敏電阻控制LED</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">byte</span> LED = <span class="number">13</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> CdS = A0;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>); <span class="comment">// 以 9600bps 速率初始化序列埠</span></span><br><span class="line">  <span class="built_in">pinMode</span>(<span class="number">13</span>, <span class="literal">OUTPUT</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> val; <span class="comment">// 接收類比輸入值的變數，類型為整數</span></span><br><span class="line">  val = <span class="built_in">analogRead</span>(CdS);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(val); <span class="comment">// 印val數值</span></span><br><span class="line">  <span class="keyword">if</span>(val&gt;=<span class="number">700</span>)&#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(<span class="number">13</span>,<span class="literal">HIGH</span>);</span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(<span class="number">13</span>,<span class="literal">LOW</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-28-1.jpg"></li>
+</ul>
+<h2 id="74HC595控制「七段顯示器」"><a href="#74HC595控制「七段顯示器」" class="headerlink" title="74HC595控制「七段顯示器」"></a>74HC595控制「七段顯示器」</h2><p>讓七段顯示器，顯示0~9。</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">byte</span> datePin = <span class="number">2</span>;  <span class="comment">// 74HC595 序列輸入腳接「數位2」</span></span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> latchPin = <span class="number">3</span>; <span class="comment">// 74HC595 暫存器時脈腳接「數位3」</span></span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> clockPin = <span class="number">4</span>; <span class="comment">// 74HC595 序列時脈腳接「數位4」</span></span><br><span class="line"></span><br><span class="line"><span class="type">byte</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> LEDs[<span class="number">10</span>] = &#123;  <span class="comment">// 七段顯示器索引</span></span><br><span class="line">  B01111110,  <span class="comment">// 0</span></span><br><span class="line">  B00110000,  <span class="comment">// 1</span></span><br><span class="line">  B01101101,  <span class="comment">// 2</span></span><br><span class="line">  B01111001,  <span class="comment">// 3</span></span><br><span class="line">  B00110011,  <span class="comment">// 4</span></span><br><span class="line">  B01011011,  <span class="comment">// 5</span></span><br><span class="line">  B01011111,  <span class="comment">// 6</span></span><br><span class="line">  B01110000,  <span class="comment">// 7</span></span><br><span class="line">  B01111111,  <span class="comment">// 8</span></span><br><span class="line">  B01110011&#125;; <span class="comment">// 9</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">pinMode</span>(datePin, <span class="literal">OUTPUT</span>);</span><br><span class="line">  <span class="built_in">pinMode</span>(latchPin, <span class="literal">OUTPUT</span>);</span><br><span class="line">  <span class="built_in">pinMode</span>(clockPin, <span class="literal">OUTPUT</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">digitalWrite</span>(latchPin, <span class="literal">LOW</span>); <span class="comment">// 關閉閘門</span></span><br><span class="line">  <span class="comment">// 底下的函數將從 LEDs 陣列取出一個位元組資料(從 0 的元素開始取)</span></span><br><span class="line">  <span class="comment">// 並以序列方式傳入 74595 IC</span></span><br><span class="line">  <span class="built_in">shiftOut</span>(datePin,clockPin, LSBFIRST, LEDs[index]);</span><br><span class="line">  <span class="built_in">digitalWrite</span>(latchPin, <span class="literal">HIGH</span>); <span class="comment">// 開啟閘門</span></span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">1000</span>); <span class="comment">// 暫停一秒</span></span><br><span class="line">  </span><br><span class="line">  index ++;</span><br><span class="line">  <span class="keyword">if</span> (index == <span class="number">10</span>)&#123;  <span class="comment">// 10個數字</span></span><br><span class="line">    index = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-28-2.jpg"></li>
+</ul>
+<h3 id="更改TEST"><a href="#更改TEST" class="headerlink" title="更改TEST"></a>更改TEST</h3><p>將七段顯示器顯示為「9、7、5、3、1」<br>(電路與上者相同)</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">byte</span> datePin = <span class="number">2</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> latchPin = <span class="number">3</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> clockPin = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">byte</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> LEDs[<span class="number">5</span>] = &#123;</span><br><span class="line">  B01110011,  <span class="comment">// 9</span></span><br><span class="line">  B01110000,  <span class="comment">// 7</span></span><br><span class="line">  B01011011,  <span class="comment">// 5</span></span><br><span class="line">  B01111001,  <span class="comment">// 3</span></span><br><span class="line">  B00110000&#125;; <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">pinMode</span>(datePin, <span class="literal">OUTPUT</span>);</span><br><span class="line">  <span class="built_in">pinMode</span>(latchPin, <span class="literal">OUTPUT</span>);</span><br><span class="line">  <span class="built_in">pinMode</span>(clockPin, <span class="literal">OUTPUT</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">digitalWrite</span>(latchPin, <span class="literal">LOW</span>);</span><br><span class="line">  <span class="built_in">shiftOut</span>(datePin,clockPin, LSBFIRST, LEDs[index]);</span><br><span class="line">  <span class="built_in">digitalWrite</span>(latchPin, <span class="literal">HIGH</span>);</span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">1000</span>); <span class="comment">// Wait for 1000 millisecond(s)</span></span><br><span class="line">  </span><br><span class="line">  index ++;</span><br><span class="line">  <span class="keyword">if</span> (index == <span class="number">5</span>)&#123;  <span class="comment">// 5個數字</span></span><br><span class="line">    index = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>顯示結果為，依序「9、7、5、3、1」循環。<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-28-3.jpg"></li>
+</ul>
+<hr>
+<h1 id="2019年11月11日"><a href="#2019年11月11日" class="headerlink" title="2019年11月11日"></a>2019年11月11日</h1><h2 id="超音波"><a href="#超音波" class="headerlink" title="超音波"></a>超音波</h2><h3 id="課本範例（9-29）"><a href="#課本範例（9-29）" class="headerlink" title="課本範例（9-29）"></a>課本範例（9-29）</h3><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">byte</span> trigPin = <span class="number">10</span>;  <span class="comment">// 超音波模組的觸發腳</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> echoPin = <span class="number">9</span>;    <span class="comment">// 超音波模組的接收腳</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> d;          <span class="comment">// 儲存高脈衝的持續時間</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自訂 ping()函數將傳回 unsigned long 類型的數值</span></span><br><span class="line"><span class="function"><span class="type">unsigned</span> <span class="type">long</span> <span class="title">ping</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">digitalWrite</span>(trigPin, <span class="literal">HIGH</span>); <span class="comment">// 觸發腳設定成高電位</span></span><br><span class="line">  <span class="built_in">microseconds</span>(<span class="number">10</span>);            <span class="comment">// 持續 10 毫秒</span></span><br><span class="line">  <span class="built_in">digitalWrite</span>(trigPin, <span class="literal">LOW</span>);  <span class="comment">// 觸發腳設定成低電位</span></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">pulseIn</span>(echoPin, <span class="literal">HIGH</span>);  <span class="comment">//傳回高脈衝的持續時間</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">pinMode</span>(trigPin, <span class="literal">OUTPUT</span>);  <span class="comment">// 觸發腳設定成[輸出]</span></span><br><span class="line">  <span class="built_in">pinMode</span>(echoPin, <span class="literal">INPUT</span>);  <span class="comment">// 接收腳設定成[輸入]</span></span><br><span class="line">  </span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">//初始化序列埠</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  d = <span class="built_in">ping</span>() /<span class="number">58</span>;  <span class="comment">// 把高脈衝時間值換算成公分單位</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">print</span>(d); <span class="comment">// 顯示距離</span></span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;cm&quot;</span>);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>();</span><br><span class="line"></span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">1000</span>); <span class="comment">// 等待一秒鐘(每隔一秒量測一次)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="test更改"><a href="#test更改" class="headerlink" title="test更改"></a>test更改</h3><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> pingPin = <span class="number">7</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> ledPin = <span class="number">13</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">  <span class="built_in">pinMode</span>(ledPin, <span class="literal">OUTPUT</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">long</span> duration, cm;</span><br><span class="line">  <span class="built_in">pinMode</span>(pingPin, <span class="literal">OUTPUT</span>);</span><br><span class="line">  <span class="built_in">digitalWrite</span>(pingPin, <span class="literal">LOW</span>);</span><br><span class="line">  <span class="built_in">delayMicroseconds</span>(<span class="number">2</span>);</span><br><span class="line">  <span class="built_in">digitalWrite</span>(pingPin, <span class="literal">HIGH</span>);</span><br><span class="line">  <span class="built_in">delayMicroseconds</span>(<span class="number">5</span>);</span><br><span class="line">  <span class="built_in">digitalWrite</span>(pingPin, <span class="literal">LOW</span>);</span><br><span class="line">  <span class="built_in">pinMode</span>(pingPin, <span class="literal">INPUT</span>);</span><br><span class="line">  duration = <span class="built_in">pulseIn</span>(pingPin, <span class="literal">HIGH</span>);</span><br><span class="line">  cm = <span class="built_in">microsecondestToCentimeters</span>(duration);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;Distance: &quot;</span>);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">print</span>(cm);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;cm&quot;</span>);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>();</span><br><span class="line">  <span class="keyword">if</span> (cm &lt; <span class="number">100</span>)&#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(ledPin, <span class="literal">HIGH</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(ledPin, <span class="literal">LOW</span>);</span><br><span class="line">&#125;</span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">100</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">long</span> <span class="title">microsecondestToCentimeters</span><span class="params">(<span class="type">long</span> microseconds)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> microseconds / <span class="number">29</span> / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>依此配置，執行後，結果為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-11-11-1.jpg"></li>
+</ul>
+<h2 id="電壓輸出"><a href="#電壓輸出" class="headerlink" title="電壓輸出"></a>電壓輸出</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="built_in">analogWrite</span>(<span class="number">10</span>,<span class="number">102</span>);&#125;  <span class="comment">// 指定10腳位輸出電壓為2v</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>電路依此配置，執行後，結果為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-11-11-2.jpg"></li>
+</ul>
+<h2 id="變頻控制LED燈光和馬達"><a href="#變頻控制LED燈光和馬達" class="headerlink" title="變頻控制LED燈光和馬達"></a>變頻控制LED燈光和馬達</h2><hr>
+<h1 id="2019年11月18日"><a href="#2019年11月18日" class="headerlink" title="2019年11月18日"></a>2019年11月18日</h1><h2 id="傳值、傳址、傳參考"><a href="#傳值、傳址、傳參考" class="headerlink" title="傳值、傳址、傳參考"></a>傳值、傳址、傳參考</h2><ol>
+<li>call by ralue 傳值</li>
+<li>call by adress 傳址</li>
+<li>call by reference 傳參考</li>
+</ol>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span>* x,<span class="type">int</span>* y)</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> temp = *x;</span><br><span class="line">  *x = *y;</span><br><span class="line">  *y = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> a=<span class="number">10</span>, b=<span class="number">20</span>;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">  <span class="comment">// 交換之前的a和b值</span></span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="built_in">String</span>(<span class="string">&quot;Before swap: &quot;</span>)+ <span class="string">&quot;\t&quot;</span> + a + <span class="string">&quot;\t&quot;</span> +b);</span><br><span class="line">  <span class="built_in">swap</span>(&amp;a,&amp;b);</span><br><span class="line">  <span class="comment">// 交換之後</span></span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="built_in">String</span>(<span class="string">&quot;After swap: &quot;</span>)+ <span class="string">&quot;\t&quot;</span> + a + <span class="string">&quot;\t&quot;</span> +b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="comment">// 這裡沒有程式</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>顯示如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Before swap: 	10	20</span><br><span class="line">After swap: 	20	10</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="8-1-函數"><a href="#8-1-函數" class="headerlink" title="8-1 函數"></a>8-1 函數</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function">coid <span class="title">cirArea</span><span class="params">()</span></span>&#123;  <span class="comment">// cirArea 為自定義函數名稱</span></span><br><span class="line">  <span class="type">int</span> r=<span class="number">5</span>;</span><br><span class="line">  <span class="type">float</span> area = <span class="number">3.14</span> *r *r;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(area);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">cirArea</span>(); <span class="comment">//執行函數</span></span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">2000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 動手做8-1：建立自訂函數</span></span><br><span class="line"><span class="comment">// 詳細的程式說明，請參閱第八章，8-5頁。</span></span><br><span class="line"></span><br><span class="line"><span class="type">float</span> ans;   <span class="comment">// 接收運算結果的變數</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">cirArea</span><span class="params">(<span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="type">float</span> area = <span class="number">3.14</span> * r * r;</span><br><span class="line">  <span class="keyword">return</span> area;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">  ans = <span class="built_in">cirArea</span>(<span class="number">10</span>);   <span class="comment">// 計算半徑 10 的圓面積</span></span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(ans); <span class="comment">// 顯示結果</span></span><br><span class="line">  ans = <span class="built_in">cirArea</span>(<span class="number">20</span>);   <span class="comment">// 計算半徑 20 的圓面積</span></span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(ans); <span class="comment">// 顯示結果</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>執行結果如下<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">314.00</span><br><span class="line">1256.00</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> result = <span class="number">0</span>;</span><br><span class="line"><span class="type">double</span> i;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">SumCC</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">double</span> SumC=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> n=<span class="number">1</span>; n&lt;<span class="number">101</span>;n++)&#123;</span><br><span class="line">    SumC=(n*<span class="number">5</span>/<span class="number">3</span>)+SumC;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> SumC;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">  <span class="keyword">for</span>( i=<span class="number">0</span> ; i&lt;<span class="number">300</span> ; i++)&#123;</span><br><span class="line">    result=<span class="built_in">SumCC</span>()+result;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="2019年12月02日"><a href="#2019年12月02日" class="headerlink" title="2019年12月02日"></a>2019年12月02日</h1><p><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-12-02-1.jpg"></p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">fun</span><span class="params">(<span class="type">double</span> t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">double</span> A=<span class="number">2</span>;</span><br><span class="line">  <span class="type">double</span> f=<span class="number">60</span>;</span><br><span class="line">  <span class="type">double</span> result;</span><br><span class="line">  <span class="type">double</span> pi=<span class="number">3.1415926</span>;</span><br><span class="line">  </span><br><span class="line">  result = A*<span class="built_in">sin</span>(<span class="number">2</span>*pi*f*t);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">double</span> t=<span class="number">0</span>;t&lt;=(<span class="number">1</span>);t=t+<span class="number">0.001</span>)</span><br><span class="line">  &#123;</span><br><span class="line">	<span class="type">double</span> result = <span class="built_in">fun</span>(t);</span><br><span class="line">	<span class="built_in">Serial</span>.<span class="built_in">println</span>(result);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>執行後，結果為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-12-02-2.jpg"></li>
+</ul>
+<p>&amp;ensp;</p>
+<hr>
+<blockquote>
+<p>t &#x3D; 0 度 ~ 360 度<br>x &#x3D; A sin ( 2 π f t ) + B cos ( 2 π f t )<br>A &#x3D; 0.2<br>B &#x3D; 0.3<br>f &#x3D; 60</p>
+</blockquote>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">fun</span><span class="params">(<span class="type">double</span> t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">double</span> A=<span class="number">0.2</span>;</span><br><span class="line">  <span class="type">double</span> B=<span class="number">0.3</span>;  </span><br><span class="line">  <span class="type">double</span> f=<span class="number">60</span>;</span><br><span class="line">  <span class="type">double</span> result;</span><br><span class="line">  <span class="type">double</span> pi=<span class="number">3.1415926</span>;</span><br><span class="line">  </span><br><span class="line">  result = A*<span class="built_in">sin</span>(<span class="number">2</span>*pi*f*t) + B*<span class="built_in">cos</span>(<span class="number">2</span>*pi*f*t);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>); <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">double</span> t=<span class="number">0</span>;t&lt;=(<span class="number">1</span>);t=t+<span class="number">0.001</span>)</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="type">double</span> result = <span class="built_in">fun</span>(t);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(result);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>執行後，結果為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-12-02-3.jpg"></li>
+</ul>
+<h2 id="老師上課補充"><a href="#老師上課補充" class="headerlink" title="老師上課補充"></a>老師上課補充</h2><p>中斷 ➜ 最高權限</p>
+<h3 id="中斷"><a href="#中斷" class="headerlink" title="中斷"></a>中斷</h3><ul>
+<li>線路配置圖<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-12-02-4.jpg"></li>
+</ul>
+<p>程式內容：</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> pbInt = <span class="number">0</span>; <span class="comment">// 定義中斷引腳為0，也就是D2引腳</span></span><br><span class="line"><span class="type">int</span> ledOut = A0; <span class="comment">// 定義輸出指示燈引腳</span></span><br><span class="line"><span class="keyword">volatile</span> <span class="type">int</span> state = <span class="literal">LOW</span>; <span class="comment">// 定義默認輸入狀態</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">pinMode</span>(ledOut, <span class="literal">OUTPUT</span>); <span class="comment">// 置ledOut引腳為輸出狀態</span></span><br><span class="line"><span class="built_in">attachInterrupt</span>(pbInt, stateChange, CHANGE); <span class="comment">// 監視中斷輸入引腳的變化</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">delay</span>(<span class="number">100</span>); <span class="comment">// 什麼都不做，等待10毫秒</span></span><br><span class="line">&#125; <span class="comment">// 模擬長時間運行的進程或複雜的任務</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">stateChange</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">state = !state;</span><br><span class="line"><span class="built_in">digitalWrite</span>(ledOut, state);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2019年12月09日"><a href="#2019年12月09日" class="headerlink" title="2019年12月09日"></a>2019年12月09日</h1><h2 id="斜率"><a href="#斜率" class="headerlink" title="斜率"></a>斜率</h2><ol>
+<li>x^2+5</li>
+<li></li>
+</ol>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="2019年12月16日"><a href="#2019年12月16日" class="headerlink" title="2019年12月16日"></a>2019年12月16日</h1><h2 id="外部中斷（FALLING）"><a href="#外部中斷（FALLING）" class="headerlink" title="外部中斷（FALLING）"></a>外部中斷（FALLING）</h2><p><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-12-16-1.jpg" alt="線路布線圖"></p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">   ShakeSwitch</span></span><br><span class="line"><span class="comment">   中斷檢測振動感測器，控制LED燈亮滅</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> SensorLED = <span class="number">9</span>;       <span class="comment">//定義LED為數字引腳9</span></span><br><span class="line"><span class="type">int</span> SensorINPUT = <span class="number">2</span>;      <span class="comment">//連線震動開關到中斷0，也就是數字引腳2</span></span><br><span class="line"><span class="type">char</span> state = <span class="literal">LOW</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">pinMode</span>(SensorLED, <span class="literal">OUTPUT</span>);         <span class="comment">//LED為輸出模式</span></span><br><span class="line">  <span class="built_in">pinMode</span>(SensorINPUT, <span class="literal">INPUT_PULLUP</span>);        <span class="comment">//震動開關為輸入模式</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//下降沿觸發，觸發中斷0，呼叫blink函式</span></span><br><span class="line">  <span class="built_in">attachInterrupt</span>(<span class="number">0</span>, blink, FALLING);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (state == <span class="literal">HIGH</span>) &#123;        <span class="comment">// 如果state為HIGH</span></span><br><span class="line">    state = <span class="literal">LOW</span>;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(SensorLED, <span class="literal">HIGH</span>);  <span class="comment">// 亮燈</span></span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">500</span>);          <span class="comment">//延時500ms</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(SensorLED, <span class="literal">LOW</span>);    <span class="comment">// 否則，關燈</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">blink</span><span class="params">()</span> </span>&#123;               <span class="comment">//中斷函式blink()</span></span><br><span class="line">  state = !state;             <span class="comment">//一旦中斷觸發，state狀態反轉</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="進階-CHANGE"><a href="#進階-CHANGE" class="headerlink" title="進階(CHANGE)"></a>進階(CHANGE)</h3><p><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-12-16-1.jpg" alt="線路布線圖"></p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">   ShakeSwitch</span></span><br><span class="line"><span class="comment">   中斷檢測振動感測器，控制LED燈亮滅</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> SensorLED = <span class="number">9</span>;       <span class="comment">//定義LED為數字引腳9</span></span><br><span class="line"><span class="type">int</span> SensorINPUT = <span class="number">2</span>;      <span class="comment">//連線震動開關到中斷0，也就是數字引腳2</span></span><br><span class="line"><span class="type">char</span> state = <span class="literal">LOW</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">pinMode</span>(SensorLED, <span class="literal">OUTPUT</span>);         <span class="comment">//LED為輸出模式</span></span><br><span class="line">  <span class="built_in">pinMode</span>(SensorINPUT, <span class="literal">INPUT_PULLUP</span>);        <span class="comment">//震動開關為輸入模式</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//下降沿觸發，觸發中斷0，呼叫blink函式</span></span><br><span class="line">  <span class="built_in">attachInterrupt</span>(<span class="number">0</span>, blink, CHANGE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (state == <span class="literal">HIGH</span>) &#123;        <span class="comment">// 如果state為HIGH</span></span><br><span class="line">    state = <span class="literal">LOW</span>;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(SensorLED, <span class="literal">HIGH</span>);  <span class="comment">// 亮燈</span></span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">500</span>);          <span class="comment">//延時500ms</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(SensorLED, <span class="literal">LOW</span>);    <span class="comment">// 否則，關燈</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">blink</span><span class="params">()</span> </span>&#123;               <span class="comment">//中斷函式blink()</span></span><br><span class="line">  state = !state;             <span class="comment">//一旦中斷觸發，state狀態反轉</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>勤益-上課筆記</category>
+      </categories>
+      <tags>
+        <tag>Arduino</tag>
+        <tag>上課筆記</tag>
+        <tag>勤益科大</tag>
       </tags>
   </entry>
   <entry>
@@ -2196,8 +2335,8 @@
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>研習</tag>
         <tag>勤益科大</tag>
+        <tag>研習</tag>
       </tags>
   </entry>
   <entry>
@@ -2594,8 +2733,8 @@
       </categories>
       <tags>
         <tag>MATLAB</tag>
-        <tag>勤益科大</tag>
         <tag>上課筆記</tag>
+        <tag>勤益科大</tag>
       </tags>
   </entry>
   <entry>
@@ -2858,8 +2997,8 @@
       </categories>
       <tags>
         <tag>MATLAB</tag>
-        <tag>勤益科大</tag>
         <tag>上課筆記</tag>
+        <tag>勤益科大</tag>
       </tags>
   </entry>
   <entry>
@@ -2897,145 +3036,6 @@
       </categories>
       <tags>
         <tag>軟體下載</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>勤益(二上)課程-上課筆記 Arduino 程式設計</title>
-    <url>/2019/10/21/%E5%8B%A4%E7%9B%8A-%E4%BA%8C%E4%B8%8A%20Arduino%20%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/</url>
-    <content><![CDATA[<p>這裡記錄著我在課堂中的學習</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-
-<span id="more"></span>
-
-<p>請至 <a href="https://www.tinkercad.com/">Tinkercad</a> 註冊帳號。<br>若已經有Autodesk的帳號，就不用在註冊一次，使用原本註冊的帳號密碼登入即可。<br>登入後，點選左上就<code>LOGO</code>，找到<code>Circuits</code>(<code>電路</code>)的按鈕，再建立新電路，即可在網站模擬Arduino的實體樣子。</p>
-<hr>
-<h1 id="2019年10月24日"><a href="#2019年10月24日" class="headerlink" title="2019年10月24日"></a>2019年10月24日</h1><h2 id="傳資料到-PC"><a href="#傳資料到-PC" class="headerlink" title="傳資料到 PC"></a>傳資料到 PC</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">byte</span> ledPin = <span class="number">13</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">&quot;Hello,&quot;</span> );  <span class="comment">// ln換行</span></span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;\tLED pin is: &quot;</span>);</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">print</span>(ledPin);</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;\nBYE!&quot;</span>);          </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>執行後，結果為<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hello,</span><br><span class="line">	LED pin is: 13</span><br><span class="line">BYE!</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="更改內容test"><a href="#更改內容test" class="headerlink" title="更改內容test"></a>更改內容test</h3><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">long</span> ledPin = <span class="number">525566</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">&quot;Hello,&quot;</span> );  <span class="comment">// ln換行</span></span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;\tYongCheng: &quot;</span>);</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">print</span>(ledPin);</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;\nBYE!&quot;</span>);             </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>執行後，結果為<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hello,</span><br><span class="line">	YongCheng: 525566</span><br><span class="line">BYE!</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="顯示正弦波"><a href="#顯示正弦波" class="headerlink" title="顯示正弦波"></a>顯示正弦波</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>); <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">float</span> angle = <span class="number">0</span>;<span class="type">float</span> sineData;</span><br><span class="line">    <span class="keyword">for</span> (angle = <span class="number">0.0</span>; angle &lt;= <span class="number">90</span>; angle += <span class="number">0.1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sineData = <span class="built_in">sin</span>(angle);</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(sineData);</span><br><span class="line">        <span class="built_in">delay</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-21-1.jpg"></li>
-</ul>
-<h2 id="串列監視器畫出心形"><a href="#串列監視器畫出心形" class="headerlink" title="串列監視器畫出心形"></a>串列監視器畫出心形</h2><p>這裡可以參考一下上一篇<code>顯示正弦波</code><br>我自己Google到的心形公式</p>
-<blockquote>
-<p><code>(sqrt(cos(x))*cos(200*x)+sqrt(abs(x))-0.7)*(4-x^2)^0.01)</code><br>由於Arduino不支援上面打法，所必須改為：（pow的意思可以參考這邊<a href="https://www.arduino.cc/reference/en/language/functions/math/pow/">連結</a>）<br><code>(sqrt(cos(x))*cos(200*x)+sqrt(abs(x))-0.7)*pow((4-x^2),0.01)</code></p>
-</blockquote>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line">    <span class="type">double</span> angle = <span class="number">0</span>;<span class="type">float</span> sineData;</span><br><span class="line">    <span class="keyword">for</span> (angle = <span class="number">-4.5</span>; angle &lt;= <span class="number">4.5</span>; angle += <span class="number">0.008</span>)&#123;</span><br><span class="line">        <span class="type">double</span> x=angle;</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="built_in">sqrt</span>(<span class="built_in">cos</span>(x))*<span class="built_in">cos</span>(<span class="number">200</span>*x)+<span class="built_in">sqrt</span>(<span class="built_in">abs</span>(x))<span class="number">-0.7</span>)*<span class="built_in">pow</span>((<span class="number">4</span>-x*x),<span class="number">0.01</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-21-3.jpg"></li>
-</ul>
-<p>老師找到的心形公式</p>
-<blockquote>
-<p><code>(sqrt(cos(x))*cos(300*x)+sqrt(abs(x))-0.2)*pow((4-x*x),0.01)</code></p>
-</blockquote>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line">    <span class="type">double</span> angle = <span class="number">0</span>;<span class="type">float</span> sineData;</span><br><span class="line">    <span class="keyword">for</span> (angle = <span class="number">-4.5</span>; angle &lt;= <span class="number">4.5</span>; angle += <span class="number">0.008</span>)&#123;</span><br><span class="line">        <span class="type">double</span> x=angle;</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="built_in">sqrt</span>(<span class="built_in">cos</span>(x))*<span class="built_in">cos</span>(<span class="number">300</span>*x)+<span class="built_in">sqrt</span>(<span class="built_in">abs</span>(x))<span class="number">-0.2</span>)*<span class="built_in">pow</span>((<span class="number">4</span>-x*x),<span class="number">0.01</span>);  <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-21-2.jpg"></li>
-</ul>
-<h2 id="試做一個電壓調節器"><a href="#試做一個電壓調節器" class="headerlink" title="試做一個電壓調節器"></a>試做一個電壓調節器</h2><p>新建一個電路專案，新建<code>一個Arduino Uno R3</code>和<code>電位器</code>。<br>程式碼新增：</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 詳細的程式說明，請參閱第六章，6-4頁。</span></span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> potPin = A0;</span><br><span class="line"><span class="type">int</span> val;  <span class="comment">// 接收類比輸入值的變數，類型為整數。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    val = <span class="built_in">analogRead</span>(potPin);</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">println</span>(val);</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">500</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-21-4.jpg"></li>
-</ul>
-<h3 id="更改內容test-1"><a href="#更改內容test-1" class="headerlink" title="更改內容test"></a>更改內容test</h3><p>設置一個LED接收到512值以上，燈亮；<br>反之，接收到512值以下，燈滅。</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">byte</span> potPin = A0;</span><br><span class="line"><span class="type">int</span> val;  <span class="comment">// 接收類比輸入值的變數，類型為整數。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line">    <span class="built_in">pinMode</span>(<span class="number">13</span>,<span class="literal">OUTPUT</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    val = <span class="built_in">analogRead</span>(potPin);</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">println</span>(val);</span><br><span class="line">    <span class="keyword">if</span>(val&gt;<span class="number">512</span>)&#123;</span><br><span class="line">        <span class="built_in">digitalWrite</span>(<span class="number">13</span>,<span class="literal">HIGH</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">digitalWrite</span>(<span class="number">13</span>,<span class="literal">LOW</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-21-5.jpg"></li>
-</ul>
-<hr>
-<h1 id="2019年10月28日"><a href="#2019年10月28日" class="headerlink" title="2019年10月28日"></a>2019年10月28日</h1><h2 id="使用光敏電阻控制LED"><a href="#使用光敏電阻控制LED" class="headerlink" title="使用光敏電阻控制LED"></a>使用光敏電阻控制LED</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">byte</span> LED = <span class="number">13</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> CdS = A0;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>); <span class="comment">// 以 9600bps 速率初始化序列埠</span></span><br><span class="line">  <span class="built_in">pinMode</span>(<span class="number">13</span>, <span class="literal">OUTPUT</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> val; <span class="comment">// 接收類比輸入值的變數，類型為整數</span></span><br><span class="line">  val = <span class="built_in">analogRead</span>(CdS);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(val); <span class="comment">// 印val數值</span></span><br><span class="line">  <span class="keyword">if</span>(val&gt;=<span class="number">700</span>)&#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(<span class="number">13</span>,<span class="literal">HIGH</span>);</span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(<span class="number">13</span>,<span class="literal">LOW</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-28-1.jpg"></li>
-</ul>
-<h2 id="74HC595控制「七段顯示器」"><a href="#74HC595控制「七段顯示器」" class="headerlink" title="74HC595控制「七段顯示器」"></a>74HC595控制「七段顯示器」</h2><p>讓七段顯示器，顯示0~9。</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">byte</span> datePin = <span class="number">2</span>;  <span class="comment">// 74HC595 序列輸入腳接「數位2」</span></span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> latchPin = <span class="number">3</span>; <span class="comment">// 74HC595 暫存器時脈腳接「數位3」</span></span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> clockPin = <span class="number">4</span>; <span class="comment">// 74HC595 序列時脈腳接「數位4」</span></span><br><span class="line"></span><br><span class="line"><span class="type">byte</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> LEDs[<span class="number">10</span>] = &#123;  <span class="comment">// 七段顯示器索引</span></span><br><span class="line">  B01111110,  <span class="comment">// 0</span></span><br><span class="line">  B00110000,  <span class="comment">// 1</span></span><br><span class="line">  B01101101,  <span class="comment">// 2</span></span><br><span class="line">  B01111001,  <span class="comment">// 3</span></span><br><span class="line">  B00110011,  <span class="comment">// 4</span></span><br><span class="line">  B01011011,  <span class="comment">// 5</span></span><br><span class="line">  B01011111,  <span class="comment">// 6</span></span><br><span class="line">  B01110000,  <span class="comment">// 7</span></span><br><span class="line">  B01111111,  <span class="comment">// 8</span></span><br><span class="line">  B01110011&#125;; <span class="comment">// 9</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">pinMode</span>(datePin, <span class="literal">OUTPUT</span>);</span><br><span class="line">  <span class="built_in">pinMode</span>(latchPin, <span class="literal">OUTPUT</span>);</span><br><span class="line">  <span class="built_in">pinMode</span>(clockPin, <span class="literal">OUTPUT</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">digitalWrite</span>(latchPin, <span class="literal">LOW</span>); <span class="comment">// 關閉閘門</span></span><br><span class="line">  <span class="comment">// 底下的函數將從 LEDs 陣列取出一個位元組資料(從 0 的元素開始取)</span></span><br><span class="line">  <span class="comment">// 並以序列方式傳入 74595 IC</span></span><br><span class="line">  <span class="built_in">shiftOut</span>(datePin,clockPin, LSBFIRST, LEDs[index]);</span><br><span class="line">  <span class="built_in">digitalWrite</span>(latchPin, <span class="literal">HIGH</span>); <span class="comment">// 開啟閘門</span></span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">1000</span>); <span class="comment">// 暫停一秒</span></span><br><span class="line">  </span><br><span class="line">  index ++;</span><br><span class="line">  <span class="keyword">if</span> (index == <span class="number">10</span>)&#123;  <span class="comment">// 10個數字</span></span><br><span class="line">    index = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>執行後，顯示為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-28-2.jpg"></li>
-</ul>
-<h3 id="更改TEST"><a href="#更改TEST" class="headerlink" title="更改TEST"></a>更改TEST</h3><p>將七段顯示器顯示為「9、7、5、3、1」<br>(電路與上者相同)</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">byte</span> datePin = <span class="number">2</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> latchPin = <span class="number">3</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> clockPin = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">byte</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">byte</span> LEDs[<span class="number">5</span>] = &#123;</span><br><span class="line">  B01110011,  <span class="comment">// 9</span></span><br><span class="line">  B01110000,  <span class="comment">// 7</span></span><br><span class="line">  B01011011,  <span class="comment">// 5</span></span><br><span class="line">  B01111001,  <span class="comment">// 3</span></span><br><span class="line">  B00110000&#125;; <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">pinMode</span>(datePin, <span class="literal">OUTPUT</span>);</span><br><span class="line">  <span class="built_in">pinMode</span>(latchPin, <span class="literal">OUTPUT</span>);</span><br><span class="line">  <span class="built_in">pinMode</span>(clockPin, <span class="literal">OUTPUT</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">digitalWrite</span>(latchPin, <span class="literal">LOW</span>);</span><br><span class="line">  <span class="built_in">shiftOut</span>(datePin,clockPin, LSBFIRST, LEDs[index]);</span><br><span class="line">  <span class="built_in">digitalWrite</span>(latchPin, <span class="literal">HIGH</span>);</span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">1000</span>); <span class="comment">// Wait for 1000 millisecond(s)</span></span><br><span class="line">  </span><br><span class="line">  index ++;</span><br><span class="line">  <span class="keyword">if</span> (index == <span class="number">5</span>)&#123;  <span class="comment">// 5個數字</span></span><br><span class="line">    index = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>顯示結果為，依序「9、7、5、3、1」循環。<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-10-28-3.jpg"></li>
-</ul>
-<hr>
-<h1 id="2019年11月11日"><a href="#2019年11月11日" class="headerlink" title="2019年11月11日"></a>2019年11月11日</h1><h2 id="超音波"><a href="#超音波" class="headerlink" title="超音波"></a>超音波</h2><h3 id="課本範例（9-29）"><a href="#課本範例（9-29）" class="headerlink" title="課本範例（9-29）"></a>課本範例（9-29）</h3><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">byte</span> trigPin = <span class="number">10</span>;  <span class="comment">// 超音波模組的觸發腳</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> echoPin = <span class="number">9</span>;    <span class="comment">// 超音波模組的接收腳</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> d;          <span class="comment">// 儲存高脈衝的持續時間</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自訂 ping()函數將傳回 unsigned long 類型的數值</span></span><br><span class="line"><span class="function"><span class="type">unsigned</span> <span class="type">long</span> <span class="title">ping</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">digitalWrite</span>(trigPin, <span class="literal">HIGH</span>); <span class="comment">// 觸發腳設定成高電位</span></span><br><span class="line">  <span class="built_in">microseconds</span>(<span class="number">10</span>);            <span class="comment">// 持續 10 毫秒</span></span><br><span class="line">  <span class="built_in">digitalWrite</span>(trigPin, <span class="literal">LOW</span>);  <span class="comment">// 觸發腳設定成低電位</span></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">pulseIn</span>(echoPin, <span class="literal">HIGH</span>);  <span class="comment">//傳回高脈衝的持續時間</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">pinMode</span>(trigPin, <span class="literal">OUTPUT</span>);  <span class="comment">// 觸發腳設定成[輸出]</span></span><br><span class="line">  <span class="built_in">pinMode</span>(echoPin, <span class="literal">INPUT</span>);  <span class="comment">// 接收腳設定成[輸入]</span></span><br><span class="line">  </span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);  <span class="comment">//初始化序列埠</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  d = <span class="built_in">ping</span>() /<span class="number">58</span>;  <span class="comment">// 把高脈衝時間值換算成公分單位</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">print</span>(d); <span class="comment">// 顯示距離</span></span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;cm&quot;</span>);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>();</span><br><span class="line"></span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">1000</span>); <span class="comment">// 等待一秒鐘(每隔一秒量測一次)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="test更改"><a href="#test更改" class="headerlink" title="test更改"></a>test更改</h3><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> pingPin = <span class="number">7</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> ledPin = <span class="number">13</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">  <span class="built_in">pinMode</span>(ledPin, <span class="literal">OUTPUT</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">long</span> duration, cm;</span><br><span class="line">  <span class="built_in">pinMode</span>(pingPin, <span class="literal">OUTPUT</span>);</span><br><span class="line">  <span class="built_in">digitalWrite</span>(pingPin, <span class="literal">LOW</span>);</span><br><span class="line">  <span class="built_in">delayMicroseconds</span>(<span class="number">2</span>);</span><br><span class="line">  <span class="built_in">digitalWrite</span>(pingPin, <span class="literal">HIGH</span>);</span><br><span class="line">  <span class="built_in">delayMicroseconds</span>(<span class="number">5</span>);</span><br><span class="line">  <span class="built_in">digitalWrite</span>(pingPin, <span class="literal">LOW</span>);</span><br><span class="line">  <span class="built_in">pinMode</span>(pingPin, <span class="literal">INPUT</span>);</span><br><span class="line">  duration = <span class="built_in">pulseIn</span>(pingPin, <span class="literal">HIGH</span>);</span><br><span class="line">  cm = <span class="built_in">microsecondestToCentimeters</span>(duration);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;Distance: &quot;</span>);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">print</span>(cm);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">&quot;cm&quot;</span>);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>();</span><br><span class="line">  <span class="keyword">if</span> (cm &lt; <span class="number">100</span>)&#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(ledPin, <span class="literal">HIGH</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(ledPin, <span class="literal">LOW</span>);</span><br><span class="line">&#125;</span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">100</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">long</span> <span class="title">microsecondestToCentimeters</span><span class="params">(<span class="type">long</span> microseconds)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> microseconds / <span class="number">29</span> / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>依此配置，執行後，結果為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-11-11-1.jpg"></li>
-</ul>
-<h2 id="電壓輸出"><a href="#電壓輸出" class="headerlink" title="電壓輸出"></a>電壓輸出</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="built_in">analogWrite</span>(<span class="number">10</span>,<span class="number">102</span>);&#125;  <span class="comment">// 指定10腳位輸出電壓為2v</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>電路依此配置，執行後，結果為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-11-11-2.jpg"></li>
-</ul>
-<h2 id="變頻控制LED燈光和馬達"><a href="#變頻控制LED燈光和馬達" class="headerlink" title="變頻控制LED燈光和馬達"></a>變頻控制LED燈光和馬達</h2><hr>
-<h1 id="2019年11月18日"><a href="#2019年11月18日" class="headerlink" title="2019年11月18日"></a>2019年11月18日</h1><h2 id="傳值、傳址、傳參考"><a href="#傳值、傳址、傳參考" class="headerlink" title="傳值、傳址、傳參考"></a>傳值、傳址、傳參考</h2><ol>
-<li>call by ralue 傳值</li>
-<li>call by adress 傳址</li>
-<li>call by reference 傳參考</li>
-</ol>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span>* x,<span class="type">int</span>* y)</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> temp = *x;</span><br><span class="line">  *x = *y;</span><br><span class="line">  *y = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> a=<span class="number">10</span>, b=<span class="number">20</span>;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">  <span class="comment">// 交換之前的a和b值</span></span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="built_in">String</span>(<span class="string">&quot;Before swap: &quot;</span>)+ <span class="string">&quot;\t&quot;</span> + a + <span class="string">&quot;\t&quot;</span> +b);</span><br><span class="line">  <span class="built_in">swap</span>(&amp;a,&amp;b);</span><br><span class="line">  <span class="comment">// 交換之後</span></span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="built_in">String</span>(<span class="string">&quot;After swap: &quot;</span>)+ <span class="string">&quot;\t&quot;</span> + a + <span class="string">&quot;\t&quot;</span> +b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="comment">// 這裡沒有程式</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>顯示如下：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Before swap: 	10	20</span><br><span class="line">After swap: 	20	10</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="8-1-函數"><a href="#8-1-函數" class="headerlink" title="8-1 函數"></a>8-1 函數</h2><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function">coid <span class="title">cirArea</span><span class="params">()</span></span>&#123;  <span class="comment">// cirArea 為自定義函數名稱</span></span><br><span class="line">  <span class="type">int</span> r=<span class="number">5</span>;</span><br><span class="line">  <span class="type">float</span> area = <span class="number">3.14</span> *r *r;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(area);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="built_in">cirArea</span>(); <span class="comment">//執行函數</span></span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">2000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 動手做8-1：建立自訂函數</span></span><br><span class="line"><span class="comment">// 詳細的程式說明，請參閱第八章，8-5頁。</span></span><br><span class="line"></span><br><span class="line"><span class="type">float</span> ans;   <span class="comment">// 接收運算結果的變數</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">cirArea</span><span class="params">(<span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="type">float</span> area = <span class="number">3.14</span> * r * r;</span><br><span class="line">  <span class="keyword">return</span> area;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">  ans = <span class="built_in">cirArea</span>(<span class="number">10</span>);   <span class="comment">// 計算半徑 10 的圓面積</span></span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(ans); <span class="comment">// 顯示結果</span></span><br><span class="line">  ans = <span class="built_in">cirArea</span>(<span class="number">20</span>);   <span class="comment">// 計算半徑 20 的圓面積</span></span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(ans); <span class="comment">// 顯示結果</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>執行結果如下<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">314.00</span><br><span class="line">1256.00</span><br></pre></td></tr></table></figure></li>
-</ul>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> result = <span class="number">0</span>;</span><br><span class="line"><span class="type">double</span> i;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">SumCC</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">double</span> SumC=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> n=<span class="number">1</span>; n&lt;<span class="number">101</span>;n++)&#123;</span><br><span class="line">    SumC=(n*<span class="number">5</span>/<span class="number">3</span>)+SumC;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> SumC;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">  <span class="keyword">for</span>( i=<span class="number">0</span> ; i&lt;<span class="number">300</span> ; i++)&#123;</span><br><span class="line">    result=<span class="built_in">SumCC</span>()+result;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="2019年12月02日"><a href="#2019年12月02日" class="headerlink" title="2019年12月02日"></a>2019年12月02日</h1><p><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-12-02-1.jpg"></p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">fun</span><span class="params">(<span class="type">double</span> t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">double</span> A=<span class="number">2</span>;</span><br><span class="line">  <span class="type">double</span> f=<span class="number">60</span>;</span><br><span class="line">  <span class="type">double</span> result;</span><br><span class="line">  <span class="type">double</span> pi=<span class="number">3.1415926</span>;</span><br><span class="line">  </span><br><span class="line">  result = A*<span class="built_in">sin</span>(<span class="number">2</span>*pi*f*t);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">double</span> t=<span class="number">0</span>;t&lt;=(<span class="number">1</span>);t=t+<span class="number">0.001</span>)</span><br><span class="line">  &#123;</span><br><span class="line">	<span class="type">double</span> result = <span class="built_in">fun</span>(t);</span><br><span class="line">	<span class="built_in">Serial</span>.<span class="built_in">println</span>(result);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>執行後，結果為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-12-02-2.jpg"></li>
-</ul>
-<p>&amp;ensp;</p>
-<hr>
-<blockquote>
-<p>t &#x3D; 0 度 ~ 360 度<br>x &#x3D; A sin ( 2 π f t ) + B cos ( 2 π f t )<br>A &#x3D; 0.2<br>B &#x3D; 0.3<br>f &#x3D; 60</p>
-</blockquote>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">fun</span><span class="params">(<span class="type">double</span> t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">double</span> A=<span class="number">0.2</span>;</span><br><span class="line">  <span class="type">double</span> B=<span class="number">0.3</span>;  </span><br><span class="line">  <span class="type">double</span> f=<span class="number">60</span>;</span><br><span class="line">  <span class="type">double</span> result;</span><br><span class="line">  <span class="type">double</span> pi=<span class="number">3.1415926</span>;</span><br><span class="line">  </span><br><span class="line">  result = A*<span class="built_in">sin</span>(<span class="number">2</span>*pi*f*t) + B*<span class="built_in">cos</span>(<span class="number">2</span>*pi*f*t);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>); <span class="comment">// 初始化序列埠，以9600bps速率連線</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">double</span> t=<span class="number">0</span>;t&lt;=(<span class="number">1</span>);t=t+<span class="number">0.001</span>)</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="type">double</span> result = <span class="built_in">fun</span>(t);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(result);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>執行後，結果為<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-12-02-3.jpg"></li>
-</ul>
-<h2 id="老師上課補充"><a href="#老師上課補充" class="headerlink" title="老師上課補充"></a>老師上課補充</h2><p>中斷 ➜ 最高權限</p>
-<h3 id="中斷"><a href="#中斷" class="headerlink" title="中斷"></a>中斷</h3><ul>
-<li>線路配置圖<br><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-12-02-4.jpg"></li>
-</ul>
-<p>程式內容：</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> pbInt = <span class="number">0</span>; <span class="comment">// 定義中斷引腳為0，也就是D2引腳</span></span><br><span class="line"><span class="type">int</span> ledOut = A0; <span class="comment">// 定義輸出指示燈引腳</span></span><br><span class="line"><span class="keyword">volatile</span> <span class="type">int</span> state = <span class="literal">LOW</span>; <span class="comment">// 定義默認輸入狀態</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">pinMode</span>(ledOut, <span class="literal">OUTPUT</span>); <span class="comment">// 置ledOut引腳為輸出狀態</span></span><br><span class="line"><span class="built_in">attachInterrupt</span>(pbInt, stateChange, CHANGE); <span class="comment">// 監視中斷輸入引腳的變化</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">delay</span>(<span class="number">100</span>); <span class="comment">// 什麼都不做，等待10毫秒</span></span><br><span class="line">&#125; <span class="comment">// 模擬長時間運行的進程或複雜的任務</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">stateChange</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">state = !state;</span><br><span class="line"><span class="built_in">digitalWrite</span>(ledOut, state);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2019年12月09日"><a href="#2019年12月09日" class="headerlink" title="2019年12月09日"></a>2019年12月09日</h1><h2 id="斜率"><a href="#斜率" class="headerlink" title="斜率"></a>斜率</h2><ol>
-<li>x^2+5</li>
-<li></li>
-</ol>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="2019年12月16日"><a href="#2019年12月16日" class="headerlink" title="2019年12月16日"></a>2019年12月16日</h1><h2 id="外部中斷（FALLING）"><a href="#外部中斷（FALLING）" class="headerlink" title="外部中斷（FALLING）"></a>外部中斷（FALLING）</h2><p><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-12-16-1.jpg" alt="線路布線圖"></p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">   ShakeSwitch</span></span><br><span class="line"><span class="comment">   中斷檢測振動感測器，控制LED燈亮滅</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> SensorLED = <span class="number">9</span>;       <span class="comment">//定義LED為數字引腳9</span></span><br><span class="line"><span class="type">int</span> SensorINPUT = <span class="number">2</span>;      <span class="comment">//連線震動開關到中斷0，也就是數字引腳2</span></span><br><span class="line"><span class="type">char</span> state = <span class="literal">LOW</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">pinMode</span>(SensorLED, <span class="literal">OUTPUT</span>);         <span class="comment">//LED為輸出模式</span></span><br><span class="line">  <span class="built_in">pinMode</span>(SensorINPUT, <span class="literal">INPUT_PULLUP</span>);        <span class="comment">//震動開關為輸入模式</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//下降沿觸發，觸發中斷0，呼叫blink函式</span></span><br><span class="line">  <span class="built_in">attachInterrupt</span>(<span class="number">0</span>, blink, FALLING);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (state == <span class="literal">HIGH</span>) &#123;        <span class="comment">// 如果state為HIGH</span></span><br><span class="line">    state = <span class="literal">LOW</span>;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(SensorLED, <span class="literal">HIGH</span>);  <span class="comment">// 亮燈</span></span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">500</span>);          <span class="comment">//延時500ms</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(SensorLED, <span class="literal">LOW</span>);    <span class="comment">// 否則，關燈</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">blink</span><span class="params">()</span> </span>&#123;               <span class="comment">//中斷函式blink()</span></span><br><span class="line">  state = !state;             <span class="comment">//一旦中斷觸發，state狀態反轉</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="進階-CHANGE"><a href="#進階-CHANGE" class="headerlink" title="進階(CHANGE)"></a>進階(CHANGE)</h3><p><img src="/images/%E5%8B%A4%E7%9B%8A(%E4%BA%8C%E4%B8%8A)Arduino%E8%A8%AD%E8%A8%88/%E8%A8%BB%E8%A7%A32019-12-16-1.jpg" alt="線路布線圖"></p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">   ShakeSwitch</span></span><br><span class="line"><span class="comment">   中斷檢測振動感測器，控制LED燈亮滅</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> SensorLED = <span class="number">9</span>;       <span class="comment">//定義LED為數字引腳9</span></span><br><span class="line"><span class="type">int</span> SensorINPUT = <span class="number">2</span>;      <span class="comment">//連線震動開關到中斷0，也就是數字引腳2</span></span><br><span class="line"><span class="type">char</span> state = <span class="literal">LOW</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">pinMode</span>(SensorLED, <span class="literal">OUTPUT</span>);         <span class="comment">//LED為輸出模式</span></span><br><span class="line">  <span class="built_in">pinMode</span>(SensorINPUT, <span class="literal">INPUT_PULLUP</span>);        <span class="comment">//震動開關為輸入模式</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//下降沿觸發，觸發中斷0，呼叫blink函式</span></span><br><span class="line">  <span class="built_in">attachInterrupt</span>(<span class="number">0</span>, blink, CHANGE);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (state == <span class="literal">HIGH</span>) &#123;        <span class="comment">// 如果state為HIGH</span></span><br><span class="line">    state = <span class="literal">LOW</span>;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(SensorLED, <span class="literal">HIGH</span>);  <span class="comment">// 亮燈</span></span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">500</span>);          <span class="comment">//延時500ms</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(SensorLED, <span class="literal">LOW</span>);    <span class="comment">// 否則，關燈</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">blink</span><span class="params">()</span> </span>&#123;               <span class="comment">//中斷函式blink()</span></span><br><span class="line">  state = !state;             <span class="comment">//一旦中斷觸發，state狀態反轉</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>勤益-上課筆記</category>
-      </categories>
-      <tags>
-        <tag>勤益科大</tag>
-        <tag>上課筆記</tag>
-        <tag>Arduino</tag>
       </tags>
   </entry>
   <entry>
