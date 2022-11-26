@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://i.imgur.com/dHFn8uL.png">
 <meta property="og:image" content="https://i.imgur.com/tcUokqe.png">
 <meta property="og:image" content="https://i.imgur.com/Cbisw1g.png">
-<meta property="og:image" content="https://i.imgur.com/hWXTWzo.png">
+<meta property="og:image" content="https://i.imgur.com/ATXvy2r.png">
 <meta property="og:image" content="https://i.imgur.com/hrfw7O7.png">
 <meta property="og:image" content="https://i.imgur.com/ADAsxOG.png">
 <meta property="og:image" content="https://i.imgur.com/ThJ9DWD.png">
@@ -306,7 +306,7 @@
 </ul>
 <h1 id="建立YOLOv5環境"><a href="#建立YOLOv5環境" class="headerlink" title="建立YOLOv5環境"></a>建立YOLOv5環境</h1><ol>
 <li><p>建立 <code>Python 新環境</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n yolov5 python=3.9.13</span><br><span class="line">conda activate yolov5</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n yolov5 python=3.8.13</span><br><span class="line">conda activate yolov5</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>至 <code>YOLOv5 的 Github</code> 下載：<a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5">https://github.com/ultralytics/yolov5</a><br><img src="https://i.imgur.com/rim65X6.png"></p>
 </li>
@@ -333,15 +333,18 @@
 </li>
 </ul>
 <ol start="7">
-<li>安裝<code>Pytorch-cuda</code>，官網：<a target="_blank" rel="noopener" href="https://pytorch.org/">https://pytorch.org/</a><br><code>Pytorch</code>官網歷史版本：<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/">https://pytorch.org/get-started/previous-versions/</a><br><font color="red">YOLOv5提供的安裝模組清單裡可以安裝v1.7.0以上版本，但YOLOv7提供的安裝模組清單裡，有提到版本不能是v1.12以上版本，避免版本影響程式的後續處理，所以要下載v1.11的Pytorch版本。</font></li>
+<li>安裝<code>Pytorch-cuda</code>，官網：<a target="_blank" rel="noopener" href="https://pytorch.org/">https://pytorch.org/</a><br><code>Pytorch</code>官網歷史版本：<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/">https://pytorch.org/get-started/previous-versions/</a><br><font color="red">YOLOv5提供的安裝模組清單裡可以安裝v1.7.0以上版本，但YOLOv7提供的安裝模組清單裡，<br>有提到版本不能是v1.12以上版本，避免版本影響程式的後續處理，所以要下載v1.11以下的Pytorch版本。</font><br>但為了追求穩定性，所以我選擇下載 <code>v1.8.2 with LTS support</code> 版本，<br>請注意<font color="red">Pytorch LTS 版本 1.8.2 僅支持 Python &lt;&#x3D; 3.8。</font></li>
 </ol>
-<p><img src="https://i.imgur.com/hWXTWzo.png"></p>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/ATXvy2r.png"></p>
+<ul>
+<li>安裝指令：<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch-lts -c conda-forge</span><br></pre></td></tr></table></figure>
 <ul>
 <li>示意圖：<br><img src="https://i.imgur.com/hrfw7O7.png"></li>
 </ul>
 </blockquote>
+</li>
+</ul>
 <ol start="8">
 <li>這樣 <code>YOLOv5</code> 的環境就建立完成了！</li>
 </ol>
@@ -431,7 +434,7 @@
 </ul>
 <hr>
 <h1 id="如果遇到錯誤問題，再來參考這邊"><a href="#如果遇到錯誤問題，再來參考這邊" class="headerlink" title="如果遇到錯誤問題，再來參考這邊"></a>如果遇到錯誤問題，再來參考這邊</h1><ol>
-<li><code>OMP: Error #15: Initializing libomp.dylib, but found libiomp5.dylib already initialize</code><br>在執行<code>train.py</code>程式內，最上方添加輸入此代碼：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">&quot;KMP_DUPLICATE_LIB_OK&quot;</span>]=<span class="string">&quot;TRUE&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><code>OMP: Error #15: Initializing libomp.dylib, but found libiomp5.dylib already initialize</code><br>在執行<code>train.py</code>程式內，最上方添加輸入此代碼：  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">&quot;KMP_DUPLICATE_LIB_OK&quot;</span>]=<span class="string">&quot;TRUE&quot;</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <ul>
 <li>示意圖：<br><img src="https://i.imgur.com/JJc2Ksx.png"></li>
@@ -440,8 +443,11 @@
 <li><code>UnicodeDecodeError: &#39;cp950&#39; codec can&#39;t decode byte 0x93 in position 25: illegal multibyte sequence</code><br>如果出現以上錯誤，這是Windows的問題，所以我們如果要避免類似問題發生，盡量在要編輯的<code>.yaml</code>檔案裡不要添加任何<font color="red"><del>中文(Chinese)</del></font>。</li>
 </ol>
 <ul>
-<li><code>注意：檔案必須為UTF-8的編碼</code><br><img src="https://i.imgur.com/wELOdNS.png"></li>
+<li><code>注意：檔案必須為UTF-8的編碼</code><br>  <img src="https://i.imgur.com/wELOdNS.png"></li>
 </ul>
+<ol start="3">
+<li><code>export GIT_PYTHON_REFRESH=quiet</code><br>  如果出現這個錯誤，代表缺乏安裝git的模組，請用以下Conda指令安裝：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install git</span><br></pre></td></tr></table></figure></li>
+</ol>
 
     </div>
 
