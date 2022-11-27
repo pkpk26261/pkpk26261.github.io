@@ -426,7 +426,7 @@
 </li>
 </ul>
 <hr>
-<h1 id="圖片-amp-影片-amp-串流【檢測】"><a href="#圖片-amp-影片-amp-串流【檢測】" class="headerlink" title="圖片&amp;影片&amp;串流【檢測】"></a>圖片&amp;影片&amp;串流【檢測】</h1><p>#除了可偵測圖片外，也能偵測影片、資料夾、webcam、即時串流、網頁上的影片</p>
+<h1 id="圖片-amp-影片-amp-串流【檢測】"><a href="#圖片-amp-影片-amp-串流【檢測】" class="headerlink" title="圖片&amp;影片&amp;串流【檢測】"></a>圖片&amp;影片&amp;串流【檢測】</h1><p>除了可偵測圖片外，也能偵測影片、資料夾、webcam、即時串流、網頁上的影片</p>
 <ul>
 <li>範例（即時辨識）：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python detect.py --weights best.pt --conf-thres 0.5 --img-size 640 --source 0 --view-img --exist-ok --name yolov5s-detect --project runs/detect</span><br></pre></td></tr></table></figure>
 <code>--weights</code> ：則可用來指定預訓練的模型。ex：<code>--weights best.pt</code><br><code>--source</code>：<code>file.jpg</code>#圖片、<code>file.mp4</code>#影片、<code>dir/</code>#資料夾、<code>0</code>#攝像頭(即時辨識)。<br><code>--img-size</code> ：可以指定影像的大小，對於偵測比較小的物件時，可以加大影像的大小，預設的影像大小為 640。<br><code>--iou-thres</code> ：是設定 IoU 門檻值。<br><code>--conf-thres</code> ：則是設定信心度門檻值。<br><code>--cuda device</code> ：預設0，可調整0,1,2,3 or cpu。<br><code>--save-txt</code>：保存結果到*.txt。<br><code>--save-conf</code>：在 –save-txt 標籤中保存信心。<br><code>--view-img</code>：顯示視窗圖片。<br><code>--nosave</code>：不保存圖片&#x2F;視頻。<br><code>--classes</code>：按類別過濾，如【–class 0, or –class 0 2 3】。<br><code>--update</code>：更新所有模型。<br><code>--project</code>：將驗證結果保存到自訂資料夾。ex：<code>--project runs/detect</code><br><code>--name</code>：將結果保存到項目&#x2F;名稱。ex：<code>--name yolov5s-detect</code><br><code>--exist-ok</code>：現有項目&#x2F;名稱ok，不遞增。<ul>
