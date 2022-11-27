@@ -584,31 +584,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python 勤益上課筆記</title>
-    <url>/2021/10/12/Python%E5%8B%A4%E7%9B%8A%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/</url>
-    <content><![CDATA[<p>這裡記錄上課學習筆記～</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<span id="more"></span>
-
-
-<h2 id="type型態的介紹"><a href="#type型態的介紹" class="headerlink" title="type型態的介紹"></a>type型態的介紹</h2><p><code>type</code>可以辨識該型態資料的類別！</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">資料型態的type辨識</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">a=<span class="number">9</span></span><br><span class="line"><span class="built_in">print</span>(a, <span class="built_in">type</span>(a)) <span class="comment">#a=int</span></span><br><span class="line"></span><br><span class="line">textA=&#123;<span class="string">&quot;測試&quot;</span>,<span class="string">&quot;勤益&quot;</span>,<span class="string">&quot;科大&quot;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(textA,<span class="built_in">type</span>(textA)) <span class="comment">#textA=set</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>輸出為：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">9 9</span><br><span class="line">&#123;&#x27;勤益&#x27;, &#x27;科大&#x27;, &#x27;測試&#x27;&#125; &lt;class &#x27;set&#x27;&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">t1=(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">t2=(t1,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line"><span class="built_in">print</span>(t2,<span class="built_in">type</span>(t2),<span class="built_in">len</span>(t2),<span class="built_in">len</span>(t1))</span><br><span class="line"><span class="built_in">print</span>(t2[<span class="number">0</span>][<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(t1[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<ul>
-<li>輸出為：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">((1, 2, 3), 5, 6) &lt;class &#x27;tuple&#x27;&gt; 3 3</span><br><span class="line">3</span><br><span class="line">1</span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Python 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++的上課學習筆記</title>
     <url>/2020/10/17/C++%E7%9A%84%E4%B8%8A%E8%AA%B2%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/</url>
     <content><![CDATA[<p>計算機程式(三上)-上課筆記</p>
@@ -1097,6 +1072,50 @@
       </tags>
   </entry>
   <entry>
+    <title>Python 勤益上課筆記</title>
+    <url>/2021/10/12/Python%E5%8B%A4%E7%9B%8A%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98/</url>
+    <content><![CDATA[<p>這裡記錄上課學習筆記～</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<span id="more"></span>
+
+
+<h2 id="type型態的介紹"><a href="#type型態的介紹" class="headerlink" title="type型態的介紹"></a>type型態的介紹</h2><p><code>type</code>可以辨識該型態資料的類別！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">資料型態的type辨識</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">a=<span class="number">9</span></span><br><span class="line"><span class="built_in">print</span>(a, <span class="built_in">type</span>(a)) <span class="comment">#a=int</span></span><br><span class="line"></span><br><span class="line">textA=&#123;<span class="string">&quot;測試&quot;</span>,<span class="string">&quot;勤益&quot;</span>,<span class="string">&quot;科大&quot;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(textA,<span class="built_in">type</span>(textA)) <span class="comment">#textA=set</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>輸出為：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">9 9</span><br><span class="line">&#123;&#x27;勤益&#x27;, &#x27;科大&#x27;, &#x27;測試&#x27;&#125; &lt;class &#x27;set&#x27;&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">t1=(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">t2=(t1,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line"><span class="built_in">print</span>(t2,<span class="built_in">type</span>(t2),<span class="built_in">len</span>(t2),<span class="built_in">len</span>(t1))</span><br><span class="line"><span class="built_in">print</span>(t2[<span class="number">0</span>][<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(t1[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>輸出為：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">((1, 2, 3), 5, 6) &lt;class &#x27;tuple&#x27;&gt; 3 3</span><br><span class="line">3</span><br><span class="line">1</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Python 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python封裝exe應用程式</title>
+    <url>/2022/11/17/Python%E5%B0%81%E8%A3%9Dexe/</url>
+    <content><![CDATA[<p><code>auto-py-to-exe</code>模組<br>說明：這一模組提供使用簡單的圖形界面和Python中的PyInstaller的 <code>.py</code> 到 <code>.exe</code> 轉換器。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<span id="more"></span>
+
+<p>用法:<br>首先電腦需有google chrome瀏覽器<br>1.打開<code>Anaconda Prompt CMD</code>，先</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install auto-py-to-exe</span><br></pre></td></tr></table></figure>
+
+<p>2.直接在<code>Anaconda Prompt CMD</code>輸入auto-py-to-exe，即會跑出該程式視窗<br><img src="https://i.imgur.com/lDYB3lF.png"></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tensorflow-gpu 安裝引導</title>
     <url>/2020/01/14/Tensorflow-gpu%20%E5%AE%89%E8%A3%9D%E5%BC%95%E5%B0%8E/</url>
     <content><![CDATA[<p>這裡將教大家如何在Windows、Linux的Anaconda安裝tensorflow-gpu。</p>
@@ -1240,198 +1259,6 @@
       </tags>
   </entry>
   <entry>
-    <title>YOLOv5 的 使用紀錄</title>
-    <url>/2022/11/24/YOLOv5%E7%9A%84%E4%BD%BF%E7%94%A8%E7%B4%80%E9%8C%84/</url>
-    <content><![CDATA[<p>YOLOv5 永成紀錄學習的地方！</p>
-<p><code>YOLOv7</code> 使用工業相機時會出現以下報錯：<code>1/1: 0...  success (640x480 at 0.00 FPS).</code>， <font color="red">0.00 FPS</font>表示無法即時更新畫面。<br><code>YOLOv5</code> 跟 <code>YOLOv7</code> 的使用指令代碼類似，由於 <code>YOLOv7</code> <font color="red">無法用工業相機即時辨識</font>，所以我改用 <code>YOLOv5</code> 來做之後的研究。</p>
-  <p>
-    <a align="center" href="https://ultralytics.com/yolov5" target="_blank">
-      <img width="1680" src="https://raw.githubusercontent.com/ultralytics/assets/master/yolov5/v70/splash.png"></a>
-  </p>
-
-<p><font color="blue">YOLOv5-ultralytics-Github</font>：<a href="https://github.com/ultralytics/yolov5">https://github.com/ultralytics/yolov5</a>  （<a href="https://github.com/ultralytics/yolov5/blob/master/.github/README_cn.md">Chinese 中文簡體說明</a>）<br>（若有新的了解，會持續更新～）</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<span id="more"></span>
-
-<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><ul>
-<li>使用<code>Anaconda</code>軟體，來進行本次研究。</li>
-<li>至<code>Anaconda</code>官網下載安裝最新版本：<a href="https://www.anaconda.com/products/distribution">https://www.anaconda.com/products/distribution</a></li>
-<li>安裝完成後，使用 <code>Anaconda Prompt (anaconda3)</code> 來建立YOLOv5環境。</li>
-</ul>
-<h1 id="建立YOLOv5環境"><a href="#建立YOLOv5環境" class="headerlink" title="建立YOLOv5環境"></a>建立YOLOv5環境</h1><ol>
-<li><p>建立 <code>Python 新環境</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda create -n yolov5 python=3.8.13</span><br><span class="line">conda activate yolov5</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>至 <code>YOLOv5 的 Github</code> 下載：<a href="https://github.com/ultralytics/yolov5">https://github.com/ultralytics/yolov5</a><br><img src="https://i.imgur.com/rim65X6.png"></p>
-</li>
-<li><p>解壓縮第2步驟下載的<code>yolov5-master.zip</code>的檔案</p>
-</li>
-<li><p>由於<code>YOLO</code>各版本都會有提供安裝模組清單，cd 至 <code>yolov5-master</code> 的資料夾，就可以安裝 YOLOv5 所需套件</p>
- <details>
- <summary>（點擊展開）<font color="red">如果有報錯 `warning: ignore distutils configs in setup.cfg due to encoding errors.`</font></summary>
- 解決辦法：
- <img width="850" src="https://i.imgur.com/dHFn8uL.png">
- </details>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
-<img width="640" src="https://i.imgur.com/tcUokqe.png">
-</li>
-<li><p>開啟<code>Anaconda Navigator</code>，切換環境到剛剛建立的<code>yolov5</code><br><img src="https://i.imgur.com/Cbisw1g.png" alt="Anaconda Navigator"></p>
-</li>
-<li><p>在上個步驟的<code>Anaconda Navigator</code>介面下安裝：</p>
-</li>
-</ol>
-<ul>
-<li><blockquote>
-<p><code>Notebook</code>、<code>CMD.exe Prompt</code><br>(若有其他需要，可在安裝其它的軟件)</p>
-</blockquote>
-</li>
-</ul>
-<ol start="7">
-<li>安裝<code>Pytorch-cuda</code>，官網：<a href="https://pytorch.org/">https://pytorch.org/</a><br><code>Pytorch</code>官網歷史版本：<a href="https://pytorch.org/get-started/previous-versions/">https://pytorch.org/get-started/previous-versions/</a><br><font color="red">YOLOv5提供的安裝模組清單裡可以安裝v1.7.0以上版本，但YOLOv7提供的安裝模組清單裡，<br>有提到版本不能是v1.12以上版本，避免版本影響程式的後續處理，所以要下載v1.11以下的Pytorch版本。</font><br>但為了追求穩定性，所以我選擇下載 <code>v1.8.2 with LTS support</code> 版本，<br>請注意<font color="red">Pytorch LTS 版本 1.8.2 僅支持 Python &lt;&#x3D; 3.8。</font></li>
-</ol>
-<p><img src="https://i.imgur.com/ATXvy2r.png"></p>
-<ul>
-<li>安裝指令：<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch-lts -c conda-forge</span><br></pre></td></tr></table></figure>
-<ul>
-<li>示意圖：<br><img src="https://i.imgur.com/hrfw7O7.png"></li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<ol start="8">
-<li>這樣 <code>YOLOv5</code> 的環境就建立完成了！</li>
-</ol>
-<hr>
-<h1 id="使用labelimg框圖片建立樣本"><a href="#使用labelimg框圖片建立樣本" class="headerlink" title="使用labelimg框圖片建立樣本"></a>使用labelimg框圖片建立樣本</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install labelimg</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>執行時，在<code>Anaconda Prompt (yolov5)</code>上輸入<code>labelimg</code>，會跳出以下畫面：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">labelimg</span><br></pre></td></tr></table></figure></li>
-</ul>
-<blockquote>
-<p><img src="https://i.imgur.com/ADAsxOG.png" alt="示意圖"></p>
-<ul>
-<li><code>Open Dir</code> 打開要訓練圖片的資料夾</li>
-<li><code>Change Save Dir</code> 放置儲存labels的資料夾<br>詳閱：<a href="https://blog.csdn.net/klaus_x/article/details/106854136">Yolo標註工具-labelImg的詳細使用</a></li>
-</ul>
-</blockquote>
-<hr>
-<h1 id="建立新增AI辨識的圖片樣本"><a href="#建立新增AI辨識的圖片樣本" class="headerlink" title="建立新增AI辨識的圖片樣本"></a>建立新增AI辨識的圖片樣本</h1><p>利用工業相機拍攝影片，將影片的每一幀數的畫面擷取成照片，每一張以名稱+編號數字存在影像資料夾。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"></span><br><span class="line">a=<span class="built_in">input</span>(<span class="string">&quot;請輸入資料夾名稱(請以英文命名)：&quot;</span>)</span><br><span class="line">b=<span class="built_in">input</span>(<span class="string">&quot;請輸入張數：&quot;</span>)</span><br><span class="line">enter=<span class="built_in">int</span>(b)</span><br><span class="line"><span class="comment"># ----------</span></span><br><span class="line"><span class="comment"># 開啟攝像頭</span></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>) <span class="comment"># 選擇運行攝影機(預設為0)</span></span><br><span class="line"><span class="comment"># 視訊大小設定，獲取幀寬度，獲取幀高度</span></span><br><span class="line">sz = (<span class="built_in">int</span>(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), <span class="built_in">int</span>(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)))</span><br><span class="line">fps = <span class="number">30</span></span><br><span class="line"><span class="comment"># 輸出格式</span></span><br><span class="line">fourcc = cv2.VideoWriter_fourcc(*<span class="string">&#x27;mp4v&#x27;</span>)</span><br><span class="line"><span class="comment"># open and set props</span></span><br><span class="line">vout = cv2.VideoWriter()</span><br><span class="line">vout.<span class="built_in">open</span>(a+<span class="string">&#x27;.mp4&#x27;</span>, fourcc, fps, sz, <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">cnt = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> cnt &lt;= enter:</span><br><span class="line">    _, frame = cap.read()</span><br><span class="line">    <span class="comment"># putText輸出到視訊上，各引數依次是：照片/新增的文字/左上角座標/字型/字型大小/顏色/字型粗細</span></span><br><span class="line">    cv2.putText(frame, <span class="built_in">str</span>(cnt), (<span class="number">10</span>, <span class="number">20</span>), cv2.FONT_HERSHEY_PLAIN, <span class="number">1</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">1</span>, cv2.LINE_AA)</span><br><span class="line">    vout.write(frame)</span><br><span class="line">    cnt += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    cv2.imshow(<span class="string">&#x27;vidio&#x27;</span>, frame)</span><br><span class="line">    cv2.waitKey(<span class="number">30</span>)</span><br><span class="line"></span><br><span class="line">vout.release()</span><br><span class="line">cap.release()</span><br><span class="line"><span class="comment"># ----------------------------------------</span></span><br><span class="line">video_path = a+<span class="string">&#x27;.mp4&#x27;</span></span><br><span class="line">output_folder = <span class="string">&#x27;./&#x27;</span>+a+<span class="string">&#x27;/&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> os.path.isdir(output_folder):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;刪除資料夾: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(output_folder))</span><br><span class="line">    shutil.rmtree(output_folder)</span><br><span class="line">	 </span><br><span class="line">os.mkdir(output_folder)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;新建資料夾: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(output_folder))</span><br><span class="line"><span class="comment"># ----------------------------------------</span></span><br><span class="line"><span class="comment"># 建立圖片</span></span><br><span class="line">vc = cv2.VideoCapture(video_path)</span><br><span class="line">fps = vc.get(cv2.CAP_PROP_FPS)</span><br><span class="line">frame_count = <span class="built_in">int</span>(vc.get(cv2.CAP_PROP_FRAME_COUNT))</span><br><span class="line"><span class="comment">#print(frame_count)</span></span><br><span class="line">video = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(frame_count):</span><br><span class="line">    vc.<span class="built_in">set</span>(<span class="number">1</span>, idx)</span><br><span class="line">    ret, frame = vc.read()</span><br><span class="line">    height, width, layers = frame.shape</span><br><span class="line">    size = (width, height)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> frame <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        file_name = <span class="string">&#x27;&#123;&#125;&#123;&#125;&#123;:04d&#125;.jpg&#x27;</span>.<span class="built_in">format</span>(output_folder,a,idx+<span class="number">1</span>)</span><br><span class="line">        cv2.imwrite(file_name, frame)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\rprocess: &#123;&#125;/&#123;&#125;&quot;</span>.<span class="built_in">format</span>(idx+<span class="number">1</span> , frame_count), end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">vc.release()</span><br><span class="line"><span class="comment"># ----------------------------------------</span></span><br><span class="line"><span class="comment"># 移動影片到資料夾</span></span><br><span class="line">shutil.move(<span class="built_in">str</span>(a)+<span class="string">&#x27;.mp4&#x27;</span>,<span class="built_in">str</span>(a))</span><br></pre></td></tr></table></figure>
-
-<p>參考：<a href="https://www.wongwonggoods.com/python/python_opencv/opencv-get-images-from-video/">【OpenCV】OpenCV 利用 python OpenCV 將一部影片拆成一張張圖片 sample code (內附程式碼) get images from video</a><br>詳閱：<a href="https://pkpk26261.github.io/2020/01/15/%E4%BD%BF%E7%94%A8%E7%9B%B8%E6%A9%9F%E6%94%9D%E5%BD%B1%E6%88%AA%E5%9C%96%E5%8F%96AI%E8%BE%A8%E8%AD%98%E6%A8%A3%E6%9C%AC/#more">【永成的學習部落格】使用相機攝影截圖取AI辨識樣本</a><br>這一篇是我過去所寫的一篇文章。</p>
-<hr>
-<h1 id="訓練-amp-驗證圖片"><a href="#訓練-amp-驗證圖片" class="headerlink" title="訓練&amp;驗證圖片"></a>訓練&amp;驗證圖片</h1><p>將要辨識的圖片庫，分為兩大類：</p>
-<ol>
-<li>訓練模型<br>圖片越多越好，但相對的訓練時間會越久。<br>將訓練圖案放在<code>.\yolov5-master\data\train</code>裡面</li>
-</ol>
-<ul>
-<li>示意圖：<br><img  src="https://i.imgur.com/ThJ9DWD.png" style="float:left"><br><br><br><br></li>
-</ul>
-<ol start="2">
-<li>驗證模型<br>圖片至少為20張以上。<br>將訓練圖案放在<code>.\yolov5-master\data\val</code>裡面</li>
-</ol>
-<ul>
-<li>示意圖：<br><img  src="https://i.imgur.com/mMfnTc3.png" style="float:left"><br><br><br><br></li>
-</ul>
-<p>通常訓練和驗證的張數比例，大概為 <code>7:3</code> 或 <code>8:2</code>。</p>
-<hr>
-<h1 id="框好的圖片【訓練】"><a href="#框好的圖片【訓練】" class="headerlink" title="框好的圖片【訓練】"></a>框好的圖片【訓練】</h1><h2 id="訓練自定義數據"><a href="#訓練自定義數據" class="headerlink" title="訓練自定義數據"></a>訓練自定義數據</h2><p><code>YOLOv5</code> 模型必須在標記數據上進行訓練，以便學習該數據中的對像類別。</p>
-<ol>
-<li><p>將<code>.\yolov5-master\data\coco.yaml</code>的檔案複製，將檔名取為<code>custom_data.yaml</code>，然後編輯檔案：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">train:</span> <span class="string">./data/train</span>  <span class="comment"># 訓練的圖片&amp;labels的資料夾索引</span></span><br><span class="line"><span class="attr">val:</span> <span class="string">./data/val</span>      <span class="comment"># 驗證的圖片&amp;labels的資料夾索引</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># number of classes  # 數字為訓練圖片類別的數量</span></span><br><span class="line"><span class="attr">nc:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># class names</span></span><br><span class="line"><span class="attr">names:</span> [ <span class="string">&#x27;bad&#x27;</span> ]     <span class="comment"># 類別名稱的設置</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>將<code>.\yolov5-master\models\yolov5s.yaml</code>的檔案複製，將檔名取為<code>yolov5s-custom.yaml</code>，然後編輯檔案：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># parameters</span></span><br><span class="line"><span class="attr">nc:</span> <span class="number">1</span>  <span class="comment"># number of classes # 數字為訓練圖片類別的數量</span></span><br><span class="line"><span class="attr">depth_multiple:</span> <span class="number">0.33</span>  <span class="comment"># model depth multiple # 模型深度倍數</span></span><br><span class="line"><span class="attr">width_multiple:</span> <span class="number">0.25</span>  <span class="comment"># layer channel multiple # 層通道多</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>到<code>YOLOv5-Github</code>的<code>Releases</code>地方下載兩個檔案（<code>yolov5s.pt</code>和<code>yolov5s.pt</code>），將檔案存放在<code>.\yolov5-master\weights</code>目錄下：</p>
- <details>
- <summary><font color="red">示意圖（點擊展開）</font></summary>
- 解決辦法：
- <img width="850" src="https://i.imgur.com/SlAnxDn.png">
- </details>
-
-<p> （如果沒有<code>.\yolov5-master\weights</code>目錄，請自行建立一個<code>weights</code>目錄）<br> 下載連結：<a href="https://github.com/ultralytics/yolov5/releases/tag/v7.0">https://github.com/ultralytics/yolov5/releases/tag/v7.0</a></p>
-<blockquote>
-<p><img src="https://i.imgur.com/Si6fOM4.png"></p>
-</blockquote>
-</li>
-</ol>
-<hr>
-<h2 id="選擇型號"><a href="#選擇型號" class="headerlink" title="選擇型號"></a>選擇型號</h2><p>選擇一個預訓練模型開始訓練。在這裡，我們選擇<code>YOLOv5s</code>，第二小和最快的可用模型。請參閱README表，了解所有型號的完整比較。<br><img src="https://i.imgur.com/B2QNOsP.png"><br><img src="https://i.imgur.com/PmvGt4I.png"></p>
-<h2 id="開始訓練"><a href="#開始訓練" class="headerlink" title="開始訓練"></a>開始訓練</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python train.py --workers 1 --device 0 --batch-size 11 --epochs 200 --imgsz 640 --data data/custom_data.yaml --hyp data/hyps/hyp.scratch-low.yaml --cfg models/yolov5s-custom.yaml --weights weights/yolov5s.pt --name yolov5s-train --project runs/train</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>訓練完之後，將最新的<code>.\runs\train</code>的目錄下，<code>yolov5s-train</code>最新資料夾之<code>.\weights\best.pt</code>的檔案複製到主目錄<code>.\yolov5-master</code>之下！<br><font color="red">這樣才能往下一個 detect (檢測) 步驟！！！</font>因為 detect (檢測) 需要讀取訓練完後的 <code>best.pt</code> 檔案。</p>
-</blockquote>
-<ul>
-<li>如示意圖：<br><img src="https://i.imgur.com/Hy5JDYv.png"></li>
-</ul>
-<p><code>--weights</code>：初始weights路徑。ex：<code>--weights yolov5s.pt</code><br><code>--cfg</code>：model.yaml路徑。 ex：<code>--cfg cfg/training/yolov5s-custom.yaml</code><br><code>--data</code>：data.yaml路徑。ex：<code>--data data/custom_data.yaml</code><br><code>--hyp</code>：hyperparameters路徑。ex：<code>--hyp data/hyp.scratch.custom.yaml</code><br><code>--epochs</code>：訓練回合，預設為100回合。ex：<code>--epochs 200</code><br><code>--batch-size</code>：預設&#x3D;16, 所有 GPU 的總批大小。ex：<code>--batch-size 11</code><br><code>--img-size</code>：[訓練, 測試] 圖片大小，預設為【640,640】。ex：<code>--img 640 640</code><br><code>--workers</code>：訓練資料讀取工作的最大數量。ex：<code>--workers 1</code><br><code>--name</code>：將訓練結果資料夾名稱命名。ex：<code>--name yolov5s-train</code><br><code>--project</code>：將訓練結果保存到自訂資料夾。ex：<code>--project runs/train</code><br><code>--device</code> ：預設0，可調整0,1,2,3 or cpu。ex：<code>--device 0</code></p>
-<ul>
-<li><font color="red">（查看更多指令說明）：</font><blockquote>
-<p>在 <code>Anaconda Prompt (yolov5)</code> 上輸入：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python train.py -h</span><br></pre></td></tr></table></figure></blockquote>
-</li>
-</ul>
-<blockquote>
-<p><font color="red" size="6px"> ● 訓練過程，請耐心等候～ </font><br><img src="https://i.imgur.com/kQQMQhs.png"></p>
-</blockquote>
-<hr>
-<h1 id="圖片-amp-影片-amp-串流【檢測】"><a href="#圖片-amp-影片-amp-串流【檢測】" class="headerlink" title="圖片&amp;影片&amp;串流【檢測】"></a>圖片&amp;影片&amp;串流【檢測】</h1><p>#除了可偵測圖片外，也能偵測影片、資料夾、webcam、即時串流、網頁上的影片</p>
-<ul>
-<li>範例（即時辨識）：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python detect.py --weights best.pt --conf-thres 0.5 --img-size 640 --source 0 --view-img --exist-ok --name yolov5s-detect --project runs/detect</span><br></pre></td></tr></table></figure>
-<code>--weights</code> ：則可用來指定預訓練的模型。ex：<code>--weights best.pt</code><br><code>--source</code>：<code>file.jpg</code>#圖片、<code>file.mp4</code>#影片、<code>dir/</code>#資料夾、<code>0</code>#攝像頭(即時辨識)。<br><code>--img-size</code> ：可以指定影像的大小，對於偵測比較小的物件時，可以加大影像的大小，預設的影像大小為 640。<br><code>--iou-thres</code> ：是設定 IoU 門檻值。<br><code>--conf-thres</code> ：則是設定信心度門檻值。<br><code>--cuda device</code> ：預設0，可調整0,1,2,3 or cpu。<br><code>--save-txt</code>：保存結果到*.txt。<br><code>--save-conf</code>：在 –save-txt 標籤中保存信心。<br><code>--view-img</code>：顯示視窗圖片。<br><code>--nosave</code>：不保存圖片&#x2F;視頻。<br><code>--classes</code>：按類別過濾，如【–class 0, or –class 0 2 3】。<br><code>--update</code>：更新所有模型。<br><code>--project</code>：將驗證結果保存到自訂資料夾。ex：<code>--project runs/detect</code><br><code>--name</code>：將結果保存到項目&#x2F;名稱。ex：<code>--name yolov5s-detect</code><br><code>--exist-ok</code>：現有項目&#x2F;名稱ok，不遞增。</li>
-<li><font color="red">（查看更多指令說明）：</font><blockquote>
-<p>在 <code>Anaconda Prompt (yolov5)</code> 上輸入：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python detect.py -h</span><br></pre></td></tr></table></figure></blockquote>
-</li>
-</ul>
-<hr>
-<h1 id="如果遇到錯誤問題，再來參考這邊"><a href="#如果遇到錯誤問題，再來參考這邊" class="headerlink" title="如果遇到錯誤問題，再來參考這邊"></a>如果遇到錯誤問題，再來參考這邊</h1><ol>
-<li><code>OMP: Error #15: Initializing libomp.dylib, but found libiomp5.dylib already initialize</code><br>在執行<code>train.py</code>程式內，最上方添加輸入此代碼：  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">&quot;KMP_DUPLICATE_LIB_OK&quot;</span>]=<span class="string">&quot;TRUE&quot;</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<ul>
-<li>示意圖：<br><img src="https://i.imgur.com/JJc2Ksx.png"></li>
-</ul>
-<ol start="2">
-<li><code>UnicodeDecodeError: &#39;cp950&#39; codec can&#39;t decode byte 0x93 in position 25: illegal multibyte sequence</code><br>如果出現以上錯誤，這是Windows的問題，所以我們如果要避免類似問題發生，盡量在要編輯的<code>.yaml</code>檔案裡不要添加任何<font color="red"><del>中文(Chinese)</del></font>。</li>
-</ol>
-<ul>
-<li><code>注意：檔案必須為UTF-8的編碼</code><br>  <img src="https://i.imgur.com/wELOdNS.png"></li>
-</ul>
-<ol start="3">
-<li><code>export GIT_PYTHON_REFRESH=quiet</code><br>  如果出現這個錯誤，代表缺乏安裝git的模組，請用以下Conda指令安裝：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda install git</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>YOLO</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>YOLO</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python封裝exe應用程式</title>
-    <url>/2022/11/17/Python%E5%B0%81%E8%A3%9Dexe/</url>
-    <content><![CDATA[<p><code>auto-py-to-exe</code>模組<br>說明：這一模組提供使用簡單的圖形界面和Python中的PyInstaller的 <code>.py</code> 到 <code>.exe</code> 轉換器。</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<span id="more"></span>
-
-<p>用法:<br>首先電腦需有google chrome瀏覽器<br>1.打開<code>Anaconda Prompt CMD</code>，先</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install auto-py-to-exe</span><br></pre></td></tr></table></figure>
-
-<p>2.直接在<code>Anaconda Prompt CMD</code>輸入auto-py-to-exe，即會跑出該程式視窗<br><img src="https://i.imgur.com/lDYB3lF.png"></p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu 執行 MATLAB 錯誤訊息 {Failed to load module &quot;canberra-gtk-module&quot;}</title>
     <url>/2020/05/03/Ubuntu%20%E5%9F%B7%E8%A1%8C%20MATLAB%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF/</url>
     <content><![CDATA[<p>這裡將教大家如何解決 <code>&#123;Failed to load module &quot;canberra-gtk-module&quot;&#125;</code> 的啟動錯誤問題。</p>
@@ -1481,71 +1308,198 @@
       </tags>
   </entry>
   <entry>
-    <title>使用shutil、os模組協助複製、移動、刪除、新增目錄或檔案</title>
-    <url>/2020/01/16/%E4%BD%BF%E7%94%A8shutil%E3%80%81os%E6%A8%A1%E7%B5%84%E5%8D%94%E5%8A%A9%E8%A4%87%E8%A3%BD%E3%80%81%E7%A7%BB%E5%8B%95%E3%80%81%E5%88%AA%E9%99%A4%E3%80%81%E6%96%B0%E5%A2%9E%E7%9B%AE%E9%8C%84%E6%88%96%E6%AA%94%E6%A1%88/</url>
-    <content><![CDATA[<p>使用shutil、os模組協助複製、移動、刪除、新增目錄或檔案</p>
+    <title>YOLOv5 的 使用紀錄</title>
+    <url>/2022/11/24/YOLOv5%E7%9A%84%E4%BD%BF%E7%94%A8%E7%B4%80%E9%8C%84/</url>
+    <content><![CDATA[<p>YOLOv5 永成紀錄學習的地方！</p>
+<p><code>YOLOv7</code> 使用工業相機時會出現以下報錯：<code>1/1: 0...  success (640x480 at 0.00 FPS).</code>， <font color="red">0.00 FPS</font>表示無法即時更新畫面。<br><code>YOLOv5</code> 跟 <code>YOLOv7</code> 的使用指令代碼類似，由於 <code>YOLOv7</code> <font color="red">無法用工業相機即時辨識</font>，所以我改用 <code>YOLOv5</code> 來做之後的研究。</p>
+  <p>
+    <a align="center" href="https://ultralytics.com/yolov5" target="_blank">
+      <img width="1680" src="https://raw.githubusercontent.com/ultralytics/assets/master/yolov5/v70/splash.png"></a>
+  </p>
+
+<p><font color="blue">YOLOv5-ultralytics-Github</font>：<a href="https://github.com/ultralytics/yolov5">https://github.com/ultralytics/yolov5</a>  （<a href="https://github.com/ultralytics/yolov5/blob/master/.github/README_cn.md">Chinese 中文簡體說明</a>）<br>（若有新的了解，會持續更新～）</p>
 <center>⬇⬇⬇文章開始⬇⬇⬇</center>
 <span id="more"></span>
 
-<hr>
-<h1 id="shutil模組"><a href="#shutil模組" class="headerlink" title="shutil模組"></a>shutil模組</h1><ul>
-<li>安裝模組: <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install pytest-shutil</span><br></pre></td></tr></table></figure></li>
+<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><ul>
+<li>使用<code>Anaconda</code>軟體，來進行本次研究。</li>
+<li>至<code>Anaconda</code>官網下載安裝最新版本：<a href="https://www.anaconda.com/products/distribution">https://www.anaconda.com/products/distribution</a></li>
+<li>安裝完成後，使用 <code>Anaconda Prompt (anaconda3)</code> 來建立YOLOv5環境。</li>
 </ul>
-<ol>
-<li><p>複製資料夾所有檔案至新建資料夾內</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">shutil.copytree(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A和B都可能是目錄位置，但B必須為不存在</span></span><br><span class="line"><span class="comment"># shutil.copytree會自動產生B目錄，如果B目錄存在會出現錯誤訊息。</span></span><br></pre></td></tr></table></figure>
+<h1 id="建立YOLOv5環境"><a href="#建立YOLOv5環境" class="headerlink" title="建立YOLOv5環境"></a>建立YOLOv5環境</h1><ol>
+<li><p>建立 <code>Python 新環境</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda create -n yolov5 python=3.8.13</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda activate yolov5</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>至 <code>YOLOv5 的 Github</code> 下載：<a href="https://github.com/ultralytics/yolov5">https://github.com/ultralytics/yolov5</a><br><img src="https://i.imgur.com/rim65X6.png"></p>
+</li>
+<li><p>解壓縮第2步驟下載的<code>yolov5-master.zip</code>的檔案</p>
+</li>
+<li><p>由於<code>YOLO</code>各版本都會有提供安裝模組清單，cd 至 <code>yolov5-master</code> 的資料夾，就可以安裝 YOLOv5 所需套件</p>
+ <details>
+ <summary>（點擊展開）<font color="red">如果有報錯 `warning: ignore distutils configs in setup.cfg due to encoding errors.`</font></summary>
+ 解決辦法：
+ <img width="850" src="https://i.imgur.com/dHFn8uL.png">
+ </details>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+<img width="640" src="https://i.imgur.com/tcUokqe.png">
+</li>
+<li><p>開啟<code>Anaconda Navigator</code>，切換環境到剛剛建立的<code>yolov5</code><br><img src="https://i.imgur.com/Cbisw1g.png" alt="Anaconda Navigator"></p>
+</li>
+<li><p>在上個步驟的<code>Anaconda Navigator</code>介面下安裝：</p>
+</li>
+</ol>
 <ul>
-<li>參考寫法  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copytree(<span class="string">&#x27;./test1/&#x27;</span>,<span class="string">&#x27;D:/test2/&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><blockquote>
+<p><code>Notebook</code>、<code>CMD.exe Prompt</code><br>(若有其他需要，可在安裝其它的軟件)</p>
+</blockquote>
+</li>
 </ul>
-</li>
-<li><p>刪除目錄及目錄內所有檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.rmtree(<span class="string">&#x27;./test/&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>複製文件</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copyfile(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A和B只能是檔案，不能是目錄位址</span></span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>安裝<code>Pytorch-cuda</code>，官網：<a href="https://pytorch.org/">https://pytorch.org/</a><br><code>Pytorch</code>官網歷史版本：<a href="https://pytorch.org/get-started/previous-versions/">https://pytorch.org/get-started/previous-versions/</a><br><font color="red">YOLOv5提供的安裝模組清單裡可以安裝v1.7.0以上版本，但YOLOv7提供的安裝模組清單裡，<br>有提到版本不能是v1.12以上版本，避免版本影響程式的後續處理，所以要下載v1.11以下的Pytorch版本。</font><br>但為了追求穩定性，所以我選擇下載 <code>v1.8.2 with LTS support</code> 版本，<br>請注意<font color="red">Pytorch LTS 版本 1.8.2 僅支持 Python &lt;&#x3D; 3.8。</font></li>
+</ol>
+<p><img src="https://i.imgur.com/ATXvy2r.png"></p>
 <ul>
-<li>參考寫法  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">shutil.copyfile(<span class="string">&#x27;test1.jpg&#x27;</span>,<span class="string">&#x27;test2.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>安裝指令：<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch-lts -c conda-forge</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示意圖：<br><img src="https://i.imgur.com/hrfw7O7.png"></li>
 </ul>
+</blockquote>
 </li>
-<li><p>複製目錄或者複製目錄內的檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copy(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A只能是目錄，B可以是目錄或檔案</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>移動文件</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.move(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A可以是目錄或檔案，B只能是目錄</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="8">
+<li>這樣 <code>YOLOv5</code> 的環境就建立完成了！</li>
 </ol>
 <hr>
-<h1 id="os模組"><a href="#os模組" class="headerlink" title="os模組"></a>os模組</h1><p><code>不必安裝，內建模組</code></p>
+<h1 id="使用labelimg框圖片建立樣本"><a href="#使用labelimg框圖片建立樣本" class="headerlink" title="使用labelimg框圖片建立樣本"></a>使用labelimg框圖片建立樣本</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install labelimg</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>執行時，在<code>Anaconda Prompt (yolov5)</code>上輸入<code>labelimg</code>，會跳出以下畫面：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">labelimg</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><img src="https://i.imgur.com/ADAsxOG.png" alt="示意圖"></p>
+<ul>
+<li><code>Open Dir</code> 打開要訓練圖片的資料夾</li>
+<li><code>Change Save Dir</code> 放置儲存labels的資料夾<br>詳閱：<a href="https://blog.csdn.net/klaus_x/article/details/106854136">Yolo標註工具-labelImg的詳細使用</a></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="建立新增AI辨識的圖片樣本"><a href="#建立新增AI辨識的圖片樣本" class="headerlink" title="建立新增AI辨識的圖片樣本"></a>建立新增AI辨識的圖片樣本</h1><p>利用工業相機拍攝影片，將影片的每一幀數的畫面擷取成照片，每一張以名稱+編號數字存在影像資料夾。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"></span><br><span class="line">a=<span class="built_in">input</span>(<span class="string">&quot;請輸入資料夾名稱(請以英文命名)：&quot;</span>)</span><br><span class="line">b=<span class="built_in">input</span>(<span class="string">&quot;請輸入張數：&quot;</span>)</span><br><span class="line">enter=<span class="built_in">int</span>(b)</span><br><span class="line"><span class="comment"># ----------</span></span><br><span class="line"><span class="comment"># 開啟攝像頭</span></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>) <span class="comment"># 選擇運行攝影機(預設為0)</span></span><br><span class="line"><span class="comment"># 視訊大小設定，獲取幀寬度，獲取幀高度</span></span><br><span class="line">sz = (<span class="built_in">int</span>(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), <span class="built_in">int</span>(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)))</span><br><span class="line">fps = <span class="number">30</span></span><br><span class="line"><span class="comment"># 輸出格式</span></span><br><span class="line">fourcc = cv2.VideoWriter_fourcc(*<span class="string">&#x27;mp4v&#x27;</span>)</span><br><span class="line"><span class="comment"># open and set props</span></span><br><span class="line">vout = cv2.VideoWriter()</span><br><span class="line">vout.<span class="built_in">open</span>(a+<span class="string">&#x27;.mp4&#x27;</span>, fourcc, fps, sz, <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">cnt = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> cnt &lt;= enter:</span><br><span class="line">    _, frame = cap.read()</span><br><span class="line">    <span class="comment"># putText輸出到視訊上，各引數依次是：照片/新增的文字/左上角座標/字型/字型大小/顏色/字型粗細</span></span><br><span class="line">    cv2.putText(frame, <span class="built_in">str</span>(cnt), (<span class="number">10</span>, <span class="number">20</span>), cv2.FONT_HERSHEY_PLAIN, <span class="number">1</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">1</span>, cv2.LINE_AA)</span><br><span class="line">    vout.write(frame)</span><br><span class="line">    cnt += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    cv2.imshow(<span class="string">&#x27;vidio&#x27;</span>, frame)</span><br><span class="line">    cv2.waitKey(<span class="number">30</span>)</span><br><span class="line"></span><br><span class="line">vout.release()</span><br><span class="line">cap.release()</span><br><span class="line"><span class="comment"># ----------------------------------------</span></span><br><span class="line">video_path = a+<span class="string">&#x27;.mp4&#x27;</span></span><br><span class="line">output_folder = <span class="string">&#x27;./&#x27;</span>+a+<span class="string">&#x27;/&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> os.path.isdir(output_folder):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;刪除資料夾: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(output_folder))</span><br><span class="line">    shutil.rmtree(output_folder)</span><br><span class="line">	 </span><br><span class="line">os.mkdir(output_folder)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;新建資料夾: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(output_folder))</span><br><span class="line"><span class="comment"># ----------------------------------------</span></span><br><span class="line"><span class="comment"># 建立圖片</span></span><br><span class="line">vc = cv2.VideoCapture(video_path)</span><br><span class="line">fps = vc.get(cv2.CAP_PROP_FPS)</span><br><span class="line">frame_count = <span class="built_in">int</span>(vc.get(cv2.CAP_PROP_FRAME_COUNT))</span><br><span class="line"><span class="comment">#print(frame_count)</span></span><br><span class="line">video = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(frame_count):</span><br><span class="line">    vc.<span class="built_in">set</span>(<span class="number">1</span>, idx)</span><br><span class="line">    ret, frame = vc.read()</span><br><span class="line">    height, width, layers = frame.shape</span><br><span class="line">    size = (width, height)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> frame <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        file_name = <span class="string">&#x27;&#123;&#125;&#123;&#125;&#123;:04d&#125;.jpg&#x27;</span>.<span class="built_in">format</span>(output_folder,a,idx+<span class="number">1</span>)</span><br><span class="line">        cv2.imwrite(file_name, frame)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\rprocess: &#123;&#125;/&#123;&#125;&quot;</span>.<span class="built_in">format</span>(idx+<span class="number">1</span> , frame_count), end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">vc.release()</span><br><span class="line"><span class="comment"># ----------------------------------------</span></span><br><span class="line"><span class="comment"># 移動影片到資料夾</span></span><br><span class="line">shutil.move(<span class="built_in">str</span>(a)+<span class="string">&#x27;.mp4&#x27;</span>,<span class="built_in">str</span>(a))</span><br></pre></td></tr></table></figure>
+
+<p>參考：<a href="https://www.wongwonggoods.com/python/python_opencv/opencv-get-images-from-video/">【OpenCV】OpenCV 利用 python OpenCV 將一部影片拆成一張張圖片 sample code (內附程式碼) get images from video</a><br>詳閱：<a href="https://pkpk26261.github.io/2020/01/15/%E4%BD%BF%E7%94%A8%E7%9B%B8%E6%A9%9F%E6%94%9D%E5%BD%B1%E6%88%AA%E5%9C%96%E5%8F%96AI%E8%BE%A8%E8%AD%98%E6%A8%A3%E6%9C%AC/#more">【永成的學習部落格】使用相機攝影截圖取AI辨識樣本</a><br>這一篇是我過去所寫的一篇文章。</p>
+<hr>
+<h1 id="訓練-amp-驗證圖片"><a href="#訓練-amp-驗證圖片" class="headerlink" title="訓練&amp;驗證圖片"></a>訓練&amp;驗證圖片</h1><p>將要辨識的圖片庫，分為兩大類：</p>
 <ol>
-<li><p>刪除單個文件</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.remove(<span class="string">&#x27;test.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判斷資料夾(目錄)是否存在</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(<span class="string">&#x27;./test/&#x27;</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;資料夾不存在&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新增資料夾(單層目錄)</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.mkdir(<span class="string">&#x27;./test/&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新增資料夾(多層目錄)<br><code>如果前一層test資料夾不存在，將會自動新建</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.makedirs(<span class="string">&#x27;./test/hello/&#x27;</span>,exist_ok=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># os.makedirs的exist_ok預設為False，如果資料夾存在的話，將會發生錯誤訊息，因此要記得修改為True，無論目錄是否存在，都會自動判斷新增。</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>合併目錄位址</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.join(<span class="string">&#x27;./test/&#x27;</span>,<span class="string">&#x27;hello,jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<li>訓練模型<br>圖片越多越好，但相對的訓練時間會越久。<br>將訓練圖案放在<code>.\yolov5-master\data\train</code>裡面</li>
+</ol>
 <ul>
-<li>輸出為<code>./test/hello,jpg</code></li>
+<li>示意圖：<br><img  src="https://i.imgur.com/ThJ9DWD.png" style="float:left"><br><br><br><br></li>
 </ul>
-<p>&amp;ensp;</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.join(<span class="string">&#x27;./testA/&#x27;</span>,<span class="string">&#x27;./testB/,&#x27;</span>hello.jpg<span class="string">&#x27;)</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>驗證模型<br>圖片至少為20張以上。<br>將訓練圖案放在<code>.\yolov5-master\data\val</code>裡面</li>
+</ol>
 <ul>
-<li>輸出為<code>./testA/testB/hello.jpg</code></li>
+<li>示意圖：<br><img  src="https://i.imgur.com/mMfnTc3.png" style="float:left"><br><br><br><br></li>
+</ul>
+<p>通常訓練和驗證的張數比例，大概為 <code>7:3</code> 或 <code>8:2</code>。</p>
+<hr>
+<h1 id="框好的圖片【訓練】"><a href="#框好的圖片【訓練】" class="headerlink" title="框好的圖片【訓練】"></a>框好的圖片【訓練】</h1><h2 id="訓練自定義數據"><a href="#訓練自定義數據" class="headerlink" title="訓練自定義數據"></a>訓練自定義數據</h2><p><code>YOLOv5</code> 模型必須在標記數據上進行訓練，以便學習該數據中的對像類別。</p>
+<ol>
+<li><p>將<code>.\yolov5-master\data\coco.yaml</code>的檔案複製，將檔名取為<code>custom_data.yaml</code>，然後編輯檔案：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">train:</span> <span class="string">./data/train</span>  <span class="comment"># 訓練的圖片&amp;labels的資料夾索引</span></span><br><span class="line"><span class="attr">val:</span> <span class="string">./data/val</span>      <span class="comment"># 驗證的圖片&amp;labels的資料夾索引</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># number of classes  # 數字為訓練圖片類別的數量</span></span><br><span class="line"><span class="attr">nc:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># class names</span></span><br><span class="line"><span class="attr">names:</span> [ <span class="string">&#x27;bad&#x27;</span> ]     <span class="comment"># 類別名稱的設置</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>將<code>.\yolov5-master\models\yolov5s.yaml</code>的檔案複製，將檔名取為<code>yolov5s-custom.yaml</code>，然後編輯檔案：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># parameters</span></span><br><span class="line"><span class="attr">nc:</span> <span class="number">1</span>  <span class="comment"># number of classes # 數字為訓練圖片類別的數量</span></span><br><span class="line"><span class="attr">depth_multiple:</span> <span class="number">0.33</span>  <span class="comment"># model depth multiple # 模型深度倍數</span></span><br><span class="line"><span class="attr">width_multiple:</span> <span class="number">0.25</span>  <span class="comment"># layer channel multiple # 層通道多</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>到<code>YOLOv5-Github</code>的<code>Releases</code>地方下載兩個檔案（<code>yolov5s.pt</code>和<code>yolov5s.pt</code>），將檔案存放在<code>.\yolov5-master\weights</code>目錄下：</p>
+ <details>
+ <summary><font color="red">示意圖（點擊展開）</font></summary>
+ 解決辦法：
+ <img width="850" src="https://i.imgur.com/SlAnxDn.png">
+ </details>
+
+<p> （如果沒有<code>.\yolov5-master\weights</code>目錄，請自行建立一個<code>weights</code>目錄）<br> 下載連結：<a href="https://github.com/ultralytics/yolov5/releases/tag/v7.0">https://github.com/ultralytics/yolov5/releases/tag/v7.0</a></p>
+<blockquote>
+<p><img src="https://i.imgur.com/Si6fOM4.png"></p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h2 id="選擇型號"><a href="#選擇型號" class="headerlink" title="選擇型號"></a>選擇型號</h2><p>選擇一個預訓練模型開始訓練。在這裡，我們選擇<code>YOLOv5s</code>，第二小和最快的可用模型。請參閱README表，了解所有型號的完整比較。<br><img src="https://i.imgur.com/B2QNOsP.png"><br><img src="https://i.imgur.com/PmvGt4I.png"></p>
+<h2 id="開始訓練"><a href="#開始訓練" class="headerlink" title="開始訓練"></a>開始訓練</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python train.py --workers 1 --device 0 --batch-size 11 --epochs 200 --imgsz 640 --data data/custom_data.yaml --hyp data/hyps/hyp.scratch-low.yaml --cfg models/yolov5s-custom.yaml --weights weights/yolov5s.pt --name yolov5s-train --project runs/train</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>訓練完之後，將最新的<code>.\runs\train</code>的目錄下，<code>yolov5s-train</code>最新資料夾之<code>.\weights\best.pt</code>的檔案複製到主目錄<code>.\yolov5-master</code>之下！<br><font color="red">這樣才能往下一個 detect (檢測) 步驟！！！</font>因為 detect (檢測) 需要讀取訓練完後的 <code>best.pt</code> 檔案。</p>
+</blockquote>
+<ul>
+<li><p>如示意圖：<br><img src="https://i.imgur.com/Hy5JDYv.png"></p>
+<p><code>--weights</code>：初始weights路徑。ex：<code>--weights yolov5s.pt</code><br><code>--cfg</code>：model.yaml路徑。 ex：<code>--cfg cfg/training/yolov5s-custom.yaml</code><br><code>--data</code>：data.yaml路徑。ex：<code>--data data/custom_data.yaml</code><br><code>--hyp</code>：hyperparameters路徑。ex：<code>--hyp data/hyp.scratch.custom.yaml</code><br><code>--epochs</code>：訓練回合，預設為100回合。ex：<code>--epochs 200</code><br><code>--batch-size</code>：預設&#x3D;16, 所有 GPU 的總批大小。ex：<code>--batch-size 11</code><br><code>--img-size</code>：[訓練, 測試] 圖片大小，預設為【640,640】。ex：<code>--img 640 640</code><br><code>--workers</code>：訓練資料讀取工作的最大數量。ex：<code>--workers 1</code><br><code>--name</code>：將訓練結果資料夾名稱命名。ex：<code>--name yolov5s-train</code><br><code>--project</code>：將訓練結果保存到自訂資料夾。ex：<code>--project runs/train</code><br><code>--device</code> ：預設0，可調整0,1,2,3 or cpu。ex：<code>--device 0</code></p>
+<ul>
+<li><font color="red">（查看更多指令說明）：</font><blockquote>
+<p>在 <code>Anaconda Prompt (yolov5)</code> 上輸入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python train.py -h</span><br></pre></td></tr></table></figure>
+
+<p><font color="red" size="6px"> ● 訓練過程，請耐心等候～ </font><br><img src="https://i.imgur.com/kQQMQhs.png"></p>
+</blockquote>
+</li>
 </ul>
 </li>
+</ul>
+<hr>
+<h1 id="圖片-amp-影片-amp-串流【檢測】"><a href="#圖片-amp-影片-amp-串流【檢測】" class="headerlink" title="圖片&amp;影片&amp;串流【檢測】"></a>圖片&amp;影片&amp;串流【檢測】</h1><p>#除了可偵測圖片外，也能偵測影片、資料夾、webcam、即時串流、網頁上的影片</p>
+<ul>
+<li>範例（即時辨識）：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python detect.py --weights best.pt --conf-thres 0.5 --img-size 640 --source 0 --view-img --exist-ok --name yolov5s-detect --project runs/detect</span><br></pre></td></tr></table></figure>
+<code>--weights</code> ：則可用來指定預訓練的模型。ex：<code>--weights best.pt</code><br><code>--source</code>：<code>file.jpg</code>#圖片、<code>file.mp4</code>#影片、<code>dir/</code>#資料夾、<code>0</code>#攝像頭(即時辨識)。<br><code>--img-size</code> ：可以指定影像的大小，對於偵測比較小的物件時，可以加大影像的大小，預設的影像大小為 640。<br><code>--iou-thres</code> ：是設定 IoU 門檻值。<br><code>--conf-thres</code> ：則是設定信心度門檻值。<br><code>--cuda device</code> ：預設0，可調整0,1,2,3 or cpu。<br><code>--save-txt</code>：保存結果到*.txt。<br><code>--save-conf</code>：在 –save-txt 標籤中保存信心。<br><code>--view-img</code>：顯示視窗圖片。<br><code>--nosave</code>：不保存圖片&#x2F;視頻。<br><code>--classes</code>：按類別過濾，如【–class 0, or –class 0 2 3】。<br><code>--update</code>：更新所有模型。<br><code>--project</code>：將驗證結果保存到自訂資料夾。ex：<code>--project runs/detect</code><br><code>--name</code>：將結果保存到項目&#x2F;名稱。ex：<code>--name yolov5s-detect</code><br><code>--exist-ok</code>：現有項目&#x2F;名稱ok，不遞增。<ul>
+<li><font color="red">（查看更多指令說明）：</font><blockquote>
+<p>在 <code>Anaconda Prompt (yolov5)</code> 上輸入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python detect.py -h</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="如果遇到錯誤問題，再來參考這邊"><a href="#如果遇到錯誤問題，再來參考這邊" class="headerlink" title="如果遇到錯誤問題，再來參考這邊"></a>如果遇到錯誤問題，再來參考這邊</h1><ol>
+<li><code>OMP: Error #15: Initializing libomp.dylib, but found libiomp5.dylib already initialize</code><blockquote>
+<ul>
+<li>辦法１：<br>在執行<code>train.py</code>程式內，最上方添加輸入此代碼： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">&quot;KMP_DUPLICATE_LIB_OK&quot;</span>]=<span class="string">&quot;TRUE&quot;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>示意圖：<br> <img src="https://i.imgur.com/JJc2Ksx.png"></li>
+</ul>
+</blockquote>
+</li>
+<li>辦法２：<br>刪除<code>\Anaconda3\pkgs</code>目錄下所有的檔案<blockquote>
+<ul>
+<li>PKGS的概念：<br> 在anaconda中，最安全的安裝和升級命令是<code>conda install</code>，而python中是<code>pip install</code>，<br> 但在anaconda下依然可以使用pip升級，這樣一些依賴可能會因為更新後的版本過高出現異常，所以在安裝包的時候，優先選擇<code>conda install</code>。<br> 在conda的設計中，目錄’pkgs’是下載、存放緩存，以及提取下載的conda包的地方。同時，anaconda一起攜帶的包也會放在這裡。<br> 它有一個非常關鍵的作用：我們在構建一些<code>envs</code>(環境)的時候，對一些包的依賴會通過硬盤鏈接鏈接到<code>pkgs目錄</code>，這樣虛擬環境生成的速度大大加快，佔用空間就大大減小了！</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li><code>UnicodeDecodeError: &#39;cp950&#39; codec can&#39;t decode byte 0x93 in position 25: illegal multibyte sequence</code><br>如果出現以上錯誤，這是Windows的問題，所以我們如果要避免類似問題發生，盡量在要編輯的<code>.yaml</code>檔案裡不要添加任何<font color="red"><del>中文(Chinese)</del></font>。</li>
+</ol>
+<ul>
+<li><code>注意：檔案必須為UTF-8的編碼</code><br>  <img src="https://i.imgur.com/wELOdNS.png"></li>
+</ul>
+<hr>
+<ol start="3">
+<li><code>export GIT_PYTHON_REFRESH=quiet</code><br>  如果出現這個錯誤，代表缺乏安裝git的模組，請用以下Conda指令安裝：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda install git</span><br></pre></td></tr></table></figure></li>
 </ol>
 ]]></content>
       <categories>
-        <category>Python 程式語言學習</category>
+        <category>Python</category>
+        <category>YOLO</category>
       </categories>
       <tags>
         <tag>Python</tag>
+        <tag>YOLO</tag>
       </tags>
   </entry>
   <entry>
@@ -1702,6 +1656,97 @@
       </tags>
   </entry>
   <entry>
+    <title>下載相關圖片數據庫</title>
+    <url>/2022/11/12/%E4%B8%8B%E8%BC%89%E5%9C%96%E7%89%87%E6%95%B8%E6%93%9A%E5%BA%AB/</url>
+    <content><![CDATA[<p>從 Google 圖像中搜索圖像自動將它們下載到您的計算機上！</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<span id="more"></span>
+
+<h1 id="安裝套件"><a href="#安裝套件" class="headerlink" title="安裝套件"></a>安裝套件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install simple_image_download==0.4</span><br></pre></td></tr></table></figure>
+<h1 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h1><p>建立一個<code>dowmload_images.py</code>檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> simple_image_download <span class="keyword">import</span> simple_image_download <span class="keyword">as</span> simp</span><br><span class="line"></span><br><span class="line">response = simp.simple_image_download</span><br><span class="line"></span><br><span class="line">keywords = [<span class="string">&quot;白爛貓&quot;</span>,<span class="string">&quot;LanLanCat&quot;</span>]   <span class="comment">#找出類似名稱圖庫相片</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> kw <span class="keyword">in</span> keywords:</span><br><span class="line">    response().download(kw,<span class="number">30</span>)      <span class="comment">#下載產出圖片總張數</span></span><br></pre></td></tr></table></figure>
+
+<p>Python 執行<code>dowmload_images.py</code>檔案：</p>
+<ul>
+<li>示意圖<br><img src="https://i.imgur.com/yBwC22z.png"></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用shutil、os模組協助複製、移動、刪除、新增目錄或檔案</title>
+    <url>/2020/01/16/%E4%BD%BF%E7%94%A8shutil%E3%80%81os%E6%A8%A1%E7%B5%84%E5%8D%94%E5%8A%A9%E8%A4%87%E8%A3%BD%E3%80%81%E7%A7%BB%E5%8B%95%E3%80%81%E5%88%AA%E9%99%A4%E3%80%81%E6%96%B0%E5%A2%9E%E7%9B%AE%E9%8C%84%E6%88%96%E6%AA%94%E6%A1%88/</url>
+    <content><![CDATA[<p>使用shutil、os模組協助複製、移動、刪除、新增目錄或檔案</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<span id="more"></span>
+
+<hr>
+<h1 id="shutil模組"><a href="#shutil模組" class="headerlink" title="shutil模組"></a>shutil模組</h1><ul>
+<li>安裝模組: <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install pytest-shutil</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li><p>複製資料夾所有檔案至新建資料夾內</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">shutil.copytree(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A和B都可能是目錄位置，但B必須為不存在</span></span><br><span class="line"><span class="comment"># shutil.copytree會自動產生B目錄，如果B目錄存在會出現錯誤訊息。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>參考寫法  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copytree(<span class="string">&#x27;./test1/&#x27;</span>,<span class="string">&#x27;D:/test2/&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>刪除目錄及目錄內所有檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.rmtree(<span class="string">&#x27;./test/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>複製文件</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copyfile(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A和B只能是檔案，不能是目錄位址</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>參考寫法  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">shutil.copyfile(<span class="string">&#x27;test1.jpg&#x27;</span>,<span class="string">&#x27;test2.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>複製目錄或者複製目錄內的檔案</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copy(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A只能是目錄，B可以是目錄或檔案</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移動文件</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.move(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A可以是目錄或檔案，B只能是目錄</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h1 id="os模組"><a href="#os模組" class="headerlink" title="os模組"></a>os模組</h1><p><code>不必安裝，內建模組</code></p>
+<ol>
+<li><p>刪除單個文件</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.remove(<span class="string">&#x27;test.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判斷資料夾(目錄)是否存在</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(<span class="string">&#x27;./test/&#x27;</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;資料夾不存在&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新增資料夾(單層目錄)</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.mkdir(<span class="string">&#x27;./test/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新增資料夾(多層目錄)<br><code>如果前一層test資料夾不存在，將會自動新建</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.makedirs(<span class="string">&#x27;./test/hello/&#x27;</span>,exist_ok=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># os.makedirs的exist_ok預設為False，如果資料夾存在的話，將會發生錯誤訊息，因此要記得修改為True，無論目錄是否存在，都會自動判斷新增。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>合併目錄位址</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.join(<span class="string">&#x27;./test/&#x27;</span>,<span class="string">&#x27;hello,jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>輸出為<code>./test/hello,jpg</code></li>
+</ul>
+<p>&amp;ensp;</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.join(<span class="string">&#x27;./testA/&#x27;</span>,<span class="string">&#x27;./testB/,&#x27;</span>hello.jpg<span class="string">&#x27;)</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>輸出為<code>./testA/testB/hello.jpg</code></li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python 程式語言學習</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用相機攝影截圖取AI辨識樣本</title>
     <url>/2020/01/15/%E4%BD%BF%E7%94%A8%E7%9B%B8%E6%A9%9F%E6%94%9D%E5%BD%B1%E6%88%AA%E5%9C%96%E5%8F%96AI%E8%BE%A8%E8%AD%98%E6%A8%A3%E6%9C%AC/</url>
     <content><![CDATA[<p>這裡教大家如何使用相機攝影截圖取AI辨識樣本…</p>
@@ -1742,29 +1787,6 @@
 ]]></content>
       <categories>
         <category>Python 程式語言學習</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>下載相關圖片數據庫</title>
-    <url>/2022/11/12/%E4%B8%8B%E8%BC%89%E5%9C%96%E7%89%87%E6%95%B8%E6%93%9A%E5%BA%AB/</url>
-    <content><![CDATA[<p>從 Google 圖像中搜索圖像自動將它們下載到您的計算機上！</p>
-<center>⬇⬇⬇文章開始⬇⬇⬇</center>
-<span id="more"></span>
-
-<h1 id="安裝套件"><a href="#安裝套件" class="headerlink" title="安裝套件"></a>安裝套件</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install simple_image_download==0.4</span><br></pre></td></tr></table></figure>
-<h1 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h1><p>建立一個<code>dowmload_images.py</code>檔案</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> simple_image_download <span class="keyword">import</span> simple_image_download <span class="keyword">as</span> simp</span><br><span class="line"></span><br><span class="line">response = simp.simple_image_download</span><br><span class="line"></span><br><span class="line">keywords = [<span class="string">&quot;白爛貓&quot;</span>,<span class="string">&quot;LanLanCat&quot;</span>]   <span class="comment">#找出類似名稱圖庫相片</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> kw <span class="keyword">in</span> keywords:</span><br><span class="line">    response().download(kw,<span class="number">30</span>)      <span class="comment">#下載產出圖片總張數</span></span><br></pre></td></tr></table></figure>
-
-<p>Python 執行<code>dowmload_images.py</code>檔案：</p>
-<ul>
-<li>示意圖<br><img src="https://i.imgur.com/yBwC22z.png"></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Python</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -3006,43 +3028,6 @@
       </tags>
   </entry>
   <entry>
-    <title>軟體下載</title>
-    <url>/2019/10/18/%E8%BB%9F%E9%AB%94%E4%B8%8B%E8%BC%89/</url>
-    <content><![CDATA[<center>⬇⬇⬇下載連結⬇⬇⬇</center>
-<span id="more"></span>
-
-<h1 id="Adobe"><a href="#Adobe" class="headerlink" title="Adobe"></a>Adobe</h1><h1 id="威力導演"><a href="#威力導演" class="headerlink" title="威力導演"></a>威力導演</h1><blockquote>
-<p>創意導演組合包（15系列）<br>CyberLink Director Suite 5.0　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=gYlY&id=1AeWKGUn1NjnsDknTSum9bR6ceJE17yF8">Download</a></p>
-</blockquote>
-<blockquote>
-<p>創意導演組合包（16系列）<br>CyberLink Director Suite 6.0　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=WiKw&id=1C85NREa7prXiARKvcdnnSRfi2surTmth">Download</a></p>
-</blockquote>
-<h1 id="PowerDVD"><a href="#PowerDVD" class="headerlink" title="PowerDVD"></a>PowerDVD</h1><p>PowerDVD 15　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=AGir&id=139k7sIM3KTiruzQYPuJ4BUAdPV1369kR">Download</a><br>PowerDVD 18　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=2qRe&id=1H9-V9Ki3bCHOFVIipZ0_am4NylWnOTkP">Download</a><br>PowerDVD 19　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=r28I&id=1YAlv3Vh8Gu0yl6xJCo623_6_ZAu5Wq7H">Download</a></p>
-<h1 id="VMware"><a href="#VMware" class="headerlink" title="VMware"></a>VMware</h1><p>VMware Pro 15 (繁中破解版)　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=MFFj&id=1spEGsiv8MfS0XxPYQOY_SsezvdCxc_EO">Download</a><br>VMware Pro 15 官方安裝檔 (含序號)　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=QyCV&id=182CsvEiIKeca-qX5oDXQH2HnfwgD8ts1">Download</a></p>
-<h1 id="Solidworks"><a href="#Solidworks" class="headerlink" title="Solidworks"></a>Solidworks</h1><h2 id="2016-最新版"><a href="#2016-最新版" class="headerlink" title="2016 最新版"></a>2016 最新版</h2><blockquote>
-<p>Solidworks 2016 SP5　<a href="https://drive.google.com/uc?export=download&confirm=nMT4&id=17bsqS71A-ve0TGM4_A7F2FBEqArt7oYE">Download</a></p>
-</blockquote>
-<h2 id="2017-最新版"><a href="#2017-最新版" class="headerlink" title="2017 最新版"></a>2017 最新版</h2><blockquote>
-<p>Solidworks 2017 SP5　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=aDON&id=1AlWejajeJYD7n6I2H0vNpTChu67SZoef">Download</a></p>
-</blockquote>
-<h2 id="2018-最新版"><a href="#2018-最新版" class="headerlink" title="2018 最新版"></a>2018 最新版</h2><blockquote>
-<p>Solidworks 2018 SP5　<a href="https://drive.google.com/uc?export=download&confirm=1chg&id=1CYjkhNHlEXLtJRi-d30n7-Bg-2oaqdxe">Download</a></p>
-</blockquote>
-<h2 id="2019-最新版"><a href="#2019-最新版" class="headerlink" title="2019 最新版"></a>2019 最新版</h2><blockquote>
-<p>Solidworks 2019 SP5　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?id=1b4AUKyZFga5jdmhvqcAZ19Pfwm7K5coM&export=download">Download</a></p>
-</blockquote>
-<h2 id="2020-最新版"><a href="#2020-最新版" class="headerlink" title="2020 最新版"></a>2020 最新版</h2><blockquote>
-<p>Solidworks 2020 SP5　<a href="">Download</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>軟體下載</category>
-      </categories>
-      <tags>
-        <tag>軟體下載</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>摸索如何自己建立Github的部落格</title>
     <url>/2019/10/19/%E6%91%B8%E7%B4%A2%E5%A6%82%E4%BD%95%E8%87%AA%E5%B7%B1%E5%BB%BA%E7%AB%8BGithub%E7%9A%84%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
     <content><![CDATA[<p>這篇文章將教大家如何利用Github建立個人<strong>部落格</strong>網站！<br>若有興趣建立個人<strong>部落格</strong>，可以閱讀本文參考建立部落格網站。</p>
@@ -3374,6 +3359,43 @@
       <tags>
         <tag>Github</tag>
         <tag>創立</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>軟體下載</title>
+    <url>/2019/10/18/%E8%BB%9F%E9%AB%94%E4%B8%8B%E8%BC%89/</url>
+    <content><![CDATA[<center>⬇⬇⬇下載連結⬇⬇⬇</center>
+<span id="more"></span>
+
+<h1 id="Adobe"><a href="#Adobe" class="headerlink" title="Adobe"></a>Adobe</h1><h1 id="威力導演"><a href="#威力導演" class="headerlink" title="威力導演"></a>威力導演</h1><blockquote>
+<p>創意導演組合包（15系列）<br>CyberLink Director Suite 5.0　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=gYlY&id=1AeWKGUn1NjnsDknTSum9bR6ceJE17yF8">Download</a></p>
+</blockquote>
+<blockquote>
+<p>創意導演組合包（16系列）<br>CyberLink Director Suite 6.0　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=WiKw&id=1C85NREa7prXiARKvcdnnSRfi2surTmth">Download</a></p>
+</blockquote>
+<h1 id="PowerDVD"><a href="#PowerDVD" class="headerlink" title="PowerDVD"></a>PowerDVD</h1><p>PowerDVD 15　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=AGir&id=139k7sIM3KTiruzQYPuJ4BUAdPV1369kR">Download</a><br>PowerDVD 18　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=2qRe&id=1H9-V9Ki3bCHOFVIipZ0_am4NylWnOTkP">Download</a><br>PowerDVD 19　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=r28I&id=1YAlv3Vh8Gu0yl6xJCo623_6_ZAu5Wq7H">Download</a></p>
+<h1 id="VMware"><a href="#VMware" class="headerlink" title="VMware"></a>VMware</h1><p>VMware Pro 15 (繁中破解版)　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=MFFj&id=1spEGsiv8MfS0XxPYQOY_SsezvdCxc_EO">Download</a><br>VMware Pro 15 官方安裝檔 (含序號)　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=QyCV&id=182CsvEiIKeca-qX5oDXQH2HnfwgD8ts1">Download</a></p>
+<h1 id="Solidworks"><a href="#Solidworks" class="headerlink" title="Solidworks"></a>Solidworks</h1><h2 id="2016-最新版"><a href="#2016-最新版" class="headerlink" title="2016 最新版"></a>2016 最新版</h2><blockquote>
+<p>Solidworks 2016 SP5　<a href="https://drive.google.com/uc?export=download&confirm=nMT4&id=17bsqS71A-ve0TGM4_A7F2FBEqArt7oYE">Download</a></p>
+</blockquote>
+<h2 id="2017-最新版"><a href="#2017-最新版" class="headerlink" title="2017 最新版"></a>2017 最新版</h2><blockquote>
+<p>Solidworks 2017 SP5　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?export=download&confirm=aDON&id=1AlWejajeJYD7n6I2H0vNpTChu67SZoef">Download</a></p>
+</blockquote>
+<h2 id="2018-最新版"><a href="#2018-最新版" class="headerlink" title="2018 最新版"></a>2018 最新版</h2><blockquote>
+<p>Solidworks 2018 SP5　<a href="https://drive.google.com/uc?export=download&confirm=1chg&id=1CYjkhNHlEXLtJRi-d30n7-Bg-2oaqdxe">Download</a></p>
+</blockquote>
+<h2 id="2019-最新版"><a href="#2019-最新版" class="headerlink" title="2019 最新版"></a>2019 最新版</h2><blockquote>
+<p>Solidworks 2019 SP5　<a href="https://drive.google.com/a/stu.ctu.edu.tw/uc?id=1b4AUKyZFga5jdmhvqcAZ19Pfwm7K5coM&export=download">Download</a></p>
+</blockquote>
+<h2 id="2020-最新版"><a href="#2020-最新版" class="headerlink" title="2020 最新版"></a>2020 最新版</h2><blockquote>
+<p>Solidworks 2020 SP5　<a href="">Download</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>軟體下載</category>
+      </categories>
+      <tags>
+        <tag>軟體下載</tag>
       </tags>
   </entry>
 </search>
