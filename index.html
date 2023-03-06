@@ -15,12 +15,13 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="/lib/pace/pace-theme-loading-bar.min.css">
   <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"pkpk26261.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":260,"display":"post","padding":18,"offset":18,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#FFFFFF","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"fadeIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"pkpk26261.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":260,"display":"post","padding":18,"offset":18,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#FFFFFF","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"fadeIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="我一旦決定，就為了夢前進👍">
@@ -236,10 +237,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2022-12-02 11:13:07 / 修改時間：11:13:10" itemprop="dateCreated datePublished" datetime="2022-12-02T11:13:07+08:00">2022-12-02</time>
+              <time title="創建時間：2022-12-02 11:13:07" itemprop="dateCreated datePublished" datetime="2022-12-02T11:13:07+08:00">2022-12-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2023-03-06 11:42:19" itemprop="dateModified" datetime="2023-03-06T11:42:19+08:00">2023-03-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -266,13 +273,29 @@
 
       
           <h1 id="安裝引導"><a href="#安裝引導" class="headerlink" title="安裝引導"></a>安裝引導</h1><ul>
-<li><p><font color="red">建議</font>使用<code>conda</code>安裝，<code>conda</code>安裝有<font color="blue">中文介面</font>：</p>
+<li><p><font color="red">建議</font>使用<code>conda</code>安裝，<code>conda</code>安裝有<font color="blue">中文介面</font>：<br>QT5的應用程式路徑：<code>anaconda3\envs\yolov5-py3.9\Library\bin\designer.exe</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c anaconda pyqt</span><br></pre></td></tr></table></figure>
+<p>介面畫面：<img src="https://i.imgur.com/qgvZQ4g.png"></p>
 </li>
 <li><p>使用<code>pip</code>安裝：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install PyQt5</span><br></pre></td></tr></table></figure></li>
 </ul>
+<h1 id="學前參考"><a href="#學前參考" class="headerlink" title="學前參考"></a>學前參考</h1><p>這一篇文章教學整理的不錯，重點都有記錄在裡面，但是也有些重點沒有記載，需要自己在摸索挖掘唷！</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://steam.oxxostudio.tw/category/python/pyqt5/index.html">https://steam.oxxostudio.tw/category/python/pyqt5/index.html</a></li>
+</ul>
+<br>
 
+<p>本篇我會記載著，我個人常用的<code>QT5</code>代碼。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/12/02/QT5-GUI%20%E6%95%99%E5%AD%B8%E5%BC%95%E5%B0%8E/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1220,6 +1243,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
