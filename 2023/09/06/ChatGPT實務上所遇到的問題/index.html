@@ -295,6 +295,11 @@
 </blockquote>
 <hr>
 <h1 id="ChatGPT需要付費嗎？"><a href="#ChatGPT需要付費嗎？" class="headerlink" title="ChatGPT需要付費嗎？"></a>ChatGPT需要付費嗎？</h1><p><img src="https://i.imgur.com/r8WGGTt.png"><br>答案是：<font color="red" size="16px">不一定要</font>，依個人使用上需求。<br>免費版使用的是<code>GPT-3.5 model</code>，優點：免費。<br>付費版（20元美金&#x2F;月）則是使用<code>GPT-4　model</code>，優點：擁有快速的回答速度、答案更精準。</p>
+<blockquote>
+<ul>
+<li><font color="red">但 <span style="background-color:yellow;margin-right:5px;">API key</span>要另外付費。</font></li>
+</ul>
+</blockquote>
 <hr>
 <h1 id="ChatGPT應用上的困難"><a href="#ChatGPT應用上的困難" class="headerlink" title="ChatGPT應用上的困難"></a>ChatGPT應用上的困難</h1><ol>
 <li><p><strong>無法取得最新資訊</strong><br>ChatGPT的運作方式並非利用使用者的問題上網搜尋最新資料，而是根據模型本身所儲存的1750億個參數生成語言回覆給使用者。因此，ChatGPT無法提供「即時」的資料。</p>
@@ -310,7 +315,7 @@
 </ul>
 </li>
 </ol>
-<h1 id="取得API"><a href="#取得API" class="headerlink" title="取得API"></a>取得API</h1><p><code>API-key</code>可以在官網申請，若您是剛註冊的新用戶，可以在三個月內享有<code>20美金</code>免費額度的key。<br>反之，不是新用戶，使用<code>API-key</code>時就必須付錢，並綁定銀行卡，調用了多少個字就付多少的美金。<br>例如：每使用 400 字中文，就要花掉 0.002 美金。（僅供參考）<br>OpenAI Key 申請：<a target="_blank" rel="noopener" href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a></p>
+<h1 id="取得API"><a href="#取得API" class="headerlink" title="取得API"></a>取得API</h1><p><code>API-key</code>可以在官網申請，若您是剛註冊的新用戶，可以在三個月內享有<code>20美金</code>免費額度的key。<br>反之，不是新用戶，使用<code>API-key</code>時就必須付錢，並綁定銀行卡，調用了多少個字就付多少的美金。<br><font color="blue">例如：每使用 400 字中文，就要花掉 0.002 美金。（僅供參考）</font><br>OpenAI Key 申請：<a target="_blank" rel="noopener" href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a></p>
 <blockquote>
 <ul>
 <li>api-key Python套件安裝  <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install openai</span><br></pre></td></tr></table></figure></li>
@@ -318,13 +323,16 @@
 </blockquote>
 <p><img src="https://i.imgur.com/n2IFY1n.png"></p>
 <ul>
-<li>在下方的「Create new secret key」選項中，可以輕鬆地建立一個新的API密鑰。</li>
-</ul>
+<li><p>在下方的「Create new secret key」選項中，可以輕鬆地建立一個新的API密鑰。</p>
+<blockquote>
 <p>需要特別注意，一旦完成API密鑰的創建，系統將只會顯示一次「Secret Key」，以完整的形式呈現給您，<br>之後這個完整的Secret Key將不再顯示在您的帳戶中。</p>
-<ul>
-<li><span style="background-color:yellow;margin-right:5px;"><font color="red">如果遺忘了該密鑰，只能選擇重新建立一個新的密鑰。</font></span>請務必妥善保管您的Secret Key以確保帳戶的安全性。</li>
+</blockquote>
+</li>
+<li><p><span style="background-color:yellow;margin-right:5px;"><font color="red">如果遺忘了該密鑰，只能選擇重新建立一個新的密鑰。</font></span>請務必妥善保管您的Secret Key以確保帳戶的安全性。</p>
+</li>
 </ul>
-
+<h1 id="Python運行"><a href="#Python運行" class="headerlink" title="Python運行"></a>Python運行</h1><h2 id="設定綁定密鑰"><a href="#設定綁定密鑰" class="headerlink" title="設定綁定密鑰"></a>設定綁定密鑰</h2><p>openAI套件安裝後，您可以使用綁定和密鑰來運行以下命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> openai</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load your API key from an environment variable or secret management service</span></span><br><span class="line">openai.api_key = os.getenv(<span class="string">&quot;OPENAI_API_KEY&quot;</span>)</span><br><span class="line"></span><br><span class="line">chat_completion = openai.ChatCompletion.create(</span><br><span class="line">    model=<span class="string">&quot;gpt-3.5-turbo&quot;</span>, </span><br><span class="line">    messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;Hello world&quot;</span>&#125;])</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -422,7 +430,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80%E6%8E%A2%E8%A8%8E"><span class="nav-number">1.</span> <span class="nav-text">前言探討</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-AI-%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">什麼是 AI 聊天機器人？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ChatGPT-%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A8%8E%E8%AB%96%E5%BA%A6%E9%80%99%E9%BA%BC%E9%AB%98%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">ChatGPT 為什麼討論度這麼高？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ChatGPT-%E6%98%AF%E8%AA%B0%E7%99%BC%E6%98%8E%E7%9A%84%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">ChatGPT 是誰發明的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ChatGPT-%E8%83%BD%E5%81%9A%E5%88%B0%E4%BB%80%E9%BA%BC%E4%BA%8B%EF%BC%9F"><span class="nav-number">1.4.</span> <span class="nav-text">ChatGPT 能做到什麼事？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ChatGPT-%E5%A6%82%E4%BD%95%E8%A8%BB%E5%86%8A%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">ChatGPT 如何註冊？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ChatGPT%E9%9C%80%E8%A6%81%E4%BB%98%E8%B2%BB%E5%97%8E%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">ChatGPT需要付費嗎？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ChatGPT%E6%87%89%E7%94%A8%E4%B8%8A%E7%9A%84%E5%9B%B0%E9%9B%A3"><span class="nav-number">4.</span> <span class="nav-text">ChatGPT應用上的困難</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%96%E5%BE%97API"><span class="nav-number">5.</span> <span class="nav-text">取得API</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80%E6%8E%A2%E8%A8%8E"><span class="nav-number">1.</span> <span class="nav-text">前言探討</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-AI-%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">什麼是 AI 聊天機器人？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ChatGPT-%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A8%8E%E8%AB%96%E5%BA%A6%E9%80%99%E9%BA%BC%E9%AB%98%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">ChatGPT 為什麼討論度這麼高？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ChatGPT-%E6%98%AF%E8%AA%B0%E7%99%BC%E6%98%8E%E7%9A%84%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">ChatGPT 是誰發明的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ChatGPT-%E8%83%BD%E5%81%9A%E5%88%B0%E4%BB%80%E9%BA%BC%E4%BA%8B%EF%BC%9F"><span class="nav-number">1.4.</span> <span class="nav-text">ChatGPT 能做到什麼事？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ChatGPT-%E5%A6%82%E4%BD%95%E8%A8%BB%E5%86%8A%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">ChatGPT 如何註冊？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ChatGPT%E9%9C%80%E8%A6%81%E4%BB%98%E8%B2%BB%E5%97%8E%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">ChatGPT需要付費嗎？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ChatGPT%E6%87%89%E7%94%A8%E4%B8%8A%E7%9A%84%E5%9B%B0%E9%9B%A3"><span class="nav-number">4.</span> <span class="nav-text">ChatGPT應用上的困難</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%96%E5%BE%97API"><span class="nav-number">5.</span> <span class="nav-text">取得API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python%E9%81%8B%E8%A1%8C"><span class="nav-number">6.</span> <span class="nav-text">Python運行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E7%B6%81%E5%AE%9A%E5%AF%86%E9%91%B0"><span class="nav-number">6.1.</span> <span class="nav-text">設定綁定密鑰</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -535,7 +543,7 @@
 <div class="copyright">
   
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
