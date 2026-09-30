@@ -821,8 +821,8 @@ html:has(body[data-page="post"]) { scroll-padding-top:calc(var(--header-height) 
 .site-footer .footer-note { justify-self:end; padding-left:24px; border-left:1px solid #dfd5bf; }
 @media (max-width:760px) {
   .site-footer .footer-top { grid-template-columns:minmax(0,1fr) minmax(140px,auto); gap:20px; }
-  .brand-motto .brand-emphasis { font-size:46px; }
-  .brand-motto .motto-words { font-size:23px; letter-spacing:1px; }
+  .brand-motto .brand-emphasis { font-size:clamp(34px,6vw,44px); }
+  .brand-motto .motto-words { font-size:clamp(17px,3.2vw,22px); letter-spacing:.5px; }
   .site-footer .footer-note { flex-direction:column; align-items:flex-start; gap:10px; padding-left:22px; }
   .footer-note .footer-usagi { width:82px; height:74px; }
   .site-footer .footer-note p { font-size:12px; }
@@ -830,8 +830,8 @@ html:has(body[data-page="post"]) { scroll-padding-top:calc(var(--header-height) 
 }
 @media (max-width:480px) {
   .site-footer .footer-top { grid-template-columns:minmax(0,1fr) 125px; gap:12px; }
-  .brand-motto .brand-emphasis { font-size:36px; }
-  .brand-motto .motto-words { font-size:18px; letter-spacing:0; }
+  .brand-motto .brand-emphasis { font-size:34px; }
+  .brand-motto .motto-words { font-size:17px; letter-spacing:0; }
   .brand-motto .motto-line { gap:3px; }
   .brand-motto .motto-comma { font-size:16px; }
   .site-footer .footer-note { padding-left:14px; }
