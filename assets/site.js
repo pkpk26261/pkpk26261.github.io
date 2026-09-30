@@ -146,8 +146,6 @@
     headings.forEach(heading => observer.observe(heading));
   }
   const topButton = document.querySelector('.back-top');
-  const footerReturn = document.querySelector('.footer-return');
-  const footer = document.querySelector('.site-footer');
   let scheduled = false;
   let returnIdleTimer;
   let returnControlActive = false;
@@ -158,9 +156,7 @@
   function updateReturnControls() {
     const viewportHeight = window.innerHeight;
     const longPage = document.documentElement.scrollHeight > viewportHeight * 2;
-    const footerVisible = footer && footer.getBoundingClientRect().top < viewportHeight;
-    if (topButton) topButton.hidden = !longPage || window.scrollY < Math.max(650, viewportHeight) || footerVisible;
-    if (footerReturn) footerReturn.hidden = !longPage;
+    if (topButton) topButton.hidden = !longPage || window.scrollY < Math.max(650, viewportHeight);
     hideIdleReturn();
   }
   function scheduleReturnControls() {
