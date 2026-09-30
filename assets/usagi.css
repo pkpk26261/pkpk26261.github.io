@@ -1028,3 +1028,5 @@ body { isolation:isolate; }
 .about-projects .project-tags span { padding:5px 9px; border:1px solid #e8dcc3; border-radius:6px; background:#fffdf8; font-size:11px; line-height:1.4; }
 @media (max-width:850px) { .about-projects .project-grid { grid-template-columns:1fr; } }
 @media (max-width:480px) { .about-projects .project-card { padding:20px; border-radius:16px; } .about-projects .project-top { padding-bottom:15px; } .about-projects .project-card h3 { font-size:23px; } .project-detail { margin-top:20px; padding:12px; } }
+
+@media (min-width:851px) { .about-projects .project-detail { min-height:103px; } }
