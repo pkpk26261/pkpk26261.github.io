@@ -849,3 +849,11 @@ html:has(body[data-page="post"]) { scroll-padding-top:calc(var(--header-height) 
 @media (max-width:760px) {
   .section-heading h2 { font-size:clamp(20px,4.5vw,30px); white-space:nowrap; }
 }
+
+@media (max-width:650px) {
+  .heading-with-usagi { display:grid; grid-template-columns:minmax(0,1fr) 72px; column-gap:12px; }
+  .heading-with-usagi > .eyebrow { grid-column:1/-1; }
+  .heading-with-usagi > h1 { grid-column:1; grid-row:2; align-self:end; font-size:clamp(24px,6.5vw,32px); white-space:nowrap; }
+  .heading-with-usagi > p { grid-column:1/-1; grid-row:3; width:auto; margin-top:18px; }
+  .heading-with-usagi .index-usagi-scene { grid-column:2; grid-row:2; position:relative; top:auto; right:auto; translate:0 0; width:72px; height:68px; margin-top:0; align-self:end; }
+}
