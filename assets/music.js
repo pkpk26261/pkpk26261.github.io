@@ -59,24 +59,59 @@
     activeIndex = savedIndex >= 0 ? savedIndex : randomTrackIndex();
     audio.src = tracks[activeIndex].audio_src;
   }
-  audio.volume = Math.max(0, Math.min(1, Number.isFinite(previous.volume) ? previous.volume : Number(dock.dataset.volume)));
-  volume.value = String(Math.round(audio.volume * 100));
-  volume.setAttribute('aria-valuetext', volume.value + '%');
+  let requestedVolume = Math.max(0, Math.min(1, Number.isFinite(previous.volume) ? previous.volume : Number(dock.dataset.volume) || 0));
+  let audioContext = null, gain = null;
+  const volumeOutput = dock.querySelector('.music-volume output');
+  function applyVolume() {
+    if (!gain) {
+      audio.volume = requestedVolume;
+      // iOS may keep media-element volume at 1; use a gain node for site volume.
+      if (Math.abs(audio.volume - requestedVolume) > .001) {
+        const Context = window.AudioContext || window.webkitAudioContext;
+        if (Context) {
+          try {
+            audioContext = new Context();
+            const source = audioContext.createMediaElementSource(audio);
+            gain = audioContext.createGain();
+            source.connect(gain); gain.connect(audioContext.destination);
+            audio.volume = 1;
+            audioContext.onstatechange = () => {
+              if (audioContext.state === 'running' && !audio.paused) {
+                setState('playing'); play.setAttribute('aria-label', '暫停背景音樂');
+                setStatus('正在播放 · ' + trackTitle()); save();
+              }
+            };
+          } catch { audioContext = null; gain = null; }
+        }
+      }
+    }
+    if (gain) gain.gain.setValueAtTime(requestedVolume, audioContext.currentTime);
+    volume.value = String(Math.round(requestedVolume * 100));
+    volume.setAttribute('aria-valuetext', volume.value + '%');
+    if (volumeOutput) volumeOutput.textContent = volume.value + '%';
+  }
+  applyVolume();
   const trackTitle = () => tracks[activeIndex]?.title || '閱讀配樂';
   const updateTrack = () => trackButtons.forEach((button, index) => button.setAttribute('aria-pressed', String(index === activeIndex)));
   updateTrack();
   const save = () => {
-    try { sessionStorage.setItem('yc-audio', JSON.stringify({ source: audio.getAttribute('src'), stopped: stoppedByUser, time: audio.currentTime, volume: audio.volume })); } catch { /* Storage is optional. */ }
+    try { sessionStorage.setItem('yc-audio', JSON.stringify({ source: audio.getAttribute('src'), stopped: stoppedByUser, time: audio.currentTime, volume: requestedVolume })); } catch { /* Storage is optional. */ }
   };
   const attemptPlay = async () => {
     setState('loading');
     setStatus('正在準備播放…');
-    try { await audio.play(); }
+    try {
+      audioContext?.resume().catch(() => {});
+      await audio.play();
+      if (audioContext && audioContext.state !== 'running') {
+        setState('blocked'); setStatus('輕觸頁面，開啟閱讀配樂。');
+      }
+    }
     catch (error) {
       if (error.name === 'AbortError') return;
       if (error.name === 'NotAllowedError') {
         setState('blocked');
-        setStatus('點擊播放，開啟閱讀配樂。');
+        setStatus('輕觸頁面，開啟閱讀配樂。');
       } else {
         setState('error');
         setStatus('音訊目前無法播放，請稍後重試。');
@@ -101,8 +136,25 @@
     else { stoppedByUser = false; attemptPlay(); }
     save();
   });
-  volume.addEventListener('input', () => { audio.volume = Number(volume.value) / 100; volume.setAttribute('aria-valuetext', volume.value + '%'); save(); });
+  volume.addEventListener('input', () => {
+    requestedVolume = Number(volume.value) / 100; applyVolume();
+    if (audioContext?.state === 'suspended') audioContext.resume().catch(() => {});
+    save();
+  });
+  // Retry in a real user gesture when the browser blocks initial autoplay.
+  const resumeOnInteraction = event => {
+    if (stoppedByUser || dock.dataset.autoplay !== 'true' || dock.dataset.state !== 'blocked') return;
+    if (event.target.closest('.music-dock')) return;
+    attemptPlay();
+  };
+  document.addEventListener('click', resumeOnInteraction);
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') resumeOnInteraction(event);
+  });
   audio.addEventListener('playing', () => {
+    if (audioContext && audioContext.state !== 'running') {
+      setState('blocked'); setStatus('輕觸頁面，開啟閱讀配樂。'); return;
+    }
     setState('playing');
     play.setAttribute('aria-label', '暫停背景音樂');
     setStatus('正在播放 · ' + trackTitle());

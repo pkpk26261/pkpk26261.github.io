@@ -129,7 +129,13 @@
       catch { button.textContent = '請手動選取複製'; document.getElementById('site-status').textContent = '瀏覽器無法複製，請手動選取程式碼'; }
       setTimeout(() => button.textContent = '複製', 2000);
     });
-    figure.append(button);
+    const scroller = document.createElement('div'); scroller.className = 'code-scroll'; scroller.tabIndex = 0; scroller.setAttribute('role', 'region'); scroller.setAttribute('aria-label', '程式碼，可左右捲動');
+    [...figure.childNodes].forEach(node => scroller.append(node));
+    const toolbar = document.createElement('div'); toolbar.className = 'code-toolbar';
+    const dots = document.createElement('span'); dots.className = 'code-window-dots'; dots.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < 3; i++) dots.append(document.createElement('i'));
+    const caption = document.createElement('span'); caption.className = 'code-caption'; caption.textContent = figure.dataset.codeCaption || '程式碼';
+    toolbar.append(dots, caption, button); figure.append(toolbar, scroller);
   });
   document.querySelectorAll('.pdfobject-container').forEach(container => { if (!container.dataset.target) return; const frame = document.createElement('iframe'); frame.title = '文章內的 PDF 文件'; frame.loading = 'lazy'; frame.src = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(container.dataset.target)}`; container.append(frame); });
   document.querySelectorAll('.prose a[target="_blank"]').forEach(link => { link.rel = [...new Set((link.rel + ' noopener noreferrer').split(/\s+/))].join(' '); });

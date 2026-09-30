@@ -12,7 +12,7 @@
   try{const result=language==='auto'?hljs.highlightAuto(text,Object.keys(labels).filter(l=>!['auto','plaintext'].includes(l)&&hljs.getLanguage(l))):hljs.highlight(text,{language:hljs.getLanguage(language)?language:'plaintext',ignoreIllegals:true});return {html:result.value,language:result.language||language};}
   catch{return {html:escape(text),language:'plaintext'};}
  }
- function render(root){root.querySelectorAll('figure.highlight').forEach(figure=>{const pre=figure.querySelector('.code pre')||figure.querySelector('pre code')||figure.querySelector('pre');if(!pre)return;const text=textOf(pre),language=languageOf(figure),previous=rendered.get(pre);if(previous?.text===text&&previous?.language===language)return;const result=highlight(text,language);pre.innerHTML=result.html;pre.classList.add('hljs');rendered.set(pre,{text,language});figure.dataset.codeCaption=labels[result.language]||result.language;});}
+ function render(root){root.querySelectorAll('figure.highlight').forEach(figure=>{const pre=figure.querySelector('.code pre')||figure.querySelector('pre code')||figure.querySelector('pre');if(!pre)return;const text=textOf(pre),language=languageOf(figure),previous=rendered.get(pre);if(previous?.text===text&&previous?.language===language)return;const result=highlight(text,language);pre.innerHTML=result.html;pre.classList.add('hljs');rendered.set(pre,{text,language});figure.dataset.codeCaption=labels[result.language]||result.language;const caption=figure.querySelector('.code-caption');if(caption)caption.textContent=figure.dataset.codeCaption;});}
  window.StudioCode={labels,textOf,languageOf,highlight,render};
  if(!document.querySelector('.editor-form'))render(document);
 })();

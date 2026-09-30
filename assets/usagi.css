@@ -926,3 +926,55 @@ body { isolation:isolate; }
   .article-toc a { font-size:13px; min-height:44px; }
   .article-toc .toc-level-2 a,.article-toc .toc-level-3 a { font-size:12px; min-height:40px; }
 }
+
+/* Adjacent reading: clear direction, quiet metadata, and one full-card target. */
+.post-pagination { gap:16px; margin-top:48px; padding-top:28px; }
+.post-pagination a.adjacent-post { display:grid; grid-template-columns:minmax(0,1fr) 36px; align-items:center; gap:18px; padding:24px; border-radius:16px; background:#fffdf8; border:1px solid #e6dece; text-decoration:none; transition:border-color .2s, background-color .2s, box-shadow .2s; }
+.adjacent-copy { min-width:0; }
+.adjacent-meta { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:6px 12px; margin-bottom:12px; }
+.adjacent-meta .adjacent-label { color:#866423; font-size:12px; font-weight:600; letter-spacing:.04em; }
+.adjacent-meta time { color:var(--muted); font-size:11px; font-variant-numeric:tabular-nums; }
+.post-pagination .adjacent-post strong { display:block; color:var(--ink); font-size:clamp(16px,1.45vw,19px); line-height:1.6; font-weight:600; overflow-wrap:anywhere; }
+.adjacent-topic { display:block; margin-top:12px; font-size:11px; color:var(--muted); }
+.post-pagination a.adjacent-post > .adjacent-control { position:static; display:grid; place-items:center; width:36px; height:36px; color:#85601c; background:#f6f0df; border:1px solid #e8dec5; border-radius:50%; font-size:inherit; transition:background-color .2s; }
+.adjacent-control svg { display:block; }
+.post-pagination a.adjacent-post:hover { background:#fffaf0; border-color:#bba572; box-shadow:0 5px 18px #7763370c; }
+.post-pagination a.adjacent-post:hover .adjacent-control { background:#f2e4ba; }
+.post-pagination a.adjacent-post:focus-visible { outline:2px solid #85601c; outline-offset:4px; }
+@media (max-width:850px) {
+  .post-pagination { gap:12px; margin-top:32px; padding-top:24px; }
+  .post-pagination a.adjacent-post { padding:20px; gap:16px; }
+  .post-pagination .adjacent-post strong { font-size:17px; line-height:1.55; }
+}
+@media (max-width:380px) {
+  .post-pagination a.adjacent-post { padding:18px; gap:12px; grid-template-columns:minmax(0,1fr) 30px; }
+  .post-pagination .adjacent-post strong { font-size:16px; }
+  .post-pagination a.adjacent-post > .adjacent-control { width:30px; height:30px; }
+}
+
+/* Text-only collections remain usable as new labels are added. */
+.collection-grid { gap:12px; }
+.collection-card { display:flex; align-items:center; gap:18px; padding:24px; border-radius:12px; }
+.collection-card:hover { transform:translateY(-2px); background:#fff9ed; }
+.collection-order { flex:none; align-self:flex-start; margin-top:4px; color:#ad9870; font:12px/1.6 var(--mono); }
+.collection-copy { min-width:0; }
+.collection-card .collection-copy h2 { margin:0 0 6px; font-size:18px; line-height:1.5; }
+.collection-card .collection-copy p { margin:0; font-size:12px; }
+.about-github { gap:14px; padding:20px; border-style:solid; background:#fffdf8; }
+.github-mark { display:grid; place-items:center; flex:none; width:42px; height:42px; border-radius:12px; color:#66553c; background:#f3eddc; }
+.github-mark svg { width:23px; height:23px; }
+.github-copy { display:grid; gap:3px; min-width:0; }
+.github-copy strong { color:var(--ink); font-size:16px; font-weight:600; line-height:1.5; }
+.github-copy > span { font-size:11px; }
+.about-github > .github-action { font-size:11px; margin-left:auto; flex:none; color:#866423; padding-left:10px; border-left:1px solid var(--line); }
+.about-github:hover { background:#fff8e9; border-color:#bba572; }
+@media(max-width:600px) {
+  .collection-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  .collection-card { padding:18px 14px; gap:10px; }
+  .collection-card .collection-copy h2 { font-size:16px; }
+  .collection-card .collection-copy p { font-size:11px; }
+}
+@media(max-width:380px) { .collection-grid { grid-template-columns:1fr; } .collection-card { padding:18px; } .about-github { padding:16px; gap:10px; } }
+.music-volume { display:flex; align-items:center; gap:12px; }
+.music-volume input[type=range] { flex:1; min-width:0; height:28px; accent-color:#947126; touch-action:pan-y; }
+.music-volume output { min-width:34px; text-align:right; font-size:11px; font-variant-numeric:tabular-nums; color:#74654c; }
