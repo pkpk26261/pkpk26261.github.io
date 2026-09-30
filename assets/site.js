@@ -2,8 +2,17 @@
 (() => {
   const menu = document.querySelector('.menu-toggle');
   const mobileNav = document.getElementById('mobile-nav');
-  function closeMenu() { if (!menu) return; menu.setAttribute('aria-expanded', 'false'); menu.setAttribute('aria-label', '開啟導覽選單'); mobileNav.hidden = true; }
-  menu?.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded', String(open)); menu.setAttribute('aria-label', open ? '關閉導覽選單' : '開啟導覽選單'); mobileNav.hidden = !open; });
+  function setMenu(open) {
+    if (!menu || !mobileNav) return;
+    menu.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-label', open ? '關閉導覽選單' : '開啟導覽選單');
+    mobileNav.hidden = !open;
+    document.body.classList.toggle('nav-open', open);
+  }
+  function closeMenu() { setMenu(false); }
+  menu?.addEventListener('click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('pointerdown', e => { if (!e.target.closest('.site-header')) closeMenu(); });
+  document.addEventListener('focusin', e => { if (!e.target.closest('.site-header')) closeMenu(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu?.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); } });
   mobileNav?.addEventListener('click', e => { if (e.target.closest('a')) closeMenu(); });
   window.matchMedia('(min-width: 761px)').addEventListener('change', e => { if (e.matches) closeMenu(); });
