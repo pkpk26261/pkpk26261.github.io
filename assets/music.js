@@ -19,20 +19,26 @@
   const expand = () => { panel.hidden = false; toggle.setAttribute('aria-expanded', 'true'); updateToggle(); };
   const collapse = () => { panel.hidden = true; toggle.setAttribute('aria-expanded', 'false'); updateToggle(); };
   const mobileHeader = matchMedia('(max-width: 760px)');
-  const headerSlot = document.querySelector('.header-music-slot');
-  const menuToggle = document.querySelector('.menu-toggle');
+  let headerSlot = document.querySelector('.header-music-slot');
+  let menuToggle = document.querySelector('.menu-toggle');
   const dockHome = document.createComment('Desktop music controls');
   dock.before(dockHome);
   // Keep audio in one document location so resizing never interrupts playback.
   if (audio) dock.after(audio);
   function placeControls() {
     if (mobileHeader.matches && headerSlot) headerSlot.append(dock);
-    else dockHome.after(dock);
+    else { const main = document.querySelector('main'); main ? main.after(dock) : dockHome.after(dock); }
     collapse();
   }
   mobileHeader.addEventListener('change', placeControls);
   menuToggle?.addEventListener('click', collapse);
   placeControls();
+  document.addEventListener('reader:navigate', () => {
+    headerSlot = document.querySelector('.header-music-slot');
+    menuToggle = document.querySelector('.menu-toggle');
+    menuToggle?.addEventListener('click', collapse);
+    placeControls();
+  });
   toggle.addEventListener('click', () => {
     if (panel.hidden) {
       if (menuToggle?.getAttribute('aria-expanded') === 'true') menuToggle.click();
@@ -62,30 +68,28 @@
   let requestedVolume = Math.max(0, Math.min(1, Number.isFinite(previous.volume) ? previous.volume : Number(dock.dataset.volume) || 0));
   let audioContext = null, gain = null;
   const volumeOutput = dock.querySelector('.music-volume output');
-  function applyVolume() {
-    if (!gain) {
-      audio.volume = requestedVolume;
-      // iOS may keep media-element volume at 1; use a gain node for site volume.
-      if (Math.abs(audio.volume - requestedVolume) > .001) {
-        const Context = window.AudioContext || window.webkitAudioContext;
-        if (Context) {
-          try {
-            audioContext = new Context();
-            const source = audioContext.createMediaElementSource(audio);
-            gain = audioContext.createGain();
-            source.connect(gain); gain.connect(audioContext.destination);
-            audio.volume = 1;
-            audioContext.onstatechange = () => {
-              if (audioContext.state === 'running' && !audio.paused) {
-                setState('playing'); play.setAttribute('aria-label', '暫停背景音樂');
-                setStatus('正在播放 · ' + trackTitle()); save();
-              }
-            };
-          } catch { audioContext = null; gain = null; }
+  // A gain node controls actual output on iOS, even when .volume appears writable.
+  function prepareAudio() {
+    if (gain || audioContext) return;
+    const Context = window.AudioContext || window.webkitAudioContext;
+    if (!Context) return;
+    try {
+      audioContext = new Context();
+      const source = audioContext.createMediaElementSource(audio);
+      gain = audioContext.createGain();
+      source.connect(gain); gain.connect(audioContext.destination);
+      audio.volume = 1;
+      audioContext.onstatechange = () => {
+        if (audioContext.state === 'running' && !audio.paused) showPlaying();
+        else if (!stoppedByUser && !audio.paused) {
+          setState('blocked'); setStatus('輕觸頁面，繼續閱讀配樂。');
         }
-      }
-    }
+      };
+    } catch { audioContext = null; gain = null; }
+  }
+  function applyVolume() {
     if (gain) gain.gain.setValueAtTime(requestedVolume, audioContext.currentTime);
+    else audio.volume = requestedVolume;
     volume.value = String(Math.round(requestedVolume * 100));
     volume.setAttribute('aria-valuetext', volume.value + '%');
     if (volumeOutput) volumeOutput.textContent = volume.value + '%';
@@ -101,8 +105,12 @@
     setState('loading');
     setStatus('正在準備播放…');
     try {
-      audioContext?.resume().catch(() => {});
-      await audio.play();
+      prepareAudio(); applyVolume();
+      const resumed = audioContext?.resume();
+      const playing = audio.play();
+      await Promise.all([resumed, playing]);
+      if (stoppedByUser) { audio.pause(); return; }
+      if (!audioContext || audioContext.state === 'running') showPlaying();
       if (audioContext && audioContext.state !== 'running') {
         setState('blocked'); setStatus('輕觸頁面，開啟閱讀配樂。');
       }
@@ -132,18 +140,18 @@
   }
   trackButtons.forEach(button => button.addEventListener('click', () => selectTrack(Number(button.dataset.track))));
   play.addEventListener('click', () => {
-    if (!audio.paused) { stoppedByUser = true; audio.pause(); }
+    if (!audio.paused && dock.dataset.state === 'playing') { stoppedByUser = true; audio.pause(); }
     else { stoppedByUser = false; attemptPlay(); }
     save();
   });
   volume.addEventListener('input', () => {
-    requestedVolume = Number(volume.value) / 100; applyVolume();
+    requestedVolume = Number(volume.value) / 100; prepareAudio(); applyVolume();
     if (audioContext?.state === 'suspended') audioContext.resume().catch(() => {});
     save();
   });
   // Retry in a real user gesture when the browser blocks initial autoplay.
   const resumeOnInteraction = event => {
-    if (stoppedByUser || dock.dataset.autoplay !== 'true' || dock.dataset.state !== 'blocked') return;
+    if (stoppedByUser || dock.dataset.autoplay !== 'true' || !['blocked', 'loading'].includes(dock.dataset.state)) return;
     if (event.target.closest('.music-dock')) return;
     attemptPlay();
   };
@@ -151,6 +159,10 @@
   document.addEventListener('keydown', event => {
     if (event.key === 'Enter' || event.key === ' ') resumeOnInteraction(event);
   });
+  function showPlaying() {
+    setState('playing'); play.setAttribute('aria-label', '暫停背景音樂');
+    setStatus('正在播放 · ' + trackTitle()); save();
+  }
   audio.addEventListener('playing', () => {
     if (audioContext && audioContext.state !== 'running') {
       setState('blocked'); setStatus('輕觸頁面，開啟閱讀配樂。'); return;
@@ -179,7 +191,9 @@
   };
   if (audio.readyState >= 1) restorePosition();
   else audio.addEventListener('loadedmetadata', restorePosition, { once: true });
+  audio.addEventListener('timeupdate', save);
   window.addEventListener('pagehide', save);
+  window.addEventListener('pageshow', event => { if (event.persisted && !stoppedByUser) attemptPlay(); });
   if (dock.dataset.autoplay === 'true' && !stoppedByUser) attemptPlay();
   else { setState('paused'); setStatus('點擊播放，開啟閱讀配樂。'); }
 })();

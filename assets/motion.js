@@ -1,5 +1,14 @@
 'use strict';
-(() => {
+window.ReaderMotion = (() => {
+  let dispose;
+  function init() {
+  dispose?.();
+  const scope = new AbortController();
+  const observers = [];
+  const listen = (target, type, callback, options = {}) => target.addEventListener(type, callback, { ...options, signal: scope.signal });
+  const intersection = (...args) => { const item = new IntersectionObserver(...args); observers.push(item); return item; };
+  const resizeObserver = (...args) => { const item = new ResizeObserver(...args); observers.push(item); return item; };
+  dispose = () => { scope.abort(); observers.forEach(item => item.disconnect()); };
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
@@ -17,8 +26,8 @@
       scene?.style.setProperty('--pointer-y', '0');
     }
   }
-  reduced.addEventListener('change', syncMotion);
-  document.addEventListener('visibilitychange', syncMotion);
+  listen(reduced, 'change', syncMotion);
+  listen(document, 'visibilitychange', syncMotion);
   syncMotion();
   function animate(node, frames, options) {
     if (!canMove() || !node.animate) return;
@@ -56,9 +65,10 @@
     });
     dessertLayer.replaceChildren(fragments);
   }
+  document.querySelector('.dessert-atmosphere')?.remove();
   document.body.prepend(dessertLayer);
   arrangeDesserts();
-  smallDessertScreen.addEventListener('change', arrangeDesserts);
+  listen(smallDessertScreen, 'change', arrangeDesserts);
   // A staged entrance gives the title, illustration, and controls their own rhythm.
   document.querySelectorAll('.hero-copy > *, .hero-line').forEach((node, index) => {
     animate(node, [{ opacity:0, transform:'translateY(22px)' }, { opacity:1, transform:'translateY(0)' }], {
@@ -67,7 +77,7 @@
   });
   if (scene) animate(scene, [{ opacity:0, transform:'scale(.92) translateY(24px)' }, { opacity:1, transform:'scale(1) translateY(0)' }], { duration:1100, delay:150, easing:'cubic-bezier(.22,1,.36,1)', fill:'backwards' });
   if ('IntersectionObserver' in window) {
-    const reveal = new IntersectionObserver(entries => {
+    const reveal = intersection(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('is-visible');
@@ -139,7 +149,7 @@
   });
   // Keep decorative loops asleep once the hero leaves the viewport.
   if (scene && 'IntersectionObserver' in window) {
-    new IntersectionObserver(entries => scene.classList.toggle('scene-asleep', !entries[0].isIntersecting)).observe(scene);
+    intersection(entries => scene.classList.toggle('scene-asleep', !entries[0].isIntersecting)).observe(scene);
   }
 
   const aboutScene = document.querySelector('.about-usagi-stage');
@@ -156,7 +166,7 @@
     ], { duration:850, easing:'cubic-bezier(.2,.7,.3,1)' });
   });
   if (aboutScene && 'IntersectionObserver' in window) {
-    new IntersectionObserver(entries => aboutScene.classList.toggle('scene-asleep', !entries[0].isIntersecting)).observe(aboutScene);
+    intersection(entries => aboutScene.classList.toggle('scene-asleep', !entries[0].isIntersecting)).observe(aboutScene);
   }
 
   document.querySelectorAll('.index-usagi-scene').forEach(indexScene => {
@@ -178,7 +188,7 @@
       ], { duration:800, easing:'cubic-bezier(.2,.7,.3,1)' });
     });
     if ('IntersectionObserver' in window) {
-      new IntersectionObserver(entries => indexScene.classList.toggle('scene-asleep', !entries[0].isIntersecting)).observe(indexScene);
+      intersection(entries => indexScene.classList.toggle('scene-asleep', !entries[0].isIntersecting)).observe(indexScene);
     }
   });
 
@@ -195,6 +205,7 @@
   const chapterTitles = new Map(tocLinks.map(link => [decodeURIComponent(link.hash.slice(1)), link.querySelector('.toc-title')?.textContent.trim() || link.textContent.trim()]));
   let sections = [];
   function measure() {
+    if (scope.signal.aborted) return;
     viewport = innerHeight;
     if (!article) return;
     const rect = article.getBoundingClientRect();
@@ -235,13 +246,18 @@
       scene.style.setProperty('--scroll-shift', `${Math.min(scrollY * .055, 24).toFixed(1)}px`);
     }
   }
-  function schedule() { if (!frame) frame = requestAnimationFrame(update); }
-  addEventListener('scroll', schedule, { passive:true });
-  addEventListener('resize', () => { measure(); schedule(); }, { passive:true });
-  addEventListener('pageshow', () => { measure(); schedule(); });
+  function schedule() { if (!scope.signal.aborted && !frame) frame = requestAnimationFrame(update); }
+  listen(window, 'scroll', schedule, { passive:true });
+  listen(window, 'resize', () => { measure(); schedule(); }, { passive:true });
+  listen(window, 'pageshow', () => { measure(); schedule(); });
   document.querySelector('.article-toc')?.addEventListener('toggle', () => { measure(); schedule(); });
-  if (article && 'ResizeObserver' in window) new ResizeObserver(() => { measure(); schedule(); }).observe(article);
+  if (article && 'ResizeObserver' in window) resizeObserver(() => { measure(); schedule(); }).observe(article);
   article?.querySelectorAll('img,iframe').forEach(node => node.addEventListener('load', () => { measure(); schedule(); }));
   document.fonts?.ready.then(() => { measure(); schedule(); });
   measure(); schedule();
+  const baseDispose = dispose;
+  dispose = () => { baseDispose(); animations.forEach(item => item.cancel()); cancelAnimationFrame(frame); cancelAnimationFrame(pointerFrame); clearTimeout(greetingTimer); };
+  }
+  init();
+  return { init, dispose: () => dispose?.() };
 })();

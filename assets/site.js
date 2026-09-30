@@ -1,5 +1,14 @@
 'use strict';
-(() => {
+window.ReaderPage = (() => {
+  let dispose;
+  function init() {
+  dispose?.();
+  const scope = new AbortController();
+  const observers = [];
+  const listen = (target, type, callback, options = {}) => target.addEventListener(type, callback, { ...options, signal: scope.signal });
+  const intersection = (...args) => { const item = new IntersectionObserver(...args); observers.push(item); return item; };
+  const resizeObserver = (...args) => { const item = new ResizeObserver(...args); observers.push(item); return item; };
+  dispose = () => { scope.abort(); observers.forEach(item => item.disconnect()); };
   const menu = document.querySelector('.menu-toggle');
   const mobileNav = document.getElementById('mobile-nav');
   function setMenu(open) {
@@ -11,18 +20,18 @@
   }
   function closeMenu() { setMenu(false); }
   menu?.addEventListener('click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
-  document.addEventListener('pointerdown', e => { if (!e.target.closest('.site-header')) closeMenu(); });
-  document.addEventListener('focusin', e => { if (!e.target.closest('.site-header')) closeMenu(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu?.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); } });
+  listen(document, 'pointerdown', e => { if (!e.target.closest('.site-header')) closeMenu(); });
+  listen(document, 'focusin', e => { if (!e.target.closest('.site-header')) closeMenu(); });
+  listen(document, 'keydown', e => { if (e.key === 'Escape' && menu?.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); } });
   mobileNav?.addEventListener('click', e => { if (e.target.closest('a')) closeMenu(); });
-  window.matchMedia('(min-width: 761px)').addEventListener('change', e => { if (e.matches) closeMenu(); });
+  listen(window.matchMedia('(min-width: 761px)'), 'change', e => { if (e.matches) closeMenu(); });
 
   const articleToc = document.querySelector('.article-toc');
   if (articleToc) {
     const inlineToc = matchMedia('(max-width: 850px)');
     const placeToc = () => { articleToc.open = !inlineToc.matches; };
     placeToc();
-    inlineToc.addEventListener('change', placeToc);
+    listen(inlineToc, 'change', placeToc);
     articleToc.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
       if (inlineToc.matches) articleToc.open = false;
     }));
@@ -142,7 +151,7 @@
   if ('IntersectionObserver' in window && !document.getElementById('article-body')) {
     const headings = [...document.querySelectorAll('.prose h2[id], .prose h3[id]')];
     const tocLinks = [...document.querySelectorAll('.article-toc a')];
-    const observer = new IntersectionObserver(entries => { const visible = entries.find(entry => entry.isIntersecting); if (!visible) return; tocLinks.forEach(link => { decodeURIComponent(link.hash.slice(1)) === visible.target.id ? link.setAttribute('aria-current', 'location') : link.removeAttribute('aria-current'); }); }, { rootMargin: '-110px 0px -65% 0px' });
+    const observer = intersection(entries => { const visible = entries.find(entry => entry.isIntersecting); if (!visible) return; tocLinks.forEach(link => { decodeURIComponent(link.hash.slice(1)) === visible.target.id ? link.setAttribute('aria-current', 'location') : link.removeAttribute('aria-current'); }); }, { rootMargin: '-110px 0px -65% 0px' });
     headings.forEach(heading => observer.observe(heading));
   }
   const topButton = document.querySelector('.back-top');
@@ -164,10 +173,10 @@
     scheduled = true;
     requestAnimationFrame(() => { updateReturnControls(); scheduled = false; });
   }
-  window.addEventListener('scroll', scheduleReturnControls, { passive: true });
-  window.addEventListener('resize', scheduleReturnControls);
-  window.addEventListener('load', scheduleReturnControls);
-  if ('ResizeObserver' in window) new ResizeObserver(scheduleReturnControls).observe(document.querySelector('main'));
+  listen(window, 'scroll', scheduleReturnControls, { passive: true });
+  listen(window, 'resize', scheduleReturnControls);
+  listen(window, 'load', scheduleReturnControls);
+  if ('ResizeObserver' in window) resizeObserver(scheduleReturnControls).observe(document.querySelector('main'));
   topButton?.addEventListener('focus', () => { returnControlActive = true; clearTimeout(returnIdleTimer); });
   topButton?.addEventListener('blur', () => { returnControlActive = false; hideIdleReturn(); });
   document.querySelectorAll('[data-return-top]').forEach(button => button.addEventListener('click', () => {
@@ -175,4 +184,9 @@
     document.querySelector('.skip-link')?.focus({ preventScroll: true });
   }));
   updateReturnControls();
+  const baseDispose = dispose;
+  dispose = () => { baseDispose(); clearTimeout(returnIdleTimer); };
+  }
+  init();
+  return { init, dispose: () => dispose?.() };
 })();
