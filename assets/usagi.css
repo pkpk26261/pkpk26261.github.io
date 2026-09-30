@@ -842,3 +842,10 @@ html:has(body[data-page="post"]) { scroll-padding-top:calc(var(--header-height) 
   .site-footer .footer-top { grid-template-columns:1fr; }
   .site-footer .footer-note { flex-direction:row; justify-self:start; align-items:center; border-left:0; padding-left:0; }
 }
+
+/* Short section titles follow the available column width, not the whole screen. */
+.about-strip > div:nth-child(2) { min-width:0; container-type:inline-size; }
+.about-strip h2 { font-size:clamp(14px,8.6cqw,30px); white-space:nowrap; letter-spacing:-.5px; }
+@media (max-width:760px) {
+  .section-heading h2 { font-size:clamp(20px,4.5vw,30px); white-space:nowrap; }
+}
