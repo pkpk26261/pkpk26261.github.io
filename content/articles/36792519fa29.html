@@ -1,0 +1,62 @@
+
+
+      
+        <p>使用shutil、os模組協助複製、移動、刪除、新增目錄或檔案</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<span id="more"></span>
+
+<hr>
+<h1 id="shutil模組"><a href="#shutil模組" class="headerlink" title="shutil模組"></a>shutil模組</h1><ul>
+<li>安裝模組: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pytest-shutil</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li><p>複製資料夾所有檔案至新建資料夾內</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">shutil.copytree(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A和B都可能是目錄位置，但B必須為不存在</span></span><br><span class="line"><span class="comment"># shutil.copytree會自動產生B目錄，如果B目錄存在會出現錯誤訊息。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>參考寫法  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copytree(<span class="string">&#x27;./test1/&#x27;</span>,<span class="string">&#x27;D:/test2/&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>刪除目錄及目錄內所有檔案</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.rmtree(<span class="string">&#x27;./test/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>複製文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copyfile(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A和B只能是檔案，不能是目錄位址</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>參考寫法  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutil.copyfile(<span class="string">&#x27;test1.jpg&#x27;</span>,<span class="string">&#x27;test2.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>複製目錄或者複製目錄內的檔案</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.copy(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A只能是目錄，B可以是目錄或檔案</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移動文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line">shutil.move(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br><span class="line"><span class="comment"># A可以是目錄或檔案，B只能是目錄</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h1 id="os模組"><a href="#os模組" class="headerlink" title="os模組"></a>os模組</h1><p><code>不必安裝，內建模組</code></p>
+<ol>
+<li><p>刪除單個文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.remove(<span class="string">&#x27;test.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判斷資料夾(目錄)是否存在</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(<span class="string">&#x27;./test/&#x27;</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;資料夾不存在&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新增資料夾(單層目錄)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.mkdir(<span class="string">&#x27;./test/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新增資料夾(多層目錄)<br><code>如果前一層test資料夾不存在，將會自動新建</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.makedirs(<span class="string">&#x27;./test/hello/&#x27;</span>,exist_ok=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># os.makedirs的exist_ok預設為False，如果資料夾存在的話，將會發生錯誤訊息，因此要記得修改為True，無論目錄是否存在，都會自動判斷新增。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>合併目錄位址</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.join(<span class="string">&#x27;./test/&#x27;</span>,<span class="string">&#x27;hello,jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>輸出為<code>./test/hello,jpg</code></li>
+</ul>
+<p>&amp;ensp;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.join(<span class="string">&#x27;./testA/&#x27;</span>,<span class="string">&#x27;./testB/,&#x27;</span>hello.jpg<span class="string">&#x27;)</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>輸出為<code>./testA/testB/hello.jpg</code></li>
+</ul>
+</li>
+</ol>
+
+    

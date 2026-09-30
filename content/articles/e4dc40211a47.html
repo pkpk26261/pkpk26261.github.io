@@ -1,0 +1,41 @@
+
+
+      
+        <p>這裡將教大家如何解決 <code>&#123;Failed to load module &quot;canberra-gtk-module&quot;&#125;</code> 的啟動錯誤問題。</p>
+<center>⬇⬇⬇文章開始⬇⬇⬇</center>
+<span id="more"></span>
+
+<h1 id="安裝必要包"><a href="#安裝必要包" class="headerlink" title="安裝必要包"></a>安裝必要包</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-module</span><br><span class="line">sudo apt-get install packagekit-gtk3-module</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一（暫時）"><a href="#方法一（暫時）" class="headerlink" title="方法一（暫時）"></a>方法一（暫時）</h2><p>你有一個需要在運行MATLAB之前，設置環境變量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export GTK_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0</span><br></pre></td></tr></table></figure>
+
+<p>或者，您可以通過輸入以下內容在bash shell中，直接運行matlab：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GTK_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0 /usr/local/MATLAB/R2019b/bin/matlab</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二（永久）"><a href="#方法二（永久）" class="headerlink" title="方法二（永久）"></a>方法二（永久）</h2><ol>
+<li>進入root權限</li>
+</ol>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="2">
+<li>輸入gedit(文字編輯器)開啟profile檔案</li>
+</ol>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gedit /etc/profile</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="3">
+<li><code>profile</code>的最下面加入</li>
+</ol>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export GTK_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0:$GTK_PATH</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol start="4">
+<li>重啟</li>
+</ol>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+</blockquote>
+
+    

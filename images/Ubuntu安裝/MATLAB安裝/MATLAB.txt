@@ -1,0 +1,12 @@
+你有一個需要運行MATLAB之前設置環境變量：
+export GTK_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0
+或者，您可以通過輸入以下內容在bash shell中運行matlab：
+GTK_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0 /usr/local/MATLAB/R2019b/bin/matlab
+
+
+進入root權限
+sudo su
+輸入gedit開啟profile文字檔案
+gedit /etc/profile
+底部下面加入
+export GTK_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0:$GTK_PATH

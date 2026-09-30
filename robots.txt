@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /editor/
+Disallow: /content/
+Disallow: /scripts/
+Disallow: /design/
+Sitemap: https://pkpk26261.github.io/sitemap.xml
