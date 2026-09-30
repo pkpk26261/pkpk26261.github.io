@@ -857,3 +857,19 @@ html:has(body[data-page="post"]) { scroll-padding-top:calc(var(--header-height) 
   .heading-with-usagi > p { grid-column:1/-1; grid-row:3; width:auto; margin-top:18px; }
   .heading-with-usagi .index-usagi-scene { grid-column:2; grid-row:2; position:relative; top:auto; right:auto; translate:0 0; width:72px; height:68px; margin-top:0; align-self:end; }
 }
+
+/* Usagi's patisserie: drifting desserts stay behind every interactive surface. */
+body { isolation:isolate; }
+.dessert-atmosphere { position:fixed; inset:0; z-index:-1; overflow:hidden; pointer-events:none; user-select:none; contain:strict; --dessert-opacity:.44; }
+.dessert-particle { position:absolute; top:100%; left:var(--dessert-left); width:var(--dessert-size); height:var(--dessert-size); opacity:0; animation:dessert-rise var(--dessert-duration) var(--dessert-delay) linear infinite; }
+.dessert-particle img { display:block; width:100%; height:100%; animation:dessert-sway 7s ease-in-out infinite alternate; }
+.hero-shell { background:radial-gradient(ellipse at 76% 40%,#ffe9a54d,transparent 60%); }
+@keyframes dessert-rise {
+  0% { opacity:0; transform:translate3d(0,0,0) rotate(var(--dessert-angle)); }
+  8%,88% { opacity:var(--dessert-opacity); }
+  100% { opacity:0; transform:translate3d(var(--dessert-drift),calc(-100dvh - 110px),0) rotate(calc(var(--dessert-angle) * -1)); }
+}
+@keyframes dessert-sway { from { transform:translateX(-5px) rotate(-6deg); } to { transform:translateX(5px) rotate(6deg); } }
+@media (max-width:760px) { .dessert-atmosphere { --dessert-opacity:.36; } }
+@media (prefers-reduced-motion:reduce) { .dessert-atmosphere { display:none; } }
+@media print { .dessert-atmosphere { display:none!important; } }

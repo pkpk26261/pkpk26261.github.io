@@ -27,6 +27,38 @@
     animation.finished.catch(() => {}).finally(() => animations.delete(animation));
     return animation;
   }
+  // A bounded CSS animation layer: no canvas, scroll loop, or touch listeners.
+  const dessertLayer = document.createElement('div');
+  dessertLayer.className = 'dessert-atmosphere';
+  dessertLayer.setAttribute('aria-hidden', 'true');
+  const smallDessertScreen = matchMedia('(max-width: 760px)');
+  const dessertKinds = ['cake', 'donut', 'pudding', 'dango'];
+  function arrangeDesserts() {
+    const compact = smallDessertScreen.matches;
+    const positions = compact ? [2, 86, 9, 80, 4, 89, 7, 84] : [2, 11, 23, 36, 48, 59, 71, 83, 93, 6, 44, 88, 18, 65, 32, 95];
+    const fragments = document.createDocumentFragment();
+    positions.forEach((left, index) => {
+      const particle = document.createElement('span');
+      particle.className = 'dessert-particle';
+      particle.dataset.dessert = dessertKinds[index % dessertKinds.length];
+      particle.style.setProperty('--dessert-left', `${left}%`);
+      particle.style.setProperty('--dessert-size', `${(compact ? 27 : 37) + index % 3 * 5}px`);
+      particle.style.setProperty('--dessert-duration', `${30 + index % 5 * 5}s`);
+      particle.style.setProperty('--dessert-delay', `${-(index + .6) / positions.length * (30 + index % 5 * 5)}s`);
+      particle.style.setProperty('--dessert-drift', `${(index % 2 ? -1 : 1) * (compact ? 10 : 24)}px`);
+      particle.style.setProperty('--dessert-angle', `${index % 2 ? 14 : -14}deg`);
+      const illustration = document.createElement('img');
+      illustration.src = `/assets/illustrations/desserts/${particle.dataset.dessert}.svg`;
+      illustration.alt = '';
+      illustration.width = 96; illustration.height = 96;
+      illustration.decoding = 'async'; illustration.draggable = false;
+      particle.append(illustration); fragments.append(particle);
+    });
+    dessertLayer.replaceChildren(fragments);
+  }
+  document.body.prepend(dessertLayer);
+  arrangeDesserts();
+  smallDessertScreen.addEventListener('change', arrangeDesserts);
   // A staged entrance gives the title, illustration, and controls their own rhythm.
   document.querySelectorAll('.hero-copy > *, .hero-line').forEach((node, index) => {
     animate(node, [{ opacity:0, transform:'translateY(22px)' }, { opacity:1, transform:'translateY(0)' }], {
