@@ -1011,3 +1011,20 @@ body { isolation:isolate; }
   .profile-heading-copy { align-self:stretch; display:flex; flex-direction:column; justify-content:space-between; }
   .education-degree { min-height:26px; }
 }
+
+/* Research and practice: aligned text cards with a shared reading rhythm. */
+.about-projects .project-grid { gap:24px; align-items:stretch; }
+.about-projects .project-card { display:grid; grid-template-rows:auto auto auto 1fr auto auto; min-width:0; padding:28px; border-radius:20px; background:linear-gradient(145deg,#fffdf8,#fcf8ee); box-shadow:0 6px 24px #715b3610; }
+.about-projects .project-top { gap:10px; padding-bottom:20px; border-bottom:1px solid var(--line); color:var(--accent-dark); }
+.project-number { font:12px var(--mono); opacity:.65; }
+.project-kind { margin-left:auto; color:var(--muted); font-size:11px; }
+.about-projects .project-card h3 { margin:20px 0 6px; font-size:clamp(22px,2.2vw,28px); line-height:1.4; letter-spacing:-.4px; }
+.about-projects .project-subtitle { margin:0 0 18px; color:var(--accent-dark); font-size:13px; line-height:1.8; }
+.about-projects .project-description { margin:0; font-size:14px; line-height:1.95; }
+.project-detail { margin-top:24px; padding:14px 16px; border-left:2px solid #d7bc78; border-radius:0 10px 10px 0; background:#f3eddf; }
+.project-detail > span { color:var(--muted); font-size:11px; letter-spacing:.08em; }
+.about-projects .project-detail p { margin:5px 0 0; color:var(--ink); font-size:13px; line-height:1.8; }
+.about-projects .project-tags { gap:7px; margin-top:18px; }
+.about-projects .project-tags span { padding:5px 9px; border:1px solid #e8dcc3; border-radius:6px; background:#fffdf8; font-size:11px; line-height:1.4; }
+@media (max-width:850px) { .about-projects .project-grid { grid-template-columns:1fr; } }
+@media (max-width:480px) { .about-projects .project-card { padding:20px; border-radius:16px; } .about-projects .project-top { padding-bottom:15px; } .about-projects .project-card h3 { font-size:23px; } .project-detail { margin-top:20px; padding:12px; } }
