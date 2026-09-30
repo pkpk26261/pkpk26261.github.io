@@ -1,0 +1,15 @@
+/* Calm syntax colors on warm paper; shared by editor, preview, and reader. */
+.prose figure.highlight .hljs{color:#41494e;background:transparent;white-space:pre;tab-size:4}
+.prose figure.highlight .hljs-keyword,.prose figure.highlight .hljs-selector-tag,.prose figure.highlight .hljs-doctag{color:#85549a;font-weight:500}
+.prose figure.highlight .hljs-string,.prose figure.highlight .hljs-regexp,.prose figure.highlight .hljs-template-tag,.prose figure.highlight .hljs-template-variable{color:#52734b}
+.prose figure.highlight .hljs-comment,.prose figure.highlight .hljs-quote{color:#7e8275;font-style:italic}
+.prose figure.highlight .hljs-number,.prose figure.highlight .hljs-literal{color:#aa6631}
+.prose figure.highlight .hljs-title,.prose figure.highlight .hljs-section{color:#2f698b}
+.prose figure.highlight .hljs-built_in,.prose figure.highlight .hljs-type{color:#9b6830}
+.prose figure.highlight .hljs-attr,.prose figure.highlight .hljs-attribute,.prose figure.highlight .hljs-property{color:#8c6543}
+.prose figure.highlight .hljs-name,.prose figure.highlight .hljs-tag{color:#486b90}
+.prose figure.highlight .hljs-variable,.prose figure.highlight .hljs-symbol,.prose figure.highlight .hljs-bullet{color:#a25455}
+.prose figure.highlight .hljs-meta{color:#766c9d}.prose figure.highlight .hljs-subst{color:#41494e}
+.prose figure.highlight .hljs-addition{color:#496c40;background:#e9efdf}.prose figure.highlight .hljs-deletion{color:#a75b55;background:#f6e8df}
+.prose figure.highlight[data-code-caption]:after{content:attr(data-code-caption);position:absolute;top:10px;left:76px;font:10px/1.5 var(--mono);color:#878773;pointer-events:none}
+.prose figure.highlight .hljs-emphasis{font-style:italic}.prose figure.highlight .hljs-strong{font-weight:700}
