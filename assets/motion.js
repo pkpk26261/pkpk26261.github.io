@@ -192,6 +192,7 @@
   let readingCompleted = false;
   let frame = 0, articleTop = 0, articleBottom = 0, offset = 0, viewport = innerHeight;
   const tocLinks = [...document.querySelectorAll('.article-toc a')];
+  const chapterTitles = new Map(tocLinks.map(link => [decodeURIComponent(link.hash.slice(1)), link.querySelector('.toc-title')?.textContent.trim() || link.textContent.trim()]));
   let sections = [];
   function measure() {
     viewport = innerHeight;
@@ -200,7 +201,7 @@
     articleTop = rect.top + scrollY;
     articleBottom = rect.bottom + scrollY;
     offset = (document.querySelector('.site-header')?.getBoundingClientRect().height || 76) + (document.querySelector('.reading-companion')?.getBoundingClientRect().height || 44);
-    sections = [...article.querySelectorAll('h2[id],h3[id]')].map(node => ({ id:node.id, top:node.getBoundingClientRect().top + scrollY }));
+    sections = [...article.querySelectorAll('h1[id],h2[id],h3[id]')].filter(node => chapterTitles.has(node.id)).map(node => ({ id:node.id, title:chapterTitles.get(node.id), top:node.getBoundingClientRect().top + scrollY }));
   }
   function update() {
     frame = 0;
@@ -223,6 +224,8 @@
       label.textContent = ratio >= 1 ? '讀完了，烏拉！' : '一起慢慢讀';
       remaining.textContent = ratio >= 1 ? '本篇已讀完' : `約剩 ${Math.max(1, Math.ceil(minutes * (1 - ratio)))} 分鐘`;
       const active = sections.filter(section => section.top <= scrollY + offset + 45).at(-1);
+      const currentChapter = document.querySelector('.toc-current');
+      if (currentChapter) currentChapter.textContent = active?.title || '從第一章開始';
       tocLinks.forEach(link => {
         if (decodeURIComponent(link.hash.slice(1)) === active?.id) link.setAttribute('aria-current', 'location');
         else link.removeAttribute('aria-current');
@@ -236,6 +239,7 @@
   addEventListener('scroll', schedule, { passive:true });
   addEventListener('resize', () => { measure(); schedule(); }, { passive:true });
   addEventListener('pageshow', () => { measure(); schedule(); });
+  document.querySelector('.article-toc')?.addEventListener('toggle', () => { measure(); schedule(); });
   if (article && 'ResizeObserver' in window) new ResizeObserver(() => { measure(); schedule(); }).observe(article);
   article?.querySelectorAll('img,iframe').forEach(node => node.addEventListener('load', () => { measure(); schedule(); }));
   document.fonts?.ready.then(() => { measure(); schedule(); });

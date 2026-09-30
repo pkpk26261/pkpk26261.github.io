@@ -873,3 +873,56 @@ body { isolation:isolate; }
 @media (max-width:760px) { .dessert-atmosphere { --dessert-opacity:.36; } }
 @media (prefers-reduced-motion:reduce) { .dessert-atmosphere { display:none; } }
 @media print { .dessert-atmosphere { display:none!important; } }
+
+.header-brand-group { display:flex; align-items:center; min-width:0; }
+.header-music-slot { display:none; }
+.hero-note .curiosity-spark { display:block; width:24px; height:24px; flex:none; }
+.back-top { bottom:calc(32px + env(safe-area-inset-bottom,0px)); }
+@media (max-width:760px) {
+  .header-inner { gap:8px; }
+  .header-brand-group { gap:10px; }
+  .header-music-slot { display:block; flex:none; }
+  .header-music-slot .music-dock { position:relative; width:40px; max-width:none; left:auto; right:auto; top:auto; bottom:auto; }
+  .header-music-slot .music-toolbar .music-toggle { width:40px; height:40px; min-height:40px; border-color:#e3d8c5; box-shadow:none; background:#fffaf066; }
+  .header-music-slot .music-badge { width:31px; height:31px; }
+  .header-music-slot .music-panel { position:fixed; top:calc(var(--header-height) + 10px); left:20px; right:20px; bottom:auto; width:auto; max-width:420px; margin-inline:auto; max-height:calc(100dvh - var(--header-height) - 30px); overflow:auto; overscroll-behavior:contain; }
+  .back-top { right:20px; bottom:calc(clamp(36px,6vh,64px) + env(safe-area-inset-bottom,0px)); }
+}
+@media (max-width:380px) {
+  .header-brand-group { gap:8px; }
+  .site-header .brand-wordmark .brand-lead,.site-header .brand-wordmark .brand-tail { font-size:19px; }
+  .site-header .brand-wordmark .brand-emphasis { font-size:30px; }
+}
+
+/* Numbered article navigation with a readable current-position summary. */
+.article-toc { border:1px solid var(--line); border-radius:14px; padding:18px 14px; background:var(--surface); }
+.article-toc summary { align-items:center; gap:12px; font-size:13px; }
+.toc-summary-title { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+.toc-summary-title .icon { width:17px; height:17px; color:var(--accent-dark); }
+.toc-summary-title small { font-size:10px; font-weight:400; color:var(--muted); }
+.toc-toggle { display:flex; align-items:center; gap:5px; flex:none; font-size:10px; font-weight:400; color:var(--muted); }
+.article-toc .toc-hide { display:none; }
+.article-toc[open] .toc-show { display:none; }
+.article-toc[open] .toc-hide { display:inline; }
+.article-toc[open] .toc-toggle svg { rotate:180deg; }
+.toc-position { display:grid; gap:4px; margin-top:14px; padding:12px 10px; background:#f6f1e5; border-radius:8px; }
+.toc-position > span { color:var(--muted); font-size:9px; letter-spacing:1px; }
+.toc-position strong { font-size:11px; line-height:1.6; font-weight:500; color:var(--accent-dark); overflow-wrap:anywhere; }
+.article-toc nav { margin-top:12px; padding-right:4px; max-height:calc(100svh - 400px); scrollbar-color:#d9cbb1 transparent; }
+.article-toc li { display:block; margin:0; padding:0; line-height:1.6; }
+.article-toc a { display:flex; align-items:baseline; gap:8px; min-height:40px; padding:10px 8px; border-left:2px solid transparent; border-radius:6px; font-size:12px; }
+.toc-number { flex:none; font:10px var(--mono); min-width:20px; color:#a28c69; }
+.toc-title { min-width:0; overflow-wrap:anywhere; }
+.article-toc .toc-level-2,.article-toc .toc-level-3 { display:block; padding-left:12px; font-size:11px; }
+.article-toc .toc-level-2 a,.article-toc .toc-level-3 a { font-size:11px; min-height:34px; padding-block:7px; }
+.article-toc .toc-level-2 .toc-number,.article-toc .toc-level-3 .toc-number { font-size:9px; }
+.article-toc a:hover,.article-toc a[aria-current] { background:#f8edcf; border-left-color:var(--accent); color:var(--accent-dark); }
+.article-toc a[aria-current] .toc-title { font-weight:600; }
+@media (max-width:850px) {
+  .article-toc { padding:16px; }
+  .article-toc nav { max-height:none; overflow:visible; padding-right:0; }
+  .toc-position { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 12px; padding:9px 11px; }
+  .toc-position strong { font-size:11px; }
+  .article-toc a { font-size:13px; min-height:44px; }
+  .article-toc .toc-level-2 a,.article-toc .toc-level-3 a { font-size:12px; min-height:40px; }
+}

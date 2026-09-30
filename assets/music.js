@@ -18,8 +18,26 @@
   const setStatus = text => { status.textContent = text; };
   const expand = () => { panel.hidden = false; toggle.setAttribute('aria-expanded', 'true'); updateToggle(); };
   const collapse = () => { panel.hidden = true; toggle.setAttribute('aria-expanded', 'false'); updateToggle(); };
+  const mobileHeader = matchMedia('(max-width: 760px)');
+  const headerSlot = document.querySelector('.header-music-slot');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const dockHome = document.createComment('Desktop music controls');
+  dock.before(dockHome);
+  // Keep audio in one document location so resizing never interrupts playback.
+  if (audio) dock.after(audio);
+  function placeControls() {
+    if (mobileHeader.matches && headerSlot) headerSlot.append(dock);
+    else dockHome.after(dock);
+    collapse();
+  }
+  mobileHeader.addEventListener('change', placeControls);
+  menuToggle?.addEventListener('click', collapse);
+  placeControls();
   toggle.addEventListener('click', () => {
-    if (panel.hidden) expand(); else collapse();
+    if (panel.hidden) {
+      if (menuToggle?.getAttribute('aria-expanded') === 'true') menuToggle.click();
+      expand();
+    } else collapse();
     if (audio && dock.dataset.state === 'blocked') { stoppedByUser = false; attemptPlay(); }
   });
   document.addEventListener('pointerdown', event => { if (!dock.contains(event.target)) collapse(); });

@@ -17,6 +17,17 @@
   mobileNav?.addEventListener('click', e => { if (e.target.closest('a')) closeMenu(); });
   window.matchMedia('(min-width: 761px)').addEventListener('change', e => { if (e.matches) closeMenu(); });
 
+  const articleToc = document.querySelector('.article-toc');
+  if (articleToc) {
+    const inlineToc = matchMedia('(max-width: 850px)');
+    const placeToc = () => { articleToc.open = !inlineToc.matches; };
+    placeToc();
+    inlineToc.addEventListener('change', placeToc);
+    articleToc.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      if (inlineToc.matches) articleToc.open = false;
+    }));
+  }
+
   const normalized = value => value.normalize('NFKC').toLocaleLowerCase();
   document.querySelectorAll('[data-list]').forEach(list => {
     const cards = [...list.querySelectorAll('.article-card')];
