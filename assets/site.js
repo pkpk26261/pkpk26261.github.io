@@ -146,7 +146,39 @@
     headings.forEach(heading => observer.observe(heading));
   }
   const topButton = document.querySelector('.back-top');
+  const footerReturn = document.querySelector('.footer-return');
+  const footer = document.querySelector('.site-footer');
   let scheduled = false;
-  window.addEventListener('scroll', () => { if (scheduled) return; scheduled = true; requestAnimationFrame(() => { topButton.hidden = window.scrollY < 650; scheduled = false; }); }, { passive: true });
-  topButton?.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }); document.querySelector('.skip-link').focus({ preventScroll: true }); });
+  let returnIdleTimer;
+  let returnControlActive = false;
+  function hideIdleReturn() {
+    clearTimeout(returnIdleTimer);
+    if (topButton && !topButton.hidden && !returnControlActive) returnIdleTimer = setTimeout(() => { topButton.hidden = true; }, 3500);
+  }
+  function updateReturnControls() {
+    const viewportHeight = window.innerHeight;
+    const longPage = document.documentElement.scrollHeight > viewportHeight * 2;
+    const footerVisible = footer && footer.getBoundingClientRect().top < viewportHeight;
+    if (topButton) topButton.hidden = !longPage || window.scrollY < Math.max(650, viewportHeight) || footerVisible;
+    if (footerReturn) footerReturn.hidden = !longPage;
+    hideIdleReturn();
+  }
+  function scheduleReturnControls() {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(() => { updateReturnControls(); scheduled = false; });
+  }
+  window.addEventListener('scroll', scheduleReturnControls, { passive: true });
+  window.addEventListener('resize', scheduleReturnControls);
+  window.addEventListener('load', scheduleReturnControls);
+  if ('ResizeObserver' in window) new ResizeObserver(scheduleReturnControls).observe(document.querySelector('main'));
+  topButton?.addEventListener('pointerenter', () => { returnControlActive = true; clearTimeout(returnIdleTimer); });
+  topButton?.addEventListener('pointerleave', () => { returnControlActive = false; hideIdleReturn(); });
+  topButton?.addEventListener('focus', () => { returnControlActive = true; clearTimeout(returnIdleTimer); });
+  topButton?.addEventListener('blur', () => { returnControlActive = false; hideIdleReturn(); });
+  document.querySelectorAll('[data-return-top]').forEach(button => button.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    document.querySelector('.skip-link')?.focus({ preventScroll: true });
+  }));
+  updateReturnControls();
 })();
