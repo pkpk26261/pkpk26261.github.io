@@ -168,8 +168,6 @@
   window.addEventListener('resize', scheduleReturnControls);
   window.addEventListener('load', scheduleReturnControls);
   if ('ResizeObserver' in window) new ResizeObserver(scheduleReturnControls).observe(document.querySelector('main'));
-  topButton?.addEventListener('pointerenter', () => { returnControlActive = true; clearTimeout(returnIdleTimer); });
-  topButton?.addEventListener('pointerleave', () => { returnControlActive = false; hideIdleReturn(); });
   topButton?.addEventListener('focus', () => { returnControlActive = true; clearTimeout(returnIdleTimer); });
   topButton?.addEventListener('blur', () => { returnControlActive = false; hideIdleReturn(); });
   document.querySelectorAll('[data-return-top]').forEach(button => button.addEventListener('click', () => {
