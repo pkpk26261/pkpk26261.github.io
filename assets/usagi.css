@@ -58,7 +58,10 @@ body.nav-open .reading-progress, body.nav-open .reading-companion { visibility:h
 .layer-flower { bottom:14%; left:9%; --depth:18px; }
 .floating-note { padding:20px; border:1px solid #dfcfac; box-shadow:0 12px 25px #7250280d; background:#fffdf6; border-radius:12px; }
 .code-note { transform:rotate(-9deg); animation:note-drift 7s ease-in-out infinite; }
-.note-dots { display:block; font-size:8px; color:#e5b676; letter-spacing:5px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+.note-dots { display:flex; align-items:center; gap:10px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+.note-dots i { display:block; width:7px; height:7px; border-radius:50%; background:#ef7068; }
+.note-dots i:nth-child(2) { background:#efc04d; }
+.note-dots i:nth-child(3) { background:#7eaf6d; }
 .code-note code { display:block; font:11px/1.9 var(--mono); margin-top:10px; color:#776449; white-space:nowrap; }
 .code-note code span { color:#788b66; }
 .code-note code em { font-style:normal; color:#ba8156; }
