@@ -338,7 +338,7 @@ html:has(body[data-page="post"]) { scroll-padding-top:calc(var(--header-height) 
 .topic-count { position:static; display:block; margin-bottom:12px; }
 .topic-card h3 { font-size:18px; }
 .topic-card:hover .topic-usagi { transform:translateY(-6px) rotate(-4deg); }
-.about-strip { grid-template-columns:170px minmax(0,1fr) 240px; gap:35px; }
+.about-strip { grid-template-columns:170px minmax(0,1fr) 340px; gap:35px; }
 .author-usagi { align-self:center; }
 .hello-usagi { width:165px; height:170px; }
 .footer-note { display:flex; align-items:center; gap:18px; }
@@ -963,13 +963,13 @@ body { isolation:isolate; }
 .collection-copy { min-width:0; }
 .collection-card .collection-copy h2 { margin:0 0 6px; font-size:18px; line-height:1.5; }
 .collection-card .collection-copy p { margin:0; font-size:12px; }
-.about-github { gap:14px; padding:20px; border-style:solid; background:#fffdf8; }
+.about-github { display:grid; grid-template-columns:42px minmax(0,1fr) auto; align-items:center; gap:14px; min-width:0; padding:20px; border-style:solid; background:#fffdf8; }
 .github-mark { display:grid; place-items:center; flex:none; width:42px; height:42px; border-radius:12px; color:#66553c; background:#f3eddc; }
 .github-mark svg { width:23px; height:23px; }
 .github-copy { display:grid; gap:3px; min-width:0; }
-.github-copy strong { color:var(--ink); font-size:16px; font-weight:600; line-height:1.5; }
-.github-copy > span { font-size:11px; }
-.about-github > .github-action { font-size:11px; margin-left:auto; flex:none; color:#866423; padding-left:10px; border-left:1px solid var(--line); }
+.github-copy strong { white-space:nowrap; color:var(--ink); font-size:16px; font-weight:600; line-height:1.5; }
+.github-copy > span { font-size:11px; white-space:nowrap; }
+.about-github > .github-action { font-size:11px; white-space:nowrap; margin-left:auto; flex:none; color:#866423; padding-left:10px; border-left:1px solid var(--line); }
 .about-github:hover { background:#fff8e9; border-color:#bba572; }
 @media(max-width:600px) {
   .collection-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
