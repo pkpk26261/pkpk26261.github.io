@@ -6,6 +6,8 @@ body { background:var(--paper); overflow-wrap:break-word; }
 ::selection { background:#ffe3a0; color:#3b3028; }
 .wrap { width:min(1280px,calc(100% - clamp(36px,8vw,144px))); }
 .icon { flex-shrink:0; }
+/* Navigation focuses main for assistive technology; it is not an interactive control. */
+main#main:focus { outline:none; }
 .site-header { background:#fffaf0ed; border-bottom:1px solid var(--line); backdrop-filter:blur(18px); z-index:100; }
 .site-header:has(.menu-toggle[aria-expanded="true"]) { z-index:500; }
 body.nav-open .reading-progress, body.nav-open .reading-companion { visibility:hidden; }
@@ -1027,6 +1029,8 @@ body { isolation:isolate; }
 .project-detail { margin-top:24px; padding:14px 16px; border-left:2px solid #d7bc78; border-radius:0 10px 10px 0; background:#f3eddf; }
 .project-detail > span { color:var(--muted); font-size:11px; letter-spacing:.08em; }
 .about-projects .project-detail p { margin:5px 0 0; color:var(--ink); font-size:13px; line-height:1.8; }
+.about-projects .project-detail a { color:var(--accent-dark); text-decoration:underline; text-underline-offset:3px; }
+.about-projects .project-detail a:hover { color:var(--ink); }
 .about-projects .project-tags { gap:7px; margin-top:18px; }
 .about-projects .project-tags span { padding:5px 9px; border:1px solid #e8dcc3; border-radius:6px; background:#fffdf8; font-size:11px; line-height:1.4; }
 @media (max-width:850px) { .about-projects .project-grid { grid-template-columns:1fr; } }
