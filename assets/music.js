@@ -44,7 +44,7 @@
       if (menuToggle?.getAttribute('aria-expanded') === 'true') menuToggle.click();
       expand();
     } else collapse();
-    if (audio && dock.dataset.state === 'blocked') { stoppedByUser = false; attemptPlay(true); }
+    if (audio && wantsPlayback() && needsPlayback()) attemptPlay(true);
   });
   document.addEventListener('pointerdown', event => { if (!dock.contains(event.target)) collapse(); });
   dock.addEventListener('keydown', event => { if (event.key === 'Escape' && !panel.hidden) { collapse(); toggle.focus(); } });
@@ -165,7 +165,8 @@
   });
   volume.addEventListener('input', () => {
     requestedVolume = Number(volume.value) / 100; prepareAudio(); applyVolume();
-    if (audioContext?.state === 'suspended') audioContext.resume().catch(() => {});
+    if (wantsPlayback() && needsPlayback()) attemptPlay(true);
+    else if (audioContext?.state === 'suspended') audioContext.resume().catch(() => {});
     save();
   });
   // Touch release, pointer release and keyboard input all retain their actual
