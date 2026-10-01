@@ -85,6 +85,19 @@ window.ReaderPage = (() => {
   const searchInput = search?.querySelector('input');
   const searchStatus = document.getElementById('search-status');
   const searchResults = search?.querySelector('.search-results');
+  // The keyboard shrinks iOS's visual viewport without shrinking the layout.
+  // Keep the mobile dialog inside the part of the page the reader can see.
+  function placeSearch() {
+    if (!search?.open) return;
+    const viewport = window.visualViewport;
+    const values = {width:viewport?.width || window.innerWidth, height:viewport?.height || window.innerHeight, left:viewport?.offsetLeft || 0, top:viewport?.offsetTop || 0};
+    for (const [key,value] of Object.entries(values)) search.style.setProperty(`--search-viewport-${key}`, `${value}px`);
+  }
+  if (window.visualViewport) {
+    listen(window.visualViewport, 'resize', placeSearch);
+    listen(window.visualViewport, 'scroll', placeSearch);
+  }
+  listen(window, 'resize', placeSearch);
   let searchData = null, loading = null, searchTrigger = null;
   async function loadSearch() {
     if (searchData) return searchData;
@@ -116,12 +129,12 @@ window.ReaderPage = (() => {
       searchResults.replaceChildren(...results.map(item => resultNode(item.post, terms)));
     } catch { searchStatus.textContent = '目前無法載入搜尋資料。請稍後再試，或前往文章頁依主題瀏覽。'; const link = document.createElement('a'); link.href = '/articles/'; link.className = 'search-result'; link.textContent = '前往全部文章 →'; searchResults.replaceChildren(link); }
   }
-  document.querySelectorAll('[data-search]').forEach(button => button.addEventListener('click', () => { closeMenu(); searchTrigger = button; search.showModal(); document.body.classList.add('modal-open'); searchInput.focus(); runSearch(); }));
+  document.querySelectorAll('[data-search]').forEach(button => button.addEventListener('click', () => { closeMenu(); searchTrigger = button; search.showModal(); document.body.classList.add('modal-open'); placeSearch(); searchInput.focus({preventScroll:true}); runSearch(); }));
   searchInput?.addEventListener('input', runSearch);
   search?.querySelector('form').addEventListener('submit', e => { e.preventDefault(); runSearch(); });
   search?.querySelector('.close-search').addEventListener('click', () => search.close());
   search?.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); search.close(); } });
-  search?.addEventListener('close', () => { document.body.classList.remove('modal-open'); searchTrigger?.focus(); });
+  search?.addEventListener('close', () => { document.body.classList.remove('modal-open'); searchTrigger?.focus({preventScroll:true}); });
   search?.addEventListener('click', e => { if (e.target === search) { const r = search.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) search.close(); } });
 
   const imageDialog = document.querySelector('.image-dialog');

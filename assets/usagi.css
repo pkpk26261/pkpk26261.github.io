@@ -1063,3 +1063,28 @@ body.modal-open .back-top, body:has(.menu-toggle[aria-expanded="true"]) .back-to
 .search-result p { overflow-wrap:anywhere; }
 @media (max-width:760px) { .related-reading { margin-top:32px; padding-top:24px; } .article-sort { justify-content:flex-start; } }
 @media print { .article-sort,.related-reading { display:none!important; } }
+/* Phone search stays above the keyboard; keep input text large enough to read. */
+@media (max-width:760px) {
+  .search-dialog[open] {
+    position:fixed; margin:0; inset:auto;
+    left:calc(var(--search-viewport-left, 0px) + var(--search-viewport-width, 100vw) / 2);
+    top:calc(var(--search-viewport-top, 0px) + 16px);
+    transform:translateX(-50%);
+    width:calc(var(--search-viewport-width, 100vw) - 32px);
+    max-width:340px;
+    max-height:calc(var(--search-viewport-height, 100dvh) - 32px);
+    display:flex; flex-direction:column; overflow:hidden; padding:16px;
+  }
+  .search-dialog .search-field input { font-size:16px; min-width:0; }
+  .search-dialog .search-dialog-head, .search-dialog .search-form,
+  .search-dialog .search-status, .search-dialog .search-help { flex-shrink:0; }
+  .search-dialog .search-dialog-head { gap:10px; margin-bottom:12px; }
+  .search-dialog .search-dialog-head h2 { font-size:20px; }
+  .search-dialog .search-field { padding:10px 12px; }
+  .search-dialog .search-status { font-size:11px; margin-block:12px; }
+  .search-dialog .search-result { padding:12px 3px; }
+  .search-dialog .search-result h3 { font-size:14px; }
+  .search-dialog .search-result p { font-size:12px; }
+  .search-dialog .search-results { min-height:0; max-height:none; overflow:auto; overscroll-behavior:contain; }
+  .search-dialog .search-help { margin-top:12px; }
+}
