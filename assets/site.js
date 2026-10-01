@@ -171,9 +171,11 @@ window.ReaderPage = (() => {
 
   document.querySelectorAll('.highlight').forEach(figure => {
     const code = figure.querySelector('.code pre') || figure.querySelector('pre'); if (!code) return;
+    const sourceCode = window.StudioCode ? StudioCode.textOf(code) : code.innerText;
+    window.StudioCode?.alignRows(figure,code);
     const button = document.createElement('button'); button.type = 'button'; button.className = 'copy-code'; button.textContent = '複製'; button.setAttribute('aria-label', '複製這段程式碼');
     button.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText(window.StudioCode?StudioCode.textOf(code):code.innerText); button.textContent = '已複製'; document.getElementById('site-status').textContent = '程式碼已複製'; }
+      try { await navigator.clipboard.writeText(sourceCode); button.textContent = '已複製'; document.getElementById('site-status').textContent = '程式碼已複製'; }
       catch { button.textContent = '請手動選取複製'; document.getElementById('site-status').textContent = '瀏覽器無法複製，請手動選取程式碼'; }
       setTimeout(() => button.textContent = '複製', 2000);
     });

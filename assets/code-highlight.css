@@ -36,3 +36,7 @@
 .prose figure.highlight .code-scroll table { margin:0; }
 .prose figure.highlight .gutter { position:sticky; left:0; background:#f4f1e7; color:#a59b84; }
 .prose figure.highlight td { padding-top:14px; padding-bottom:14px; }
+.prose figure.highlight[data-code-rows] { -webkit-text-size-adjust:none; text-size-adjust:none; }
+.prose figure.highlight[data-code-rows] td { padding-top:0; padding-bottom:0; vertical-align:baseline; }
+.prose figure.highlight[data-code-rows] tr:first-child td { padding-top:14px; }
+.prose figure.highlight[data-code-rows] tr:last-child td { padding-bottom:14px; }
