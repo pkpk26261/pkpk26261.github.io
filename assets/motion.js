@@ -1,6 +1,17 @@
 'use strict';
 window.ReaderMotion = (() => {
   let dispose;
+  let lastHomeQuote = -1;
+  const homeQuotes = [
+    ['今天也有', '新的發現！'],
+    ['帶著好奇', '出發吧！'],
+    ['靈感來了', '快記下來！'],
+    ['慢慢探索', '也很棒呀！'],
+    ['小小實作', '大大進步！'],
+    ['翻開手札', '一起學習！'],
+    ['試試看嘛', '會有驚喜！'],
+    ['呀哈！今天', '也要開心！']
+  ];
   function init() {
   dispose?.();
   const scope = new AbortController();
@@ -13,6 +24,18 @@ window.ReaderMotion = (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const scene = document.querySelector('.usagi-scene');
+  const homeQuote = scene?.querySelector('.book-note > span');
+  if (homeQuote) {
+    try {
+      const saved = sessionStorage.getItem('usagi-home-quote');
+      if (saved !== null && /^\d+$/.test(saved)) lastHomeQuote = Number(saved);
+    } catch { /* Keep visits varied in memory when storage is unavailable. */ }
+    const choices = homeQuotes.map((_, index) => index).filter(index => index !== lastHomeQuote);
+    lastHomeQuote = choices[Math.floor(Math.random() * choices.length)];
+    const [first, second] = homeQuotes[lastHomeQuote];
+    homeQuote.replaceChildren(document.createTextNode(first), document.createElement('br'), document.createTextNode(second));
+    try { sessionStorage.setItem('usagi-home-quote', String(lastHomeQuote)); } catch { /* Optional session persistence. */ }
+  }
   const mascot = scene?.querySelector('.usagi-mascot');
   const animations = new Set();
   const canMove = () => !reduced.matches && !document.hidden;
