@@ -1087,6 +1087,12 @@ body.modal-open .back-top, body:has(.menu-toggle[aria-expanded="true"]) .back-to
 @media (max-width:760px) { .related-reading { margin-top:32px; padding-top:24px; } .article-sort { justify-content:flex-start; } }
 @media print { .article-sort,.related-reading { display:none!important; } }
 .discovery-status-compact,.topic-select { display:none; }
+@media screen and (min-width:761px) {
+  .discovery-footer { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-bottom:20px; }
+  .discovery-footer .filter-status { order:1; margin:0; }
+  .discovery-footer .article-sort { order:2; flex-shrink:0; margin:0; }
+}
+
 /* Two quiet native controls keep the mobile article list compact. */
 @media screen and (max-width:760px) {
   .article-discovery { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:10px; margin:0 0 20px; padding:0; }
