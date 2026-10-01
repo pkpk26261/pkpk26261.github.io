@@ -44,7 +44,7 @@
       if (menuToggle?.getAttribute('aria-expanded') === 'true') menuToggle.click();
       expand();
     } else collapse();
-    if (audio && dock.dataset.state === 'blocked') { stoppedByUser = false; attemptPlay(); }
+    if (audio && dock.dataset.state === 'blocked') { stoppedByUser = false; attemptPlay(true); }
   });
   document.addEventListener('pointerdown', event => { if (!dock.contains(event.target)) collapse(); });
   dock.addEventListener('keydown', event => { if (event.key === 'Escape' && !panel.hidden) { collapse(); toggle.focus(); } });
@@ -101,14 +101,30 @@
   const save = () => {
     try { sessionStorage.setItem('yc-audio', JSON.stringify({ source: audio.getAttribute('src'), stopped: stoppedByUser, time: audio.currentTime, volume: requestedVolume })); } catch { /* Storage is optional. */ }
   };
-  const attemptPlay = async () => {
+  let playSequence = 0, pendingPlay = false;
+  const wantsPlayback = () => dock.dataset.autoplay === 'true' && !stoppedByUser;
+  const needsPlayback = () => audio.paused || (audioContext && audioContext.state !== 'running');
+  const attemptPlay = async (gesture = false) => {
+    const sequence = ++playSequence;
+    pendingPlay = true;
     setState('loading');
     setStatus('正在準備播放…');
     try {
-      prepareAudio(); applyVolume();
+      // Do not route permitted native autoplay through a still-locked AudioContext.
+      // Attach the volume graph during a real interaction, when it can be unlocked.
+      if (gesture) prepareAudio();
+      applyVolume();
       const resumed = audioContext?.resume();
       const playing = audio.play();
-      await Promise.all([resumed, playing]);
+      // resume() can stay pending while policy blocks Web Audio. Media playback
+      // and graph state are checked separately, so the UI cannot hang forever.
+      resumed?.catch(() => {
+        if (sequence === playSequence && !stoppedByUser) {
+          setState('blocked'); setStatus('輕觸頁面，繼續閱讀配樂。');
+        }
+      });
+      await playing;
+      if (sequence !== playSequence) return;
       if (stoppedByUser) { audio.pause(); return; }
       if (!audioContext || audioContext.state === 'running') showPlaying();
       if (audioContext && audioContext.state !== 'running') {
@@ -116,6 +132,7 @@
       }
     }
     catch (error) {
+      if (sequence !== playSequence) return;
       if (error.name === 'AbortError') return;
       if (error.name === 'NotAllowedError') {
         setState('blocked');
@@ -125,9 +142,11 @@
         setStatus('音訊目前無法播放，請稍後重試。');
         expand();
       }
+    } finally {
+      if (sequence === playSequence) pendingPlay = false;
     }
   };
-  function selectTrack(index) {
+  function selectTrack(index, gesture = true) {
     stoppedByUser = false;
     if (index !== activeIndex) {
       activeIndex = index;
@@ -135,13 +154,13 @@
       previous = {};
       updateTrack();
     }
-    attemptPlay();
+    attemptPlay(gesture);
     save();
   }
   trackButtons.forEach(button => button.addEventListener('click', () => selectTrack(Number(button.dataset.track))));
   play.addEventListener('click', () => {
-    if (!audio.paused && dock.dataset.state === 'playing') { stoppedByUser = true; audio.pause(); }
-    else { stoppedByUser = false; attemptPlay(); }
+    if (!audio.paused && dock.dataset.state === 'playing') { stoppedByUser = true; ++playSequence; pendingPlay = false; audio.pause(); }
+    else { stoppedByUser = false; attemptPlay(true); }
     save();
   });
   volume.addEventListener('input', () => {
@@ -149,16 +168,24 @@
     if (audioContext?.state === 'suspended') audioContext.resume().catch(() => {});
     save();
   });
-  // Retry in a real user gesture when the browser blocks initial autoplay.
+  // Touch release, pointer release and keyboard input all retain their actual
+  // browser gesture. This also repairs incidental pause/suspend states.
   const resumeOnInteraction = event => {
-    if (stoppedByUser || dock.dataset.autoplay !== 'true' || !['blocked', 'loading'].includes(dock.dataset.state)) return;
-    if (event.target.closest('.music-dock')) return;
-    attemptPlay();
+    if (!wantsPlayback() || event.target.closest('.music-dock')) return;
+    if (needsPlayback()) attemptPlay(true);
   };
+  document.addEventListener('pointerup', resumeOnInteraction);
+  document.addEventListener('touchend', resumeOnInteraction, {passive:true});
   document.addEventListener('click', resumeOnInteraction);
   document.addEventListener('keydown', event => {
     if (event.key === 'Enter' || event.key === ' ') resumeOnInteraction(event);
   });
+  const resumeAutomatically = () => {
+    if (wantsPlayback() && needsPlayback() && !pendingPlay && !document.hidden && dock.dataset.state !== 'error') attemptPlay();
+  };
+  audio.addEventListener('canplay', resumeAutomatically);
+  document.addEventListener('visibilitychange', resumeAutomatically);
+  document.addEventListener('reader:navigate', resumeAutomatically);
   function showPlaying() {
     setState('playing'); play.setAttribute('aria-label', '暫停背景音樂');
     setStatus('正在播放 · ' + trackTitle()); save();
@@ -173,12 +200,12 @@
     save();
   });
   audio.addEventListener('pause', () => {
-    setState('paused');
+    setState(stoppedByUser ? 'paused' : 'blocked');
     play.setAttribute('aria-label', '播放背景音樂');
-    setStatus('已暫停 · ' + trackTitle());
+    setStatus(stoppedByUser ? '已暫停 · ' + trackTitle() : '輕觸頁面，繼續閱讀配樂。');
     save();
   });
-  audio.addEventListener('ended', () => { if (!stoppedByUser && tracks.length > 1) selectTrack(randomTrackIndex(activeIndex)); });
+  audio.addEventListener('ended', () => { if (!stoppedByUser && tracks.length > 1) selectTrack(randomTrackIndex(activeIndex), false); });
   audio.addEventListener('error', () => {
     setState('error');
     setStatus('音訊載入失敗，請確認檔案或網址。');
@@ -193,7 +220,7 @@
   else audio.addEventListener('loadedmetadata', restorePosition, { once: true });
   audio.addEventListener('timeupdate', save);
   window.addEventListener('pagehide', save);
-  window.addEventListener('pageshow', event => { if (event.persisted && !stoppedByUser) attemptPlay(); });
+  window.addEventListener('pageshow', resumeAutomatically);
   if (dock.dataset.autoplay === 'true' && !stoppedByUser) attemptPlay();
   else { setState('paused'); setStatus('點擊播放，開啟閱讀配樂。'); }
 })();
