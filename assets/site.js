@@ -57,6 +57,23 @@ window.ReaderPage = (() => {
     const sort = list.querySelector('[data-sort]');
     const grid = list.querySelector('.article-grid');
     const status = list.querySelector('.filter-status');
+    const picker = list.querySelector('.topic-picker');
+    const phone = window.matchMedia('(max-width:760px)');
+    if (picker) {
+      picker.open = !phone.matches;
+      listen(phone, 'change', () => { picker.open = !phone.matches; });
+      const closePicker = () => { picker.open = false; };
+      listen(document, 'pointerdown', event => {
+        if (phone.matches && picker.open && !picker.contains(event.target)) closePicker();
+      });
+      listen(picker, 'keydown', event => {
+        if (phone.matches && picker.open && event.key === 'Escape') {
+          event.preventDefault();
+          closePicker();
+          picker.querySelector('summary').focus({ preventScroll: true });
+        }
+      });
+    }
     const limit = Number(list.dataset.limit) || Infinity;
     let topic = 'all';
     const params = new URLSearchParams(location.search);
@@ -77,7 +94,11 @@ window.ReaderPage = (() => {
         if (!card.hidden) shown++;
       });
       list.querySelectorAll('[data-filter]').forEach(button => { const active = button.dataset.filter === topic; button.classList.toggle('active', active); button.setAttribute('aria-pressed', String(active)); });
-      if (status) status.textContent = matches === 0 ? '沒有符合的文章' : limit === Infinity ? `顯示 ${matches} 篇文章` : `此主題共 ${matches} 篇，顯示 ${shown} 篇文章`;
+      if (picker) picker.querySelector('.topic-current').textContent = list.querySelector('[data-filter].active').textContent;
+      if (status) {
+        const description = matches === 0 ? '沒有符合的文章' : limit === Infinity ? `顯示 ${matches} 篇文章` : `此主題共 ${matches} 篇，顯示 ${shown} 篇文章`;
+        status.innerHTML = `<span class="discovery-status-full">${description}</span><span class="discovery-status-compact" aria-hidden="true">${matches === 0 ? '沒有符合的文章' : `<strong>${shown}</strong><span> / ${matches} 篇</span>`}</span>`;
+      }
       list.querySelector('.empty-state').hidden = matches > 0;
       if (input || sort) {
         const url = new URL(location.href);
@@ -87,7 +108,14 @@ window.ReaderPage = (() => {
         history.replaceState(null, '', url);
       }
     }
-    list.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => { topic = button.dataset.filter; filter(); }));
+    list.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
+      topic = button.dataset.filter;
+      filter();
+      if (picker && phone.matches) {
+        picker.open = false;
+        picker.querySelector('summary').focus({ preventScroll: true });
+      }
+    }));
     input?.addEventListener('input', filter);
     sort?.addEventListener('change', filter);
     filter();
