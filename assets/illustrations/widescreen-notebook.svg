@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 800" fill="none">
+  <defs>
+    <linearGradient id="orbit" x1="80" y1="710" x2="1530" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="#d9cba8" stop-opacity="0"/><stop offset=".42" stop-color="#cdb270" stop-opacity=".6"/><stop offset="1" stop-color="#cdb270" stop-opacity=".12"/></linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#c4ac7b" opacity=".24"/></pattern>
+  </defs>
+  <rect width="1800" height="800" fill="url(#dots)"/>
+  <path d="M-90 646C158 837 584 775 874 580S1264 106 1640 161s234 315 108 389" stroke="url(#orbit)" stroke-width="1.5"/>
+  <path d="M-64 702C227 843 502 773 862 523S1325 57 1646 103" stroke="#cdb270" stroke-opacity=".22" stroke-dasharray="3 10"/>
+  <g fill="#c1a262" opacity=".4">
+    <path d="m88 157 5 14 14 5-14 5-5 14-5-14-14-5 14-5Z"/>
+    <path d="m1175 83 4 11 11 4-11 4-4 11-4-11-11-4 11-4Z"/>
+    <path d="m1286 679 5 14 14 5-14 5-5 14-5-14-14-5 14-5Z"/>
+    <circle cx="227" cy="676" r="4"/><circle cx="1008" cy="126" r="3"/><circle cx="1227" cy="630" r="3"/>
+  </g>
+  <g stroke="#b3bd94" stroke-opacity=".45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M99 577c-10-38-4-66 19-96-8 39-7 64-19 96Zm0 0c-38-10-58-28-70-56 38 7 57 27 70 56Z"/>
+    <path d="M99 597v-33m-1-19 17-43m-15 70-51-36"/>
+  </g>
+  <g transform="translate(1240 220) rotate(12)" stroke="#c4ab73" stroke-opacity=".36" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect width="66" height="82" rx="7"/><path d="M13 0v82M23 24h30M23 36h24M23 48h30M23 60h18"/>
+    <path d="M7 15H-3m10 15H-3m10 15H-3m10 15H-3"/>
+  </g>
+  <g stroke="#c5af7f" stroke-opacity=".35" stroke-width="1.5" stroke-linecap="round">
+    <path d="M215 108v14m-7-7h14M1186 737v12m-6-6h12M1330 131v16m-8-8h16"/>
+  </g>
+</svg>
