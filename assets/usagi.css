@@ -492,6 +492,10 @@ html:has(body[data-page="post"]) { scroll-padding-top:calc(var(--header-height) 
   .notebook-stats dd { font-size:29px; }
 }
 
+/* Floating music and return controls share one visibility clock. */
+.back-top { transition:opacity .2s,visibility .2s; }
+html:not([data-reading-controls-visible="true"]) .back-top { opacity:0; visibility:hidden; pointer-events:none; }
+
 /* One compact record icon opens the optional playback controls. */
 .music-dock { width:52px; max-width:calc(100vw - 32px); border:0; border-radius:0; background:transparent; box-shadow:none; left:24px; right:auto; bottom:20px; z-index:110; transition:opacity .2s,visibility .2s; }
 .music-dock:not([data-scroll-visible="true"]) { opacity:0; visibility:hidden; pointer-events:none; }
@@ -528,7 +532,7 @@ html:has(body[data-page="post"]) { scroll-padding-top:calc(var(--header-height) 
   .music-badge { width:35px; height:35px; }
   .back-top { right:16px; bottom:16px; }
 }
-@media (prefers-reduced-motion:reduce) { .music-disc,.music-bar,.music-panel,.music-dock[data-state="loading"] .music-toggle:after { animation:none; } .music-dock { transition:none; } }
+@media (prefers-reduced-motion:reduce) { .music-disc,.music-bar,.music-panel,.music-dock[data-state="loading"] .music-toggle:after { animation:none; } .music-dock,.back-top { transition:none; } }
 @media print { .music-dock { display:none!important; } }
 
 /* Footer contact is a restrained utility link within the metadata row. */

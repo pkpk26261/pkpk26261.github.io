@@ -197,17 +197,10 @@ window.ReaderPage = (() => {
   }
   const topButton = document.querySelector('.back-top');
   let scheduled = false;
-  let returnIdleTimer;
-  let returnControlActive = false;
-  function hideIdleReturn() {
-    clearTimeout(returnIdleTimer);
-    if (topButton && !topButton.hidden && !returnControlActive) returnIdleTimer = setTimeout(() => { topButton.hidden = true; }, 3500);
-  }
   function updateReturnControls() {
     const viewportHeight = window.innerHeight;
     const longPage = document.documentElement.scrollHeight > viewportHeight * 2;
     if (topButton) topButton.hidden = !longPage || window.scrollY < Math.max(650, viewportHeight);
-    hideIdleReturn();
   }
   function scheduleReturnControls() {
     if (scheduled) return;
@@ -218,15 +211,11 @@ window.ReaderPage = (() => {
   listen(window, 'resize', scheduleReturnControls);
   listen(window, 'load', scheduleReturnControls);
   if ('ResizeObserver' in window) resizeObserver(scheduleReturnControls).observe(document.querySelector('main'));
-  topButton?.addEventListener('focus', () => { returnControlActive = true; clearTimeout(returnIdleTimer); });
-  topButton?.addEventListener('blur', () => { returnControlActive = false; hideIdleReturn(); });
   document.querySelectorAll('[data-return-top]').forEach(button => button.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     document.querySelector('.skip-link')?.focus({ preventScroll: true });
   }));
   updateReturnControls();
-  const baseDispose = dispose;
-  dispose = () => { baseDispose(); clearTimeout(returnIdleTimer); };
   }
   init();
   return { init, dispose: () => dispose?.() };

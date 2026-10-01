@@ -20,16 +20,24 @@
   const collapse = () => { panel.hidden = true; toggle.setAttribute('aria-expanded', 'false'); updateToggle(); scheduleHide(); };
   const mobileHeader = matchMedia('(max-width: 760px)');
   const idleDelay = 3000;
-  let hideTimer, hovering = false, keyboardInteracting = false, lastScrollY = window.scrollY;
-  const keyboardFocusInside = () => dock.contains(document.activeElement) && (keyboardInteracting || document.activeElement?.matches(':focus-visible'));
+  let hideTimer, hovering = false, topHovered = false, keyboardInteracting = false, lastScrollY = window.scrollY;
+  const controlsRoot = document.documentElement;
+  const topControl = node => node?.closest?.('.back-top');
+  const controlHasFocus = () => dock.contains(document.activeElement) || Boolean(topControl(document.activeElement));
+  const keyboardFocusInside = () => controlHasFocus() && (keyboardInteracting || document.activeElement?.matches(':focus-visible'));
+  const finishFocusChange = () => { setTimeout(() => { if (!controlHasFocus()) keyboardInteracting = false; scheduleHide(); }, 0); };
   function scheduleHide() {
     clearTimeout(hideTimer);
-    if (mobileHeader.matches || dock.dataset.scrollVisible !== 'true' || !panel.hidden || hovering || keyboardFocusInside()) return;
+    if (controlsRoot.dataset.readingControlsVisible !== 'true' || !panel.hidden || hovering || topHovered || keyboardFocusInside()) return;
     hideTimer = setTimeout(() => {
-      if (panel.hidden && !hovering && !keyboardFocusInside()) dock.dataset.scrollVisible = 'false';
+      if (panel.hidden && !hovering && !topHovered && !keyboardFocusInside()) {
+        controlsRoot.dataset.readingControlsVisible = 'false';
+        dock.dataset.scrollVisible = mobileHeader.matches ? 'true' : 'false';
+      }
     }, idleDelay);
   }
   function showControls() {
+    controlsRoot.dataset.readingControlsVisible = 'true';
     dock.dataset.scrollVisible = 'true';
     scheduleHide();
   }
@@ -41,8 +49,14 @@
   dock.addEventListener('pointerenter', () => { hovering = true; clearTimeout(hideTimer); });
   dock.addEventListener('pointerleave', () => { hovering = false; scheduleHide(); });
   dock.addEventListener('focusin', showControls);
-  dock.addEventListener('focusout', () => { setTimeout(() => { if (!dock.contains(document.activeElement)) keyboardInteracting = false; scheduleHide(); }, 0); });
+  dock.addEventListener('focusout', finishFocusChange);
   dock.addEventListener('pointerdown', () => { keyboardInteracting = false; });
+  // Delegate because reader navigation replaces the return-to-top button.
+  document.addEventListener('pointerover', event => { if (topControl(event.target)) { topHovered = true; clearTimeout(hideTimer); } });
+  document.addEventListener('pointerout', event => { if (topControl(event.target) && !topControl(event.relatedTarget)) { topHovered = false; scheduleHide(); } });
+  document.addEventListener('focusin', event => { if (topControl(event.target)) showControls(); });
+  document.addEventListener('focusout', event => { if (topControl(event.target)) finishFocusChange(); });
+  document.addEventListener('keydown', event => { if (topControl(event.target)) { keyboardInteracting = true; clearTimeout(hideTimer); } });
   let headerSlot = document.querySelector('.header-music-slot');
   let menuToggle = document.querySelector('.menu-toggle');
   const dockHome = document.createComment('Desktop music controls');
@@ -55,6 +69,8 @@
     collapse();
     clearTimeout(hideTimer);
     hovering = false;
+    topHovered = false;
+    controlsRoot.dataset.readingControlsVisible = 'false';
     keyboardInteracting = false;
     lastScrollY = window.scrollY;
     dock.dataset.scrollVisible = mobileHeader.matches ? 'true' : 'false';
@@ -75,7 +91,7 @@
     } else collapse();
     if (audio && wantsPlayback() && needsPlayback()) attemptPlay(true);
   });
-  document.addEventListener('pointerdown', event => { if (!dock.contains(event.target)) collapse(); });
+  document.addEventListener('pointerdown', event => { if (!dock.contains(event.target)) { keyboardInteracting = false; collapse(); } });
   dock.addEventListener('keydown', event => { keyboardInteracting = true; clearTimeout(hideTimer); if (event.key === 'Escape' && !panel.hidden) { collapse(); toggle.focus(); } });
   updateToggle();
   if (!audio) return;
