@@ -64,7 +64,8 @@ window.ReaderMotion = (() => {
   dessertLayer.className = 'dessert-atmosphere';
   dessertLayer.setAttribute('aria-hidden', 'true');
   const smallDessertScreen = matchMedia('(max-width: 760px)');
-  const dessertKinds = ['cake', 'donut', 'pudding', 'dango'];
+  const dessertKinds = ['cake', 'donut', 'pudding', 'dango', 'cake-chocolate', 'macaron', 'cupcake', 'ice-cream'];
+  const desktopDesserts = [...dessertKinds, 'donut', 'pudding', 'dango', 'macaron', 'donut', 'pudding', 'dango', 'cupcake'];
   function arrangeDesserts() {
     const compact = smallDessertScreen.matches;
     const positions = compact ? [2, 86, 9, 80, 4, 89, 7, 84] : [2, 11, 23, 36, 48, 59, 71, 83, 93, 6, 44, 88, 18, 65, 32, 95];
@@ -72,7 +73,7 @@ window.ReaderMotion = (() => {
     positions.forEach((left, index) => {
       const particle = document.createElement('span');
       particle.className = 'dessert-particle';
-      particle.dataset.dessert = dessertKinds[index % dessertKinds.length];
+      particle.dataset.dessert = (compact ? dessertKinds : desktopDesserts)[index];
       particle.style.setProperty('--dessert-left', `${left}%`);
       particle.style.setProperty('--dessert-size', `${(compact ? 27 : 37) + index % 3 * 5}px`);
       particle.style.setProperty('--dessert-duration', `${30 + index % 5 * 5}s`);
