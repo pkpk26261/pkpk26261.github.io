@@ -80,6 +80,17 @@ window.ReaderMotion = (() => {
       particle.style.setProperty('--dessert-delay', `${-(index + .6) / positions.length * (30 + index % 5 * 5)}s`);
       particle.style.setProperty('--dessert-drift', `${(index % 2 ? -1 : 1) * (compact ? 10 : 24)}px`);
       particle.style.setProperty('--dessert-angle', `${index % 2 ? 14 : -14}deg`);
+      if (!compact) {
+        // Each dessert follows its own winding route, bounded by the screen edges.
+        const min = Math.max(-7, 1 - left);
+        const max = Math.min(7, 96 - left);
+        for (let step = 1; step <= 6; step++) {
+          const band = (step + index) % 2 ? .65 : .05;
+          const offset = min + (max - min) * (band + Math.random() * .3);
+          particle.style.setProperty(`--dessert-route-${step}`, `${offset.toFixed(2)}vw`);
+          particle.style.setProperty(`--dessert-turn-${step}`, `${(-19 + Math.random() * 38).toFixed(1)}deg`);
+        }
+      }
       const illustration = document.createElement('img');
       illustration.src = `/assets/illustrations/desserts/${particle.dataset.dessert}.svg`;
       illustration.alt = '';

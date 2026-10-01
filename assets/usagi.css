@@ -881,6 +881,19 @@ body { isolation:isolate; }
   100% { opacity:0; transform:translate3d(var(--dessert-drift),calc(-100dvh - 110px),0) rotate(calc(var(--dessert-angle) * -1)); }
 }
 @keyframes dessert-sway { from { transform:translateX(-5px) rotate(-6deg); } to { transform:translateX(5px) rotate(6deg); } }
+@media (min-width:761px) {
+  .dessert-particle { animation-name:dessert-roaming-rise; animation-timing-function:ease-in-out; }
+}
+@keyframes dessert-roaming-rise {
+  0% { opacity:0; transform:translate3d(0,0,0) rotate(var(--dessert-angle)); }
+  8%,88% { opacity:var(--dessert-opacity); }
+  15% { transform:translate3d(var(--dessert-route-1),calc(-15dvh - 16.5px),0) rotate(var(--dessert-turn-1)); }
+  34% { transform:translate3d(var(--dessert-route-2),calc(-34dvh - 37.4px),0) rotate(var(--dessert-turn-2)); }
+  53% { transform:translate3d(var(--dessert-route-3),calc(-53dvh - 58.3px),0) rotate(var(--dessert-turn-3)); }
+  76% { transform:translate3d(var(--dessert-route-4),calc(-76dvh - 83.6px),0) rotate(var(--dessert-turn-4)); }
+  91% { transform:translate3d(var(--dessert-route-5),calc(-91dvh - 100.1px),0) rotate(var(--dessert-turn-5)); }
+  100% { opacity:0; transform:translate3d(var(--dessert-route-6),calc(-100dvh - 110px),0) rotate(var(--dessert-turn-6)); }
+}
 @media (max-width:760px) { .dessert-atmosphere { --dessert-opacity:.36; } }
 @media (prefers-reduced-motion:reduce) { .dessert-atmosphere { display:none; } }
 @media print { .dessert-atmosphere { display:none!important; } }
