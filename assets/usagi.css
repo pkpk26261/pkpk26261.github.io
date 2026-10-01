@@ -493,7 +493,8 @@ html:has(body[data-page="post"]) { scroll-padding-top:calc(var(--header-height) 
 }
 
 /* One compact record icon opens the optional playback controls. */
-.music-dock { width:52px; max-width:calc(100vw - 32px); border:0; border-radius:0; background:transparent; box-shadow:none; left:24px; right:auto; bottom:20px; z-index:110; }
+.music-dock { width:52px; max-width:calc(100vw - 32px); border:0; border-radius:0; background:transparent; box-shadow:none; left:24px; right:auto; bottom:20px; z-index:110; transition:opacity .2s,visibility .2s; }
+.music-dock:not([data-scroll-visible="true"]) { opacity:0; visibility:hidden; pointer-events:none; }
 .music-toolbar { display:block; min-height:0; padding:0; }
 .music-toolbar .music-toggle { display:grid; place-items:center; width:52px; height:52px; min-height:52px; padding:0; border:1px solid #d9cbb5; border-radius:50%; background:#fffdf7f5; box-shadow:0 4px 18px #45332313; position:relative; transition:background .25s,box-shadow .25s; }
 .music-toggle:hover { background:#fff3d6; box-shadow:0 4px 20px #45332320; }
@@ -527,7 +528,7 @@ html:has(body[data-page="post"]) { scroll-padding-top:calc(var(--header-height) 
   .music-badge { width:35px; height:35px; }
   .back-top { right:16px; bottom:16px; }
 }
-@media (prefers-reduced-motion:reduce) { .music-disc,.music-bar,.music-panel,.music-dock[data-state="loading"] .music-toggle:after { animation:none; } }
+@media (prefers-reduced-motion:reduce) { .music-disc,.music-bar,.music-panel,.music-dock[data-state="loading"] .music-toggle:after { animation:none; } .music-dock { transition:none; } }
 @media print { .music-dock { display:none!important; } }
 
 /* Footer contact is a restrained utility link within the metadata row. */

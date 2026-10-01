@@ -16,9 +16,33 @@
   };
   const setState = state => { dock.dataset.state = state; updateToggle(); };
   const setStatus = text => { status.textContent = text; };
-  const expand = () => { panel.hidden = false; toggle.setAttribute('aria-expanded', 'true'); updateToggle(); };
-  const collapse = () => { panel.hidden = true; toggle.setAttribute('aria-expanded', 'false'); updateToggle(); };
+  const expand = () => { panel.hidden = false; toggle.setAttribute('aria-expanded', 'true'); updateToggle(); showControls(); };
+  const collapse = () => { panel.hidden = true; toggle.setAttribute('aria-expanded', 'false'); updateToggle(); scheduleHide(); };
   const mobileHeader = matchMedia('(max-width: 760px)');
+  const idleDelay = 3000;
+  let hideTimer, hovering = false, keyboardInteracting = false, lastScrollY = window.scrollY;
+  const keyboardFocusInside = () => dock.contains(document.activeElement) && (keyboardInteracting || document.activeElement?.matches(':focus-visible'));
+  function scheduleHide() {
+    clearTimeout(hideTimer);
+    if (mobileHeader.matches || dock.dataset.scrollVisible !== 'true' || !panel.hidden || hovering || keyboardFocusInside()) return;
+    hideTimer = setTimeout(() => {
+      if (panel.hidden && !hovering && !keyboardFocusInside()) dock.dataset.scrollVisible = 'false';
+    }, idleDelay);
+  }
+  function showControls() {
+    dock.dataset.scrollVisible = 'true';
+    scheduleHide();
+  }
+  window.addEventListener('scroll', () => {
+    const nextScrollY = window.scrollY;
+    if (nextScrollY !== lastScrollY) showControls();
+    lastScrollY = nextScrollY;
+  }, {passive:true});
+  dock.addEventListener('pointerenter', () => { hovering = true; clearTimeout(hideTimer); });
+  dock.addEventListener('pointerleave', () => { hovering = false; scheduleHide(); });
+  dock.addEventListener('focusin', showControls);
+  dock.addEventListener('focusout', () => { setTimeout(() => { if (!dock.contains(document.activeElement)) keyboardInteracting = false; scheduleHide(); }, 0); });
+  dock.addEventListener('pointerdown', () => { keyboardInteracting = false; });
   let headerSlot = document.querySelector('.header-music-slot');
   let menuToggle = document.querySelector('.menu-toggle');
   const dockHome = document.createComment('Desktop music controls');
@@ -29,6 +53,11 @@
     if (mobileHeader.matches && headerSlot) headerSlot.append(dock);
     else { const main = document.querySelector('main'); main ? main.after(dock) : dockHome.after(dock); }
     collapse();
+    clearTimeout(hideTimer);
+    hovering = false;
+    keyboardInteracting = false;
+    lastScrollY = window.scrollY;
+    dock.dataset.scrollVisible = mobileHeader.matches ? 'true' : 'false';
   }
   mobileHeader.addEventListener('change', placeControls);
   menuToggle?.addEventListener('click', collapse);
@@ -47,7 +76,7 @@
     if (audio && wantsPlayback() && needsPlayback()) attemptPlay(true);
   });
   document.addEventListener('pointerdown', event => { if (!dock.contains(event.target)) collapse(); });
-  dock.addEventListener('keydown', event => { if (event.key === 'Escape' && !panel.hidden) { collapse(); toggle.focus(); } });
+  dock.addEventListener('keydown', event => { keyboardInteracting = true; clearTimeout(hideTimer); if (event.key === 'Escape' && !panel.hidden) { collapse(); toggle.focus(); } });
   updateToggle();
   if (!audio) return;
   const tracks = JSON.parse(dock.dataset.tracks || '[]');
@@ -140,7 +169,7 @@
       } else {
         setState('error');
         setStatus('音訊目前無法播放，請稍後重試。');
-        expand();
+        if (mobileHeader.matches) expand();
       }
     } finally {
       if (sequence === playSequence) pendingPlay = false;
@@ -210,7 +239,7 @@
   audio.addEventListener('error', () => {
     setState('error');
     setStatus('音訊載入失敗，請確認檔案或網址。');
-    expand();
+    if (mobileHeader.matches) expand();
   });
   const restorePosition = () => {
     if (previous.source === audio.getAttribute('src') && Number.isFinite(previous.time) && previous.time > 0 && Number.isFinite(audio.duration) && audio.duration > 0) {
