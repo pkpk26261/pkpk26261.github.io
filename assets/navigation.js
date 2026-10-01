@@ -37,7 +37,7 @@
         if (node !== dock && node !== audio && node.tagName !== 'SCRIPT') node.remove();
       });
       for (const node of [...next.body.children]) {
-        if (node.matches('.music-dock, script')) continue;
+        if (node.matches('.music-dock, .site-loader, script')) continue;
         document.body.append(node);
       }
       document.body.className = next.body.className;
