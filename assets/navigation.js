@@ -6,6 +6,20 @@
   const positions = new Map();
   const route = url => url.origin === location.origin && !/^\/(editor|api|content|design|rating)(\/|$)/.test(url.pathname) && !/\.[a-z0-9]+$/i.test(url.pathname);
   const remember = () => positions.set(displayedURL, [scrollX, scrollY]);
+  async function syncStyles(next, url) {
+    await Promise.all([...next.head.querySelectorAll('link[rel="stylesheet"]')].map(link => {
+      const href = new URL(link.getAttribute('href'), url).href;
+      const existing = [...document.head.querySelectorAll('link[rel="stylesheet"]')];
+      if (existing.some(node => node.href === href)) return;
+      const old = existing.find(node => new URL(node.href).pathname === new URL(href).pathname);
+      return new Promise((resolve, reject) => {
+        const replacement = link.cloneNode(true); replacement.href = href;
+        replacement.onload = () => { old?.remove(); resolve(); };
+        replacement.onerror = () => { replacement.remove(); reject(new Error('Stylesheet unavailable')); };
+        if (old) old.after(replacement); else document.head.append(replacement);
+      });
+    }));
+  }
   const move = (url, back) => {
     if (url.hash) {
       let id; try { id = decodeURIComponent(url.hash.slice(1)); } catch { id = url.hash.slice(1); }
@@ -26,6 +40,8 @@
       if (!response.ok || !response.headers.get('content-type')?.includes('text/html')) throw new Error('Not a reader page');
       const next = new DOMParser().parseFromString(await response.text(), 'text/html');
       if (!next.querySelector('main') || !next.querySelector('.music-dock') || !next.querySelector('.site-header')) throw new Error('Not a reader shell');
+      // Load the destination's versioned styles before showing its new markup.
+      await syncStyles(next, url);
       if (current.signal.aborted) return;
       if (!back) { remember(); history.pushState(null, '', url.href); }
       window.ReaderPage?.dispose(); window.ReaderMotion?.dispose();

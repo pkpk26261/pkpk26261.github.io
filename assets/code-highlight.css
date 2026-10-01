@@ -15,7 +15,13 @@
 .prose figure.highlight .hljs-emphasis{font-style:italic}.prose figure.highlight .hljs-strong{font-weight:700}
 
 /* The toolbar is outside the horizontal scroll area. */
-.prose figure.highlight { padding:0; overflow:hidden; background:#faf8f1; }
+.prose figure.highlight { padding:0; overflow:hidden; background:#faf8f1; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+/* Keep the separate gutter and code columns on identical line boxes,
+   including on phones that automatically enlarge wide text blocks. */
+.prose figure.highlight pre { font-family:var(--mono); font-size:13px; line-height:24px; white-space:pre; }
+@media (max-width:760px) {
+  .prose figure.highlight pre { font-size:12px; line-height:22px; }
+}
 .prose figure.highlight:before,.prose figure.highlight[data-code-caption]:after { display:none; }
 .code-toolbar { display:flex; align-items:center; gap:16px; padding:10px 14px; min-height:44px; background:#f0ecdf; border-bottom:1px solid #e4ddcc; }
 .code-window-dots { display:flex; gap:6px; flex:none; }
