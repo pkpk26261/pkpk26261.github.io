@@ -41,15 +41,22 @@ window.ReaderPage = (() => {
   document.querySelectorAll('[data-list]').forEach(list => {
     const cards = [...list.querySelectorAll('.article-card')];
     const input = list.querySelector('input[type="search"]');
+    const sort = list.querySelector('[data-sort]');
+    const grid = list.querySelector('.article-grid');
     const status = list.querySelector('.filter-status');
     const limit = Number(list.dataset.limit) || Infinity;
     let topic = 'all';
     const params = new URLSearchParams(location.search);
+    if (sort && params.get('sort') === 'updated') sort.value = 'updated';
     if (input && params.get('q')) input.value = params.get('q');
     if ([...list.querySelectorAll('[data-filter]')].some(b => b.dataset.filter === params.get('topic'))) topic = params.get('topic');
     function filter() {
       const query = normalized(input?.value.trim() || '');
       let matches = 0, shown = 0;
+      if (sort) {
+        cards.sort((a,b) => ReaderSearch.compareDates(a.dataset, b.dataset, sort.value));
+        cards.forEach(card => grid.append(card));
+      }
       cards.forEach(card => {
         const found = (topic === 'all' || card.dataset.topics.split(' ').includes(topic)) && (!query || query.split(/\s+/).every(word => normalized(card.dataset.searchText).includes(word)));
         if (found) matches++;
@@ -59,15 +66,17 @@ window.ReaderPage = (() => {
       list.querySelectorAll('[data-filter]').forEach(button => { const active = button.dataset.filter === topic; button.classList.toggle('active', active); button.setAttribute('aria-pressed', String(active)); });
       if (status) status.textContent = matches === 0 ? '沒有符合的文章' : limit === Infinity ? `顯示 ${matches} 篇文章` : `此主題共 ${matches} 篇，顯示 ${shown} 篇文章`;
       list.querySelector('.empty-state').hidden = matches > 0;
-      if (input) {
+      if (input || sort) {
         const url = new URL(location.href);
         topic === 'all' ? url.searchParams.delete('topic') : url.searchParams.set('topic', topic);
-        input.value.trim() ? url.searchParams.set('q', input.value.trim()) : url.searchParams.delete('q');
+        if (input) input.value.trim() ? url.searchParams.set('q', input.value.trim()) : url.searchParams.delete('q');
+        if (sort) sort.value === 'updated' ? url.searchParams.set('sort', 'updated') : url.searchParams.delete('sort');
         history.replaceState(null, '', url);
       }
     }
     list.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => { topic = button.dataset.filter; filter(); }));
     input?.addEventListener('input', filter);
+    sort?.addEventListener('change', filter);
     filter();
   });
 
@@ -82,11 +91,12 @@ window.ReaderPage = (() => {
     if (!loading) loading = fetch('/assets/search-index.json').then(response => { if (!response.ok) throw new Error('Search index unavailable'); return response.json(); }).then(data => searchData = data).catch(error => { loading = null; throw error; });
     return loading;
   }
-  function resultNode(post) {
+  function resultNode(post, terms) {
     const link = document.createElement('a'); link.className = 'search-result'; link.href = post.url;
     const meta = document.createElement('small'); meta.textContent = `${post.label} · ${post.date}`;
-    const title = document.createElement('h3'); title.textContent = post.title;
-    const excerpt = document.createElement('p'); excerpt.textContent = post.summary;
+    const title = document.createElement('h3'); ReaderSearch.appendHighlighted(title, post.title, terms);
+    const excerpt = document.createElement('p');
+    ReaderSearch.appendHighlighted(excerpt, ReaderSearch.snippet(post.text, terms, post.summary), terms);
     link.append(meta, title, excerpt); return link;
   }
   async function runSearch() {
@@ -103,7 +113,7 @@ window.ReaderPage = (() => {
         return { post, found: terms.every(term => title.includes(term) || body.includes(term)), score: terms.reduce((s,term) => s + (title.includes(term) ? 2 : 0), 0) };
       }).filter(item => item.found).sort((a,b) => b.score - a.score);
       searchStatus.textContent = results.length ? `找到 ${results.length} 篇與「${query}」相關的文章` : `找不到與「${query}」相關的文章，試試 Python、YOLO 或 Ubuntu。`;
-      searchResults.replaceChildren(...results.map(item => resultNode(item.post)));
+      searchResults.replaceChildren(...results.map(item => resultNode(item.post, terms)));
     } catch { searchStatus.textContent = '目前無法載入搜尋資料。請稍後再試，或前往文章頁依主題瀏覽。'; const link = document.createElement('a'); link.href = '/articles/'; link.className = 'search-result'; link.textContent = '前往全部文章 →'; searchResults.replaceChildren(link); }
   }
   document.querySelectorAll('[data-search]').forEach(button => button.addEventListener('click', () => { closeMenu(); searchTrigger = button; search.showModal(); document.body.classList.add('modal-open'); searchInput.focus(); runSearch(); }));
