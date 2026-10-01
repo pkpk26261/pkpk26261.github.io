@@ -1088,3 +1088,26 @@ body.modal-open .back-top, body:has(.menu-toggle[aria-expanded="true"]) .back-to
   .search-dialog .search-results { min-height:0; max-height:none; overflow:auto; overscroll-behavior:contain; }
   .search-dialog .search-help { margin-top:12px; }
 }
+.tag-directory { padding-block:20px 60px; }
+body[data-page="tags"] .page-heading,
+body[data-page="categories"] .page-heading { border:0; padding-bottom:28px; }
+.tag-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:20px; margin-bottom:18px; color:var(--muted); font-size:13px; }
+.tag-toolbar .inline-search { margin-left:auto; }
+.tag-filter-status { color:var(--muted); font-size:12px; margin-bottom:24px; }
+.tag-group { display:grid; grid-template-columns:140px minmax(0,1fr); gap:28px; padding:22px 0; border:0; }
+.tag-group h2 { font-size:16px; margin:12px 0 0; color:var(--muted); font-weight:600; }
+.keyword-list { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.keyword-chip { display:flex; align-items:center; gap:10px; min-height:46px; border:0; border-radius:12px; background:#f3eedf; padding:12px 16px; font-size:14px; transition:background .2s; }
+.keyword-chip:hover { background:#fae9b3; }
+.keyword-hash { display:none; }
+.keyword-chip>span:nth-child(2) { flex:1; }
+.keyword-count { min-width:20px; text-align:right; font-size:11px; color:var(--muted); }
+.tag-toolbar .inline-search { border:0; background:#f3eedf; }
+.search-keywords { display:block; margin-top:10px; }
+.tag-empty { padding-block:30px; color:var(--muted); }
+@media (max-width:1000px) { .keyword-list { grid-template-columns:repeat(3,minmax(0,1fr)); } .tag-group { grid-template-columns:110px minmax(0,1fr); gap:20px; } }
+@media (max-width:760px) { .tag-toolbar { gap:14px; } .tag-toolbar .inline-search { width:100%; margin:0; } .tag-toolbar input { width:100%; font-size:16px; } .keyword-list { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; } .keyword-chip { padding:11px 14px; font-size:13px; gap:8px; } .tag-group { display:block; padding-block:18px; } .tag-group h2 { font-size:15px; margin:0 0 14px; } }
+.category-explore { color:var(--muted); margin-bottom:24px; }
+.category-explore .text-link { color:var(--ink); font-weight:600; }
+.topic-return { padding-block:8px 12px; }
+@media (max-width:760px) { .category-explore { gap:8px 20px; } .category-explore>.text-link { margin-left:0; font-size:12px; } }

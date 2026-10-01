@@ -38,6 +38,19 @@ window.ReaderPage = (() => {
   }
 
   const normalized = value => value.normalize('NFKC').toLocaleLowerCase();
+  const tagDirectory = document.querySelector('[data-tag-directory]');
+  if (tagDirectory) {
+    const input = tagDirectory.querySelector('input');
+    const chips = [...tagDirectory.querySelectorAll('[data-keyword]')];
+    input.addEventListener('input', () => {
+      const terms = normalized(input.value.trim()).split(/\s+/);
+      let count = 0;
+      chips.forEach(chip => { chip.hidden = !terms.every(term => normalized(chip.dataset.keyword).includes(term)); if (!chip.hidden) count++; });
+      tagDirectory.querySelectorAll('.tag-group').forEach(group => group.hidden = !group.querySelector('[data-keyword]:not([hidden])'));
+      tagDirectory.querySelector('.tag-filter-status').textContent = input.value.trim() ? `找到 ${count} 個符合的關鍵字` : '依工具與用途探索文章。';
+      tagDirectory.querySelector('.tag-empty').hidden = count > 0;
+    });
+  }
   document.querySelectorAll('[data-list]').forEach(list => {
     const cards = [...list.querySelectorAll('.article-card')];
     const input = list.querySelector('input[type="search"]');
@@ -110,7 +123,10 @@ window.ReaderPage = (() => {
     const title = document.createElement('h3'); ReaderSearch.appendHighlighted(title, post.title, terms);
     const excerpt = document.createElement('p');
     ReaderSearch.appendHighlighted(excerpt, ReaderSearch.snippet(post.text, terms, post.summary), terms);
-    link.append(meta, title, excerpt); return link;
+    link.append(meta, title, excerpt);
+    const keywords = (post.keywords || []).filter(word => terms.some(term => normalized(word).includes(term)));
+    if (keywords.length) { const tags = document.createElement('small'); tags.className = 'search-keywords'; tags.append('關鍵字：'); ReaderSearch.appendHighlighted(tags, keywords.join(' · '), terms); link.append(tags); }
+    return link;
   }
   async function runSearch() {
     const query = searchInput.value.trim();
@@ -122,7 +138,7 @@ window.ReaderPage = (() => {
       if (query !== searchInput.value.trim()) return;
       const terms = normalized(query).split(/\s+/);
       const results = data.map(post => {
-        const title = normalized(post.title), body = normalized(`${post.text} ${post.label}`);
+        const title = normalized(post.title), body = normalized(`${post.text} ${post.label} ${(post.keywords || []).join(' ')}`);
         return { post, found: terms.every(term => title.includes(term) || body.includes(term)), score: terms.reduce((s,term) => s + (title.includes(term) ? 2 : 0), 0) };
       }).filter(item => item.found).sort((a,b) => b.score - a.score);
       searchStatus.textContent = results.length ? `找到 ${results.length} 篇與「${query}」相關的文章` : `找不到與「${query}」相關的文章，試試 Python、YOLO 或 Ubuntu。`;

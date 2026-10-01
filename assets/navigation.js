@@ -22,7 +22,7 @@
     const announcement = document.getElementById('site-status');
     if (announcement) announcement.textContent = '正在開啟頁面…';
     try {
-      const response = await fetch(url.href, {signal:current.signal});
+      const response = await fetch(url.href, {signal:current.signal, cache:'no-cache'});
       if (!response.ok || !response.headers.get('content-type')?.includes('text/html')) throw new Error('Not a reader page');
       const next = new DOMParser().parseFromString(await response.text(), 'text/html');
       if (!next.querySelector('main') || !next.querySelector('.music-dock') || !next.querySelector('.site-header')) throw new Error('Not a reader shell');
