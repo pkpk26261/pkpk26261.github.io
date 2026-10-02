@@ -1316,13 +1316,21 @@ body[data-page="categories"] .page-heading { border:0; padding-bottom:28px; }
 .portrait-live img { transform-origin: 50% 35%; animation: portrait-camera 12s ease-in-out infinite; }
 .portrait-spark {
   position: absolute; z-index: 1; pointer-events: none;
-  width: 23px; height: 30px;
+  width: 25px; height: 32px; color: #c49a38;
+  transform-origin: center;
+}
+.portrait-spark::before, .portrait-spark::after {
+  content: ''; position: absolute; pointer-events: none; background: currentColor;
   clip-path: polygon(50% 0, 62% 36%, 100% 50%, 62% 64%, 50% 100%, 38% 64%, 0 50%, 38% 36%);
 }
-.portrait-spark-gold { top: 21px; right: -14px; background: #c49a38; }
-.portrait-spark-sage { bottom: 28px; left: -11px; width: 17px; height: 23px; background: #99a779; }
-.portrait-live .portrait-spark { animation: portrait-sparkle 4s ease-in-out infinite; }
-.portrait-live .portrait-spark-sage { animation-delay: -2s; }
+.portrait-spark::before { inset: 0; }
+.portrait-spark::after { top: -9px; right: 7px; width: 9px; height: 12px; opacity: .45; }
+.portrait-spark-gold { top: 21px; right: -10px; }
+.portrait-spark-sage { bottom: 28px; left: -8px; width: 20px; height: 27px; color: #99a779; }
+.portrait-live .portrait-spark { animation: portrait-spark-dance 3.8s ease-in-out infinite; }
+.portrait-live .portrait-spark-sage { animation-duration: 4.6s; animation-delay: -1.7s; animation-direction: reverse; }
+.portrait-live .portrait-spark::after { animation: portrait-mini-twinkle 2.4s ease-in-out infinite; }
+.portrait-live .portrait-spark-sage::after { animation-delay: -1.2s; }
 @keyframes portrait-float {
   0%, 100% { translate: 0 0; rotate: -.6deg; }
   50% { translate: 0 -6px; rotate: .6deg; }
@@ -1331,13 +1339,21 @@ body[data-page="categories"] .page-heading { border:0; padding-bottom:28px; }
   0%, 100% { transform: scale(1.035) translate(-.3%, .25%); }
   50% { transform: scale(1.095) translate(.5%, -.6%); }
 }
-@keyframes portrait-sparkle {
-  0%, 100% { transform: scale(.85) rotate(-8deg); opacity: .65; }
-  50% { transform: scale(1.08) rotate(8deg); opacity: 1; }
+@keyframes portrait-spark-dance {
+  0%, 100% { transform: translate(0, 0) scale(.9) rotate(-18deg); opacity: .75; }
+  25% { transform: translate(-6px, -8px) scale(1.16) rotate(22deg); opacity: 1; }
+  50% { transform: translate(-2px, -16px) scale(.96) rotate(52deg); opacity: .82; }
+  75% { transform: translate(-8px, -6px) scale(1.1) rotate(12deg); opacity: 1; }
+}
+@keyframes portrait-mini-twinkle {
+  0%, 100% { transform: translate(0, 3px) scale(.35) rotate(-20deg); opacity: .15; }
+  45% { transform: translate(-3px, -4px) scale(1.15) rotate(45deg); opacity: .95; }
+  70% { transform: translate(-1px, -7px) scale(.7) rotate(90deg); opacity: .45; }
 }
 .about-portrait.portrait-offscreen, .portrait-offscreen img,
-.portrait-offscreen .portrait-spark { animation-play-state: paused; }
+.portrait-offscreen .portrait-spark, .portrait-offscreen .portrait-spark::after { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
-  .portrait-live img, .portrait-live .portrait-spark { animation: none; transform: none; }
+  .portrait-live img, .portrait-live .portrait-spark,
+  .portrait-live .portrait-spark::after { animation: none; transform: none; }
   .about-visual.about-portrait.portrait-live { animation: none; transform: none; transition: none; }
 }
