@@ -59,6 +59,33 @@ window.ReaderMotion = (() => {
     animation.finished.catch(() => {}).finally(() => animations.delete(animation));
     return animation;
   }
+  // Keep the original portrait intact; animate its camera framing and frame separately.
+  const portrait = document.querySelector('.about-portrait');
+  if (portrait) {
+    const resetTilt = () => {
+      portrait.style.setProperty('--portrait-rx', '0deg');
+      portrait.style.setProperty('--portrait-ry', '0deg');
+    };
+    const syncPortrait = () => {
+      if (reduced.matches || document.hidden) resetTilt();
+    };
+    portrait.classList.add('portrait-live');
+    listen(reduced, 'change', syncPortrait);
+    listen(document, 'visibilitychange', syncPortrait);
+    listen(portrait, 'pointermove', event => {
+      if (!canMove() || !finePointer.matches || event.pointerType === 'touch') return;
+      const box = portrait.getBoundingClientRect();
+      const x = Math.max(-1, Math.min(1, (event.clientX - box.left) / box.width * 2 - 1));
+      const y = Math.max(-1, Math.min(1, (event.clientY - box.top) / box.height * 2 - 1));
+      portrait.style.setProperty('--portrait-rx', `${(-y * 2).toFixed(2)}deg`);
+      portrait.style.setProperty('--portrait-ry', `${(x * 3).toFixed(2)}deg`);
+    });
+    listen(portrait, 'pointerleave', resetTilt);
+    if ('IntersectionObserver' in window) intersection(entries => {
+      portrait.classList.toggle('portrait-offscreen', !entries[0].isIntersecting);
+    }, { threshold: 0 }).observe(portrait);
+    syncPortrait();
+  }
   // A bounded CSS animation layer: no canvas, scroll loop, or touch listeners.
   const dessertLayer = document.createElement('div');
   dessertLayer.className = 'dessert-atmosphere';

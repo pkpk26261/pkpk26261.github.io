@@ -1294,3 +1294,50 @@ body[data-page="categories"] .page-heading { border:0; padding-bottom:28px; }
   body[data-page="home"] .home-opening .note-excerpt { font-size:16px; }
   body[data-page="home"] .home-opening .notebook-index { padding:clamp(24px,1.2vw,38px); }
 }
+
+/* Warm photo frame; all motion starts automatically and stays decorative. */
+.about-visual.about-portrait {
+  position: relative; isolation: isolate; padding: 9px 9px 15px;
+  overflow: visible; border: 1px solid #dfc584; border-radius: 23px;
+  background: linear-gradient(145deg, #fffdf5 5%, #fff0c5 62%, #f1e5c6);
+  box-shadow: 0 14px 30px #6850271c, inset 0 0 0 3px #fffdf5;
+}
+.about-portrait::before {
+  content: ''; position: absolute; inset: -6px; z-index: -1;
+  border: 1px dashed #cbb781; border-radius: 28px; pointer-events: none;
+}
+.about-portrait .portrait-window { overflow: hidden; border-radius: 15px; background: #f0e7d5; }
+.about-portrait .portrait-window img { border-radius: 0; }
+.about-visual.about-portrait.portrait-live {
+  transform: perspective(1000px) rotateX(var(--portrait-rx, 0deg)) rotateY(var(--portrait-ry, 0deg));
+  transition: transform 650ms cubic-bezier(.2,.7,.3,1);
+  animation: portrait-float 7s ease-in-out infinite;
+}
+.portrait-live img { transform-origin: 50% 35%; animation: portrait-camera 12s ease-in-out infinite; }
+.portrait-spark {
+  position: absolute; z-index: 1; pointer-events: none;
+  width: 23px; height: 30px;
+  clip-path: polygon(50% 0, 62% 36%, 100% 50%, 62% 64%, 50% 100%, 38% 64%, 0 50%, 38% 36%);
+}
+.portrait-spark-gold { top: 21px; right: -14px; background: #c49a38; }
+.portrait-spark-sage { bottom: 28px; left: -11px; width: 17px; height: 23px; background: #99a779; }
+.portrait-live .portrait-spark { animation: portrait-sparkle 4s ease-in-out infinite; }
+.portrait-live .portrait-spark-sage { animation-delay: -2s; }
+@keyframes portrait-float {
+  0%, 100% { translate: 0 0; rotate: -.6deg; }
+  50% { translate: 0 -6px; rotate: .6deg; }
+}
+@keyframes portrait-camera {
+  0%, 100% { transform: scale(1.035) translate(-.3%, .25%); }
+  50% { transform: scale(1.095) translate(.5%, -.6%); }
+}
+@keyframes portrait-sparkle {
+  0%, 100% { transform: scale(.85) rotate(-8deg); opacity: .65; }
+  50% { transform: scale(1.08) rotate(8deg); opacity: 1; }
+}
+.about-portrait.portrait-offscreen, .portrait-offscreen img,
+.portrait-offscreen .portrait-spark { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .portrait-live img, .portrait-live .portrait-spark { animation: none; transform: none; }
+  .about-visual.about-portrait.portrait-live { animation: none; transform: none; transition: none; }
+}
