@@ -1367,3 +1367,9 @@ body[data-page="categories"] .page-heading { border:0; padding-bottom:28px; }
   .portrait-live .portrait-spark::after { animation: none; transform: none; }
   .about-visual.about-portrait.portrait-live { animation: none; transform: none; transition: none; }
 }
+
+/* Quiet public reading totals sit with the article date and reading time. */
+.article-meta .article-views { display:inline-flex; align-items:center; flex-wrap:wrap; gap:5px; font-variant-numeric:tabular-nums; }
+.article-meta .article-views:before { content:none; }
+.article-views svg { flex:none; color:var(--muted); }
+@media print { .article-views { display:none!important; } }
