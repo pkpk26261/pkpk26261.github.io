@@ -1234,6 +1234,16 @@ body[data-page="categories"] .page-heading { border:0; padding-bottom:28px; }
   .home-opening .usagi-scene { max-width:clamp(840px,28vw,1040px); }
   .journal-section .article-grid { grid-template-columns:repeat(6,minmax(0,1fr)); }
 }
+/* Keep the sticky navigation inside the article row, above related reading. */
+@media screen and (min-width:851px) {
+  .reading-layout > .reading-aside,
+  .article-wrap .reading-layout > .reading-aside {
+    position:relative; top:auto; align-self:stretch;
+  }
+  .reading-aside-content {
+    position:sticky; top:calc(var(--header-height) + var(--reading-toolbar-height) + 24px);
+  }
+}
 /* The full-width reading desk uses spare horizontal space for related notes. */
 .reading-layout > .related-reading { min-width:0; }
 @media screen and (min-width:851px) {

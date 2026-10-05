@@ -263,7 +263,20 @@ window.ReaderMotion = (() => {
   const readingFinish = document.querySelector('.reading-finish');
   let readingCompleted = false;
   let frame = 0, articleTop = 0, articleBottom = 0, offset = 0, viewport = innerHeight;
+  const articleToc = document.querySelector('.article-toc');
+  const tocNav = articleToc?.querySelector('nav');
+  let followedChapter = null, followToc = true;
   const tocLinks = [...document.querySelectorAll('.article-toc a')];
+  function revealCurrentChapter(link) {
+    if (!link || !articleToc.open || !tocNav || tocNav.clientHeight === 0 || tocNav.scrollHeight <= tocNav.clientHeight) return;
+    // Scroll only the TOC viewport; scrolling ancestors would move the article.
+    const viewport = tocNav.getBoundingClientRect();
+    const item = link.getBoundingClientRect();
+    const top = viewport.top + tocNav.clientTop + 8;
+    const bottom = viewport.top + tocNav.clientTop + tocNav.clientHeight - 8;
+    if (item.top < top) tocNav.scrollTop += item.top - top;
+    else if (item.bottom > bottom) tocNav.scrollTop += Math.min(item.bottom - bottom, item.top - top);
+  }
   const chapterTitles = new Map(tocLinks.map(link => [decodeURIComponent(link.hash.slice(1)), link.querySelector('.toc-title')?.textContent.trim() || link.textContent.trim()]));
   let sections = [];
   function measure() {
@@ -299,10 +312,16 @@ window.ReaderMotion = (() => {
       const active = sections.filter(section => section.top <= scrollY + offset + 45).at(-1);
       const currentChapter = document.querySelector('.toc-current');
       if (currentChapter) currentChapter.textContent = active?.title || '從第一章開始';
+      let currentLink;
       tocLinks.forEach(link => {
-        if (decodeURIComponent(link.hash.slice(1)) === active?.id) link.setAttribute('aria-current', 'location');
-        else link.removeAttribute('aria-current');
+        if (decodeURIComponent(link.hash.slice(1)) === active?.id) {
+          link.setAttribute('aria-current', 'location');
+          currentLink = link;
+        } else link.removeAttribute('aria-current');
       });
+      if (followToc || followedChapter !== active?.id) revealCurrentChapter(currentLink);
+      followedChapter = active?.id;
+      followToc = false;
     }
     if (scene && canMove() && finePointer.matches && !scene.classList.contains('scene-asleep')) {
       scene.style.setProperty('--scroll-shift', `${Math.min(scrollY * .055, 24).toFixed(1)}px`);
@@ -310,9 +329,9 @@ window.ReaderMotion = (() => {
   }
   function schedule() { if (!scope.signal.aborted && !frame) frame = requestAnimationFrame(update); }
   listen(window, 'scroll', schedule, { passive:true });
-  listen(window, 'resize', () => { measure(); schedule(); }, { passive:true });
+  listen(window, 'resize', () => { followToc = true; measure(); schedule(); }, { passive:true });
   listen(window, 'pageshow', () => { measure(); schedule(); });
-  document.querySelector('.article-toc')?.addEventListener('toggle', () => { measure(); schedule(); });
+  listen(articleToc || document, 'toggle', () => { followToc = true; measure(); schedule(); });
   if (article && 'ResizeObserver' in window) resizeObserver(() => { measure(); schedule(); }).observe(article);
   article?.querySelectorAll('img,iframe').forEach(node => node.addEventListener('load', () => { measure(); schedule(); }));
   document.fonts?.ready.then(() => { measure(); schedule(); });
