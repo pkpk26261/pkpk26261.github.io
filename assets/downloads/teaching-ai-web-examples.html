@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="兩個簡單可操作的網站仿作成品：打招呼小站與點擊計數器。">
+<title>網站成品範本｜黃永成老師</title>
+<style>
+*{box-sizing:border-box}
+:root{font-family:Arial,"Microsoft JhengHei",sans-serif;color:#1f2937;background:#eff6ff}
+body{margin:0;min-height:100vh;min-height:100svh;background:#eff6ff;display:flex;flex-direction:column}
+body.counter{background:#f0fdf4}
+/* 浮水印為內嵌 SVG，不需連線，也不攔截點擊。 */
+.watermark{position:fixed;inset:0;pointer-events:none;z-index:0;background-repeat:repeat;background-size:340px 200px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='200' viewBox='0 0 340 200'%3E%3Cg transform='translate(170 100) rotate(-25)' fill='%2364758b' fill-opacity='.16' font-family='Arial,Microsoft JhengHei,sans-serif' text-anchor='middle'%3E%3Ctext y='0' font-size='18' font-weight='700'%3E黃永成老師｜教學範本%3C/text%3E%3Ctext y='23' font-size='10' letter-spacing='2'%3EYC · CLASSROOM DEMO%3C/text%3E%3C/g%3E%3C/svg%3E")}
+header{position:relative;z-index:1;display:flex;justify-content:center;padding:24px 20px 0}
+nav{display:flex;gap:6px;background:#fff;border:1px solid #dbe4ee;padding:5px;border-radius:12px;max-width:100%}
+.tab{font-size:14px;padding:10px 14px;background:transparent;color:#526176;border-radius:8px;white-space:nowrap}
+.tab[aria-pressed="true"]{background:#2563eb;color:#fff}
+body.counter .tab[aria-pressed="true"]{background:#16a34a}
+.stage{position:relative;z-index:1;display:grid;place-items:center;padding:32px 20px;flex:1}
+.card{width:320px;max-width:100%;background:#fff;border-radius:16px;padding:24px;text-align:center}
+h1{font-size:28px;font-weight:bold;margin:0 0 16px;line-height:1.4}
+p{font-size:18px;margin:0 0 24px;line-height:1.6}
+button{font-family:inherit;font-size:16px;border:0;border-radius:8px;padding:12px 20px;cursor:pointer;background:#2563eb;color:#fff;touch-action:manipulation}
+button:focus-visible{outline:3px solid #111827;outline-offset:3px}
+#count{font-size:56px;font-weight:bold;color:#16a34a;margin:0 0 24px;line-height:1.2;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.buttons{display:flex;justify-content:center;gap:12px}
+#add{background:#16a34a}#reset{background:#e5e7eb;color:#1f2937}
+footer{position:relative;z-index:1;text-align:center;padding:0 20px 20px;font-size:12px;color:#64748b;letter-spacing:.04em}
+[hidden]{display:none!important}
+@media(max-width:360px){.tab{padding:10px;font-size:13px}}
+@media print{header{display:none}.watermark{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="watermark" aria-hidden="true"></div>
+<header><nav aria-label="選擇成品"><button class="tab" id="tab-hello" aria-pressed="true" aria-controls="greeting">第 1 題 · 打招呼小站</button><button class="tab" id="tab-counter" aria-pressed="false" aria-controls="counter">第 2 題 · 點擊計數器</button></nav></header>
+<main class="stage">
+<section class="card" id="greeting" aria-labelledby="hello-title">
+<h1 id="hello-title">打招呼小站</h1>
+<p id="message" aria-live="polite">歡迎來到我的網站！</p>
+<button id="hello">打個招呼</button>
+</section>
+<section class="card" id="counter" aria-labelledby="counter-title" hidden>
+<h1 id="counter-title">點擊計數器</h1>
+<p id="count" aria-live="polite">0</p>
+<div class="buttons"><button id="add">加 1</button><button id="reset">歸零</button></div>
+</section>
+</main>
+<footer>黃永成老師 · 教學範本</footer>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+let count=0;
+// 切換成品時保留各自狀態；重新整理後恢復初始狀態。
+function showCounter(enabled){
+ document.body.classList.toggle('counter',enabled);
+ $('greeting').hidden=enabled;
+ $('counter').hidden=!enabled;
+ $('tab-hello').setAttribute('aria-pressed',String(!enabled));
+ $('tab-counter').setAttribute('aria-pressed',String(enabled));
+}
+$('tab-hello').addEventListener('click',()=>showCounter(false));
+$('tab-counter').addEventListener('click',()=>showCounter(true));
+let greeted=false;
+$('hello').addEventListener('click',()=>{
+ greeted=!greeted;
+ $('message').textContent=greeted?'你好，很高興認識你！':'歡迎來到我的網站！';
+});
+$('add').addEventListener('click',()=>{if(count<Number.MAX_SAFE_INTEGER)count++;$('count').textContent=String(count);});
+$('reset').addEventListener('click',()=>{count=0;$('count').textContent='0';});
+</script>
+</body>
+</html>
