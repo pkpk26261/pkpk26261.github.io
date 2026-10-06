@@ -182,11 +182,20 @@ window.ReaderPage = (() => {
     const code = figure.querySelector('.code pre') || figure.querySelector('pre'); if (!code) return;
     const sourceCode = window.StudioCode ? StudioCode.textOf(code) : code.innerText;
     window.StudioCode?.alignRows(figure,code);
-    const button = document.createElement('button'); button.type = 'button'; button.className = 'copy-code'; button.textContent = '複製'; button.setAttribute('aria-label', '複製這段程式碼');
+    const copyIcons = {
+      copy: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>',
+      success: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12 4 4L19 6"/></svg>',
+      error: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v6m0 4h.01"/></svg>'
+    };
+    const button = document.createElement('button'); button.type = 'button'; button.className = 'copy-code';
+    function copyState(state, label) { button.innerHTML = copyIcons[state]; button.dataset.state = state; button.setAttribute('aria-label', label); button.title = label; }
+    copyState('copy', '複製這段程式碼');
+    let copyReset;
     button.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText(sourceCode); button.textContent = '已複製'; document.getElementById('site-status').textContent = '程式碼已複製'; }
-      catch { button.textContent = '請手動選取複製'; document.getElementById('site-status').textContent = '瀏覽器無法複製，請手動選取程式碼'; }
-      setTimeout(() => button.textContent = '複製', 2000);
+      clearTimeout(copyReset);
+      try { await navigator.clipboard.writeText(sourceCode); copyState('success', '已複製'); document.getElementById('site-status').textContent = '程式碼已複製'; }
+      catch { copyState('error', '無法複製，請手動選取程式碼'); document.getElementById('site-status').textContent = '瀏覽器無法複製，請手動選取程式碼'; }
+      copyReset = setTimeout(() => copyState('copy', '複製這段程式碼'), 2000);
     });
     const scroller = document.createElement('div'); scroller.className = 'code-scroll'; scroller.tabIndex = 0; scroller.setAttribute('role', 'region'); scroller.setAttribute('aria-label', '程式碼，可左右捲動');
     [...figure.childNodes].forEach(node => scroller.append(node));

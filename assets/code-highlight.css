@@ -29,7 +29,11 @@
 .code-window-dots i:nth-child(2) { background:#e6b94d; }
 .code-window-dots i:nth-child(3) { background:#8aaf75; }
 .code-caption { min-width:0; color:#756b55; font:11px/1.5 var(--mono); }
-.code-toolbar .copy-code { position:static; margin-left:auto; flex:none; padding:5px 10px; border-radius:6px; background:#fffdf6; border-color:#dcd2bc; color:#6b5d43; font-size:11px; }
+.code-toolbar .copy-code { position:static; margin-left:auto; flex:none; display:inline-grid; place-items:center; width:36px; height:36px; padding:8px; border-radius:6px; background:#fffdf6; border-color:#dcd2bc; color:#6b5d43; }
+.code-toolbar .copy-code svg { display:block; }
+.code-toolbar .copy-code[data-state="success"] { color:#52734b; }
+.code-toolbar .copy-code[data-state="error"] { color:#a25455; }
+@media (max-width:760px) { .code-toolbar .copy-code { width:44px; height:44px; } }
 .code-scroll { overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:thin; scrollbar-color:#c5bba6 #f0ecdf; }
 .code-scroll:focus-visible { outline:2px solid #b19961; outline-offset:-2px; }
 .prose figure.highlight .code-scroll > pre { padding:14px 16px; }
