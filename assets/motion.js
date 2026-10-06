@@ -37,12 +37,22 @@ window.ReaderMotion = (() => {
     try { sessionStorage.setItem('usagi-home-quote', String(lastHomeQuote)); } catch { /* Optional session persistence. */ }
   }
   const mascot = scene?.querySelector('.usagi-mascot');
+  const heroArt = mascot?.querySelector('.hero-usagi[data-animated-src]');
+  const heroStill = heroArt?.getAttribute('src');
   const animations = new Set();
   const canMove = () => !reduced.matches && !document.hidden;
+  function syncHeroArt() {
+    if (!heroArt) return;
+    // GIFs cannot use CSS animation-play-state: swap to the original still.
+    const source = canMove() && !scene.classList.contains('scene-asleep')
+      ? heroArt.dataset.animatedSrc : heroStill;
+    if (heroArt.getAttribute('src') !== source) heroArt.setAttribute('src', source);
+  }
   function syncMotion() {
     const paused = reduced.matches;
     root.classList.toggle('motion-paused', paused);
     root.classList.toggle('motion-hidden', document.hidden);
+    syncHeroArt();
     if (!canMove()) animations.forEach(animation => animation.cancel());
     if (paused) {
       scene?.style.setProperty('--pointer-x', '0');
@@ -211,7 +221,10 @@ window.ReaderMotion = (() => {
   });
   // Keep decorative loops asleep once the hero leaves the viewport.
   if (scene && 'IntersectionObserver' in window) {
-    intersection(entries => scene.classList.toggle('scene-asleep', !entries[0].isIntersecting)).observe(scene);
+    intersection(entries => {
+      scene.classList.toggle('scene-asleep', !entries[0].isIntersecting);
+      syncHeroArt();
+    }).observe(scene);
   }
 
   const aboutScene = document.querySelector('.about-usagi-stage');
