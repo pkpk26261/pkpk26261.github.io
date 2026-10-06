@@ -160,6 +160,8 @@ html:has(body[data-page="post"]) { scroll-padding-top:calc(var(--header-height) 
 .article-heading { max-width:890px; padding-block:32px 42px; }
 .article-heading h1 { font-size:clamp(29px,3.4vw,44px); }
 .prose { min-width:0; color:#403b33; font-size:17px; }
+body[data-page="post"] .article-body :is(p, li) { text-align:justify; text-align-last:left; text-justify:inter-ideograph; }
+body[data-page="post"] .article-body :is(pre, table) { text-align:left; text-align-last:auto; }
 .prose .article-body > h2 { border-bottom:1px solid var(--line); padding-bottom:12px; margin-top:50px; }
 .prose .article-body > :first-child { margin-top:0; }
 .article-body h2, .article-body h3, .article-body h4 { scroll-margin-top:0; }
@@ -831,12 +833,12 @@ html:not([data-reading-controls-visible="true"]) .back-top { opacity:0; visibili
 .brand-motto .motto-period { display:inline; font-size:inherit; letter-spacing:0; }
 .site-footer .footer-note { justify-self:end; padding-left:24px; border-left:1px solid #dfd5bf; }
 @media (max-width:760px) {
-  .site-footer .footer-top { grid-template-columns:minmax(0,1fr) minmax(140px,auto); gap:20px; }
+  .site-footer .footer-top { grid-template-columns:minmax(0,1fr) minmax(140px,auto); gap:20px; padding-block:18px 16px; }
   .brand-motto .brand-emphasis { font-size:clamp(34px,6vw,44px); }
   .brand-motto .motto-words { font-size:clamp(17px,3.2vw,22px); letter-spacing:.5px; }
-  .site-footer .footer-note { flex-direction:column; align-items:flex-start; gap:10px; padding-left:22px; }
-  .footer-note .footer-usagi { width:82px; height:74px; }
-  .site-footer .footer-note p { font-size:12px; }
+  .site-footer .footer-note { flex-direction:column; align-items:center; gap:4px; padding-left:22px; }
+  .footer-note .footer-usagi { width:100px; height:70px; }
+  .site-footer .footer-note p { font-size:12px; text-align:center; }
   .site-footer .footer-note p span { font-size:10px; }
 }
 @media (max-width:480px) {
@@ -852,6 +854,7 @@ html:not([data-reading-controls-visible="true"]) .back-top { opacity:0; visibili
 @media (max-width:350px) {
   .site-footer .footer-top { grid-template-columns:1fr; }
   .site-footer .footer-note { flex-direction:row; justify-self:start; align-items:center; border-left:0; padding-left:0; }
+  .site-footer .footer-note p { text-align:left; }
 }
 
 /* Short section titles follow the available column width, not the whole screen. */
