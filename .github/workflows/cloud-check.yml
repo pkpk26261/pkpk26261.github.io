@@ -18,7 +18,7 @@ jobs:
         run: docker build -t flight-club-cloud .
       - name: Verify cloud startup, authorization and persistence
         run: >-
-          docker run --rm --init
+          docker run --rm --init --ipc=host
           -v "$PWD/apps/drone-soccer/lan/test/cloud.cjs:/app/apps/drone-soccer/lan/test/cloud.cjs:ro"
           flight-club-cloud node apps/drone-soccer/lan/test/cloud.cjs
       - name: Create isolated test-only TLS certificate
@@ -27,7 +27,7 @@ jobs:
           openssl req -x509 -newkey rsa:2048 -nodes -days 1 -keyout "$RUNNER_TEMP/flight-club-test-tls/server-key.pem" -out "$RUNNER_TEMP/flight-club-test-tls/server.pem" -subj "/CN=localhost" -addext "subjectAltName=DNS:localhost,IP:127.0.0.1"
       - name: Verify browser host and players behind HTTPS
         run: >-
-          docker run --rm --init
+          docker run --rm --init --ipc=host
           -e LAN_TEST_CERT_DIR=/tmp/test-tls
           -v "$RUNNER_TEMP/flight-club-test-tls:/tmp/test-tls:ro"
           -v "$PWD/apps/drone-soccer/lan/test/cloud-browser.cjs:/app/apps/drone-soccer/lan/test/cloud-browser.cjs:ro"
