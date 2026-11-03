@@ -1,0 +1,44 @@
+# Allow only the files used by the cloud game. The local runtimes, browser
+# profiles, match state, certificates and development artifacts never enter
+# the Docker build context.
+**
+!Dockerfile
+!index.html
+!apps/
+!apps/drone-soccer/
+!apps/drone-soccer/index.html
+!apps/drone-soccer/assets/
+!apps/drone-soccer/assets/**
+!apps/drone-soccer/games/
+!apps/drone-soccer/games/**
+!apps/drone-soccer/cloud/
+!apps/drone-soccer/cloud/help.html
+!apps/drone-soccer/lan/
+!apps/drone-soccer/lan/package.json
+!apps/drone-soccer/lan/server.cjs
+!apps/drone-soccer/lan/room.cjs
+!apps/drone-soccer/lan/engine-runner.cjs
+!apps/drone-soccer/lan/service-store.cjs
+!apps/drone-soccer/lan/certificate-setup.cjs
+!apps/drone-soccer/lan/public/
+!apps/drone-soccer/lan/public/**
+!vendor/
+!vendor/three-r128/
+!vendor/three-r128/**
+!vendor/tailwindcss-3.4.17/
+!vendor/tailwindcss-3.4.17/**
+!vendor/fontawesome-6.4.0/
+!vendor/fontawesome-6.4.0/**
+!vendor/drone-soccer-fonts/
+!vendor/drone-soccer-fonts/**
+# Remove filesystem metadata even inside allowed asset directories.
+**/._*
+**/.DS_Store
+**/Thumbs.db
+**/node_modules
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+**/*.pfx
+**/*.p12

@@ -1,0 +1,22 @@
+#tunnelNavigation { position: absolute; left: 18px; width: 215px; box-sizing: border-box; padding: 13px 15px; border: 1px solid #365664; border-radius: 12px; background: #10202ef5; color: #e2edf5; pointer-events: none; text-align: left; font-family: "Segoe UI", "Microsoft JhengHei", sans-serif; }
+#tunnelNavigation .tunnel-guide-heading { display: flex; justify-content: space-between; gap: 8px; color: #afc3d0; font-size: 10px; line-height: 1.5; }
+#tunnelNavigation [data-tunnel-step] { color: #72e3ed; font-variant-numeric: tabular-nums; }
+#tunnelNavigation strong { display: block; margin: 8px 0 5px; color: #7ee8f2; font-size: 19px; line-height: 1.4; font-weight: 700; }
+#tunnelNavigation [data-tunnel-detail] { color: #c1d0dc; font-size: 11px; line-height: 1.7; }
+#tunnelNavigation .tunnel-guide-progress { height: 3px; margin-top: 10px; border-radius: 3px; background: #324858; overflow: hidden; }
+#tunnelNavigation .tunnel-guide-progress span { display: block; height: 100%; background: #59e5f5; }
+#tunnelNavigation p { margin: 9px 0 0; color: #a8becd; font-size: 10px; line-height: 1.8; }
+#tunnelNavigation .tunnel-cyan { color: #7ee8f2; }
+#tunnelNavigation .tunnel-amber { color: #ffce75; }
+@media (max-width: 600px), (max-height: 550px) {
+    #tunnelNavigation { left: 10px; width: 192px; padding: 8px 10px; }
+    #tunnelNavigation strong { font-size: 16px; margin-top: 4px; }
+    #tunnelNavigation p { margin-top: 5px; font-size: 9px; }
+    #tunnelNavigation .tunnel-guide-progress { margin-top: 6px; }
+}
+@media (orientation: landscape) and (max-height: 550px) {
+    #tunnelNavigation { top: 52px !important; }
+}
+@media (orientation: landscape) and (max-height: 550px) and (min-width: 768px) {
+    html.touch-device #tunnelNavigation { top: auto !important; bottom: 12px; left: auto; right: 12px; }
+}

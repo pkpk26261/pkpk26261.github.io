@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-Hant" data-fc-theme="dark" data-screen="home">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b12">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="無人機足球遊戲大廳。選擇對戰、練習、競速或正式賽，統一使用搖桿控制，在同一個入口開始飛行。">
+  <title>FLIGHT CLUB｜無人機足球</title>
+  <link rel="icon" href="assets/brand/flight-club.ico">
+  <link rel="stylesheet" href="assets/lobby/foundation.css">
+  <link rel="stylesheet" href="assets/lobby/studio.css">
+  <link rel="stylesheet" href="assets/lobby/release.css">
+  <link rel="stylesheet" href="assets/lobby/home-settings.css">
+  <script>
+    const entryQuery = new URLSearchParams(location.search);
+    window.FlightEntry = { screen: entryQuery.get('play') === '1' ? 'game' : entryQuery.get('screen') === 'home' ? 'home' : entryQuery.has('category') || entryQuery.has('mode') || entryQuery.get('screen') === 'setup' ? 'setup' : 'home' };
+    document.documentElement.dataset.screen = window.FlightEntry.screen;
+  </script>
+  <script src="assets/lobby/previews/catalog.js" defer></script>
+  <script src="assets/game/ai-settings.js"></script>
+  <script src="assets/game/match-roster.js"></script>
+  <script src="assets/game/usb-input.js"></script>
+  <script src="assets/game/gamepad-ui.js" defer></script>
+  <script src="assets/game/frame-timing.js"></script>
+  <script src="assets/game/camera-settings.js"></script>
+  <script src="assets/lobby/lobby.js" defer></script>
+  <script src="assets/lobby/connection.js" defer></script>
+  <script src="assets/lobby/showroom.js" defer></script>
+  <script src="assets/lobby/entry.js" defer></script>
+  <script src="assets/lobby/home-settings.js" defer></script>
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-drone" viewBox="0 0 24 24"><circle cx="5" cy="5" r="3"/><circle cx="19" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><path d="m7 7 10 10M7 17 17 7"/><rect x="9" y="9" width="6" height="6" rx="2"/></symbol>
+    <symbol id="i-battle" viewBox="0 0 24 24"><path d="m4 3 5 1 11 14-3 3L4 8V3Zm16 0-5 1-4 5m-3 5-4 4 3 3 4-4M3 21l3-3m12 0 3 3"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-racing" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7l1-7ZM3 6h4M1 10h4M2 18h4"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 3h8v6a4 4 0 0 1-8 0V3Zm0 2H4v3a4 4 0 0 0 4 4m8-7h4v3a4 4 0 0 1-4 4m-4 1v5m-5 3h10m-8-3h6v3"/></symbol>
+    <symbol id="i-controller" viewBox="0 0 24 24"><path d="M7 7h10c3 0 4 4 5 9 .5 3-2 4-4 2l-3-3H9l-3 3c-2 2-4.5 1-4-2 1-5 2-9 5-9Z"/><path d="M7 9v5m-2.5-2.5h5M16 10h.01M19 13h.01M12 7V3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2m0-15a3 3 0 0 1 0 6m4 9v-2a6 6 0 0 0-3-5"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9a3 3 0 0 1 6 0c0 2-3 2-3 4m0 3h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 3h7v7m0-7L10 14m0-10H4v16h16v-6"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M5 8v8a3 3 0 0 0 6 0V8a4 4 0 0 1 8 0v8"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 4-8 9-8 9S4 16 4 12V6l8-3Z"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-goal" viewBox="0 0 24 24"><ellipse cx="12" cy="11" rx="7" ry="9"/><ellipse cx="12" cy="11" rx="4" ry="6"/><path d="M12 2V0M8 22h8"/></symbol>
+    <symbol id="i-maze" viewBox="0 0 24 24"><path d="M3 3h18v18H3V7h4v10h6v-6H9V7h8v10h4M3 3h10"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18m6-18v18M3 9h18M3 15h18"/></symbol>
+    <symbol id="i-tunnel" viewBox="0 0 24 24"><ellipse cx="8" cy="12" rx="5" ry="9"/><path d="m8 3 9 3a7 7 0 0 1 0 12l-9 3M13 5c4 3 4 11 0 14"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="10" y="10" width="4" height="4" rx="1"/><path d="M9 3v3m6-3v3M9 18v3m6-3v3M3 9h3m-3 6h3m12-6h3m-3 6h3"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+  </svg>
+
+  <section id="home-screen" class="home-screen" aria-label="FLIGHT CLUB 主選單">
+    <div id="showroom-canvas-host" class="showroom-host" aria-hidden="true"></div>
+    <div class="home-atmosphere" aria-hidden="true"></div>
+    <header class="home-header">
+      <a class="home-brand" href="./index.html?screen=home" aria-label="FLIGHT CLUB 主選單"><span class="home-brand-symbol"><svg class="icon"><use href="#i-drone"/></svg></span><span>FLIGHT CLUB<small>DRONE SOCCER</small></span></a>
+      <nav class="home-nav" aria-label="遊戲入口"><span class="home-nav-active">遊戲大廳</span><a id="home-service-link" href="lan/setup.html">現場賽事 <svg class="icon"><use href="#i-external"/></svg></a></nav>
+      <div class="home-tools"><button id="home-help" type="button" aria-label="操作指南"><svg class="icon"><use href="#i-help"/></svg></button><button id="home-settings" type="button" aria-label="遊戲設定"><svg viewBox="0 0 24 24" class="icon"><path d="M4 7h16M4 17h16M8 4v6m8 4v6"/></svg></button></div>
+    </header>
+    <main class="home-main">
+      <div class="home-copy">
+        <p class="home-kicker"><span></span> THE NEXT FLIGHT IS YOURS</p>
+        <h1 class="home-title">FLIGHT<br><em>CLUB<span>01</span></em></h1>
+        <h2><span>把勝負，</span><span>交給你的飛行。</span></h2>
+        <p class="home-description">突破防線，精準穿越。<br>每次起飛，都值得全力以赴。</p>
+        <div class="home-actions"><button type="button" id="home-play" class="home-primary"><span>開始對戰<small>PLAY NOW</small></span><svg class="icon"><use href="#i-arrow"/></svg></button><button type="button" id="home-practice" class="home-secondary"><svg class="icon"><use href="#i-target"/></svg>先練習飛行</button></div>
+        <div class="home-input-status"><svg class="icon"><use id="home-input-icon" href="#i-controller"/></svg><span id="home-input-label">請接上搖桿，按任一按鈕啟用</span><i></i><span>USB／藍牙搖桿</span></div>
+      </div>
+      <aside class="showroom-caption" aria-label="展示機體"><span class="showroom-caption-line"></span><p>FC–01 <span>COMPETITION DRONE</span></p><h3>為每一次穿越而生。</h3><div><span>球籠競技機體</span><b>01 / 01</b></div></aside>
+      <span class="home-watermark" aria-hidden="true">TAKE FLIGHT.</span>
+    </main>
+    <section class="home-mode-section" aria-label="選擇遊戲體驗">
+      <div class="home-section-heading"><h2>選擇你的賽場<span>CHOOSE YOUR GAME</span></h2><span id="home-network-status"><i></i>單機遊戲就緒</span></div>
+      <div class="home-mode-cards">
+        <button type="button" class="home-mode-card home-mode-battle" data-home-category="battle"><span class="home-mode-number">01</span><div class="home-mode-visual" aria-hidden="true"></div><span class="home-mode-copy"><small>BUILD YOUR SQUAD</small><strong>自由對戰</strong><span>真人與 AI，自由編成紅藍隊伍。</span></span><svg class="icon"><use href="#i-arrow"/></svg></button>
+        <button type="button" class="home-mode-card home-mode-practice" data-home-category="practice"><span class="home-mode-number">02</span><div class="home-mode-visual" aria-hidden="true"></div><span class="home-mode-copy"><small>FIND YOUR FLOW</small><strong>飛行訓練</strong><span>依自己的節奏，掌握起飛與攻防。</span></span><svg class="icon"><use href="#i-arrow"/></svg></button>
+        <button type="button" class="home-mode-card home-mode-racing" data-home-category="racing"><span class="home-mode-number">03</span><div class="home-mode-visual" aria-hidden="true"></div><span class="home-mode-copy"><small>CHASE YOUR BEST</small><strong>競速挑戰</strong><span>六條航線，挑戰精準與速度。</span></span><svg class="icon"><use href="#i-arrow"/></svg></button>
+        <button type="button" class="home-mode-card home-mode-official" data-home-category="official"><span class="home-mode-number">04</span><div class="home-mode-visual" aria-hidden="true"></div><span class="home-mode-copy"><small>PLAY FOR THE WIN</small><strong>正式賽</strong><span>三局兩勝，每一次進攻都算數。</span></span><svg class="icon"><use href="#i-arrow"/></svg></button>
+      </div>
+    </section>
+    <footer class="home-footer"><span>FLIGHT CLUB <i>/</i> 無人機足球模擬器</span><span class="home-key-hint"><kbd>X</kbd> 確認 <i>·</i> <kbd>Y</kbd> 取消 <i>·</i> <kbd>BACK</kbd> 返回</span><button type="button" id="home-sound" aria-pressed="true"><svg class="icon"><use href="#i-sound"/></svg><span>選單音效</span></button></footer>
+  </section>
+
+  <div id="lobby" class="app-layout" hidden>
+    <header class="site-header">
+      <button type="button" id="home-return" class="setup-back"><svg class="icon"><use href="#i-arrow"/></svg><span>主選單</span><small>FLIGHT CLUB</small></button>
+      <nav id="category-nav" class="category-nav" aria-label="選擇遊戲類型">
+        <button type="button" class="nav-item is-active" data-category="battle" aria-pressed="true"><svg class="icon"><use href="#i-battle"/></svg><span>自由對戰</span></button>
+        <button type="button" class="nav-item" data-category="practice" aria-pressed="false"><svg class="icon"><use href="#i-target"/></svg><span>飛行練習</span></button>
+        <button type="button" class="nav-item" data-category="racing" aria-pressed="false"><svg class="icon"><use href="#i-racing"/></svg><span>競速挑戰</span></button>
+        <button type="button" class="nav-item" data-category="official" aria-pressed="false"><svg class="icon"><use href="#i-trophy"/></svg><span>正式賽</span></button>
+      </nav>
+      <div class="header-actions"><button type="button" id="setup-settings" class="help-button"><svg class="icon"><use href="#i-chip"/></svg><span>遊戲設定</span></button><a id="service-link" class="service-link" href="lan/setup.html"><svg class="icon"><use href="#i-users"/></svg><span>多人連線</span></a><button type="button" id="help-button" class="help-button" aria-label="操作指南"><svg class="icon"><use href="#i-help"/></svg><span>操作指南</span></button></div>
+    </header>
+    <div class="workspace">
+      <main id="main-content">
+        <div class="setup-heading"><div><p class="eyebrow">MATCH SETUP / 準備上場</p><h1 id="setup-screen-title" tabindex="-1">自由對戰</h1><p id="setup-screen-description">選好編隊，讓對決開始。</p></div><span class="setup-heading-tag">YOUR GAME. YOUR WAY.</span></div>
+        <header class="page-heading"><div class="hero-copy"><p class="eyebrow"><span class="live-indicator"></span> FLIGHT CLUB / PLAY</p><h1>下一場精彩，<span>由你起飛。</span></h1><p class="hero-description">組隊攻防、自由飛行，或挑戰你的最快航線。</p></div><div class="hero-side"><span id="lobby-connection" class="connection-pill">單機訓練</span><span class="hero-coordinate">DRONE SOCCER ARENA <b>01</b></span></div></header>
+        <div class="play-progress" aria-label="開始遊戲的三個步驟"><span><b>01</b> 選擇玩法</span><i></i><span><b>02</b> 調整配置</span><i></i><span><b>03</b> 進入賽場 <svg class="icon"><use href="#i-arrow"/></svg></span></div>
+        <div id="mobile-view-tabs" class="mobile-view-tabs" role="group" aria-label="切換大廳內容"><button type="button" data-lobby-view="modes" aria-pressed="true"><svg class="icon"><use href="#i-grid"/></svg>模式選擇</button><button type="button" data-lobby-view="preview" aria-pressed="false"><svg class="icon"><use href="#i-goal"/></svg>賽場與設定</button></div>
+        <div class="selection-layout" data-view="modes">
+          <section class="mode-section" aria-labelledby="category-title">
+            <div class="lobby-toolbar">
+            <section class="control-bar" aria-label="操控設定"><div class="control-label"><div><h2>操控方式</h2></div></div><div id="controller-toggle" class="segmented" aria-label="統一搖桿控制"><span class="controller-fixed"><svg class="icon"><use href="#i-controller"/></svg>搖桿控制</span></div></section>
+            <div class="section-heading catalog-heading"><div class="catalog-heading-copy"><div class="section-title"><h2 id="category-title">自由對戰</h2><span id="mode-count" class="mode-count">7 種模式</span></div><p id="category-description">一個人挑戰 AI，或找朋友一起組隊上場。</p></div></div>
+            </div>
+            <div id="mode-list" class="mode-grid" role="group" aria-label="選擇遊戲模式"></div>
+            <section id="category-brief" class="category-brief" aria-label="玩法重點" hidden></section>
+            <div class="beginner-strip"><span class="beginner-icon"><svg class="icon"><use href="#i-route"/></svg></span><div><strong>初次上場？先找到你的飛行手感。</strong><p>練習起飛、轉向與穿環，再挑戰球場攻防。</p></div><button type="button" id="beginner-button">飛行練習<svg class="icon"><use href="#i-arrow"/></svg></button></div>
+            <p id="selection-status" class="sr-only" role="status" aria-live="polite"></p>
+          </section>
+          <aside class="launch-panel" aria-label="已選模式與啟動設定">
+            <div class="preview-visual" id="preview-visual"><div class="arena-caption"><span class="arena-wordmark"><svg class="preview-icon"><use id="preview-icon-use" href="#i-goal"/></svg><span id="preview-category">單人進攻</span></span><button type="button" id="preview-expand" class="preview-expand" aria-haspopup="dialog" aria-controls="preview-dialog"><svg class="icon"><use href="#i-expand"/></svg>放大預覽</button></div><div class="arena-stage"><img id="arena-preview" src="assets/lobby/previews/attack.svg" class="arena-art" alt="單人進攻賽場示意：紅方 1 玩家迎戰藍方 2 AI，呈現攻守站位與進攻航線。" width="1200" height="720" decoding="async"></div><div class="arena-legend"><span><i class="red-dot"></i><span id="preview-legend-left">紅方 · 1 玩家</span></span><span id="preview-legend-center">攻守站位 · 航線示意</span><span><i class="blue-dot"></i><span id="preview-legend-right">藍方 · 2 AI</span></span></div><p id="preview-note" class="arena-note" hidden>隊伍示意 · 實際站位依比賽開始為準</p></div>
+            <div class="launch-content"><div class="selected-heading"><div><p class="eyebrow">YOUR MATCH</p><h2 id="selected-title">單人進攻</h2></div><span class="ready-badge"><svg class="icon"><use href="#i-check"/></svg>已選模式</span></div><p id="selected-description">操控攻擊機突破 AI 防線，穿越對方球門得分。</p>
+              <div class="lineup-preview"><div class="lineup-heading"><span>對戰配置</span><span class="formation-legend"><i></i>玩家 <i class="ai-mark"></i>AI</span></div><div id="formation" class="formation" aria-label="模式陣容示意"></div><p id="selected-lineup">玩家攻擊機 vs 2 台 AI 防守機</p></div>
+              <dl class="mode-facts"><div><dt><svg class="icon"><use href="#i-users"/></svg>遊玩人數</dt><dd id="selected-players">1 人</dd></div><div><dt><svg class="icon"><use href="#i-controller"/></svg>操控方式</dt><dd id="selected-controller">搖桿控制</dd></div></dl>
+              <div id="ai-difficulty-setting" class="ai-difficulty-setting"><label for="ai-difficulty">AI 智能難度</label><select id="ai-difficulty" aria-describedby="ai-difficulty-description"><option value="easy">簡單</option><option value="medium" selected>中等</option><option value="hard">困難</option></select><p id="ai-difficulty-description">依判斷、預判與戰術能力分級，三種難度的機體能力相同。</p></div>
+              <div class="launch-action"><div class="mobile-selection" aria-hidden="true"><strong id="mobile-title">單人進攻</strong><span id="mobile-controller">搖桿控制 · 1 人</span></div><button type="button" id="launch-button" class="launch-button"><span>開始遊戲<small>ENTER THE ARENA</small></span><svg class="icon"><use href="#i-arrow"/></svg></button></div><p class="launch-note" id="launch-note">進場後可查看這個模式的完整操作說明</p><button type="button" id="lan-official-button" class="secondary-button" hidden style="width:100%;min-height:38px;margin-top:8px;border:1px solid #3c5574;border-radius:6px;background:#15253a;color:#b8d6ff;font:inherit;cursor:pointer">掃碼正式賽 · 邀請玩家 ↗</button>
+            </div>
+          </aside>
+        </div>
+      </main>
+      <footer class="footer"><span><span class="status-dot"></span> FLIGHT CLUB <span class="footer-separator">/</span> 無人機足球模擬器</span><a id="footer-service-link" href="lan/setup.html">多人賽事與 QR 加入 <svg class="icon"><use href="#i-arrow"/></svg></a></footer>
+    </div>
+  </div>
+
+  <dialog id="home-settings-dialog" class="home-settings-dialog" aria-labelledby="home-settings-title">
+    <header class="preferences-header"><div><p class="eyebrow">FLIGHT CLUB / PREFERENCES</p><h2 id="home-settings-title">遊戲設定</h2></div><button type="button" id="home-settings-close" class="icon-button" aria-label="關閉遊戲設定"><svg class="icon"><use href="#i-close"/></svg></button></header>
+    <div class="preferences-layout"><nav class="preferences-nav" aria-label="設定分類" role="tablist" aria-orientation="vertical">
+      <button type="button" id="settings-tab-general" role="tab" aria-controls="settings-panel-general" data-settings-tab="general" aria-selected="true"><b>01</b><span>聲音與介面<small>EXPERIENCE</small></span></button>
+      <button type="button" id="settings-tab-display" role="tab" aria-controls="settings-panel-display" data-settings-tab="display" aria-selected="false" tabindex="-1"><b>02</b><span>畫面與視線<small>DISPLAY</small></span></button>
+      <button type="button" id="settings-tab-controls" role="tab" aria-controls="settings-panel-controls" data-settings-tab="controls" aria-selected="false" tabindex="-1"><b>03</b><span>操控設定<small>CONTROLS</small></span></button>
+      <button type="button" id="settings-tab-network" role="tab" aria-controls="settings-panel-network" data-settings-tab="network" aria-selected="false" tabindex="-1"><b>04</b><span>連線與賽事<small>CONNECTION</small></span></button>
+      <button type="button" id="settings-tab-about" role="tab" aria-controls="settings-panel-about" data-settings-tab="about" aria-selected="false" tabindex="-1"><b>05</b><span>關於遊戲<small>ABOUT</small></span></button>
+    </nav><div class="preferences-content">
+      <section id="settings-panel-general" role="tabpanel" aria-labelledby="settings-tab-general" data-settings-panel="general"><div class="preferences-section-title"><p>YOUR EXPERIENCE</p><h3>找到自己的節奏。</h3><span>選單的聲音與動態，依你的習慣調整。</span></div>
+        <label class="preference-row"><span><strong>選單音效</strong><small>切換與確認時播放提示音。</small></span><input type="checkbox" id="menu-sound-setting" checked></label>
+        <label class="preference-row"><span><strong>機體展示動態</strong><small>主選單機體的漂浮與緩慢旋轉。</small></span><input type="checkbox" id="menu-motion-setting" checked></label>
+        <p class="preferences-note">系統啟用減少動態效果時，初次使用會關閉展示動態。</p>
+      </section>
+      <section id="settings-panel-display" role="tabpanel" aria-labelledby="settings-tab-display" data-settings-panel="display" hidden><div class="preferences-section-title"><p>SEE YOUR NEXT MOVE</p><h3>讓視線跟上飛行。</h3><span>畫面偏好會同步至目前與之後開啟的單機遊戲。</span></div>
+        <label class="preference-row" for="settings-fps"><span><strong>目標更新率</strong><small>依螢幕與效能調整渲染品質的目標。</small></span><select id="settings-fps"><option value="auto">自動偵測</option><option value="60">60 FPS</option><option value="90">90 FPS</option><option value="120">120 FPS · 預設</option><option value="144">144 FPS</option><option value="165">165 FPS</option><option value="240">240 FPS</option><option value="360">360 FPS</option><option value="480">480 FPS</option></select></label>
+        <label class="preference-row"><span><strong>鏡頭跟隨機體俯仰</strong><small>開啟時隨機頭上下轉動；關閉時保持水平。</small></span><input type="checkbox" id="settings-follow-pitch"></label>
+        <button type="button" id="home-fullscreen" class="preference-link"><svg class="icon"><use href="#i-expand"/></svg><span>全螢幕顯示</span><svg class="icon"><use href="#i-arrow"/></svg></button>
+        <p class="preferences-note">實際 FPS 依螢幕更新率與裝置效能而定。多人賽事的玩家視角由主持人統一設定。</p>
+      </section>
+      <section id="settings-panel-controls" role="tabpanel" aria-labelledby="settings-tab-controls" data-settings-panel="controls" hidden><div class="preferences-section-title"><p>MAKE IT YOURS</p><h3>把操控調成你的手感。</h3><span>搖桿按鍵與檔位依本機玩家人數分別保存。</span></div>
+        <div class="preferences-context"><small>目前選擇</small><strong id="settings-mode-context">—</strong></div>
+        <label class="preference-row" for="settings-controller"><span><strong>操控方式</strong><small id="settings-controller-note">所有模式統一使用搖桿。</small></span><select id="settings-controller" disabled><option value="radio">搖桿控制</option></select></label>
+        <button type="button" id="settings-open-controls" class="preference-link"><svg class="icon"><use href="#i-controller"/></svg><span><strong>搖桿按鍵與檔位</strong><small>動作對應與起始檔位</small></span><svg class="icon"><use href="#i-arrow"/></svg></button>
+        <button type="button" id="settings-open-pad" class="preference-link"><svg class="icon"><use href="#i-controller"/></svg><span><strong>遙控器連接與校正</strong><small>裝置選擇、搖桿確認與進階校正</small></span><svg class="icon"><use href="#i-arrow"/></svg></button>
+        <p id="settings-controls-note" class="preferences-note">開啟目前模式的設定畫面，上方可返回這裡。</p>
+      </section>
+      <section id="settings-panel-network" role="tabpanel" aria-labelledby="settings-tab-network" data-settings-panel="network" hidden><div class="preferences-section-title"><p>BRING YOUR SQUAD</p><h3>讓每個人，進入同一場。</h3><span>主機提供網站，玩家掃描房間 QR 加入。</span></div>
+        <div class="preferences-context connection-context"><span class="preferences-status-dot"></span><div><strong id="settings-connection-state">正在檢查連線…</strong><small id="settings-connection-detail">檢查目前入口是否由賽事主機提供。</small></div><button type="button" id="settings-network-refresh">重新檢查</button></div>
+        <div id="settings-public-url-row" class="preferences-share" hidden><label for="settings-public-url">玩家公開入口</label><div><input id="settings-public-url" readonly><button type="button" id="settings-copy-url">複製</button></div></div>
+        <a id="settings-public-link" class="preference-link" href="lan/setup.html"><svg class="icon"><use href="#i-users"/></svg><span>賽事大廳與加入方式</span><svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a id="home-host-link" class="preference-link" href="lan/setup.html"><svg class="icon"><use href="#i-trophy"/></svg><span>主持人控制台</span><svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a class="preference-link" href="lan/setup.html"><svg class="icon"><use href="#i-help"/></svg><span>多人連線指南</span><svg class="icon"><use href="#i-arrow"/></svg></a>
+      </section>
+      <section id="settings-panel-about" role="tabpanel" aria-labelledby="settings-tab-about" data-settings-panel="about" hidden><div class="preferences-about"><span class="preferences-about-mark"><svg class="icon"><use href="#i-drone"/></svg></span><p>LET YOUR GAME TAKE FLIGHT.</p><h3>FLIGHT CLUB</h3><span>無人機足球模擬器</span></div><dl class="preferences-specs"><div><dt>介面版本</dt><dd>2026.11.03</dd></div><div><dt>遊玩方式</dt><dd>單機遊戲 / 掃碼連線賽事</dd></div><div><dt>設定儲存</dt><dd id="settings-storage-state">此瀏覽器與使用者資料夾</dd></div></dl><p class="preferences-note">應用程式開啟遊戲網站；玩家掃房間 QR 直接加入，不需安裝應用程式或憑證。</p></section>
+    </div></div>
+    <footer class="preferences-footer"><button type="button" id="settings-reset">還原本頁預設</button><p id="settings-feedback" role="status" aria-live="polite">變更即時套用並自動保存</p><button type="button" id="settings-done" class="preferences-done">完成 <svg class="icon"><use href="#i-check"/></svg></button></footer>
+  </dialog>
+
+  <section id="game-shell" data-fc-theme="dark" class="game-shell" aria-label="遊戲畫面" hidden>
+    <header class="game-toolbar">
+      <button type="button" id="back-button"><svg class="icon back-icon"><use href="#i-arrow"/></svg><span>回到大廳</span></button>
+      <div class="game-heading"><strong id="game-title"></strong><span id="game-controller"></span></div>
+      <div class="game-tools">
+        <button type="button" id="game-settings-button"><svg class="icon"><use href="#i-chip"/></svg><span>設定</span></button>
+        <button type="button" id="fullscreen-button" title="全螢幕"><svg class="icon"><use href="#i-expand"/></svg><span>全螢幕</span></button>
+      </div>
+    </header>
+    <p id="game-settings-hint" class="game-settings-hint" role="status" hidden></p>
+    <div id="game-host" class="game-host"><div id="game-loading" class="game-loading" role="status">正在開啟遊戲…</div></div>
+  </section>
+
+  <dialog id="help-dialog" aria-labelledby="help-title"><div class="dialog-heading"><div><p class="eyebrow small">QUICK START</p><h2 id="help-title">準備好，輕鬆起飛。</h2></div><button type="button" id="close-help" class="icon-button" aria-label="關閉操作指南"><svg class="icon"><use href="#i-close"/></svg></button></div><ol class="guide-steps"><li><span class="step-number">01</span><div><strong>選擇今天的玩法</strong><p>從主選單選擇對戰、飛行訓練、競速或正式賽，進入本場準備畫面。</p></div></li><li><span class="step-number">02</span><div><strong>組好隊伍，確認操控</strong><p>接上 USB／藍牙搖桿，調整難度與隊伍。對戰每隊 1–3 台，可混合真人與 AI。想和不同裝置同場比賽，可從「現場賽事」加入房間。</p></div></li><li><span class="step-number">03</span><div><strong>選好模式，開始遊戲</strong><p>方向鍵／左桿選擇，X 確認、Y 取消、BACK 返回上一步；START 返回主選單並結束目前這場遊戲。</p></div></li></ol><div class="guide-note"><svg class="icon"><use href="#i-help"/></svg><p>飛行時左桿／方向鍵升降與旋轉，右桿前後與平移；LB 換檔、RB 後空翻、A 無頭模式、B 煞車／懸停。LT／RT 將站位視角往左／右移；搖桿偏移時可從「手把」校正。</p></div><button type="button" id="got-it" class="launch-button">知道了，準備起飛 <svg class="icon"><use href="#i-arrow"/></svg></button></dialog>
+  <dialog id="brief-dialog" class="brief-dialog" aria-labelledby="brief-dialog-title"><div class="dialog-heading"><h2 id="brief-dialog-title">玩法重點</h2><button type="button" id="close-brief" class="icon-button" aria-label="關閉玩法重點"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="brief-dialog-content"></div><div id="brief-dialog-actions" class="brief-dialog-actions"><button type="button" id="brief-done" class="brief-done">知道了</button></div></dialog>
+  <dialog id="preview-dialog" class="preview-dialog" aria-labelledby="preview-dialog-title"><div class="dialog-heading"><h2 id="preview-dialog-title">場地預覽</h2><button type="button" id="close-preview" class="icon-button" aria-label="關閉場地預覽"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="preview-dialog-content"></div></dialog>
+  <noscript><div class="noscript-notice">請啟用 JavaScript 使用遊戲大廳，或查看 <a href="docs/遊戲大廳說明.md">使用說明</a>。</div></noscript>
+</body>
+</html>

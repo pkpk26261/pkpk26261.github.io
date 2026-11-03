@@ -1,0 +1,181 @@
+.fc-control-dialog button,.fc-control-dialog select{border:1px solid #425876;border-radius:8px;background:#15263d;color:#e1ebfa;padding:8px 12px;font:inherit;cursor:pointer}
+.fc-control-dialog{box-sizing:border-box;width:min(680px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:24px;border:1px solid #456080;border-radius:18px;background:#0e1b2e;color:#dde8f8;font:13px/1.7 "Segoe UI","Microsoft JhengHei",sans-serif;overflow:auto;box-shadow:0 24px 100px #0008}
+.fc-control-dialog::backdrop{background:#020b1dcc;backdrop-filter:blur(7px)}.fc-control-dialog header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.fc-control-dialog h2{font-size:22px;font-weight:700;margin:0}.fc-control-dialog h3{font-size:15px;font-weight:600;margin:14px 0}.fc-control-dialog p{color:#9fb1c9;margin:12px 0}.fc-control-dialog button:hover{background:#234264}.fc-control-dialog select{max-width:100%;padding:9px}
+.fc-gear-explainer{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.fc-gear-explainer>div{border:1px solid #344a65;border-radius:10px;padding:12px;background:#14243a}.fc-gear-explainer strong,.fc-gear-explainer span{display:block}.fc-gear-explainer strong{font-size:14px;color:#ecf4ff}.fc-gear-explainer span{color:#9fb1c9;font-size:11px;margin-top:5px}
+.fc-control-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.fc-control-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 10px;border:1px solid #2c405c;border-radius:8px}.fc-control-row button{min-width:68px;color:#9ed2ff;padding:4px 12px}.fc-control-row:last-child{border-color:#3c83b3}.fc-control-editor>label{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0}.fc-control-editor>button{margin:4px 6px 4px 0}.fc-control-status{min-height:24px;color:#ffd88a!important}
+@media(max-width:600px){.fc-control-dialog{padding:16px}.fc-control-grid{grid-template-columns:1fr}.fc-gear-explainer>div{padding:8px}.fc-control-editor>label{align-items:flex-start;flex-direction:column;gap:5px}}
+
+.fc-control-entry{display:block;margin-top:14px;border:1px solid #425876;border-radius:8px;background:#15263d;color:#e1ebfa;padding:10px 14px;font:inherit;cursor:pointer}.fc-control-entry:hover{background:#234264}
+
+/* The manual reads the same bindings as the input dispatcher. */
+.fc-control-reference{min-width:0;color:#dde8f8;font:13px/1.65 "Segoe UI","Microsoft JhengHei",sans-serif}
+.fc-reference-gear{margin:14px 0 4px;padding:12px;border:1px solid #578b87;border-radius:12px;background:#173432}
+.fc-reference-gear .fc-guide-label{font-weight:700;color:#b9f5df!important}
+.fc-game[data-fc-theme] .fc-control-reference .fc-reference-gear .fc-keycap{min-width:32px;height:32px;font-size:16px;border-color:#6acdb8!important;color:#b9f5df!important}
+.fc-reference-gear p,.fc-reference-note{font-size:12px;line-height:1.7;color:#adc4ca;margin:8px 0}
+.fc-reference-gears{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:10px}
+.fc-reference-gears>div{padding:6px 3px;border-radius:7px;background:#0c211f;text-align:center}
+.fc-reference-gears strong,.fc-reference-gears span{display:block;font-size:12px}
+.fc-reference-gears span{font-size:10px;color:#abc0c7}
+.fc-reference-gears [data-gear="2"] strong{color:#f5cf86}
+.fc-reference-picker{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px 0;color:#a0b2c2;font-size:12px}
+.fc-reference-picker select{min-width:0;max-width:65%;padding:7px;border:1px solid #425876;border-radius:8px;background:#15263d;color:#e1ebfa;font:inherit}
+.fc-control-reference .fc-control-entry{width:100%;min-height:40px;text-align:center;font-size:12px}
+.fc-control-reference .fc-guide-row{gap:10px;min-height:34px}
+.fc-control-reference .fc-guide-label{overflow-wrap:anywhere}
+.fc-control-reference .fc-guide-keys{white-space:nowrap}
+.fc-game .fc-flight-guide .fc-guide-body{overflow:auto;overscroll-behavior:contain;min-height:0}
+.fc-game .fc-hud .fc-flight-guide{max-height:calc(100dvh - 160px)}
+.fc-game .fc-flight-guide-dialog .fc-flight-guide{max-height:calc(100dvh - 28px)}
+.fc-game .fc-guide-heading,.fc-game .fc-guide-footer{flex-shrink:0}
+.fc-game .fc-team-guide table{min-width:0}
+.fc-more-actions>.fc-control-entry{margin:4px 6px;min-height:44px;text-align:left}
+
+/* Brief, non-blocking feedback for both keyboard and assigned controllers. */
+.fc-gear-notices{position:fixed;inset:0;z-index:45;pointer-events:none}
+.fc-gear-notice{position:absolute;transform:translateX(-50%);box-sizing:border-box;min-width:0;padding:10px 14px;border:1px solid #6acdb8;border-radius:12px;background:#112d2cf5;color:#d9f8ec;box-shadow:0 6px 20px #0003;font:13px/1.5 "Segoe UI","Microsoft JhengHei",sans-serif;text-align:center;animation:fc-gear-arrive .16s ease-out}
+.fc-gear-notice[hidden]{display:none!important}
+.fc-gear-notice strong,.fc-gear-notice span{display:block;overflow-wrap:anywhere}
+.fc-gear-notice strong{font-size:18px;margin:2px 0}
+.fc-gear-notice span{font-size:11px;color:#b1c8ca}
+.fc-gear-notice .fc-gear-notice-pilot{font-size:11px;color:#c4e9e0}
+.fc-gear-notice[data-gear="2"]{border-color:#e9be6b;background:#33291cf5}
+.fc-gear-notice[data-gear="2"] strong{color:#ffdc99}
+.fc-gear-notice[data-compact="true"]{padding:6px 10px;width:max-content!important;max-width:calc(100% - 24px)}
+.fc-gear-notice[data-compact="true"] .fc-gear-notice-pilot{display:inline;font-size:11px}
+.fc-gear-notice[data-compact="true"] strong{display:inline;font-size:14px;margin-left:8px}
+.fc-gear-notice[data-compact="true"] span:last-child{display:none}
+.fc-gear-notice[data-short="true"]{padding:3px 8px;line-height:1.3}
+.fc-gear-notice[data-short="true"] strong{font-size:12px}
+.fc-gear-notice[data-short="true"] .fc-gear-notice-pilot{font-size:10px}
+.fc-gear-notice[data-tiny="true"]{padding:1px 6px;line-height:1.2}
+.fc-gear-notice[data-tiny="true"] strong{font-size:10px}
+.fc-gear-notice[data-tiny="true"] .fc-gear-notice-pilot{font-size:9px}
+@keyframes fc-gear-arrive{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.fc-gear-notice{animation:none}}
+@media(max-width:420px){.fc-reference-gear{padding:10px}.fc-control-reference .fc-guide-label{font-size:12px}}
+
+/* Keep dismissal visible while long keyboard/controller settings scroll. */
+.fc-control-dialog { box-sizing:border-box; padding:0; overflow:hidden; }
+.fc-control-dialog[open] { display:flex; flex-direction:column; }
+.fc-control-dialog > header { flex:none; margin:0; padding:18px 24px; border-bottom:1px solid #344a65; background:#101e30; }
+.fc-control-body { min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:18px 24px; scrollbar-gutter:stable; }
+.fc-control-picker { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; background:#14243a; border:1px solid #344a65; border-radius:10px; }
+.fc-control-picker select { min-width:0; }
+.fc-control-dialog button { min-height:40px; }
+.fc-control-dialog :is(button,select):focus-visible { outline:2px solid #7cdccd; outline-offset:3px; }
+.fc-control-dialog > .fc-control-status { flex:none; min-height:0; max-height:8em; overflow:auto; margin:0; padding:10px 24px; border-top:1px solid #344a65; background:#101e30; }
+.fc-control-dialog .fc-control-status:empty { display:none; }
+@media(max-width:600px) {
+  .fc-control-dialog > header { padding:14px 16px; }
+  .fc-control-body { padding:14px 16px; }
+  .fc-control-dialog > .fc-control-status { padding:10px 16px; }
+  .fc-gear-explainer { gap:6px; }
+  .fc-gear-explainer span { overflow-wrap:anywhere; }
+}
+
+.fc-control-dialog .fc-settings-intro{margin:0 0 16px;font-size:13px;line-height:1.9;color:#a8bccb}
+.fc-control-dialog .fc-control-editor>h3{margin-top:18px}
+.fc-control-dialog .fc-control-row{min-height:54px;padding:8px 12px;background:#122338}
+.fc-control-dialog .fc-control-row button{min-width:92px;min-height:40px}
+.fc-control-dialog button[aria-pressed=true]{background:#21473f;border-color:#75e0c2;color:#baf7de}
+.fc-control-dialog :is(.fc-settings-details,.fc-binding-advanced){padding:14px;border:1px solid #344a65;border-radius:10px;margin-top:16px}
+.fc-control-dialog summary{cursor:pointer;min-height:28px;color:#bacddd;font-size:12px}
+.fc-control-dialog summary:focus-visible{outline:2px solid #7cdccd;outline-offset:3px}
+.fc-control-dialog details[open] summary{margin-bottom:14px}
+.fc-control-dialog .fc-binding-advanced label{display:grid;gap:8px;min-width:0;color:#a8bccb;font-size:12px}
+.fc-control-dialog .fc-binding-advanced select{width:100%;min-width:0}
+.fc-control-dialog .fc-binding-current{color:#92d5c0;font-size:12px;margin:12px 0 6px}
+.fc-control-dialog [hidden]{display:none!important}
+@media(max-width:420px){.fc-control-dialog .fc-control-editor>button{width:100%;margin:5px 0}.fc-control-dialog .fc-control-picker{flex-direction:column;align-items:stretch}.fc-control-dialog .fc-control-row button{min-width:84px}}
+
+.fc-controller-editor{margin-top:22px;padding-top:8px;border-top:1px solid #344a65;min-width:0}
+.fc-controller-bindings{display:grid;gap:10px}
+.fc-controller-binding{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px 8px;align-items:center;padding:12px;background:#14243a;border:1px solid #344a65;border-radius:10px;min-width:0}
+.fc-controller-binding strong,.fc-controller-binding>span{grid-column:1/-1;overflow-wrap:anywhere}
+.fc-controller-binding>span{color:#a8bccb;font-size:12px}
+.fc-controller-binding>span[data-controller-current]{color:#baf7de}
+.fc-controller-binding button{grid-row:4;min-width:0}
+.fc-controller-binding button:first-of-type{grid-column:2}.fc-controller-binding button:last-of-type{grid-column:3}
+.fc-controller-binding button:disabled{opacity:.45;cursor:default}
+.fc-controller-editor>button{margin-top:12px}
+.fc-controller-notice{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:100;max-width:calc(100vw - 32px);width:max-content;box-sizing:border-box;padding:10px 16px;border:1px solid #6acdb8;border-radius:10px;background:#112d2cf5;color:#d9f8ec;font:13px/1.6 "Microsoft JhengHei",sans-serif;pointer-events:none}
+.fc-controller-notice[hidden]{display:none}
+.fc-controller-reset[open]{padding:22px;gap:12px}.fc-controller-reset h2{margin:0}.fc-controller-reset p{margin:0}
+.fc-controller-reference{padding:10px 0}.fc-controller-reference p{margin:5px 0;overflow-wrap:anywhere}
+@media(max-width:420px){.fc-controller-binding{grid-template-columns:1fr 1fr}.fc-controller-binding button:first-of-type{grid-column:1}.fc-controller-binding button:last-of-type{grid-column:2}}
+
+/* Professional control settings: dedicated navigation, stable actions, live state. */
+.fc-control-dialog.fc-controls-window{width:min(1000px,calc(100vw - 36px));height:min(750px,calc(100dvh - 36px));max-height:calc(100dvh - 36px);padding:0;border:1px solid #364458;border-radius:7px;background:#101722;color:#edf2f7;font:13px/1.65 "Segoe UI","Microsoft JhengHei",sans-serif;overflow:hidden;box-shadow:0 30px 130px #000c}
+.fc-controls-window::backdrop{background:#03070dd4;backdrop-filter:blur(10px)}
+.fc-controls-window>header{display:flex;align-items:flex-start;justify-content:space-between;gap:22px;padding:25px 30px 23px;margin:0;background:linear-gradient(110deg,#162130,#0e1520);border-bottom:1px solid #2e3a4c;flex:none}
+.fc-controls-window .fc-controls-kicker{margin:0 0 9px;color:#ff917c;font:650 8px/1.5 "Segoe UI",sans-serif;letter-spacing:2.2px}
+.fc-controls-window .fc-controls-heading h2{font-size:27px;font-weight:750;letter-spacing:.6px;line-height:1.4;margin:0;color:#f0f4fa}
+.fc-controls-window .fc-controls-subtitle{margin:8px 0 0;color:#8093aa;font-size:11px}
+.fc-controls-window .fc-controls-close{border:1px solid #34465c;border-radius:4px;background:#182536;color:#adbed3;font-size:11px;min-height:34px;padding:7px 12px;flex:none}
+.fc-control-layout{min-height:0;flex:1;display:grid;grid-template-columns:215px minmax(0,1fr);overflow:hidden}
+.fc-controls-sidebar{padding:25px 14px;background:#0b121d;border-right:1px solid #263347;display:flex;flex-direction:column;min-height:0;overflow:auto}
+.fc-controls-context{padding:0 11px 21px;border-bottom:1px solid #253247;margin-bottom:17px;min-width:0}
+.fc-controls-window .fc-controls-context-label{font-size:9px;color:#617892;margin:0 0 4px}
+.fc-controls-context>strong{display:block;color:#cdd9e8;font-size:13px;font-weight:650;letter-spacing:.4px}
+.fc-controls-navigation{display:grid;gap:4px}
+.fc-controls-window .fc-controls-tab{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:46px;padding:11px 12px;border:1px solid transparent;border-left:2px solid transparent;border-radius:3px;background:transparent;color:#8298b2;font-size:12px;text-align:left;line-height:1.5}
+.fc-controls-window .fc-controls-tab:hover{background:#182537;color:#e0eaf6}
+.fc-controls-window .fc-controls-tab[aria-selected=true]{background:#ff654d0b;color:#ffb09c;border-color:#754b4050;border-left-color:#ff654d}
+.fc-controls-nav-arrow{font:18px/1 "Segoe UI",sans-serif;opacity:.7}
+.fc-controls-window .fc-controls-local-note{color:#526982;font-size:9px;line-height:1.9;margin:24px 11px 0;max-width:160px}
+.fc-controls-window .fc-control-body{padding:27px 30px;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+.fc-controls-panel{min-width:0}
+.fc-controls-section-heading{margin-bottom:22px}
+.fc-controls-window .fc-controls-section-kicker{font:650 8px/1.5 "Segoe UI",sans-serif;letter-spacing:2px;color:#6e91b0;margin:0 0 9px}
+.fc-controls-window .fc-controls-section-heading h3{font-size:23px;line-height:1.4;font-weight:700;letter-spacing:.5px;margin:0 0 8px;color:#eaf1f9}
+.fc-controls-window .fc-controls-section-heading>p:last-child{font-size:11px;color:#8499b1;line-height:1.8;margin:0}
+.fc-controls-window .fc-control-grid{gap:9px}
+.fc-controls-window .fc-control-row{min-height:57px;padding:9px 12px;border:1px solid #2c3b50;border-radius:4px;background:#142031;gap:13px}
+.fc-controls-window .fc-control-row>span{font-size:12px;color:#a6bbd1}
+.fc-controls-window .fc-control-row button{min-height:35px;min-width:67px;padding:6px 12px;border:1px solid #425c78;border-bottom-width:3px;border-radius:4px;background:#1a2b3f;color:#d4e9ff;font:650 13px/1.5 "Segoe UI","Microsoft JhengHei",sans-serif;letter-spacing:.5px}
+.fc-controls-window .fc-control-row:last-child{grid-column:1/-1;background:#17263a;border-color:#3d5979}
+.fc-controls-window .fc-control-row button[aria-pressed=true],.fc-controls-window [data-controller-learn][aria-pressed=true]{border-color:#ff9079;background:#513027;color:#ffd4c6}
+.fc-controls-window .fc-control-picker{display:grid;gap:7px;padding:0;margin:17px 0 0;border:0;background:transparent;font-size:10px;color:#6f859f}
+.fc-controls-window .fc-control-picker select{max-width:100%;width:100%;min-height:40px;padding:7px 8px;background:#172234;border:1px solid #34475f;border-radius:3px;font-size:11px;color:#c6d7ec}
+.fc-controls-window .fc-controls-option{display:flex;align-items:center;justify-content:space-between;gap:22px;margin:0 0 20px;padding:17px 18px;border:1px solid #33465c;border-radius:4px;background:#152335;color:#c8d8e9;font-size:13px}
+.fc-controls-window .fc-controls-option select{min-width:185px;background:#0c1725;border-color:#3c536e;border-radius:3px;padding:9px 11px;font-size:12px;color:#d8e5f4}
+.fc-controls-window .fc-settings-details{margin-top:23px;padding:17px;background:#101b2a;border-color:#2f4056;border-radius:4px}
+.fc-controls-window .fc-settings-details summary{color:#9db7d3;font-size:12px}
+.fc-controls-window .fc-gear-explainer>div{background:#162436;border-color:#34485e;border-radius:4px;padding:14px 11px}
+.fc-controls-window .fc-gear-explainer strong{color:#dce8f6;font-size:13px}
+.fc-controls-window .fc-gear-explainer span{font-size:10px;color:#7f97b2}
+.fc-controls-window .fc-binding-current{background:#172a3b;border:1px solid #36526c;border-radius:4px;padding:13px;color:#b9d7eb;font-size:12px}
+.fc-controls-window .fc-binding-advanced{border-color:#2c415a;border-radius:4px;background:#101a28;padding:14px}
+.fc-controls-window .fc-controls-panel>button{min-height:43px;padding:10px 14px;margin:6px 7px 5px 0;background:#1a2c41;border:1px solid #3f5974;border-radius:3px;color:#c5d9ef;font-size:12px}
+.fc-controls-device-note{padding:17px;border:1px solid #3b536b;background:#14263a;color:#b9ccdf;font-size:12px;line-height:1.9;border-radius:4px;margin-bottom:16px}
+.fc-controls-window .fc-controller-editor{border:0;padding:0;margin:0}
+.fc-controls-window .fc-controller-editor>h3{display:none}
+.fc-controls-window .fc-controller-editor>p{font-size:11px;color:#8097b2;line-height:1.9}
+.fc-controls-window .fc-controller-bindings{gap:12px}
+.fc-controls-window .fc-controller-binding{padding:16px;background:#142131;border-color:#33465c;border-radius:4px;grid-template-columns:minmax(0,1fr) auto auto;gap:7px 9px}
+.fc-controls-window .fc-controller-binding strong{color:#d8e5f3;font-size:13px;font-weight:650}
+.fc-controls-window .fc-controller-binding>span{color:#7891ae;font-size:10px;line-height:1.8}
+.fc-controls-window .fc-controller-binding [data-controller-current]{color:#aad8f4;font-size:12px;margin-top:3px}
+.fc-controls-window .fc-controller-binding strong{grid-column:1;grid-row:1}
+.fc-controls-window .fc-controller-binding>span{grid-column:1;grid-row:2}
+.fc-controls-window .fc-controller-binding>[data-controller-current]{grid-column:1;grid-row:3}
+.fc-controls-window .fc-controller-binding button:first-of-type{grid-column:2;grid-row:1/4;align-self:center}
+.fc-controls-window .fc-controller-binding button:last-of-type{grid-column:3;grid-row:1/4;align-self:center}
+.fc-controls-window .fc-controller-binding button{font-size:11px;border-color:#3c536c;border-radius:3px;background:#1c2d41;color:#c4d8ee;min-height:37px;padding:7px 11px}
+.fc-controls-window .fc-controller-binding button[data-controller-learn]{background:#203c50;border-color:#48768f;color:#c7eaff}
+.fc-controls-window>.fc-control-status{flex:none;font-size:11px;color:#e0ba8a!important;border-top:1px solid #334156;background:#17202c;padding:10px 30px;margin:0;line-height:1.8;max-height:5.5em;overflow:auto}
+.fc-controls-window>.fc-control-status:empty{display:none}
+.fc-controls-footer{display:flex;align-items:center;gap:17px;padding:17px 25px;background:#0c141f;border-top:1px solid #2c394b;flex:none}
+.fc-controls-window .fc-controls-reset{min-height:40px;padding:8px 12px;border:1px solid #3a4b61;background:transparent;color:#8ca5c0;border-radius:3px;font-size:11px}
+.fc-controls-save-hint{font-size:9px;color:#637c96;margin-left:auto}
+.fc-controls-window .fc-controls-done{min-height:43px;min-width:130px;padding:10px 20px;color:#180a07;background:#ff654d;border:1px solid #ff8976;border-radius:3px;font-size:13px;font-weight:750}
+.fc-controls-window .fc-controls-done:hover{background:#ff826c}
+.fc-controls-window .fc-controller-editor>button{min-height:40px;border-color:#3d5570;border-radius:3px;background:#192b40;color:#b6cde5;font-size:11px;margin-top:15px}
+.fc-controls-window :is(button,select,summary):focus-visible{outline:2px solid #87cfff;outline-offset:3px}
+.fc-controller-notice{border-color:#587a99;border-radius:4px;background:#13263bec;color:#c8e0f8}
+.fc-reference-gear{border-color:#3b5873;border-radius:5px;background:#172a3b}.fc-reference-gear .fc-guide-label{color:#c6e0f3!important}.fc-reference-gears>div{border-radius:3px;background:#102035}.fc-reference-gears span,.fc-reference-note{color:#91a9c1}
+@media(max-width:700px){.fc-control-dialog.fc-controls-window{width:calc(100vw - 22px);height:calc(100dvh - 24px);max-height:calc(100dvh - 24px)}.fc-controls-window>header{padding:19px 20px 17px}.fc-controls-window .fc-controls-heading h2{font-size:23px}.fc-controls-window .fc-controls-subtitle{font-size:10px}.fc-control-layout{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr)}.fc-controls-sidebar{padding:12px 15px 0;overflow:visible;border-right:0;border-bottom:1px solid #2a3a50}.fc-controls-context{display:flex;align-items:center;gap:9px;padding:0 2px 10px;margin:0;border:0;min-width:0}.fc-controls-window .fc-controls-context-label{font-size:8px;margin:0}.fc-controls-context>strong{font-size:11px}.fc-controls-window .fc-control-picker{display:flex;gap:5px;min-width:0;margin:0 0 0 auto;padding:0;font-size:0}.fc-controls-window .fc-control-picker select{min-height:33px;font-size:10px;max-width:168px}.fc-controls-navigation{display:flex;gap:7px;overflow:auto}.fc-controls-window .fc-controls-tab{white-space:nowrap;border:0;border-bottom:2px solid transparent;min-height:41px;padding:10px 7px;font-size:11px;border-radius:0;flex:1;justify-content:center}.fc-controls-nav-arrow{display:none}.fc-controls-window .fc-controls-tab[aria-selected=true]{border-bottom-color:#ff654d;border-left-color:transparent;background:transparent}.fc-controls-window .fc-controls-local-note{display:none}.fc-controls-window .fc-control-body{padding:20px}.fc-controls-section-heading{margin-bottom:18px}.fc-controls-window .fc-controls-section-heading h3{font-size:21px}.fc-controls-window .fc-control-grid{grid-template-columns:1fr}.fc-controls-window .fc-control-row{min-height:53px}.fc-controls-window .fc-control-row button{min-width:88px}.fc-controls-window .fc-controls-option{flex-direction:column;align-items:stretch;gap:10px;padding:15px}.fc-controls-window .fc-controls-option select{min-width:0;width:100%;max-width:100%}.fc-controls-window .fc-control-editor>button{width:auto;margin:5px 6px 5px 0}.fc-controls-window .fc-controls-panel>button{width:100%;margin:5px 0}.fc-controls-window .fc-gear-explainer{grid-template-columns:1fr}.fc-controls-window .fc-gear-explainer>div{padding:12px;display:grid;grid-template-columns:60px 1fr;gap:8px}.fc-controls-window .fc-gear-explainer span{margin:0}.fc-controls-footer{padding:13px 16px;gap:10px}.fc-controls-save-hint{display:none}.fc-controls-window .fc-controls-done{margin-left:auto;min-width:112px;font-size:12px}.fc-controls-window .fc-controls-reset{max-width:150px;font-size:10px;padding-inline:9px}.fc-controls-window>.fc-control-status{padding:9px 20px;font-size:10px}.fc-controls-window .fc-controller-binding{padding:13px;grid-template-columns:1fr 1fr}.fc-controls-window .fc-controller-binding button:first-of-type{grid-column:1}.fc-controls-window .fc-controller-binding button:last-of-type{grid-column:2}.fc-controls-window .fc-controller-binding button{font-size:10px}.fc-controls-window .fc-binding-advanced select{font-size:10px}.fc-controls-window .fc-controls-close{min-height:32px;font-size:10px;padding:6px 9px}}
+@media(max-height:500px){.fc-control-dialog.fc-controls-window{height:calc(100dvh - 16px);max-height:calc(100dvh - 16px)}.fc-controls-window>header{padding:12px 20px}.fc-controls-window .fc-controls-heading h2{font-size:21px}.fc-controls-window .fc-controls-kicker{margin-bottom:4px;font-size:7px}.fc-controls-window .fc-controls-subtitle{display:none}.fc-controls-window .fc-control-body{padding:17px 21px}.fc-controls-footer{padding:10px 18px}.fc-controls-window .fc-controls-section-heading h3{font-size:20px}.fc-controls-section-heading{margin-bottom:14px}}
+@media(max-width:700px){.fc-controls-window .fc-controller-binding strong,.fc-controls-window .fc-controller-binding>span{grid-column:1/-1;grid-row:auto}.fc-controls-window .fc-controller-binding button:first-of-type{grid-column:1;grid-row:auto}.fc-controls-window .fc-controller-binding button:last-of-type{grid-column:2;grid-row:auto}}
+@media(max-height:500px){.fc-controls-window .fc-controls-section-kicker{display:none}.fc-controls-window .fc-controls-section-heading{margin-bottom:10px}.fc-controls-window .fc-controls-section-heading>p:last-child{font-size:10px}.fc-controls-window .fc-controller-editor>p{font-size:10px;margin:8px 0 12px;line-height:1.7}.fc-controls-window .fc-controller-binding{padding:12px}.fc-controls-window .fc-controller-binding strong{font-size:11px}.fc-controls-window .fc-controller-binding>span{font-size:9px}}

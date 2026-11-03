@@ -1,0 +1,15 @@
+#mazeNavigation { position: absolute; left: 18px; width: 215px; box-sizing: border-box; padding: 12px; border: 1px solid #345061; border-radius: 12px; background: #101f2ef2; text-align: left; pointer-events: none; }
+#mazeNavigation strong { display: block; color: #e3edf5; font-size: 12px; line-height: 1.6; font-weight: 600; }
+#mazeNavigation .maze-passages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; margin-top: 7px; }
+#mazeNavigation .maze-passages:empty { display: none; }
+#mazeNavigation .maze-passages span { border: 1px solid #435362; border-radius: 5px; padding: 4px; color: #bdc9d4; background: #1b2936; font-size: 11px; line-height: 1.4; white-space: nowrap; }
+#mazeNavigation .maze-passages [data-open="true"] { color: #8cf5d7; border-color: #4daa92; background: #153c37; }
+#mazeNavigation .maze-passages [data-open="true"][data-vertical="true"] { color: #ffe0a0; border-color: #ac8844; background: #3c321c; }
+#mazeNavigation p { margin: 7px 0 0; color: #acbdcc; font-size: 10px; line-height: 1.5; }
+@media (max-width: 600px), (max-height: 550px) {
+    #mazeNavigation { left: 10px; width: 198px; padding: 8px; }
+    #mazeNavigation strong { font-size: 10px; }
+    #mazeNavigation .maze-passages { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; margin-top: 4px; }
+    #mazeNavigation .maze-passages span { font-size: 10px; padding: 2px 3px; }
+    #mazeNavigation p { font-size: 9px; margin-top: 4px; }
+}

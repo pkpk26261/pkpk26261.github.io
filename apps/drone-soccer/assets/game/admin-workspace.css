@@ -1,0 +1,326 @@
+/* Administrative workspace: rooms first, with a secondary match preview. */
+body[data-service-role="admin"] {
+  --admin-bg: #0b1018;
+  --admin-panel: #121a26;
+  --admin-raised: #182230;
+  --admin-line: #2c3848;
+  --admin-muted: #9baabd;
+  --admin-text: #edf2f8;
+  --admin-accent: #ff765f;
+  --admin-ice: #9bcefa;
+  --admin-gutter: clamp(18px, 2.5vw, 72px);
+  min-width: 0;
+  margin: 0;
+  background: var(--admin-bg);
+  color: var(--admin-text);
+  font: 14px/1.6 "Segoe UI", "Microsoft JhengHei", sans-serif;
+}
+body[data-service-role="admin"] :is(h1,h2,h3,p) { margin: 0; }
+body[data-service-role="admin"] :is(h1,h2,h3) { line-height: 1.4; }
+body[data-service-role="admin"] :is(p,.muted) { color: var(--admin-muted); }
+body[data-service-role="admin"] a { color: var(--admin-ice); }
+body[data-service-role="admin"] :is(button,.action-link,input,select,summary) { min-height: 44px; }
+body[data-service-role="admin"] :is(button,.action-link) {
+  padding: 10px 15px;
+  border: 1px solid #3a4b60;
+  border-radius: 7px;
+  background: #192433;
+  color: #e5edf6;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.5;
+  text-decoration: none;
+}
+body[data-service-role="admin"] :is(button,.action-link):hover:not(:disabled) { background: #26384d; border-color: #6a829c; }
+body[data-service-role="admin"] :is(button,.action-link).primary { background: var(--admin-accent); border-color: var(--admin-accent); color: #21110c; box-shadow: none; }
+body[data-service-role="admin"] :is(button,.action-link).primary:hover:not(:disabled) { background: #ff927e; border-color: #ff927e; }
+body[data-service-role="admin"] button.danger { color: #ffb0a4; background: #281d23; border-color: #67404b; }
+body[data-service-role="admin"] :is(input,select) { padding: 10px 12px; border: 1px solid #3a4a5f; border-radius: 6px; background: #0c141f; color: var(--admin-text); font-size: 13px; }
+body[data-service-role="admin"] input::placeholder { color: #8293a9; }
+body[data-service-role="admin"] :is(button,a,input,select,summary):focus-visible { outline: 2px solid var(--admin-ice); outline-offset: 3px; }
+body[data-service-role="admin"] button:disabled { opacity: .45; }
+body[data-service-role="admin"] .skip-link { position: fixed; top: 10px; left: var(--admin-gutter); z-index: 100; padding: 10px 16px; transform: translateY(-160%); background: var(--admin-accent); color: #21110c; border-radius: 6px; }
+body[data-service-role="admin"] .skip-link:focus { transform: none; }
+body[data-service-role="admin"] .service-header { display: flex; min-height: 76px; padding: 13px var(--admin-gutter); gap: 24px; border-bottom: 1px solid var(--admin-line); background: #0d141e; }
+body[data-service-role="admin"] .service-brand { display: flex; align-items: center; gap: 12px; margin-right: auto; color: var(--admin-text); letter-spacing: 1.2px; }
+body[data-service-role="admin"] .brand-symbol { width: 32px; height: 32px; fill: none; stroke: var(--admin-accent); stroke-width: 1.6; flex: none; }
+body[data-service-role="admin"] .service-brand>span { display: block; margin: 0; color: var(--admin-text); font-size: 18px; font-weight: 800; letter-spacing: 1.4px; }
+body[data-service-role="admin"] .service-brand small { display: block; margin-top: 3px; color: var(--admin-muted); font-size: 11px; font-weight: 500; letter-spacing: .5px; }
+body[data-service-role="admin"] .header-tools { display: flex; align-items: center; gap: 18px; min-width: 0; }
+body[data-service-role="admin"] .header-tools>a { display: inline-flex; align-items: center; min-height: 44px; gap: 10px; font-size: 13px; white-space: nowrap; }
+body[data-service-role="admin"] #adminLogout { background: transparent; }
+body[data-service-role="admin"] .status-chip { display: inline-flex; align-items: center; gap: 7px; padding: 5px 10px; border: 1px solid var(--admin-line); border-radius: 5px; font-size: 11px; line-height: 1.6; color: #a7b9cc; }
+body[data-service-role="admin"] #serviceConnection:before { content: ""; width: 6px; height: 6px; flex: none; border-radius: 50%; background: #8390a3; }
+body[data-service-role="admin"] #serviceConnection[data-state="connected"]:before { background: #88d6ba; }
+body[data-service-role="admin"] #serviceConnection:is([data-state="connecting"],[data-state="reconnecting"]):before { background: #f3c17f; }
+body[data-service-role="admin"] .service-main { max-width: none; min-width: 0; margin: 0; padding: 30px var(--admin-gutter) 60px; }
+body[data-service-role="admin"] .service-message { margin: 0 0 20px; border-radius: 6px; background: #2b231d; border-color: #75553a; color: #f5cf9d; }
+body[data-service-role="admin"] #adminDashboard { min-width: 0; }
+body[data-service-role="admin"] .admin-heading { display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 24px; }
+body[data-service-role="admin"] .admin-heading>div { min-width: 0; }
+body[data-service-role="admin"] .admin-heading .site-name { margin: 0 0 5px; font-size: 12px; color: #a1b3c7; overflow-wrap: anywhere; }
+body[data-service-role="admin"] .admin-heading h1 { font-size: clamp(25px, 2.2vw, 34px); font-weight: 750; letter-spacing: -.5px; }
+body[data-service-role="admin"] #newRoom { flex: none; gap: 10px; min-height: 46px; padding-inline: 19px; }
+body[data-service-role="admin"] .service-counts { display: flex; flex-wrap: wrap; gap: 0; margin: 24px 0 22px; padding: 0; border: 1px solid var(--admin-line); border-radius: 9px; background: #101823; }
+body[data-service-role="admin"] .service-counts>.admin-summary-stat { display: flex; flex: 1 1 180px; align-items: baseline; flex-wrap: wrap; gap: 5px 9px; min-width: 0; padding: 15px 22px; border: 0; border-right: 1px solid var(--admin-line); border-radius: 0; background: transparent; }
+body[data-service-role="admin"] .admin-summary-stat:last-child { border-right: 0; }
+body[data-service-role="admin"] .admin-summary-stat>strong { margin: 0; color: #f1f5fa; font-size: 26px; line-height: 1.2; font-variant-numeric: tabular-nums; font-weight: 700; }
+body[data-service-role="admin"] .admin-summary-stat>span { font-size: 12px; color: #a9b8ca; }
+body[data-service-role="admin"] .admin-summary-stat>small { font-size: 11px; color: #8298af; }
+body[data-service-role="admin"] .admin-tabs { display: flex; gap: 26px; margin: 0 0 25px; border-bottom: 1px solid var(--admin-line); }
+body[data-service-role="admin"] .admin-tabs>button { position: relative; display: flex; align-items: center; gap: 8px; margin-bottom: -1px; padding: 12px 2px 16px; border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: transparent; color: #9daec1; font-size: 14px; transition: color .12s; }
+body[data-service-role="admin"] .admin-tabs>button:hover:not(:disabled) { background: transparent; border-color: transparent; color: #f0f4f9; }
+body[data-service-role="admin"] .admin-tabs>button[aria-selected="true"]:not(:disabled) { color: #f6f3f1; border-bottom-color: var(--admin-accent); background: transparent; }
+body[data-service-role="admin"] .admin-tabs .lan-icon { width: 18px; height: 18px; }
+body[data-service-role="admin"] #adminRooms { display: grid; grid-template-columns: minmax(0,1fr) 336px; align-items: start; gap: 26px; }
+body[data-service-role="admin"] #adminRooms:has(#liveMonitor[hidden]) { display: block; }
+body[data-service-role="admin"] .admin-room-panel { min-width: 0; }
+body[data-service-role="admin"] .room-panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 16px; }
+body[data-service-role="admin"] .room-panel-heading h2 { font-size: 18px; font-weight: 650; }
+body[data-service-role="admin"] .room-panel-heading .status-chip { font-size: 11px; border: 0; padding: 0; color: #9bafc6; }
+body[data-service-role="admin"] .admin-room-filters { display: flex; gap: 12px; margin-bottom: 16px; }
+body[data-service-role="admin"] .admin-search { position: relative; display: block; flex: 1; min-width: 0; }
+body[data-service-role="admin"] .admin-search>svg { position: absolute; left: 13px; top: 13px; width: 18px; height: 18px; fill: none; stroke: #9eafc3; stroke-width: 1.6; pointer-events: none; }
+body[data-service-role="admin"] #adminRoomSearch { width: 100%; padding-left: 40px; }
+body[data-service-role="admin"] #adminRoomFilter { width: 154px; flex: none; }
+body[data-service-role="admin"] .room-list-scroll { overflow: visible; max-height: none; }
+body[data-service-role="admin"] #roomList { display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; }
+body[data-service-role="admin"] .room-card.admin-room-row { position: relative; display: grid; grid-template-columns: minmax(0,1fr) 100px auto; align-items: center; gap: 18px; min-height: 140px; padding: 21px 22px; border: 1px solid var(--admin-line); border-radius: 8px; background: var(--admin-panel); overflow: visible; }
+body[data-service-role="admin"] .admin-room-row[data-preview="true"] { border-color: #577a9f; box-shadow: inset 3px 0 #8fc5ee; }
+body[data-service-role="admin"] .admin-room-main { min-width: 0; }
+body[data-service-role="admin"] .admin-room-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 7px; }
+body[data-service-role="admin"] .admin-room-heading h3 { font-size: 16px; font-weight: 650; line-height: 1.45; overflow-wrap: anywhere; }
+body[data-service-role="admin"] .badge { flex: none; padding: 3px 8px; border-radius: 4px; font-size: 10px; }
+body[data-service-role="admin"] .admin-room-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 14px; color: #9daec3; font-size: 12px; }
+body[data-service-role="admin"] .room-code { color: #a6d1f4; font: 650 12px/1.6 Consolas, monospace; letter-spacing: 1.6px; }
+body[data-service-role="admin"] .admin-room-meta .arena-name { min-width: 0; overflow-wrap: anywhere; }
+body[data-service-role="admin"] .admin-room-roster { margin-top: 7px; color: #9bacbf; font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
+body[data-service-role="admin"] .admin-room-state { display: grid; justify-items: center; gap: 5px; min-width: 0; padding-inline: 4px; text-align: center; }
+body[data-service-role="admin"] .admin-room-state>strong { color: #e5edf6; font-size: 21px; font-weight: 650; font-variant-numeric: tabular-nums; }
+body[data-service-role="admin"] .admin-room-state>small { font-size: 11px; line-height: 1.6; color: #91a5bc; }
+body[data-service-role="admin"] .admin-room-state .room-score { gap: 8px; padding: 0; border-radius: 0; background: transparent; }
+body[data-service-role="admin"] .admin-room-state .room-score strong { font-size: 24px; }
+body[data-service-role="admin"] .admin-room-actions { display: flex; align-items: center; justify-content: flex-end; gap: 8px; min-width: 0; }
+body[data-service-role="admin"] .admin-room-actions>.action-link { flex: none; padding-inline: 13px; font-size: 12px; white-space: nowrap; }
+body[data-service-role="admin"] .room-actions-menu { position: relative; flex: none; }
+body[data-service-role="admin"] .room-actions-menu>summary { display: flex; align-items: center; justify-content: center; padding: 9px 12px; border: 1px solid #3a4b60; border-radius: 7px; background: #192433; color: #c0cede; font-size: 12px; cursor: pointer; list-style: none; }
+body[data-service-role="admin"] .room-actions-menu>summary::-webkit-details-marker { display: none; }
+body[data-service-role="admin"] .room-actions-menu>summary:hover { background: #26384d; border-color: #6a829c; }
+body[data-service-role="admin"] .room-menu-items { position: absolute; z-index: 20; top: calc(100% + 8px); right: 0; display: grid; gap: 5px; width: 188px; padding: 7px; border: 1px solid #52667e; border-radius: 8px; background: #162231; box-shadow: 0 14px 36px #0008; }
+body[data-service-role="admin"] .room-actions-menu:not([open]) .room-menu-items { display: none; }
+body[data-service-role="admin"] .room-menu-items>:is(a,button) { display: flex; align-items: center; justify-content: flex-start; width: 100%; padding: 10px 12px; border-color: transparent; background: transparent; font-size: 12px; }
+body[data-service-role="admin"] .room-menu-items>button.danger { background: #2a1f27; color: #ffb1a5; }
+body[data-service-role="admin"] .empty-state { margin: 0; padding: 42px 22px; border: 1px dashed #3c5067; border-radius: 8px; background: #101923; }
+body[data-service-role="admin"] .empty-state h3 { font-size: 19px; }
+body[data-service-role="admin"] .empty-state p { max-width: 470px; margin: 10px auto 22px; color: #9fb1c7; line-height: 1.85; }
+body[data-service-role="admin"] .empty-state>div { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+body[data-service-role="admin"] .admin-live-monitor { position: static; min-width: 0; padding: 20px; border: 1px solid var(--admin-line); border-radius: 8px; background: #111a26; box-shadow: none; }
+body[data-service-role="admin"] .live-monitor-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin: 0 0 17px; }
+body[data-service-role="admin"] .live-monitor-heading h2 { font-size: 16px; font-weight: 650; }
+body[data-service-role="admin"] .live-badge { border-color: #426153; border-radius: 4px; padding: 4px 7px; font-size: 9px; letter-spacing: .8px; color: #a8d9c0; background: #162c25; }
+body[data-service-role="admin"] .live-selection { display: grid; gap: 7px; font-size: 11px; color: #9eb0c5; }
+body[data-service-role="admin"] #liveRoomSelect { width: 100%; max-width: none; font-size: 12px; }
+body[data-service-role="admin"] .live-monitor-info { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin: 17px 0 12px; font-size: 12px; }
+body[data-service-role="admin"] .live-monitor-info strong { min-width: 0; max-width: 100%; overflow: visible; white-space: normal; overflow-wrap: anywhere; font-weight: 600; }
+body[data-service-role="admin"] .admin-live-stage { position: relative; min-height: 0; aspect-ratio: 16/10; border: 1px solid #304155; border-radius: 5px; overflow: hidden; background: #09121d; }
+body[data-service-role="admin"] .admin-live-stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+body[data-service-role="admin"] #liveRoomDetail { margin: 13px 0 17px; color: #98aac0; font-size: 11px; line-height: 1.8; overflow-wrap: anywhere; }
+body[data-service-role="admin"] #liveHostLink { display: flex; width: 100%; font-size: 12px; }
+body[data-service-role="admin"] .settings-columns { display: grid; grid-template-columns: minmax(0,1fr) 336px; align-items: start; gap: 26px; }
+body[data-service-role="admin"] .arena-management { min-width: 0; }
+body[data-service-role="admin"] .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 0 0 14px; }
+body[data-service-role="admin"] .section-heading h2 { font-size: 19px; }
+body[data-service-role="admin"] .section-heading p { margin-top: 5px; font-size: 12px; }
+body[data-service-role="admin"] .section-note { font-size: 12px; margin: 0 0 18px; }
+body[data-service-role="admin"] #adminArenas { padding: 0; }
+body[data-service-role="admin"] .admin-arena-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+body[data-service-role="admin"] .arena-editor { margin: 0; padding: 21px; border: 1px solid var(--admin-line); border-radius: 8px; background: var(--admin-panel); }
+body[data-service-role="admin"] .arena-editor h3 { font-size: 13px; color: #b8cee5; margin-bottom: 17px; }
+body[data-service-role="admin"] .arena-editor .arena-editor-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 17px; margin-bottom: 17px; border-bottom: 1px solid var(--admin-line); }
+body[data-service-role="admin"] .arena-editor .arena-editor-heading h3 { min-width: 0; margin: 0; padding: 0; border: 0; overflow-wrap: anywhere; }
+body[data-service-role="admin"] .arena-editor>label { display: grid; grid-template-columns: minmax(0,1fr); align-items: center; gap: 7px; margin: 14px 0; color: #a9bacd; font-size: 12px; }
+body[data-service-role="admin"] .arena-editor>label:has(input[type="checkbox"]) { display: flex; justify-content: flex-end; flex-direction: row-reverse; gap: 9px; min-height: 44px; padding-block: 8px; }
+body[data-service-role="admin"] .arena-editor input:not([type="checkbox"]) { width: 100%; min-height: 44px; font-size: 13px; }
+body[data-service-role="admin"] .arena-editor input[type="checkbox"] { min-height: 20px; width: 20px; height: 20px; margin: 0; }
+body[data-service-role="admin"] .arena-editor .card-actions { display: flex; gap: 10px; padding-top: 15px; margin-top: 17px; border-top: 1px solid var(--admin-line); }
+body[data-service-role="admin"] .arena-editor .card-actions>button { flex: 1; min-height: 44px; font-size: 12px; }
+body[data-service-role="admin"] .arena-save-status { min-height: 0; margin: 12px 0 0; color: #a9ceee; font-size: 11px; }
+body[data-service-role="admin"] .arena-save-status:empty { display: none; }
+body[data-service-role="admin"] .identity-panel { min-width: 0; padding: 23px 21px; border: 1px solid var(--admin-line); border-radius: 8px; background: #111a26; }
+body[data-service-role="admin"] .identity-panel h2 { font-size: 16px; }
+body[data-service-role="admin"] .identity-panel>p { font-size: 12px; line-height: 1.85; margin-top: 8px; }
+body[data-service-role="admin"] #siteForm { display: grid; grid-template-columns: minmax(0,1fr); gap: 8px; margin: 22px 0 0; padding: 0; border: 0; background: transparent; }
+body[data-service-role="admin"] #siteForm label { display: block; width: auto; font-size: 12px; color: #adbed1; }
+body[data-service-role="admin"] #siteTitle { width: 100%; }
+body[data-service-role="admin"] #siteForm>button { margin: 6px 0 0; }
+body[data-service-role="admin"] .identity-panel .settings-note { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--admin-line); font-size: 11px; }
+body[data-service-role="admin"] .result-list { display: grid; gap: 10px; }
+body[data-service-role="admin"] .result-row { display: grid; grid-template-columns: minmax(0,1fr) minmax(100px,160px) 140px 90px auto; gap: 14px; padding: 20px 22px; border: 1px solid var(--admin-line); border-radius: 8px; background: var(--admin-panel); font-size: 12px; }
+body[data-service-role="admin"] .result-row>strong { margin: 0; overflow-wrap: anywhere; font-size: 14px; }
+body[data-service-role="admin"] .result-row>span { min-width: 0; overflow-wrap: anywhere; color: #9fb2c8; }
+body[data-service-role="admin"] .result-row>.action-link { font-size: 12px; }
+body[data-service-role="admin"] .login-card { max-width: 470px; margin: 58px auto; padding: 34px; border: 1px solid #354457; border-radius: 10px; background: #121b28; box-shadow: none; }
+body[data-service-role="admin"] .login-mark { display: grid; place-items: center; width: 46px; height: 46px; margin-bottom: 23px; border: 1px solid #4a5362; border-radius: 9px; background: #202d3c; }
+body[data-service-role="admin"] .login-mark>svg { width: 26px; height: 26px; fill: none; stroke: var(--admin-ice); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+body[data-service-role="admin"] .login-card h1 { font-size: 28px; margin: 0 0 10px; letter-spacing: -.4px; }
+body[data-service-role="admin"] .login-card>p { font-size: 13px; line-height: 1.85; margin: 0; }
+body[data-service-role="admin"] #loginForm { display: grid; gap: 9px; margin: 25px 0 22px; }
+body[data-service-role="admin"] #loginForm>label { font-size: 12px; color: #b3c4d8; }
+body[data-service-role="admin"] #adminKey { width: 100%; min-height: 46px; }
+body[data-service-role="admin"] #loginForm>button { justify-content: space-between; margin-top: 9px; }
+body[data-service-role="admin"] .login-card>a { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 8px; min-height: 44px; font-size: 12px; }
+body[data-service-role="admin"].panel-system #roomDialog { width: min(800px,calc(100vw - 40px)); max-width: none; max-height: calc(100dvh - 40px); padding: 0; border: 1px solid #485a70; border-radius: 10px; background: #101823; overflow: hidden; }
+body[data-service-role="admin"].panel-system #newRoomForm { display: flex; flex-direction: column; min-height: 0; max-height: calc(100dvh - 42px); margin: 0; padding: 0; }
+body[data-service-role="admin"].panel-system #newRoomForm>.dialog-heading { position: relative; flex: none; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 23px 27px; margin: 0; border-bottom: 1px solid var(--admin-line); }
+body[data-service-role="admin"].panel-system #newRoomForm>.dialog-heading h2 { margin: 4px 0 8px; font-size: 26px; }
+body[data-service-role="admin"].panel-system #newRoomForm>.dialog-heading p:not(.panel-eyebrow) { font-size: 12px; color: #a6b8cd; }
+body[data-service-role="admin"].panel-system #roomDialogClose { position: static; display: grid; place-items: center; flex: none; width: 44px; min-height: 44px; padding: 0; border: 1px solid #3d4d63; background: #192637; font-size: 18px; }
+body[data-service-role="admin"].panel-system .creation-fields { display: grid; grid-template-columns: minmax(0,1fr); align-content: start; gap: 17px; min-height: 0; padding: 24px 27px; overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #526780 transparent; background: #0d141e; }
+body[data-service-role="admin"].panel-system .creation-fields .settings-group { display: block; min-width: 0; padding: 19px 20px; border: 1px solid #2e3d50; border-radius: 7px; background: #131d2b; }
+body[data-service-role="admin"].panel-system .creation-fields .settings-group>h3 { display: flex; align-items: center; gap: 11px; margin: 0 0 17px; font-size: 15px; font-weight: 650; }
+body[data-service-role="admin"].panel-system .settings-group>h3>span { color: #96bfe6; font: 600 11px/1.5 Consolas, monospace; }
+body[data-service-role="admin"].panel-system .creation-fields .creation-info { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 14px 18px; }
+body[data-service-role="admin"].panel-system .creation-info>h3 { grid-column: 1/-1; margin-bottom: 0 !important; }
+body[data-service-role="admin"].panel-system .creation-fields :is(.creation-info,.creation-rule-fields)>label { display: grid; gap: 8px; min-width: 0; margin: 0; color: #b3c4d8; font-size: 12px; }
+body[data-service-role="admin"].panel-system .creation-fields :is(input,select) { width: 100%; min-height: 44px; padding: 10px 11px; font-size: 13px; }
+body[data-service-role="admin"].panel-system .creation-fields .team-configuration { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 17px; margin: 0; }
+body[data-service-role="admin"].panel-system .creation-fields fieldset { min-width: 0; margin: 0; padding: 10px 15px 14px; border-radius: 5px; border-color: #3b4d63; background: #0f1825; }
+body[data-service-role="admin"].panel-system .creation-fields fieldset legend { padding-inline: 6px; font-size: 13px; }
+body[data-service-role="admin"].panel-system .creation-fields fieldset label { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 9px 0 0; font-size: 12px; }
+body[data-service-role="admin"].panel-system .creation-fields fieldset input { width: 76px; text-align: center; }
+body[data-service-role="admin"].panel-system .creation-fields .settings-note { margin-top: 13px; font-size: 11px; line-height: 1.8; color: #a0b3ca; }
+body[data-service-role="admin"].panel-system .creation-fields .creation-count { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 11px; padding-top: 11px; border-top: 1px solid #314257; font-size: 12px; color: #b2d4f2; }
+body[data-service-role="admin"].panel-system .creation-count>strong { font-size: 13px; color: #b2d4f2; }
+body[data-service-role="admin"].panel-system .creation-rule-fields { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 18px; margin-top: 13px; }
+body[data-service-role="admin"].panel-system .settings-dialog-footer { display: block; flex: none; padding: 17px 27px; border-top: 1px solid var(--admin-line); background: #141e2c; }
+body[data-service-role="admin"].panel-system #newRoomError { margin: 0 0 12px; padding: 0; color: #ffb09e; font-size: 12px; line-height: 1.7; }
+body[data-service-role="admin"].panel-system #newRoomError:empty { display: none; }
+body[data-service-role="admin"].panel-system .settings-dialog-footer>div { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+body[data-service-role="admin"].panel-system .settings-dialog-footer>div>span { color: #a3b7ce; font-size: 11px; line-height: 1.8; }
+body[data-service-role="admin"].panel-system #submitRoom { flex: none; width: auto; min-height: 46px; margin: 0; padding-inline: 18px; gap: 15px; white-space: nowrap; }
+@media (min-width: 2200px) {
+  body[data-service-role="admin"] .admin-room-row { grid-template-columns: minmax(0,1fr) 130px auto; }
+  body[data-service-role="admin"] .admin-room-actions>.action-link { min-width: 108px; }
+  body[data-service-role="admin"] .admin-arena-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+}
+@media (max-width: 1250px) {
+  body[data-service-role="admin"] .room-card.admin-room-row { grid-template-columns: minmax(0,1fr) 95px; gap: 15px; padding: 20px; }
+  body[data-service-role="admin"] .admin-room-actions { grid-column: 1/-1; justify-content: flex-start; padding-top: 14px; border-top: 1px solid var(--admin-line); }
+  body[data-service-role="admin"] .admin-room-actions>.action-link.primary { margin-right: auto; }
+  body[data-service-role="admin"] .admin-arena-grid { grid-template-columns: minmax(0,1fr); }
+  body[data-service-role="admin"] .admin-summary-stat>small { display: none; }
+}
+@media (max-width: 1080px) {
+  body[data-service-role="admin"] #adminRooms { grid-template-columns: minmax(0,1fr); gap: 24px; }
+  body[data-service-role="admin"] .room-card.admin-room-row { grid-template-columns: minmax(0,1fr) 100px auto; }
+  body[data-service-role="admin"] .admin-room-actions { grid-column: auto; padding: 0; border: 0; justify-content: flex-end; }
+  body[data-service-role="admin"] .admin-live-monitor { display: grid; grid-template-columns: minmax(250px,.7fr) minmax(0,1fr); gap: 12px 24px; }
+  body[data-service-role="admin"] .live-monitor-heading { grid-column: 1/-1; margin-bottom: 2px; }
+  body[data-service-role="admin"] .admin-live-stage { grid-column: 1; grid-row: 2/6; }
+  body[data-service-role="admin"] .live-monitor-info { margin: 0; }
+  body[data-service-role="admin"] #liveRoomDetail { margin: 0; }
+  body[data-service-role="admin"] #liveHostLink { width: auto; justify-self: start; }
+  body[data-service-role="admin"] .settings-columns { grid-template-columns: minmax(0,1fr) 300px; }
+  body[data-service-role="admin"] .result-row { grid-template-columns: minmax(0,1fr) 120px 120px auto; }
+  body[data-service-role="admin"] .result-row>span:nth-of-type(3) { display: none; }
+}
+@media (max-width: 760px) {
+  body[data-service-role="admin"] .service-header { flex-wrap: wrap; gap: 11px; padding-block: 15px 10px; }
+  body[data-service-role="admin"] .header-tools { justify-content: space-between; width: 100%; gap: 12px; }
+  body[data-service-role="admin"] .header-tools>a { margin-right: auto; font-size: 12px; }
+  body[data-service-role="admin"] .header-tools #serviceConnection { font-size: 10px; }
+  body[data-service-role="admin"] #adminLogout { min-height: 40px; padding: 7px 10px; font-size: 12px; }
+  body[data-service-role="admin"] .service-main { padding-top: 24px; }
+  body[data-service-role="admin"] .service-counts>.admin-summary-stat { flex-basis: 50%; padding: 13px 16px; }
+  body[data-service-role="admin"] .admin-summary-stat:nth-child(2) { border-right: 0; }
+  body[data-service-role="admin"] .admin-summary-stat:nth-child(-n+2) { border-bottom: 1px solid var(--admin-line); }
+  body[data-service-role="admin"] .admin-summary-stat>strong { font-size: 24px; }
+  body[data-service-role="admin"] .admin-summary-stat>span { font-size: 11px; }
+  body[data-service-role="admin"] .admin-tabs { justify-content: space-between; gap: 12px; margin-bottom: 22px; }
+  body[data-service-role="admin"] .admin-tabs>button { font-size: 13px; gap: 7px; }
+  body[data-service-role="admin"] .room-card.admin-room-row { grid-template-columns: minmax(0,1fr) 90px; }
+  body[data-service-role="admin"] .admin-room-actions { grid-column: 1/-1; justify-content: flex-start; padding-top: 14px; border-top: 1px solid var(--admin-line); }
+  body[data-service-role="admin"] .admin-room-actions>.action-link.primary { flex: 1; margin: 0; }
+  body[data-service-role="admin"] .admin-room-actions>.action-link:not(.primary) { flex: 1; }
+  body[data-service-role="admin"] .settings-columns { grid-template-columns: minmax(0,1fr); }
+  body[data-service-role="admin"] .admin-arena-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  body[data-service-role="admin"] .result-row { grid-template-columns: minmax(0,1fr) auto; gap: 8px 16px; }
+  body[data-service-role="admin"] .result-row>strong { grid-column: 1/-1; }
+  body[data-service-role="admin"] .result-row>span:nth-of-type(2) { justify-self: end; }
+  body[data-service-role="admin"] .result-row>.action-link { grid-column: 1/-1; justify-self: start; }
+}
+@media (max-width: 540px) {
+  body[data-service-role="admin"] .service-brand>span { font-size: 16px; }
+  body[data-service-role="admin"] .service-brand small { font-size: 10px; }
+  body[data-service-role="admin"] .brand-symbol { width: 29px; height: 29px; }
+  body[data-service-role="admin"] .header-tools { gap: 8px; }
+  body[data-service-role="admin"] .header-tools>a { font-size: 11px; gap: 5px; }
+  body[data-service-role="admin"] #serviceConnection { padding-inline: 7px; }
+  body[data-service-role="admin"] .admin-heading { align-items: center; gap: 13px; }
+  body[data-service-role="admin"] .admin-heading .site-name { font-size: 10px; }
+  body[data-service-role="admin"] .admin-heading h1 { font-size: 25px; }
+  body[data-service-role="admin"] #newRoom { min-height: 44px; padding-inline: 12px; font-size: 12px; }
+  body[data-service-role="admin"] .admin-tabs .lan-icon { display: none; }
+  body[data-service-role="admin"] .admin-room-filters { flex-wrap: wrap; gap: 9px; }
+  body[data-service-role="admin"] .admin-search { flex-basis: 100%; }
+  body[data-service-role="admin"] #adminRoomFilter { width: 100%; }
+  body[data-service-role="admin"] .room-card.admin-room-row { gap: 13px; padding: 17px; grid-template-columns: minmax(0,1fr) 72px; }
+  body[data-service-role="admin"] .admin-room-heading h3 { font-size: 15px; }
+  body[data-service-role="admin"] .admin-room-meta { gap: 5px 10px; font-size: 11px; }
+  body[data-service-role="admin"] .admin-room-roster { font-size: 11px; }
+  body[data-service-role="admin"] .admin-room-state { padding: 0; }
+  body[data-service-role="admin"] .admin-room-state>strong { font-size: 19px; }
+  body[data-service-role="admin"] .admin-room-state>small { font-size: 10px; }
+  body[data-service-role="admin"] .admin-room-state .room-score strong { font-size: 21px; }
+  body[data-service-role="admin"] .admin-room-actions { gap: 7px; }
+  body[data-service-role="admin"] .admin-room-actions>.action-link { padding-inline: 9px; font-size: 11px; }
+  body[data-service-role="admin"] .room-actions-menu>summary { padding-inline: 10px; font-size: 11px; }
+  body[data-service-role="admin"] .admin-live-monitor { display: block; padding: 19px; }
+  body[data-service-role="admin"] .live-monitor-heading { margin-bottom: 16px; }
+  body[data-service-role="admin"] .live-monitor-info { margin: 15px 0 11px; }
+  body[data-service-role="admin"] .admin-live-stage { aspect-ratio: 16/9; max-height: 245px; }
+  body[data-service-role="admin"] #liveRoomDetail { margin: 12px 0 16px; }
+  body[data-service-role="admin"] #liveHostLink { width: 100%; }
+  body[data-service-role="admin"] .admin-arena-grid { grid-template-columns: minmax(0,1fr); }
+  body[data-service-role="admin"] .arena-editor { padding: 19px; }
+  body[data-service-role="admin"] .section-heading { flex-wrap: wrap; align-items: center; gap: 13px; }
+  body[data-service-role="admin"] .section-heading h2 { font-size: 18px; }
+  body[data-service-role="admin"] .login-card { margin: 20px 0 30px; padding: 27px 22px; }
+  body[data-service-role="admin"] .login-card h1 { font-size: 26px; }
+  body[data-service-role="admin"] .login-card>p { font-size: 12px; }
+  body[data-service-role="admin"].panel-system #roomDialog { width: calc(100vw - 20px); max-height: calc(100dvh - 20px); border-radius: 8px; }
+  body[data-service-role="admin"].panel-system #newRoomForm { max-height: calc(100dvh - 22px); }
+  body[data-service-role="admin"].panel-system #newRoomForm>.dialog-heading { padding: 17px; gap: 12px; }
+  body[data-service-role="admin"].panel-system #newRoomForm>.dialog-heading h2 { font-size: 23px; }
+  body[data-service-role="admin"].panel-system #newRoomForm>.dialog-heading p:not(.panel-eyebrow) { font-size: 11px; }
+  body[data-service-role="admin"].panel-system .creation-fields { padding: 16px; gap: 13px; }
+  body[data-service-role="admin"].panel-system .creation-fields .settings-group { padding: 17px 15px; }
+  body[data-service-role="admin"].panel-system .creation-fields .creation-info { grid-template-columns: minmax(0,1fr); }
+  body[data-service-role="admin"].panel-system .creation-fields .team-configuration { gap: 10px; }
+  body[data-service-role="admin"].panel-system .creation-fields fieldset { padding-inline: 10px; }
+  body[data-service-role="admin"].panel-system .creation-fields fieldset input { width: 54px; padding-inline: 6px; }
+  body[data-service-role="admin"].panel-system .creation-fields fieldset label { gap: 7px; }
+  body[data-service-role="admin"].panel-system .creation-rule-fields { grid-template-columns: minmax(0,1fr); gap: 13px; }
+  body[data-service-role="admin"].panel-system .settings-dialog-footer { padding: 14px 17px; }
+  body[data-service-role="admin"].panel-system .settings-dialog-footer>div { display: grid; grid-template-columns: minmax(0,1fr); justify-content: stretch; gap: 9px; }
+  body[data-service-role="admin"].panel-system #submitRoom { width: 100%; justify-content: space-between; }
+}
+@media (max-width: 350px) {
+  body[data-service-role="admin"] { --admin-gutter: 14px; }
+  body[data-service-role="admin"] .header-tools>a { font-size: 10px; }
+  body[data-service-role="admin"] .header-tools #serviceConnection { font-size: 9px; }
+  body[data-service-role="admin"] .admin-tabs>button { font-size: 12px; }
+  body[data-service-role="admin"] .admin-room-actions>.action-link { padding-inline: 7px; }
+  body[data-service-role="admin"] .room-card.admin-room-row { padding: 15px; gap: 11px; }
+  body[data-service-role="admin"].panel-system .creation-fields .team-configuration { grid-template-columns: minmax(0,1fr); }
+  body[data-service-role="admin"].panel-system .creation-fields fieldset input { width: 72px; }
+}
+@media (max-height: 500px) {
+  body[data-service-role="admin"].panel-system #newRoomForm>.dialog-heading { padding-block: 14px; }
+  body[data-service-role="admin"].panel-system #newRoomForm>.dialog-heading h2 { font-size: 22px; margin-bottom: 3px; }
+  body[data-service-role="admin"].panel-system .settings-dialog-footer { padding-block: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-service-role="admin"] :is(button,input,select,a) { transition: none; }
+}

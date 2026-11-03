@@ -1,0 +1,53 @@
+/* The active gate is gold; completed gates keep their green status. */
+#ringNavigation { position: fixed; z-index: 24; left: 18px; top: 96px; width: 242px; box-sizing: border-box; padding: 12px 14px; border: 1px solid #c79b4566; border-left: 3px solid #ffd36c; border-radius: 12px; background: #101c2ef0; box-shadow: 0 8px 28px #02061745; color: #edf3fc; pointer-events: none; font-family: "Segoe UI", "Microsoft JhengHei", sans-serif; }
+#ringNavigation[hidden], #ringTargetLabel[hidden] { display: none; }
+#ringNavigation .ring-eyebrow { display: flex; align-items: center; gap: 7px; color: #ffda8a; font-size: 10px; letter-spacing: 1px; }
+#ringNavigation .ring-light, #ringTargetLabel i { width: 6px; height: 6px; flex: none; border-radius: 50%; background: #ffe6a4; box-shadow: 0 0 10px #ffca58; animation: ring-beacon 1.8s ease-in-out infinite; }
+#ringNavigation .ring-heading { display: flex; align-items: baseline; gap: 9px; margin: 5px 0; }
+#ringNavigation strong { font-size: 20px; line-height: 1.4; color: #fff0c8; }
+#ringNavigation .ring-count { font-size: 10px; color: #a8b9cd; }
+#ringNavigation .ring-direction { margin: 0; font-size: 12px; line-height: 1.6; color: #e1e9f5; }
+#ringNavigation .ring-crossing { margin: 0; color: #ffe09a; font-size: 14px; font-weight: 700; line-height: 1.6; }
+#ringNavigation .ring-reference { margin: 0 0 5px; color: #a8b9cd; font-size: 10px; line-height: 1.5; }
+#ringNavigation[data-wrong-side="true"] .ring-direction { color: #ffb4a5; }
+#ringNavigation .ring-meta { display: flex; justify-content: space-between; margin-top: 7px; color: #a8b9cd; font-size: 10px; }
+#ringNavigation .ring-track { height: 3px; background: #304158; margin-top: 8px; border-radius: 3px; overflow: hidden; }
+#ringNavigation .ring-track span { display: block; height: 100%; background: #64dfb5; transition: width .25s ease; }
+#ringTargetLabel { position: fixed; z-index: 23; display: flex; align-items: center; gap: 7px; padding: 6px 10px; border: 1px solid #ffe09a; border-radius: 7px; background: #302615ed; box-shadow: 0 0 18px #ffca5838; color: #fff0bd; font: 700 12px/1.4 "Segoe UI", "Microsoft JhengHei", sans-serif; white-space: nowrap; pointer-events: none; transform: translate(-50%, -100%); }
+#ringTargetLabel::after { content: ""; position: absolute; left: calc(50% - 4px); bottom: -5px; width: 7px; height: 7px; background: #302615; border-right: 1px solid #ffe09a; border-bottom: 1px solid #ffe09a; transform: rotate(45deg); }
+#ringTargetLabel[data-offscreen="true"]::after { display: none; }
+/* Release the shared HUD's important top offset before anchoring feedback above
+   the bottom controls; setting both offsets stretches the notification. */
+body:has(#ringNavigation:not([hidden])) #sysNotification {
+    top: auto !important;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 180px);
+    max-width: calc(100vw - 36px);
+}
+@keyframes ring-beacon { 50% { opacity: .55; box-shadow: 0 0 4px #ffca58; } }
+@media (max-width: 600px), (max-height: 550px) {
+    #ringNavigation { left: 10px; width: 204px; padding: 8px 10px; border-radius: 9px; }
+    #ringNavigation strong { font-size: 16px; }
+    #ringNavigation .ring-heading { margin: 2px 0; }
+    #ringNavigation .ring-direction { font-size: 11px; }
+    #ringNavigation .ring-meta { margin-top: 4px; }
+    #ringTargetLabel { font-size: 11px; padding: 5px 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #ringNavigation .ring-light, #ringTargetLabel i { animation: none; }
+    #ringNavigation .ring-track span { transition: none; }
+}
+@media (max-height: 550px) and (min-width: 480px) {
+    #ringNavigation[data-kind="grid"] { left: 50%; width: 300px; transform: translateX(-50%); }
+    #ringNavigation[data-kind="grid"] :is(.ring-eyebrow, .ring-count, .ring-meta, .ring-track) { display: none; }
+    #ringNavigation[data-kind="grid"] .ring-heading { display: inline-flex; margin: 0; }
+    #ringNavigation[data-kind="grid"] .ring-crossing { display: inline-block; margin-left: 10px; font-size: 12px; }
+    #ringNavigation[data-kind="grid"] .ring-reference { display: inline; margin-right: 8px; font-size: 9px; }
+    #ringNavigation[data-kind="grid"] .ring-reference::before { content: ""; display: block; }
+    #ringNavigation[data-kind="grid"] .ring-direction { display: inline; }
+}
+@media (max-height: 380px) and (min-width: 480px) and (max-width: 600px) {
+    #ringNavigation[data-kind="grid"] { left: 10px; width: 260px; padding: 4px 8px; font-size: 11px; line-height: 1.4; transform: none; }
+    #ringNavigation[data-kind="grid"] strong { line-height: 1.2; }
+    #ringNavigation[data-kind="grid"] .ring-reference { font-size: 8px; }
+    #ringNavigation[data-kind="grid"] .ring-direction { font-size: 10px; }
+}

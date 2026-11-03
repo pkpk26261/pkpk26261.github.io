@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1018"><title>FLIGHT CLUB｜比賽控制台</title>
+  <link rel="icon" href="/apps/drone-soccer/assets/brand/flight-club.ico">
+  <link rel="stylesheet" href="/lan/style.css">
+  <link rel="stylesheet" href="/apps/drone-soccer/assets/game/lan-host.css">
+  <link rel="stylesheet" href="/lan/match-theme.css">
+  <link rel="stylesheet" href="/lan/panel-system.css">
+  <link rel="stylesheet" href="/apps/drone-soccer/assets/game/host-workspace.css">
+</head>
+<body data-role="host" data-host-panel="roster" data-host-view="controls" data-room-active="false">
+  <a class="host-skip-link" href="#hostWorkspace">跳至比賽控制</a>
+  <header class="topbar">
+    <a class="brand" href="/admin" title="返回管理中心，比賽會繼續運作"><span aria-hidden="true">←</span> 管理中心 <small>FLIGHT CLUB</small></a>
+    <div class="host-tools"><button id="sound" type="button">開啟哨音</button><button id="fullscreen" type="button">全螢幕</button></div>
+  </header>
+  <div class="host-workspace" id="hostWorkspace">
+    <header class="host-heading">
+      <div class="host-room-identity"><p id="hostArena" class="eyebrow">比賽控制台</p><h1 id="hostTitle">建立一場比賽</h1><div class="host-room-meta"><span id="hostCodeLabel" hidden>房碼 <strong id="roomCode">—</strong></span><span id="connection" class="chip" role="status">正在連線</span></div></div>
+      <button id="inviteOpen" type="button" class="host-invite-action" hidden>邀請玩家</button>
+    </header>
+    <section id="matchOverview" class="match-control-card" aria-label="本場比分與主要操作" hidden>
+      <div class="scoreboard"><span class="red">紅隊 <b id="redScore">0</b></span><div><strong id="timer">03:00</strong><small id="round">三局兩勝・等待建房</small></div><span class="blue"><b id="blueScore">0</b> 藍隊</span></div>
+      <div class="match-command"><p id="roomStatus" role="status">等待建立房間</p><div class="match-primary-actions"><button id="start" class="primary" disabled>開始比賽</button><button id="pause" hidden>暫停比賽</button><button id="resume" class="primary" hidden disabled>恢復比賽</button></div></div>
+      <div class="match-readiness"><span id="matchReadiness">等待玩家準備</span><p id="readinessHint">等待比賽引擎與玩家完成準備。</p></div>
+    </section>
+    <nav class="host-view-tabs" aria-label="切換控制台與轉播"><button type="button" data-host-view-button="controls" aria-pressed="true">比賽控制</button><button type="button" data-host-view-button="broadcast" aria-pressed="false">轉播畫面</button></nav>
+    <main class="host-layout">
+      <aside class="management" aria-label="比賽設定與席位">
+        <nav class="host-tabs" aria-label="比賽管理項目" role="tablist">
+          <button type="button" id="tabRoom" role="tab" data-host-panel-button="room" aria-controls="playerControls" aria-selected="false" disabled>玩家席位</button>
+          <button type="button" id="tabInvite" role="tab" data-host-panel-button="invite" aria-controls="invitePanel" aria-selected="false">邀請加入</button>
+          <button type="button" id="tabRoster" role="tab" data-host-panel-button="roster" aria-controls="createForm" aria-selected="true">隊伍編成</button>
+          <button type="button" id="tabCamera" role="tab" data-host-panel-button="camera" aria-controls="cameraForm" aria-selected="false" disabled>玩家視角</button>
+        </nav>
+        <div class="host-panels">
+          <form id="createForm" class="host-panel" data-host-panel="roster" role="tabpanel" aria-labelledby="tabRoster">
+            <h2>隊伍編成</h2><p>每隊 1～3 台；1 號前鋒，其餘防守。真人依序配置。</p>
+            <div id="rosterEditor" class="roster-editor"><fieldset><legend class="red">紅隊</legend><label>真人 <input id="redHumans" type="number" min="0" max="3" value="1" required></label><label>AI <input id="redAI" type="number" min="0" max="3" value="2" required></label></fieldset><fieldset><legend class="blue">藍隊</legend><label>真人 <input id="blueHumans" type="number" min="0" max="3" value="1" required></label><label>AI <input id="blueAI" type="number" min="0" max="3" value="2" required></label></fieldset></div>
+            <div class="host-options"><label>AI 難度 <select id="difficulty"><option value="easy">簡單</option><option value="medium" selected>中等</option><option value="hard">困難</option></select></label><label>局間休息 <select id="breakSec"><option value="120">2 分鐘</option><option value="180">3 分鐘</option></select></label></div>
+            <p class="host-context-note">開始後鎖定編成；調整真人與 AI 後，請確認席位。</p><button class="primary" id="create">建立房間並邀請玩家</button><button type="button" id="updateRoster" class="primary" hidden>套用隊伍編成</button>
+          </form>
+          <section id="roomControls" hidden>
+            <section id="playerControls" class="host-panel" data-host-panel="room" role="tabpanel" aria-labelledby="tabRoom" hidden>
+              <div class="room-heading"><div><h2>玩家與準備狀態</h2><p>確認兩隊就緒後，即可開始比賽。</p></div></div>
+              <div class="team-headings"><div class="red"><span>紅隊</span><small id="redTeamCount"></small></div><div class="blue"><span>藍隊</span><small id="blueTeamCount"></small></div></div><div id="seats" class="seats"></div>
+              <details class="room-maintenance"><summary>更多房間操作 <span aria-hidden="true">＋</span></summary><div class="maintenance-content"><label class="check"><input id="joinLock" type="checkbox"><span>鎖定新加入<small>原玩家仍可重連。</small></span></label><div class="actions room-secondary-actions"><button id="recover" hidden>復原引擎</button><button id="end" hidden>結束並保存本場</button><button id="closeRoom" class="danger">關閉房間</button></div><p>移除玩家、AI 接手、結束與關房，都會再次確認。</p></div></details>
+            </section>
+            <form id="cameraForm" class="host-panel" data-host-panel="camera" role="tabpanel" aria-labelledby="tabCamera" hidden><h2>玩家統一視角</h2><p>所有玩家使用同一組視野規則。</p><label>統一站位 <select id="cameraMode"><option value="center">己方短邊・固定中間</option><option value="left">己方短邊・固定左邊</option><option value="right">己方短邊・固定右邊</option></select></label><div class="camera-numbers"><label>垂直視野° <input id="fov" type="number" min="40" max="80" value="60"></label><label>網外後退 m <input id="distance" type="number" step="0.1" min="0.6" max="3" value="2.6"></label><label>眼睛高度 m <input id="height" type="number" step="0.05" min="1.2" max="2.4" value="1.65"></label></div><p>比賽進行中無法變更。請先暫停，再套用；真人重新準備後才能恢復。</p><button id="applyCamera">套用玩家視角</button></form>
+          </section>
+          <section id="invitePanel" class="host-panel host-invite-panel" data-host-panel="invite" role="tabpanel" aria-labelledby="tabInvite" hidden>
+            <h2>邀請玩家加入</h2><div id="joinEmpty" class="join-empty"><p>建立房間後，即可分享本場 QR 與房碼。</p><p>玩家加入網址</p><a id="preJoinAddress" target="_blank" rel="noopener"></a><button id="createInvite" type="button" class="primary">建立房間並顯示 QR</button><small>使用「隊伍編成」目前的設定。</small></div>
+            <div id="joinDetails" class="join-details" hidden><div class="join-qr"><img id="joinQR" width="220" height="220" alt="掃描直接加入本場比賽"><p id="joinQrStatus" role="status" hidden>QR 載入失敗，請重新開啟本分頁，或使用網址與房碼加入。</p></div><strong id="joinRoomCode" class="big-code join-code"></strong><p id="joinPlayerCount" class="join-count"></p><div class="join-address"><span>玩家加入網址</span><a id="joinAddress" target="_blank" rel="noopener"></a></div><div class="actions join-copy"><button id="copyJoinURL" type="button">複製網址</button><button id="copyJoinCode" type="button">複製房碼</button></div><button id="enlargeInvite" type="button" class="join-enlarge">放大 QR，邀請玩家</button></div>
+          </section>
+        </div>
+      </aside>
+      <section class="broadcast" aria-label="同場即時轉播"><div class="broadcast-heading"><div><span class="broadcast-live-dot" aria-hidden="true"></span><h2>即時轉播</h2></div><a id="watchLink" target="_blank" rel="noopener" hidden>獨立開啟 ↗</a></div><div id="broadcastStatus" class="broadcast-status" role="status" hidden></div><div class="world"><iframe id="scene" title="同場賽事轉播" allow="fullscreen" hidden></iframe><div id="cover" class="cover"><strong>等待比賽就緒</strong><span>建立房間後，會顯示同一場比賽。</span></div></div><div class="broadcast-tools"><label>轉播鏡頭 <select id="observer"><option value="all">全場</option><option value="center">固定中間</option><option value="left">固定左側</option><option value="right">固定右側</option><option value="follow">追蹤無人機</option></select></label><select id="target" aria-label="追蹤無人機"></select></div><p class="broadcast-hint">這裡調整觀眾鏡頭；玩家視角請到「玩家視角」設定。</p></section>
+    </main>
+    <footer class="host-footer"><span>FLIGHT CLUB <span>／ 比賽控制台</span></span><a href="/admin">返回管理中心 ↗</a></footer>
+  </div>
+  <div id="message" class="message host-message" role="status"></div>
+  <dialog id="invite"><div class="dialog-head"><h2>邀請玩家</h2><button id="inviteClose" aria-label="關閉邀請視窗">✕</button></div><p class="invite-note">玩家掃碼加入本房間，主機與玩家皆需網際網路。</p><div class="invite-layout"><img id="qr" width="260" height="260" alt="掃描直接加入這個房間" hidden><div class="invite-info"><strong class="big-code" id="inviteCode"></strong><p id="inviteCount"></p><label>玩家加入網址 <input id="joinURL" readonly></label><p class="invite-methods">掃碼或開啟網址，即會帶入本場房碼。</p><div class="actions"><button id="copyURL" disabled>複製網址</button><button id="copyCode" disabled>複製房碼</button></div></div></div><small id="interfaceInfo"></small></dialog>
+  <script src="/lan/panels.js"></script><script src="/lan/app.js"></script><script src="/apps/drone-soccer/assets/game/host-workspace.js"></script>
+</body>
+</html>

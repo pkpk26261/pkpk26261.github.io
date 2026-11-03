@@ -1,0 +1,29 @@
+# Creating this Blueprint provisions a paid service and persistent disk.
+# Review the current Render price before confirming creation.
+services:
+  - type: web
+    name: flight-club-cloud
+    runtime: docker
+    plan: 1c-2g
+    region: singapore
+    numInstances: 1
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeployTrigger: 'off'
+    maxShutdownDelaySeconds: 120
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: '10000'
+      - key: DATA_DIR
+        value: /data
+      - key: MAX_ARENAS
+        value: '2'
+      - key: ADMIN_TOKEN
+        sync: false
+    disk:
+      name: flight-club-data
+      mountPath: /data
+      sizeGB: 1

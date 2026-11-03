@@ -1,0 +1,1555 @@
+/* Shared visual system for all 32 playable variants; dimensions of 3D viewports stay intact. */
+/* Keep legacy markup out of the first paint while the deferred UI is built.
+   Visibility preserves arena measurements; the timeout keeps legacy controls
+   available if JavaScript is disabled or the enhancement cannot be loaded. */
+html:not(.fc-ui-ready) { background: #06121c; }
+html:not(.fc-ui-ready) body {
+  visibility: hidden;
+  animation: fc-ui-fallback 0s 10s forwards !important;
+}
+@keyframes fc-ui-fallback { to { visibility: visible; } }
+
+/* In-game restart confirmation, matching the dark flight controls. */
+.fc-game .fc-restart-dialog { position: fixed; inset: 0; margin: auto; box-sizing: border-box; width: min(440px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 0; overflow: auto; border: 1px solid #36465e; border-radius: 22px; background: #101c2e; color: #edf3fc; box-shadow: 0 24px 90px #0008; font-family: "Segoe UI", "Microsoft JhengHei", sans-serif; }
+.fc-game .fc-restart-dialog::backdrop { background: #020812b8; backdrop-filter: blur(7px); }
+.fc-game .fc-restart-content { padding: 30px 28px 26px; text-align: center; }
+.fc-game .fc-restart-symbol { display: grid; place-items: center; width: 52px; height: 52px; margin: 0 auto 16px; border: 1px solid #f0b65340; border-radius: 16px; background: #f0b65312; color: #f4c779; }
+.fc-game .fc-restart-symbol .fc-icon { width: 25px; height: 25px; }
+.fc-game .fc-restart-status { color: #a1b1c9; font-size: 12px; letter-spacing: 2px; }
+.fc-game .fc-restart-dialog h2 { margin: 10px 0; color: #edf3fc; font-size: 21px; font-weight: 700; line-height: 1.5; }
+.fc-game .fc-restart-dialog p { margin: 0; color: #a1b1c9; font-size: 13px; line-height: 1.8; }
+.fc-game .fc-restart-actions { display: flex; gap: 10px; padding: 18px 24px; border-top: 1px solid #2b3a51; background: #0c1727; }
+.fc-game .fc-restart-actions button { flex: 1; min-height: 44px; padding: 10px 12px; border: 1px solid #3d506b; border-radius: 10px; background: #1a2a40; color: #d9e5f7; cursor: pointer; font: 600 13px/1.5 "Segoe UI", "Microsoft JhengHei", sans-serif; }
+.fc-game .fc-restart-actions button:hover { background: #263a55; }
+.fc-game .fc-restart-actions .fc-restart-confirm { background: #3769de; border-color: #5680e4; color: #fff; }
+.fc-game .fc-restart-actions .fc-restart-confirm:hover { background: #4779ed; }
+@media (max-width: 380px), (max-height: 420px) { .fc-game .fc-restart-content { padding: 20px; } .fc-game .fc-restart-symbol { width: 40px; height: 40px; margin-bottom: 10px; } .fc-game .fc-restart-dialog h2 { font-size: 18px; } .fc-game .fc-restart-actions { padding: 14px 20px; } }
+.fc-game .fc-camera-setting{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 17px;border:1px solid #dfe6f1;border-radius:10px;background:#f7f9fc;color:#314968;cursor:pointer;text-align:left;pointer-events:auto}.fc-game .fc-camera-setting-copy{display:flex;flex-direction:column;gap:4px;min-width:0}.fc-game .fc-camera-setting-copy strong{font-size:12px}.fc-game .fc-camera-setting-copy>span{font-size:11px;line-height:1.7;color:#75869b}.fc-game .fc-camera-toggle{appearance:auto;width:20px;height:20px;flex:none;accent-color:#285ce2;cursor:pointer}.fc-game .fc-camera-dialog .fc-camera-setting{margin-top:20px}.fc-game .fc-camera-note{margin:12px 0 0;font-size:11px;line-height:1.8;color:#75869b}.fc-game #topBar .fc-hud-button{background:#19314d;border:1px solid #49627f;color:#c2d3ea;border-radius:6px;padding:4px 7px;font:500 10px/1.4 "Segoe UI","Microsoft JhengHei",sans-serif;white-space:nowrap;cursor:pointer}
+html.fc-game{--fc-blue:#285ce2;--fc-ink:#24364c;--fc-muted:#7a8a9d;--fc-line:#e4eaf1;color-scheme:dark}
+.fc-game body{font-family:"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif}.fc-game .tech-font{font-family:"Segoe UI","Microsoft JhengHei",sans-serif;font-variant-numeric:tabular-nums;letter-spacing:.1px}.fc-game .glassmorphism{background:rgba(13,29,49,.86);border-color:rgba(152,176,208,.17);box-shadow:0 6px 24px #02061718;backdrop-filter:blur(16px)}
+.fc-game [hidden]{display:none!important}.fc-game button:focus-visible,.fc-game [role=button]:focus-visible,.fc-game input:focus-visible,.fc-game select:focus-visible{outline:3px solid #83a8ff!important;outline-offset:3px}.fc-game ::-webkit-scrollbar{display:block;width:5px;height:5px}.fc-game ::-webkit-scrollbar-thumb{background:#8ba1bc55;border-radius:9px}
+.fc-game .fc-start-overlay,.fc-game .fc-pad-overlay{background:rgba(6,20,38,.86)!important;backdrop-filter:blur(12px);padding:20px!important;overflow:auto!important;align-items:center!important;justify-content:center!important}.fc-game .fc-card{color-scheme:dark;display:flex!important;flex-direction:column!important;gap:0!important;max-height:calc(100dvh - 40px)!important;max-width:1060px!important;width:100%;margin:0!important;padding:0!important;border:1px solid #ffffff55!important;border-radius:20px!important;overflow:hidden!important;background:#fff!important;color:var(--fc-ink)!important;box-shadow:0 25px 100px #0005!important;text-align:left!important;min-height:0;isolation:isolate}.fc-game .fc-start-overlay .fc-card{max-width:870px!important}.fc-game .fc-card-heading{position:relative;padding:24px 28px 19px!important;border-bottom:1px solid var(--fc-line);display:block!important;flex:none;background:#fff}.fc-game .fc-kicker{color:#93a2b6!important;font:600 8px/1.5 "Segoe UI",sans-serif!important;letter-spacing:2px!important;margin:0 0 8px!important}.fc-game .fc-card-heading h1,.fc-game .fc-card-heading h2{font-size:24px!important;color:var(--fc-ink)!important;background:none!important;-webkit-text-fill-color:var(--fc-ink)!important;line-height:1.5!important;letter-spacing:.5px!important;text-align:left!important;margin:0!important;font-weight:750!important}.fc-game .fc-card-heading h1{font-size:25px!important}.fc-game .fc-subtitle{color:#8291a5!important;font-size:10px!important;line-height:1.8!important;margin:7px 0 0!important;max-width:800px}.fc-game .fc-tabs{display:flex;gap:25px;padding:0 28px;background:#fafbfd;border-bottom:1px solid var(--fc-line);flex:none;overflow:auto;scrollbar-width:none}.fc-game .fc-tab{border:0!important;border-bottom:2px solid transparent!important;border-radius:0!important;background:transparent!important;padding:14px 0 12px!important;color:#8a98aa!important;font-size:12px!important;font-weight:600;white-space:nowrap;line-height:1.5;min-width:0;cursor:pointer}.fc-game .fc-tab[aria-selected=true]{color:var(--fc-blue)!important;border-bottom-color:var(--fc-blue)!important}.fc-game .fc-pages{min-height:0;overflow:auto;overscroll-behavior:contain;flex:1;background:#fff}.fc-game .fc-page{padding:22px 28px;display:flex;flex-direction:column;gap:16px;outline-offset:-3px}.fc-game .fc-page[hidden]{display:none!important}.fc-game .fc-page>*{margin-top:0!important;margin-bottom:0!important;flex-shrink:0}.fc-game .fc-page-intro{font-size:12px;color:#8291a5;line-height:1.9}.fc-game .fc-card p,.fc-game .fc-card ul,.fc-game .fc-card label{line-height:1.75}.fc-game .fc-card .text-slate-200,.fc-game .fc-card .text-white{color:#30445d!important}.fc-game .fc-card .text-slate-300{color:#4e627c!important}.fc-game .fc-card .text-slate-400{color:#7b8ba1!important}.fc-game .fc-card .text-slate-500{color:#92a0b2!important}.fc-game .fc-card .text-emerald-300,.fc-game .fc-card .text-emerald-400{color:#21836e!important}.fc-game .fc-card .text-cyan-300,.fc-game .fc-card .text-cyan-400{color:#337ac2!important}.fc-game .fc-card .text-yellow-300,.fc-game .fc-card .text-yellow-400{color:#a77b27!important}.fc-game .fc-card .text-rose-300,.fc-game .fc-card .text-rose-400{color:#cd6777!important}.fc-game .fc-card .text-orange-400{color:#b57e40!important}.fc-game .fc-page [class*="bg-slate-9"],.fc-game .fc-page [class*="bg-slate-8"]{background:#f7f9fc!important;border-color:var(--fc-line)!important}.fc-game .fc-card kbd,.fc-game .fc-card span[class*="bg-slate-8"]{background:#eaf0f9!important;border:1px solid #d8e2f0!important;color:#4e6c97!important;border-radius:4px;padding:1px 5px;font-size:10px}.fc-game .fc-card .glass-button{box-shadow:none;border-radius:10px;background:#f5f8fe;color:var(--fc-ink);border-color:#dbe5f5}.fc-game .fc-card .glass-button:hover{background:#eaf0ff!important;box-shadow:0 0 0 1px #85a7ed!important;transform:none}.fc-game .fc-card .difficulty-option,.fc-game .fc-card .break-option{border-width:1px;box-shadow:none}.fc-game .fc-card .level-btn{min-width:0;border-radius:11px!important;background:#f7f9fd!important;border-width:1px;padding:18px 12px!important;box-shadow:none!important}.fc-game .fc-card .level-btn:hover{background:#edf3ff!important;border-color:#7fa2ec!important}.fc-game .fc-card table{color:#465c79;line-height:1.7}.fc-game .fc-card table th{font-weight:600;color:#8b9bb0!important;font-size:10px}.fc-game .fc-card table td{padding:9px 6px;border-bottom:1px solid #edf1f7}.fc-game .fc-card table thead tr{border-bottom:1px solid #dce5f0}.fc-game .fc-start-footer,.fc-game .fc-pad-footer{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 28px;background:#fafbfd;border-top:1px solid var(--fc-line);flex:none}.fc-game .fc-start-footer{justify-content:flex-end}.fc-game .fc-primary-action,.fc-game #psClose{width:auto!important;min-width:180px;display:block!important;padding:12px 25px!important;border-radius:9px!important;background:var(--fc-blue)!important;border:1px solid var(--fc-blue)!important;color:white!important;font-size:13px!important;line-height:1.5;font-weight:600!important;text-align:center;letter-spacing:.5px!important;cursor:pointer}.fc-game .fc-primary-action:hover,.fc-game #psClose:hover{background:#164bcf!important}.fc-game .fc-footer-hint{font-size:10px;color:#8a9aaf}.fc-game .fc-primary-action span{color:white!important}
+.fc-game .fc-pad-overlay .fc-card-heading{padding-top:19px!important;padding-bottom:16px!important}.fc-game .fc-pad-overlay .fc-card-heading>div{position:absolute;right:28px;top:34px;max-width:50%;font-size:10px!important}.fc-game .fc-pad-overlay .fc-card-heading #psStatus{white-space:normal;line-height:1.7}.fc-game .fc-pad-overlay h2{font-size:23px!important}.fc-game .fc-editing-player{color:#8797ac;font-size:10px;line-height:1.5;margin-top:7px}.fc-game .fc-editing-player b{color:#315fba!important;margin-right:4px}.fc-game .fc-pad-intro{font-size:11px!important;line-height:1.9!important}.fc-game #psPlayers{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px!important}.fc-game #psPlayers>div{padding:10px!important;min-width:0;background:#f5f8fc!important;border:1px solid #e0e8f3!important;border-radius:9px;gap:6px!important}.fc-game #psPlayers button{font-size:10px!important}.fc-game #psPlayers select{max-width:200px;min-width:0;width:100%;font-size:10px!important}.fc-game .fc-device-guide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:10px 0}.fc-game .fc-device-step{border:1px solid #e2e9f3;background:#f8fafe;border-radius:12px;padding:20px 18px}.fc-game .fc-step{display:block;color:#8da7cd;font:600 12px "Segoe UI",sans-serif;margin-bottom:20px}.fc-game .fc-device-step strong{font-size:13px;color:#405b7e}.fc-game .fc-device-step p{font-size:11px;color:#8b9bb0;line-height:1.9;margin-top:8px}.fc-game .fc-sticks{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important}.fc-game .ps-canvas{max-width:165px!important;background:#13233c;border-radius:12px!important}.fc-game .fc-sticks>div{border-color:#dbe5f4!important;padding:15px 20px!important;display:grid!important;grid-template-columns:1fr 1fr;gap:12px!important;align-items:center}.fc-game .fc-sticks>div>div:first-child{grid-column:1/-1}.fc-game .fc-sticks canvas{grid-row:2/4;max-width:165px!important;width:100%;height:auto}.fc-game .fc-sticks .ps-map{grid-column:2;grid-row:3;grid-template-columns:auto minmax(38px,1fr) auto;gap:6px 5px;font-size:10px;color:#7388a4}.fc-game .fc-sticks .ps-map select{font-size:10px;padding:5px!important;min-width:0;max-width:90px}.fc-game .fc-sticks .ps-inv{font-size:9px;gap:3px}.fc-game .fc-sticks .ps-inv input{width:12px;height:12px}.fc-game .fc-sticks .text-sm{font-size:12px!important}.fc-game .fc-sticks .ps-vx,.fc-game .fc-sticks .ps-vy{font-size:11px}.fc-game .ps-sel{background:#f6f8fc!important;color:#435d80!important;border:1px solid #d3dff0!important;border-radius:6px!important;padding:5px 8px!important;font-family:inherit!important}.fc-game .ps-btn{background:#f7f9fd!important;color:#5f7594!important;border-color:#d4e0f0!important;border-radius:7px!important;font-family:inherit!important;font-size:11px!important;padding:7px 11px!important}.fc-game .ps-btn:hover{background:#edf3ff!important;border-color:#94afe3!important;color:#285ce2!important}.fc-game .ps-btn.ps-primary{background:var(--fc-blue)!important;border-color:var(--fc-blue)!important;color:#fff!important}.fc-game .ps-seg{border-color:#d5e0ef!important;border-radius:8px!important}.fc-game .ps-seg button{font-size:11px!important;color:#8294ac!important;background:#f7f9fc!important;border-color:#d5e0ef!important;padding:8px 13px!important}.fc-game .ps-seg button[aria-pressed=true]{color:#285ce2!important;background:#eaf0ff!important}.fc-game .fc-mapping-actions{border:1px solid #e0e7f1;padding:12px;border-radius:9px}.fc-game #psModeDesc{min-width:0!important;font-size:10px!important}.fc-game .fc-cal-actions{display:flex;gap:8px}.fc-game #psCalBox{font-size:10px!important;background:#fff7e8!important;color:#97742b!important;border-color:#ecd4a2!important}.fc-game .fc-cal-section{padding:0!important;background:#fff!important;border:0!important;gap:12px!important}.fc-game #psCalTable{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.fc-game .ps-calrow{border:1px solid #dce5f2!important;border-radius:11px;padding:14px!important;gap:10px!important;background:#f8fafe}.fc-game .ps-calrow:first-child{padding:14px!important}.fc-game .ps-calhead{font-size:11px!important}.fc-game .ps-calhead b{color:#466286!important}.fc-game .ps-calhead .ps-axl{font-size:9px!important;color:#97a5b8!important}.fc-game .ps-calhead .ps-cur{font-size:11px;color:#3d74ca!important}.fc-game .ps-calhead .ps-chip{font-size:8px!important;border-color:#d6e1f0!important;color:#91a0b4!important}.fc-game .ps-calhead .ps-chip.ok{color:#258c73!important;border-color:#80c8b3!important}.fc-game .ps-calbar{background:#e9eff8!important;height:9px!important}.fc-game .ps-calbar .cur{box-shadow:0 0 0 2px #f8fafe!important;background:#3973d9!important;width:8px!important;height:8px!important;top:0!important}.fc-game .ps-calf{font-size:9px!important;gap:3px!important}.fc-game .ps-calf input{color:#3d5d89!important;background:white!important;border-color:#cfdced!important;border-radius:5px!important;font-size:12px!important;padding:5px!important;font-family:"Segoe UI",sans-serif!important}.fc-game .ps-calf input.bad{border-color:#d5637b!important;background:#fff4f5!important}.fc-game .ps-calf button,.fc-game .ps-calreset{font-size:9px!important;color:#8293ac!important;background:#fff!important;border:1px solid #d6e1f1!important;border-radius:5px!important;padding:3px 5px!important}.fc-game .ps-calerr{color:#c34f6b!important;font-size:10px!important}.fc-game .ps-calf .lbl-min{color:#4d86bd!important}.fc-game .ps-calf .lbl-ctr{color:#449a83!important}.fc-game .ps-calf .lbl-max{color:#bd7a9c!important}.fc-game .fc-cal-section>div:nth-child(2)>span{min-width:0!important;font-size:9px!important}.fc-game .fc-cal-section>div:first-child>span:last-child{font-size:9px!important}.fc-game .fc-axis-navigation{display:none}.fc-game .fc-channel-section{border-color:#dce5f1!important;background:#f8fafe!important;min-width:0}.fc-game .fc-channel-section summary{list-style:none;pointer-events:none}.fc-game #psAxes{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 20px!important}.fc-game .ps-ax{color:#7d90ac;font-size:11px!important}.fc-game .ps-ax .ps-v{color:#4e709e!important}.fc-game .ps-bar{background:#e0e9f7!important}.fc-game .ps-fill{background:#739ee5!important}.fc-game .ps-bar:after{background:#91abc9!important}.fc-game .ps-pbtn{background:#f1f5fc!important;border-color:#d0deef!important;color:#7b94b5!important}.fc-game .ps-pbtn.on{color:#fff!important;background:#3975de!important}.fc-game .fc-pad-footer>div{padding:0!important}
+.fc-game .fc-hud{padding:18px!important}.fc-game .fc-hud>header{gap:15px}.fc-game .fc-hud>header>div:last-child{gap:7px!important;flex-wrap:wrap;justify-content:flex-end;max-width:70%}.fc-game .fc-hud button{border-radius:9px!important;font-size:11px!important;box-shadow:none;min-height:36px}.fc-game .fc-hud .fc-hud-button{background:rgba(13,29,49,.88);border:1px solid #8da8cb32;color:#afc0d8;padding:8px 11px;pointer-events:auto;font:500 10px/1.4 "Segoe UI","Microsoft JhengHei",sans-serif;white-space:nowrap}.fc-game .fc-hud .fc-hud-button:hover{background:#1d3857}.fc-game .fc-attitude{display:none!important}.fc-game .fc-telemetry{width:260px!important;padding:15px!important;border-radius:13px!important}.fc-game .fc-telemetry h3{font-size:9px!important;letter-spacing:1px}.fc-game .fc-telemetry [id$="telemetrySpeed"],.fc-game .fc-telemetry [id$="telemetryAlt"],.fc-game .fc-telemetry [id$="telemetryThrottle"]{font-size:20px!important;font-weight:600!important}.fc-game [id$="gameClockPanel"]{border-radius:10px!important;bottom:18px;right:18px;box-shadow:none}.fc-game [id$="gameClockText"]{font-size:16px!important;font-weight:500!important}.fc-game .fc-guide-dialog{background:#f7f9fd;color:#314968;border:1px solid #dfe6f1;max-width:500px;width:calc(100% - 40px);border-radius:16px;padding:22px;max-height:calc(100dvh - 40px);overflow:auto;pointer-events:auto;color-scheme:dark}.fc-game .fc-guide-dialog::backdrop{background:#0a1c3199;backdrop-filter:blur(5px)}.fc-game .fc-visible-guide{display:flex!important;background:#fff!important;color:#5c708c!important;border-color:#e0e8f4!important;width:100%!important;margin-top:17px;box-shadow:none!important}.fc-game .fc-visible-guide .text-emerald-400,.fc-game .fc-visible-guide .text-cyan-400{color:#3c76c3!important}.fc-game .fc-dialog-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}.fc-game .fc-close{background:#eaf0f9;color:#7088aa;border:0;border-radius:6px;padding:6px 9px;font-size:11px}.fc-game #topBar{background:rgba(12,29,48,.96);border-bottom-color:#49627f40}.fc-game #arenaGrid{gap:4px;background:#07182b}.fc-game .panel-root.team-red{box-shadow:inset 0 0 0 1px #dd71824d}.fc-game .panel-root.team-blue{box-shadow:inset 0 0 0 1px #6996de4d}
+@media(min-width:1200px){.fc-game .fc-start-overlay .fc-page>.grid:has(ul){gap:16px}.fc-game .fc-start-overlay .fc-page>.grid:has(ul)>div{padding:16px}.fc-game .fc-start-overlay .fc-card:has(#keymapTableBody){max-width:1000px!important}}
+@media(max-height:760px){.fc-game .fc-card-heading{padding:17px 24px 13px!important}.fc-game .fc-card-heading h1,.fc-game .fc-card-heading h2{font-size:21px!important}.fc-game .fc-subtitle{font-size:9px!important;margin-top:5px!important}.fc-game .fc-page{padding:16px 24px;gap:12px}.fc-game .fc-tabs{padding:0 24px}.fc-game .fc-tab{padding:11px 0 10px!important;font-size:11px!important}.fc-game .fc-start-footer,.fc-game .fc-pad-footer{padding:12px 24px}.fc-game .fc-pad-overlay .fc-card-heading{padding:16px 24px 12px!important}.fc-game .fc-pad-overlay .fc-card-heading>div{right:24px;top:30px}.fc-game .fc-pad-overlay .fc-page{gap:12px}.fc-game .ps-calrow{padding:11px!important;gap:7px!important}.fc-game .ps-calrow:first-child{padding:11px!important}.fc-game .fc-device-step{padding:15px}.fc-game .fc-step{margin-bottom:12px}.fc-game .fc-sticks canvas{max-width:130px!important}.fc-game .fc-sticks>div{padding:12px 14px!important}}
+@media(max-height:620px){.fc-game .fc-pad-overlay,.fc-game .fc-start-overlay{padding:12px!important}.fc-game .fc-card{max-height:calc(100dvh - 24px)!important;border-radius:14px!important}.fc-game .fc-card-heading{padding:12px 20px!important}.fc-game .fc-kicker{font-size:7px!important;margin-bottom:4px!important}.fc-game .fc-card-heading h1,.fc-game .fc-card-heading h2{font-size:18px!important}.fc-game .fc-page{padding:12px 20px;gap:10px}.fc-game .fc-tab{padding:9px 0!important}.fc-game .fc-start-footer,.fc-game .fc-pad-footer{padding:10px 20px}.fc-game .fc-pad-overlay .fc-card-heading>div{top:23px}.fc-game .fc-axis-navigation{display:flex;gap:7px}.fc-game .fc-axis-navigation button{padding:6px 12px;font-size:10px;border:1px solid #dce6f5;background:#fff;color:#8a9bb3;border-radius:6px}.fc-game .fc-axis-navigation button[aria-pressed=true]{background:#eaf0ff;color:#285ce2;border-color:#9cb7ec}.fc-game #psCalTable{display:block}.fc-game #psCalTable>.ps-calrow:not(.fc-axis-active){display:none!important}.fc-game .fc-sticks canvas{max-width:100px!important}.fc-game .fc-sticks>div{gap:8px!important}.fc-game .fc-device-guide{margin:0;gap:10px}.fc-game .fc-device-step{padding:12px}.fc-game .fc-device-step p{font-size:10px}.fc-game .fc-step{margin-bottom:9px}.fc-game .fc-hud{padding:12px!important}.fc-game .fc-telemetry{padding:10px!important;width:220px!important}.fc-game .fc-telemetry [id$="telemetrySpeed"],.fc-game .fc-telemetry [id$="telemetryAlt"],.fc-game .fc-telemetry [id$="telemetryThrottle"]{font-size:17px!important}}
+@media(max-width:700px){.fc-game .fc-start-overlay,.fc-game .fc-pad-overlay{padding:12px!important}.fc-game .fc-card{max-height:calc(100dvh - 24px)!important;border-radius:14px!important}.fc-game .fc-card-heading{padding:17px 18px!important}.fc-game .fc-card-heading h1,.fc-game .fc-card-heading h2{font-size:19px!important}.fc-game .fc-subtitle{font-size:9px!important}.fc-game .fc-tab{font-size:10px!important;padding:12px 0!important}.fc-game .fc-tabs{padding:0 18px;gap:20px}.fc-game .fc-page{padding:18px;gap:13px}.fc-game .fc-start-footer,.fc-game .fc-pad-footer{padding:12px 18px}.fc-game .fc-primary-action,.fc-game #psClose{font-size:12px!important;min-width:140px;padding:10px 16px!important}.fc-game .fc-pad-overlay .fc-card-heading{padding:16px 18px!important}.fc-game .fc-pad-overlay .fc-card-heading>div{position:static;margin-top:8px;max-width:100%;font-size:9px!important}.fc-game .fc-pad-overlay .fc-card-heading h2{font-size:19px!important}.fc-game .fc-pad-intro{font-size:10px!important}.fc-game #psPlayers{grid-template-columns:1fr}.fc-game #psPlayers>div{padding:8px!important}.fc-game .fc-device-guide{grid-template-columns:1fr;gap:9px}.fc-game .fc-device-step{display:flex;gap:14px;padding:13px}.fc-game .fc-step{margin:4px 0 0}.fc-game .fc-device-step strong{font-size:12px}.fc-game .fc-device-step p{font-size:10px;margin-top:4px}.fc-game .fc-sticks{gap:10px!important}.fc-game .fc-sticks>div{display:flex!important;padding:10px!important;gap:9px!important}.fc-game .fc-sticks>div>div:first-child{width:100%;flex-wrap:wrap;gap:2px}.fc-game .fc-sticks .text-sm{font-size:11px!important}.fc-game .fc-sticks>div>div:first-child>span:last-child{font-size:8px!important}.fc-game .fc-sticks canvas{max-width:120px!important;align-self:center}.fc-game .fc-sticks .ps-map{font-size:9px;gap:6px 3px;width:100%}.fc-game .fc-sticks .ps-map select{padding:3px!important;font-size:9px}.fc-game .fc-sticks .ps-inv{font-size:8px;gap:2px}.fc-game .fc-sticks .ps-vx,.fc-game .fc-sticks .ps-vy{font-size:9px}.fc-game .fc-mapping-actions{gap:7px!important;padding:10px}.fc-game .fc-mapping-actions label{font-size:10px!important;flex-wrap:wrap}.fc-game .fc-mapping-actions label input{width:80px}.fc-game .fc-mapping-actions .ps-btn{font-size:9px!important;padding:6px 8px!important}.fc-game .fc-axis-navigation{display:flex;gap:6px;flex-wrap:wrap}.fc-game .fc-axis-navigation button{padding:6px 10px;font-size:10px;border:1px solid #dce6f5;background:#fff;color:#8a9bb3;border-radius:6px}.fc-game .fc-axis-navigation button[aria-pressed=true]{background:#eaf0ff;color:#285ce2;border-color:#9cb7ec}.fc-game #psCalTable{display:block}.fc-game #psCalTable>.ps-calrow:not(.fc-axis-active){display:none!important}.fc-game .fc-cal-section>div:first-child{gap:5px}.fc-game .fc-cal-section>div:nth-child(2)>span{font-size:8px!important}.fc-game .fc-footer-hint{font-size:8px;line-height:1.7}.fc-game #psAxes{grid-template-columns:1fr}.fc-game .fc-hud{padding:10px!important}.fc-game .fc-hud>header>div:last-child{gap:4px!important;max-width:65%}.fc-game .fc-hud>header{gap:6px}.fc-game .fc-hud>header button{min-height:30px;height:auto!important;padding:7px!important;border-radius:7px!important;font-size:9px!important}.fc-game .fc-hud>header button span{font-size:9px!important}.fc-game .fc-hud>header>div:first-child{min-width:100px!important;padding:10px!important}.fc-game .fc-hud .fc-hud-button{font-size:9px!important}.fc-game .fc-telemetry{width:220px!important;padding:12px!important}.fc-game .fc-attitude{max-width:120px}}
+@media(prefers-reduced-motion:reduce){.fc-game *{transition:none!important;animation:none!important}}
+
+/* Keep primary actions readable against the original games' text utilities. */
+.fc-game .fc-card .fc-primary-action,.fc-game .fc-card #psClose{color:#fff!important}.fc-game .fc-card-heading .fc-subtitle{text-align:left!important}.fc-game .fc-card .role-btn{background:#f5f8ff;border-color:#cbdaf3;color:#4a72ad}
+
+.fc-game .fc-telemetry{min-width:0!important}.fc-game .fc-score-card{min-width:155px!important;max-width:220px}.fc-game .fc-rule-note{font-size:11px!important;line-height:1.9!important;color:#8193ac!important;margin-top:16px!important;padding:13px;background:#edf2fa;border-radius:8px}
+
+/* Flight controls and reference panel: one restrained cockpit visual language. */
+.fc-game {
+  --fc-cockpit: rgba(12, 22, 33, .94);
+  --fc-cockpit-line: #b7cee51f;
+  --fc-cockpit-text: #e3edf5;
+  --fc-cockpit-muted: #9bafc1;
+  --fc-accent: #69dcc5;
+}
+.fc-game .fc-icon { width: 18px; height: 18px; flex: none; display: block; }
+.fc-game .fc-hud > header { flex-wrap: wrap; gap: 12px; }
+.fc-game .fc-hud > header > .fc-flight-toolbar {
+  max-width: 100% !important; padding: 6px; gap: 6px !important; flex-wrap: nowrap;
+  background: var(--fc-cockpit); border: 1px solid var(--fc-cockpit-line);
+  border-radius: 13px; box-shadow: 0 8px 28px #0003, inset 0 1px #ffffff06;
+  backdrop-filter: blur(18px); align-items: center; pointer-events: auto;
+}
+.fc-game .fc-flight-actions, .fc-game .fc-system-actions {
+  display: flex; align-items: center; gap: 3px; min-width: 0;
+}
+.fc-game .fc-system-actions { border-left: 1px solid var(--fc-cockpit-line); padding-left: 6px; }
+.fc-game .fc-flight-toolbar .fc-action {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  width: auto; height: 42px; min-height: 42px; padding: 0 11px;
+  border: 1px solid transparent; border-radius: 8px !important;
+  background: transparent; color: #b8c8d6; box-shadow: none; flex: none;
+  font: 500 12px/1.3 "Segoe UI", "Microsoft JhengHei", sans-serif;
+  cursor: pointer; transition: background .15s, border-color .15s, color .15s;
+  white-space: nowrap; transform: none;
+}
+.fc-game .fc-flight-toolbar .fc-action:hover { background: #ffffff0b; color: #f3f8fc; border-color: #b7cee528; }
+.fc-game .fc-flight-toolbar .fc-action:active { background: #ffffff14; }
+.fc-game .fc-flight-toolbar .fc-action > i { display: none; }
+.fc-game .fc-flight-toolbar .fc-action-label {
+  font: 600 12px/1.4 "Segoe UI", "Microsoft JhengHei", sans-serif;
+  display: inline-flex; align-items: center; gap: 8px; letter-spacing: .2px;
+}
+.fc-game .fc-flight-toolbar .fc-action-takeoff { background: #5fd8be; color: #072e27; border-color: #8aead4; }
+.fc-game .fc-flight-toolbar .fc-action-takeoff:hover { background: #82e6cf; color: #072e27; border-color: #a6f4e3; }
+.fc-game .fc-flight-toolbar .fc-action-land { color: #eaa5af; background: #d36c7c0d; border-color: #d8808c25; }
+.fc-game .fc-flight-toolbar .fc-action-land:hover { background: #d36c7c20; color: #ffd4db; border-color: #d8808c55; }
+.fc-game .fc-flight-toolbar .fc-action-sound, .fc-game .fc-flight-toolbar .fc-action-reset { width: 40px; padding: 0; }
+.fc-game .fc-flight-toolbar .fc-action[aria-expanded=true] { color: var(--fc-accent); background: #69dcc510; border-color: #69dcc52b; }
+.fc-game .fc-shortcut {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 19px; height: 21px;
+  padding: 0 4px; border: 1px solid currentColor; border-radius: 4px;
+  font: 500 10px/1 "Consolas", monospace; opacity: .6;
+}
+.fc-game .fc-hud .fc-flight-guide, .fc-game .fc-flight-guide-dialog .fc-flight-guide {
+  display: flex !important; flex-direction: column; gap: 0;
+  width: 342px; min-width: 0; max-width: 100%; padding: 0 !important;
+  background: var(--fc-cockpit); color: var(--fc-cockpit-text);
+  border: 1px solid var(--fc-cockpit-line); border-radius: 14px;
+  box-shadow: 0 12px 36px #0003; overflow: hidden; backdrop-filter: blur(18px);
+  pointer-events: auto; text-align: left; font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+}
+.fc-game .fc-hud .fc-flight-guide.fc-guide-collapsed { display: none !important; }
+.fc-game .fc-guide-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 17px 18px 15px; border-bottom: 1px solid var(--fc-cockpit-line); }
+.fc-game .fc-guide-title { display: flex; gap: 11px; align-items: center; }
+.fc-game .fc-guide-title > .fc-icon { color: var(--fc-accent); width: 21px; height: 21px; }
+.fc-game .fc-guide-eyebrow { display: block; font: 500 8px/1.4 "Segoe UI", sans-serif; letter-spacing: 1.6px; color: var(--fc-cockpit-muted); margin-bottom: 4px; }
+.fc-game .fc-guide-title h2 { font-size: 14px; line-height: 1.4; font-weight: 600; letter-spacing: .5px; margin: 0; }
+.fc-game .fc-guide-close {
+  display: grid; place-items: center; width: 28px; height: 28px; min-height: 28px !important;
+  padding: 0; border: 1px solid transparent; border-radius: 6px !important;
+  background: transparent; color: #90a6b9; cursor: pointer;
+}
+.fc-game .fc-guide-close:hover { background: #ffffff0d; color: #edf5fc; border-color: var(--fc-cockpit-line); }
+.fc-game .fc-guide-close .fc-icon { width: 15px; height: 15px; }
+.fc-game .fc-guide-body { padding: 0 18px 13px; }
+.fc-game .fc-guide-section { padding-top: 13px; }
+.fc-game .fc-guide-section + .fc-guide-section { border-top: 1px solid #b7cee510; margin-top: 10px; }
+.fc-game .fc-guide-section h3 { margin: 0 0 7px; color: #839bad; font-size: 10px; font-weight: 600; letter-spacing: 1px; }
+.fc-game .fc-guide-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 31px; }
+.fc-game .fc-guide-label { color: #c3d1dd; font-size: 11px; line-height: 1.65; flex: 1; min-width: 0; }
+.fc-game .fc-guide-keys { display: flex; align-items: center; justify-content: flex-end; gap: 6px; color: #61798d; font: 10px/1.6 "Segoe UI", "Microsoft JhengHei", sans-serif; flex-shrink: 0; }
+.fc-game .fc-guide-keys > span { color: #afc5d7; font: inherit; }
+.fc-game .fc-keycap {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 25px; height: 25px;
+  padding: 0 6px; color: #d6e3ed; background: #223141;
+  border: 1px solid #b7cee526; border-bottom: 2px solid #b7cee538;
+  border-radius: 5px; font: 500 11px/1 "Consolas", monospace;
+}
+.fc-game .fc-keycap.fc-key-takeoff { color: #7be0c8; background: #194239; border-color: #69dcc530; }
+.fc-game .fc-keycap.fc-key-land { color: #eeb1bc; background: #412c35; border-color: #eaa5af30; }
+.fc-game .fc-guide-footer { padding: 11px 18px; border-top: 1px solid var(--fc-cockpit-line); background: #ffffff03; color: #8fa5b7; font-size: 10px; line-height: 1.7; }
+.fc-game .fc-flight-guide-dialog {
+  padding: 0; margin: auto; width: min(380px, calc(100% - 28px));
+  max-width: none; max-height: calc(100dvh - 28px); border: 0; border-radius: 14px;
+  background: #0c1621; color: var(--fc-cockpit-text); overflow: auto;
+  box-shadow: 0 24px 100px #0007; color-scheme: dark;
+}
+.fc-game .fc-flight-guide-dialog::backdrop { background: #020810a6; backdrop-filter: blur(5px); }
+.fc-game .fc-flight-guide-dialog .fc-flight-guide { width: 100%; box-shadow: none; }
+@media (max-width: 1179px), (max-height: 719px), (hover: none) {
+  .fc-game .fc-hud .fc-flight-guide { display: none !important; }
+}
+@media (max-width: 1250px) {
+  .fc-game .fc-hud > header > .fc-flight-toolbar { margin-left: auto; }
+  .fc-game .fc-flight-toolbar .fc-action { padding: 0 8px; gap: 6px; }
+  .fc-game .fc-flight-toolbar .fc-action-guide .fc-action-label,
+  .fc-game .fc-flight-toolbar .fc-action-settings .fc-action-label { display: none; }
+}
+@media (max-width: 1000px) {
+  .fc-game .fc-hud > header > .fc-flight-toolbar { order: 3; width: 100%; justify-content: space-between; }
+  .fc-game .fc-hud > header > div:not(.fc-flight-toolbar) { max-width: calc(50% - 6px); }
+}
+@media (max-width: 600px) {
+  .fc-game .fc-hud { padding: 10px !important; }
+  .fc-game .fc-hud > header > .fc-flight-toolbar { gap: 4px !important; padding: 4px; flex-wrap: wrap; }
+  .fc-game .fc-flight-toolbar .fc-action { height: 40px; min-height: 40px; padding: 0 8px; }
+  .fc-game .fc-flight-actions { flex: 1; }
+  .fc-game .fc-flight-actions .fc-action { flex: 1; }
+  .fc-game .fc-system-actions { padding-left: 0; border: 0; flex-wrap: wrap; justify-content: flex-end; }
+  .fc-game .fc-flight-toolbar .fc-system-actions .fc-action { width: 36px; padding: 0; }
+  .fc-game .fc-flight-toolbar .fc-system-actions .fc-action-label { display: none; }
+  .fc-game .fc-flight-toolbar .fc-shortcut { display: none; }
+  .fc-game .fc-flight-toolbar .fc-action-menu .fc-action-label { display: none; }
+}
+@media (max-width: 420px) {
+  .fc-game .fc-system-actions { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); width: 100%; border-top: 1px solid var(--fc-cockpit-line); padding-top: 4px; }
+  .fc-game .fc-flight-toolbar:has(.fc-action-pad) .fc-system-actions { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .fc-game .fc-flight-toolbar .fc-system-actions .fc-action { width: 100%; min-width: 0; height: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fc-game .fc-flight-toolbar .fc-action { transition: none; }
+}
+
+/* Dark interface tokens are shared by preflight, controller setup and every player HUD. */
+html.fc-game {
+  color-scheme: dark;
+  --fc-surface: #121820;
+  --fc-soft: #1b232d;
+  --fc-hover: #27323d;
+  --fc-input: #0c1118;
+  --fc-ink: #f1f4f7;
+  --fc-muted: #a8b2bd;
+  --fc-line: #33404d;
+  --fc-blue: #ff654d;
+  --fc-on-primary: #1b0c09;
+  --fc-selected: #35201d;
+  --fc-success: #b1e77d;
+  --fc-info: #89caff;
+  --fc-danger: #ffa5b3;
+  --fc-warning: #f5cf86;
+  --fc-scrim: #090d12d9;
+  --fc-hud-surface: #10161eeb;
+  --fc-shadow: 0 24px 90px #0005;
+  --fc-cockpit: var(--fc-hud-surface);
+  --fc-cockpit-line: var(--fc-line);
+  --fc-cockpit-text: var(--fc-ink);
+  --fc-cockpit-muted: var(--fc-muted);
+  --fc-accent: var(--fc-blue);
+}
+.fc-game[data-fc-theme] .glassmorphism {
+  background: var(--fc-hud-surface) !important;
+  color: var(--fc-ink); border-color: var(--fc-line) !important;
+  box-shadow: 0 6px 24px #07152218;
+}
+.fc-game[data-fc-theme] .fc-start-overlay,
+.fc-game[data-fc-theme] .fc-pad-overlay {
+  background: var(--fc-scrim) !important;
+  backdrop-filter: blur(14px); container-type: inline-size; container-name: fc-overlay;
+}
+.fc-game[data-fc-theme] .fc-shared-start { position: fixed; inset: 0; z-index: 50; }
+.fc-game[data-fc-theme] .fc-start-overlay.fc-start-inactive { display: none !important; }
+.fc-game[data-fc-theme] .fc-player-navigation {
+  display: flex; gap: 6px; flex: none; padding: 12px 30px 0; background: var(--fc-surface); overflow-x: auto;
+}
+.fc-game[data-fc-theme] .fc-player-navigation button {
+  flex: 1; min-width: 0; padding: 9px 6px; border: 1px solid var(--fc-line); border-radius: 8px;
+  color: var(--fc-muted); background: var(--fc-soft); font-size: 12px; white-space: normal; cursor: pointer;
+}
+.fc-game[data-fc-theme] .fc-player-navigation button[aria-pressed=true] {
+  background: var(--fc-selected); color: var(--fc-blue); border-color: var(--fc-blue);
+}
+.fc-game[data-fc-theme] .fc-card {
+  color-scheme: inherit; background: var(--fc-surface) !important;
+  border-color: var(--fc-line) !important; border-radius: 20px !important;
+  max-height: 100% !important; box-shadow: var(--fc-shadow) !important;
+}
+.fc-game[data-fc-theme] .fc-result-overlay {
+  padding: 20px !important; background: var(--fc-scrim) !important; backdrop-filter: blur(14px); overflow: auto;
+}
+.fc-game[data-fc-theme] .fc-result-card {
+  width: 100%; max-width: 520px; max-height: 100%; padding: 28px !important; margin: 0 !important;
+  overflow: auto; border-radius: 18px; box-shadow: var(--fc-shadow);
+}
+.fc-game[data-fc-theme] .fc-result-card h2 {
+  color: var(--fc-ink) !important; background: none !important; -webkit-text-fill-color: var(--fc-ink);
+}
+.fc-game[data-fc-theme] .fc-result-card [class*="bg-slate-9"] { background: var(--fc-soft); }
+.fc-game[data-fc-theme] .fc-result-card button {
+  min-height: 44px; padding: 10px 14px; border-radius: 9px;
+  background: var(--fc-soft); color: var(--fc-ink); border: 1px solid var(--fc-line);
+}
+.fc-game[data-fc-theme] .fc-result-card :is(#btnRetryLevel,#btnRestart,#btnPlayAgain) {
+  background: var(--fc-blue); color: var(--fc-on-primary) !important; border-color: var(--fc-blue);
+}
+.fc-game[data-fc-theme] .fc-card-heading {
+  display: flex !important; align-items: flex-start; justify-content: space-between;
+  gap: 20px; background: var(--fc-surface); padding: 26px 30px 22px !important;
+}
+.fc-game[data-fc-theme] .fc-card-heading > .fc-heading-copy {
+  position: static; max-width: none; flex: 1; min-width: 0;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 5px; margin: 0;
+}
+.fc-game[data-fc-theme] .fc-card-heading .fc-heading-copy > div {
+  position: static; max-width: 100%; margin-top: 5px; font-size: 11px !important;
+}
+.fc-game[data-fc-theme] .fc-heading-copy > span { margin: 0 0 5px; }
+.fc-game[data-fc-theme] .fc-kicker { color: var(--fc-muted) !important; font-size: 9px !important; letter-spacing: 1.8px !important; }
+.fc-game[data-fc-theme] .fc-card-heading :is(h1,h2) {
+  font-size: 25px !important; line-height: 1.4 !important; letter-spacing: .3px !important;
+}
+.fc-game[data-fc-theme] :is(.fc-subtitle,.fc-page-intro,.fc-pad-intro,.fc-footer-hint,.fc-editing-player,.fc-camera-note) {
+  color: var(--fc-muted) !important; font-size: 12px !important; line-height: 1.8 !important;
+}
+.fc-game[data-fc-theme] .fc-pages { background: var(--fc-surface); scrollbar-gutter: stable; }
+.fc-game[data-fc-theme] .fc-page { padding: 24px 30px; gap: 20px; }
+.fc-game[data-fc-theme] .fc-page :is(p,ul,label) { line-height: 1.85; }
+.fc-game[data-fc-theme] .fc-page > p { font-size: 12px; text-align: left; }
+.fc-game[data-fc-theme] .fc-tabs {
+  background: var(--fc-surface); padding: 0 30px; gap: 26px;
+}
+.fc-game[data-fc-theme] .fc-tab {
+  color: var(--fc-muted) !important; font-size: 13px !important;
+  padding: 15px 0 13px !important; min-height: 45px;
+}
+.fc-game[data-fc-theme] .fc-tab:hover { color: var(--fc-ink) !important; }
+.fc-game[data-fc-theme] .fc-tab[aria-selected=true] { color: var(--fc-blue) !important; }
+.fc-game[data-fc-theme] :is(.fc-start-footer,.fc-pad-footer) {
+  background: var(--fc-soft); padding: 18px 30px; justify-content: space-between;
+}
+.fc-game[data-fc-theme] :is(.fc-primary-action,#psClose,.ps-btn.ps-primary) {
+  background: var(--fc-blue) !important; border-color: var(--fc-blue) !important;
+  color: var(--fc-on-primary) !important; min-height: 44px; letter-spacing: .3px !important;
+}
+.fc-game[data-fc-theme] :is(.fc-primary-action,#psClose,.ps-btn.ps-primary):hover { filter: brightness(1.07); }
+.fc-game[data-fc-theme] .fc-primary-action :is(p,span) { color: var(--fc-on-primary) !important; }
+.fc-game[data-fc-theme] :where(.fc-card,.fc-guide-dialog,.fc-hud,#topBar,.panel-root,#faiOverlay,.fc-result-card) :is(.text-white,.text-slate-200) { color: var(--fc-ink) !important; }
+.fc-game[data-fc-theme] :where(.fc-card,.fc-guide-dialog,.fc-hud,#topBar,.panel-root,#faiOverlay,.fc-result-card) :is(.text-slate-300,.text-slate-400,.text-slate-500,.text-slate-600) { color: var(--fc-muted) !important; }
+.fc-game[data-fc-theme] :where(.fc-card,.fc-guide-dialog,.fc-hud,#topBar,.panel-root,#faiOverlay,.fc-result-card) :is(.text-emerald-200,.text-emerald-300,.text-emerald-400) { color: var(--fc-success) !important; }
+.fc-game[data-fc-theme] :where(.fc-card,.fc-guide-dialog,.fc-hud,#topBar,.panel-root,#faiOverlay,.fc-result-card) :is(.text-cyan-200,.text-cyan-300,.text-cyan-400,.text-blue-300,.text-blue-400) { color: var(--fc-info) !important; }
+.fc-game[data-fc-theme] :where(.fc-card,.fc-guide-dialog,.fc-hud,#topBar,.panel-root,#faiOverlay,.fc-result-card) :is(.text-rose-200,.text-rose-300,.text-rose-400,.text-red-400) { color: var(--fc-danger) !important; }
+.fc-game[data-fc-theme] :where(.fc-card,.fc-guide-dialog,.fc-hud,#topBar,.panel-root,#faiOverlay,.fc-result-card) :is(.text-yellow-100,.text-yellow-200,.text-yellow-300,.text-yellow-400,.text-amber-300,.text-orange-400) { color: var(--fc-warning) !important; }
+.fc-game[data-fc-theme] .fc-page :is([class*="bg-slate-9"],[class*="bg-slate-8"]) {
+  background: var(--fc-soft) !important; border-color: var(--fc-line) !important;
+}
+.fc-game[data-fc-theme] .fc-card :is(kbd,span[class*="bg-slate-8"]) {
+  background: var(--fc-input) !important; color: var(--fc-ink) !important; border-color: var(--fc-line) !important;
+  padding: 2px 6px; line-height: 1.5; font-size: 11px;
+}
+.fc-game[data-fc-theme] .fc-card :is(.glass-button,.role-btn,.level-btn,.difficulty-option,.red-ai-difficulty-option,.break-option) {
+  background: var(--fc-soft) !important; border: 1px solid var(--fc-line) !important;
+  color: var(--fc-ink) !important; box-shadow: none !important;
+  border-radius: 10px !important; transition: background .15s, border-color .15s;
+}
+.fc-game[data-fc-theme] .fc-card :is(.glass-button,.role-btn,.level-btn):hover {
+  background: var(--fc-hover) !important; border-color: var(--fc-blue) !important; transform: none;
+}
+.fc-game[data-fc-theme] .fc-card [aria-pressed=true]:is(.role-btn,.difficulty-option,.red-ai-difficulty-option,.break-option) {
+  border-color: var(--fc-blue) !important; background: var(--fc-selected) !important;
+  box-shadow: inset 0 0 0 1px var(--fc-blue) !important;
+}
+.fc-game[data-fc-theme] .fc-card :is(.fc-primary-action,#psClose,.ps-btn.ps-primary) {
+  background: var(--fc-blue) !important; border-color: var(--fc-blue) !important; color: var(--fc-on-primary) !important;
+}
+.fc-game[data-fc-theme] .fc-card #psClose { color: var(--fc-on-primary) !important; }
+.fc-game[data-fc-theme] .fc-card .attack-difficulty-option {
+  background: var(--fc-soft) !important; border-color: var(--fc-line) !important;
+}
+.fc-game[data-fc-theme] .fc-card .attack-difficulty-option[aria-pressed=true] {
+  border-color: var(--fc-blue) !important; background: var(--fc-selected) !important;
+}
+.fc-game[data-fc-theme] .fc-card table { color: var(--fc-ink); }
+.fc-game[data-fc-theme] .fc-card table th { color: var(--fc-muted) !important; }
+.fc-game[data-fc-theme] .fc-card table :is(td,thead tr) { border-color: var(--fc-line); }
+.fc-game[data-fc-theme] .fc-camera-setting {
+  background: var(--fc-soft); color: var(--fc-ink); border-color: var(--fc-line);
+  padding: 17px 18px; border-radius: 12px;
+}
+.fc-game[data-fc-theme] .fc-camera-setting-copy strong { font-size: 13px; }
+.fc-game[data-fc-theme] .fc-camera-setting-copy > span { color: var(--fc-muted); font-size: 12px; }
+.fc-game[data-fc-theme] .fc-camera-toggle { accent-color: var(--fc-blue); width: 22px; height: 22px; }
+.fc-game[data-fc-theme] .fc-guide-dialog {
+  background: var(--fc-surface); color: var(--fc-ink); color-scheme: inherit;
+  padding: 24px; border-color: var(--fc-line); box-shadow: var(--fc-shadow);
+}
+.fc-game[data-fc-theme] :is(.fc-guide-dialog,.fc-flight-guide-dialog)::backdrop { background: var(--fc-scrim); }
+.fc-game[data-fc-theme] .fc-close { color: var(--fc-ink); background: var(--fc-soft); padding: 9px 12px; cursor: pointer; }
+
+/* Controller forms keep consistent surfaces and legible values in the dark interface. */
+.fc-game[data-fc-theme] :is(.fc-device-step,.fc-mapping-actions,.fc-channel-section,.ps-calrow,#psPlayers > div) {
+  background: var(--fc-soft) !important; border-color: var(--fc-line) !important;
+}
+.fc-game[data-fc-theme] .fc-device-step strong { color: var(--fc-ink); }
+.fc-game[data-fc-theme] :is(.fc-device-step p,.fc-step,.ps-ax,.ps-map,.ps-calhead .ps-axl) { color: var(--fc-muted) !important; }
+.fc-game[data-fc-theme] .fc-cal-section { background: var(--fc-surface) !important; }
+.fc-game[data-fc-theme] :is(.ps-sel,.ps-btn,.ps-calf input,.ps-calf button,.ps-calreset,.ps-pbtn) {
+  color: var(--fc-ink) !important; background: var(--fc-input) !important; border-color: var(--fc-line) !important;
+}
+.fc-game[data-fc-theme] .ps-btn:hover { color: var(--fc-blue) !important; background: var(--fc-hover) !important; }
+.fc-game[data-fc-theme] .ps-seg { border-color: var(--fc-line) !important; }
+.fc-game[data-fc-theme] .ps-seg button {
+  background: var(--fc-soft) !important; color: var(--fc-muted) !important; border-color: var(--fc-line) !important; min-height: 38px;
+}
+.fc-game[data-fc-theme] .ps-seg button[aria-pressed=true] { background: var(--fc-selected) !important; color: var(--fc-blue) !important; }
+.fc-game[data-fc-theme] :is(.ps-calhead b,.ps-ax .ps-v) { color: var(--fc-ink) !important; }
+.fc-game[data-fc-theme] :is(.ps-calhead .ps-cur,.ps-calf .lbl-min) { color: var(--fc-info) !important; }
+.fc-game[data-fc-theme] :is(.ps-chip.ok,.ps-calf .lbl-ctr) { color: var(--fc-success) !important; }
+.fc-game[data-fc-theme] :is(.ps-calerr,.ps-calf .lbl-max) { color: var(--fc-danger) !important; }
+.fc-game[data-fc-theme] .ps-calf input.bad { border-color: var(--fc-danger) !important; background: var(--fc-soft) !important; }
+.fc-game[data-fc-theme] :is(.ps-calbar,.ps-bar) { background: var(--fc-line) !important; }
+.fc-game[data-fc-theme] .ps-calbar .cur { box-shadow: 0 0 0 2px var(--fc-surface) !important; background: var(--fc-blue) !important; }
+.fc-game[data-fc-theme] .ps-calhead .ps-chip { color: var(--fc-muted) !important; border-color: var(--fc-line) !important; }
+.fc-game[data-fc-theme] .ps-pbtn.on { background: var(--fc-blue) !important; color: var(--fc-on-primary) !important; }
+.fc-game[data-fc-theme] #psCalBox { color: var(--fc-warning) !important; background: var(--fc-soft) !important; border-color: var(--fc-warning) !important; }
+.fc-game[data-fc-theme] .fc-axis-navigation button { background: var(--fc-input); color: var(--fc-muted); border-color: var(--fc-line); }
+.fc-game[data-fc-theme] .fc-axis-navigation button[aria-pressed=true] { background: var(--fc-selected); color: var(--fc-blue); border-color: var(--fc-blue); }
+
+/* HUD spacing responds to the player viewport, including two- and three-way splits. */
+.fc-game[data-fc-theme] .fc-hud { container-type: inline-size; container-name: fc-hud; }
+.fc-game[data-fc-theme] .fc-split-hud { container-type: size; }
+.fc-game[data-fc-theme] .fc-hud > header { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+.fc-game[data-fc-theme] .fc-hud .fc-score-card {
+  min-width: 145px !important; max-width: 215px !important; padding: 14px 16px !important;
+  border-radius: 13px; border: 1px solid var(--fc-line); gap: 2px;
+}
+.fc-game[data-fc-theme] .fc-score-card > span { font-size: 11px; }
+.fc-game[data-fc-theme] .fc-score-card [id$="scoreText"] { font-size: 30px; font-weight: 650; line-height: 1.2; }
+.fc-game[data-fc-theme] .fc-compass-card { padding: 11px 18px; border-radius: 13px; }
+.fc-game[data-fc-theme] .fc-hud > header > .fc-flight-toolbar {
+  max-width: 100% !important; margin-left: auto; gap: 4px !important; padding: 5px;
+}
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action {
+  background: transparent !important; border-color: transparent !important; color: var(--fc-ink) !important;
+}
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action:hover { background: var(--fc-hover) !important; border-color: var(--fc-line) !important; }
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action-takeoff { background: var(--fc-blue) !important; color: var(--fc-on-primary) !important; }
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action-takeoff .fc-action-label { color: inherit !important; }
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action-land { color: var(--fc-danger) !important; }
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action[aria-expanded=true] {
+  background: var(--fc-selected) !important; color: var(--fc-blue) !important;
+}
+.fc-game[data-fc-theme] .fc-telemetry {
+  width: 310px !important; max-width: 100%; padding: 16px 18px !important;
+  border-radius: 14px !important; gap: 12px; border: 1px solid var(--fc-line);
+}
+.fc-game[data-fc-theme] .fc-telemetry > div:first-child { border-color: var(--fc-line); padding-bottom: 10px; }
+.fc-game[data-fc-theme] .fc-telemetry > div:last-child { gap: 16px; }
+.fc-game[data-fc-theme] .fc-telemetry [id$="telemetrySpeed"],
+.fc-game[data-fc-theme] .fc-telemetry [id$="telemetryAlt"],
+.fc-game[data-fc-theme] .fc-telemetry [id$="telemetryThrottle"] { font-size: 25px !important; line-height: 1.3; font-weight: 600 !important; }
+.fc-game[data-fc-theme] .fc-telemetry [id$="Bar"] { border-radius: 5px; }
+.fc-game[data-fc-theme] .fc-telemetry .bg-slate-900 { background: var(--fc-line); }
+.fc-game[data-fc-theme] :is(.fc-guide-label,.fc-guide-keys > span) { color: var(--fc-ink); }
+.fc-game[data-fc-theme] :is(.fc-guide-eyebrow,.fc-guide-section h3,.fc-guide-footer,.fc-guide-close) { color: var(--fc-muted); }
+.fc-game[data-fc-theme] :is(.fc-keycap,.fc-keycap.fc-key-takeoff,.fc-keycap.fc-key-land) {
+  background: var(--fc-soft); color: var(--fc-ink); border-color: var(--fc-line);
+}
+.fc-game[data-fc-theme] .fc-keycap.fc-key-takeoff { color: var(--fc-success); }
+.fc-game[data-fc-theme] .fc-keycap.fc-key-land { color: var(--fc-danger); }
+.fc-game[data-fc-theme] .fc-flight-guide-dialog { background: var(--fc-surface); color-scheme: inherit; }
+.fc-game[data-fc-theme] .fc-guide-section + .fc-guide-section { border-color: var(--fc-line); }
+.fc-game[data-fc-theme] .fc-hud .fc-attitude { background: var(--fc-hud-surface) !important; }
+.fc-game[data-fc-theme] #topBar { background: var(--fc-hud-surface); color: var(--fc-ink); border-color: var(--fc-line); }
+.fc-game[data-fc-theme] #topBar .fc-hud-button {
+  display: inline-flex; align-items: center; gap: 5px; color: var(--fc-ink);
+  background: var(--fc-soft); border-color: var(--fc-line); cursor: pointer;
+}
+.fc-game[data-fc-theme] #topBar .fc-hud-button .fc-icon { width: 13px; height: 13px; }
+.fc-game[data-fc-theme] .panel-root .glassmorphism { border-radius: 9px; border: 1px solid var(--fc-line); }
+.fc-game[data-fc-theme] .panel-root [id$="btnCam"] { min-height: 30px; padding: 0 9px; }
+.fc-game[data-fc-theme] .panel-root [id$="btnCam"] span { font-size: 11px; }
+.fc-game[data-fc-theme] .panel-root .fc-mini-telemetry {
+  display: flex; gap: 12px; padding: 9px 12px; border-radius: 10px;
+}
+.fc-game[data-fc-theme] .fc-mini-telemetry > span { display: flex; align-items: baseline; gap: 4px; }
+.fc-game[data-fc-theme] .fc-mini-telemetry .fc-mini-label { font-size: 10px; color: var(--fc-muted); }
+.fc-game[data-fc-theme] .fc-mini-telemetry span[id] { font-size: 14px; font-weight: 600; }
+.fc-game[data-fc-theme] .fc-mini-telemetry small { font-size: 9px; color: var(--fc-muted); }
+@media (max-width: 700px) {
+  .fc-game[data-fc-theme] .panel-root .fc-mini-telemetry { padding: 5px 6px; gap: 6px; flex-wrap: wrap; }
+  .fc-game[data-fc-theme] .fc-mini-telemetry > span { gap: 2px; }
+  .fc-game[data-fc-theme] .fc-mini-telemetry span[id] { font-size: 11px; }
+  .fc-game[data-fc-theme] .fc-mini-telemetry :is(.fc-mini-label,small) { font-size: 8px; }
+}
+
+@container fc-hud (max-width: 1190px) {
+  .fc-game[data-fc-theme] .fc-hud > header > .fc-flight-toolbar { order: 3; width: 100%; justify-content: space-between; }
+  .fc-game[data-fc-theme] .fc-hud > header > .fc-compass-card { margin-left: auto; max-width: 40%; }
+}
+@container fc-hud (max-width: 760px) {
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-action { padding: 0 8px; }
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-system-actions .fc-action-label { display: none; }
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-shortcut { display: none; }
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-system-actions .fc-action { width: 36px; min-width: 0; padding: 0; }
+  .fc-game[data-fc-theme] .fc-hud .fc-telemetry { width: 265px !important; padding: 12px !important; }
+  .fc-game[data-fc-theme] .fc-telemetry [id$="telemetrySpeed"],
+  .fc-game[data-fc-theme] .fc-telemetry [id$="telemetryAlt"],
+  .fc-game[data-fc-theme] .fc-telemetry [id$="telemetryThrottle"] { font-size: 21px !important; }
+}
+@container fc-hud (max-width: 520px) {
+  .fc-game[data-fc-theme] .fc-hud > header > .fc-flight-toolbar { flex-wrap: wrap; }
+  .fc-game[data-fc-theme] .fc-flight-actions { flex: 1; }
+  .fc-game[data-fc-theme] .fc-flight-actions .fc-action { flex: 1; }
+  .fc-game[data-fc-theme] .fc-system-actions {
+    display: flex; width: 100%; justify-content: space-between; gap: 2px;
+    border-left: 0; border-top: 1px solid var(--fc-line); padding: 4px 0 0;
+  }
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-system-actions .fc-action { flex: 1; width: auto; min-height: 36px; height: 36px; }
+  .fc-game[data-fc-theme] .fc-hud .fc-score-card { min-width: 100px !important; max-width: 65% !important; padding: 10px 12px !important; }
+}
+@container fc-hud (max-height: 380px) {
+  .fc-game[data-fc-theme] .fc-hud > header { flex-wrap: nowrap; gap: 8px; }
+  .fc-game[data-fc-theme] .fc-hud > header > .fc-score-card {
+    min-width: 82px !important; width: 94px; max-width: 110px !important; padding: 7px 9px !important;
+  }
+  .fc-game[data-fc-theme] .fc-score-card > span { font-size: 9px; }
+  .fc-game[data-fc-theme] .fc-score-card [id$="scoreText"] { font-size: 21px; }
+  .fc-game[data-fc-theme] .fc-score-card > div:not(:has([id$="scoreText"])) { display: none; }
+  .fc-game[data-fc-theme] .fc-hud > header > .fc-compass-card { display: none; }
+  .fc-game[data-fc-theme] .fc-hud > header > .fc-flight-toolbar {
+    order: initial; width: auto; min-width: 0; flex: 1; flex-wrap: nowrap; padding: 3px;
+  }
+  .fc-game[data-fc-theme] .fc-flight-actions { flex: none; gap: 0; }
+  .fc-game[data-fc-theme] .fc-system-actions {
+    display: flex; flex: 1; width: auto; flex-wrap: nowrap; gap: 0; padding: 0 0 0 3px;
+    border-top: 0; border-left: 1px solid var(--fc-line);
+  }
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-action,
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-system-actions .fc-action {
+    min-height: 32px; height: 32px; min-width: 0; width: 26px; padding: 0; flex: 1;
+  }
+  .fc-game[data-fc-theme] .fc-flight-toolbar :is(.fc-action-label,.fc-shortcut) { display: none; }
+  .fc-game[data-fc-theme] .fc-telemetry > div:first-child { display: none; }
+  .fc-game[data-fc-theme] .fc-hud .fc-telemetry {
+    width: 230px !important; padding: 7px 10px !important; gap: 5px; border-radius: 10px !important;
+  }
+  .fc-game[data-fc-theme] .fc-telemetry [id$="telemetrySpeed"],
+  .fc-game[data-fc-theme] .fc-telemetry [id$="telemetryAlt"],
+  .fc-game[data-fc-theme] .fc-telemetry [id$="telemetryThrottle"] { font-size: 17px !important; }
+  .fc-game[data-fc-theme] .fc-telemetry > div:last-child > div > span { font-size: 9px; line-height: 1.2; }
+  .fc-game[data-fc-theme] .fc-telemetry > div:last-child > div > div { margin-top: 0; }
+  .fc-game[data-fc-theme] .fc-telemetry > div:last-child > div > div:last-child { margin-top: 3px; height: 3px; }
+  .fc-game[data-fc-theme] .fc-hud [id$="-touchControls"] { top: 50%; bottom: auto; transform: translateY(-15%); }
+  .fc-game[data-fc-theme] .fc-hud [id$="-touchControls"] .joystick-zone { width: 40px; height: 40px; }
+  .fc-game[data-fc-theme] .fc-hud [id$="-touchControls"] .joystick-zone > div { width: 18px; height: 18px; margin: -9px 0 0 -9px; }
+  .fc-game[data-fc-theme] [id$="gameClockPanel"] { bottom: 10px; right: 10px; padding: 5px 7px; }
+  .fc-game[data-fc-theme] [id$="gameClockText"] { font-size: 11px !important; }
+}
+@container fc-hud (max-height: 380px) and (max-width: 380px) {
+  .fc-game[data-fc-theme] .fc-hud > header { flex-wrap: wrap; gap: 4px; }
+  .fc-game[data-fc-theme] .fc-hud > header > .fc-score-card {
+    width: auto; max-width: 100% !important; padding: 4px 9px !important;
+    flex-direction: row; align-items: center; gap: 8px;
+  }
+  .fc-game[data-fc-theme] .fc-score-card > div:has([id$="scoreText"]) { margin-top: 0; }
+  .fc-game[data-fc-theme] .fc-hud > header > .fc-flight-toolbar { width: 100%; flex-basis: 100%; }
+  .fc-game[data-fc-theme] .fc-hud .fc-telemetry { width: 200px !important; }
+}
+@container fc-overlay (max-width: 600px) {
+  .fc-game[data-fc-theme] .fc-card-heading { padding: 18px !important; gap: 10px; flex-wrap: wrap; }
+  .fc-game[data-fc-theme] .fc-card-heading > .fc-heading-copy { flex-basis: 180px; }
+  .fc-game[data-fc-theme] .fc-card-heading :is(h1,h2) { font-size: 20px !important; }
+  .fc-game[data-fc-theme] .fc-tabs { padding: 0 18px; gap: 18px; }
+  .fc-game[data-fc-theme] .fc-player-navigation { padding: 12px 18px 0; }
+  .fc-game[data-fc-theme] .fc-tab { font-size: 12px !important; padding: 12px 0 !important; }
+  .fc-game[data-fc-theme] .fc-page { padding: 18px; gap: 15px; }
+  .fc-game[data-fc-theme] :is(.fc-start-footer,.fc-pad-footer) { padding: 13px 18px; gap: 12px; }
+  .fc-game[data-fc-theme] .fc-start-footer .fc-footer-hint { display: none; }
+  .fc-game[data-fc-theme] .fc-start-footer .fc-primary-action { width: 100% !important; }
+}
+@media (max-height: 620px) {
+  .fc-game[data-fc-theme] .fc-card-heading { padding: 12px 20px !important; }
+  .fc-game[data-fc-theme] .fc-card-heading :is(h1,h2) { font-size: 19px !important; }
+  .fc-game[data-fc-theme] .fc-kicker { margin-bottom: 2px !important; }
+  .fc-game[data-fc-theme] .fc-page { padding: 14px 20px; gap: 12px; }
+  .fc-game[data-fc-theme] :is(.fc-start-footer,.fc-pad-footer) { padding: 10px 20px; }
+}
+@media (max-width: 700px) {
+  .fc-game[data-fc-theme] #topBar .fc-hud-button { padding: 4px; }
+  .fc-game[data-fc-theme] #topBar button .kb-only { display: none; }
+  .fc-game[data-fc-theme] .fc-pad-footer .fc-footer-hint { font-size: 10px !important; }
+}
+
+/* One live match/race clock, always at the viewport's top center. Important
+   offsets also override the older games' periodic bottom-right positioning. */
+.fc-game[data-fc-theme] .fc-match-clock {
+  position: fixed !important; inset: auto !important;
+  top: max(18px, env(safe-area-inset-top)) !important;
+  left: 50% !important; right: auto !important; bottom: auto !important;
+  transform: translateX(-50%) !important; z-index: 25;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; width: auto; min-width: 132px; max-width: calc(100% - 24px);
+  padding: 7px 18px !important; margin: 0 !important;
+  border: 1px solid var(--fc-line); border-radius: 12px !important;
+  color: var(--fc-info); pointer-events: none; font-variant-numeric: tabular-nums;
+}
+.fc-game[data-fc-theme] .fc-match-clock > span:first-child { font-size: 10px; line-height: 1.3; color: var(--fc-muted) !important; }
+.fc-game[data-fc-theme] .fc-match-clock :is([id$="gameClockText"],#raceTimer,#bigTimerVal) {
+  font-size: 22px !important; line-height: 1.2; font-weight: 650 !important; color: var(--fc-info) !important;
+}
+.fc-game[data-fc-theme] .fc-match-clock > div { margin: 0; gap: 5px; }
+.fc-game[data-fc-theme] .fc-match-clock > div > span:not([id]) { color: var(--fc-muted) !important; font-size: 10px; }
+.fc-game[data-fc-theme] .fc-clock-duplicate { display: none !important; }
+.fc-game[data-fc-theme] .fc-clock-hud { padding-top: max(18px, env(safe-area-inset-top)) !important; }
+.fc-game[data-fc-theme] #dualArena.fc-clock-arena { box-sizing: border-box; padding-top: max(84px, calc(env(safe-area-inset-top) + 66px)); }
+.fc-game[data-fc-theme] #topBar.fc-centered-scoreboard {
+  display: grid !important; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  height: 64px;
+}
+.fc-game[data-fc-theme] #arenaGrid { top: 64px; }
+.fc-game[data-fc-theme] #faiOverlay { top: 64px !important; }
+.fc-game[data-fc-theme] .fc-centered-scoreboard > div:first-child { justify-self: start; }
+.fc-game[data-fc-theme] .fc-centered-scoreboard > div:last-child { justify-self: end; }
+.fc-game[data-fc-theme] #topBar #clockText { font-size: 18px !important; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.fc-game[data-fc-theme] #topBar .fc-match-status {
+  display: grid !important; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); width: 100%; align-items: baseline;
+}
+.fc-game[data-fc-theme] #topBar .fc-match-status > :first-child { justify-self: end; }
+.fc-game[data-fc-theme] #topBar .fc-match-status > :last-child { justify-self: start; }
+.fc-game[data-fc-theme] #topBar #clockText {
+  position: absolute; left: 50%; top: 3px; transform: translateX(-50%); font-size: 20px !important;
+}
+.fc-game[data-fc-theme] .fc-centered-scoreboard > div:nth-child(2) { padding-top: 28px; }
+.fc-game[data-fc-theme] .fc-centered-scoreboard:has(#setLabel) > div:nth-child(2) { padding-top: 0; }
+.fc-game[data-fc-theme] #topBar .fc-match-status::before { content: ''; grid-column: 2; grid-row: 1; width: 72px; height: 26px; }
+.fc-game[data-fc-theme] #topBar .fc-match-status > :first-child { grid-column: 1; grid-row: 1; }
+.fc-game[data-fc-theme] #topBar .fc-match-status > :last-child { grid-column: 3; grid-row: 1; }
+
+/* Score and controls flank the centered flight status. */
+.fc-game[data-fc-theme] .fc-clock-hud > header {
+  display: grid; grid-template-columns: minmax(0, 1fr) 156px minmax(0, 1fr); grid-template-rows: minmax(68px, auto); gap: 12px; align-items: start;
+}
+.fc-game[data-fc-theme] .fc-match-summary { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 12px; min-width: 0; grid-column: 1; grid-row: 1; }
+.fc-game[data-fc-theme] .fc-clock-hud > header > .fc-match-summary { padding: 0 !important; min-width: 0 !important; max-width: 100% !important; }
+.fc-game[data-fc-theme] .fc-clock-hud > header > .fc-flight-toolbar {
+  grid-column: 3; grid-row: 1; width: 100%; max-width: 100% !important; min-width: 0;
+  margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start;
+}
+.fc-game[data-fc-theme] .fc-clock-hud .fc-system-actions { flex-wrap: wrap; justify-content: flex-end; max-width: 100%; }
+
+/* More readable type at normal browser zoom, with compact split HUDs retained. */
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action-label { font-size: 14px; }
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action { font-size: 14px !important; }
+.fc-game[data-fc-theme] .fc-score-card > span { font-size: 13px; }
+.fc-game[data-fc-theme] .fc-score-card [id$="scoreText"] { font-size: 34px; }
+.fc-game[data-fc-theme] .fc-score-card > div { font-size: 12px; line-height: 1.6; }
+.fc-game[data-fc-theme] .fc-score-card [id$="scoreStatusText"] { font-size: 12px; }
+.fc-game[data-fc-theme] .fc-compass-card [id$="compassVal"] { font-size: 22px; }
+.fc-game[data-fc-theme] .fc-match-clock > span:first-child { font-size: 12px; }
+.fc-game[data-fc-theme] .fc-match-clock :is([id$="gameClockText"],#raceTimer,#bigTimerVal) { font-size: 26px !important; }
+.fc-game[data-fc-theme] .fc-telemetry > div:first-child > span { font-size: 12px; }
+.fc-game[data-fc-theme] .fc-telemetry > div:last-child > div > span { font-size: 12px; }
+.fc-game[data-fc-theme] .fc-telemetry :is([id$="telemetrySpeed"],[id$="telemetryAlt"],[id$="telemetryThrottle"]) { font-size: 28px !important; }
+.fc-game[data-fc-theme] .fc-guide-label { font-size: 13px; }
+.fc-game[data-fc-theme] .fc-guide-keys { font-size: 12px; }
+.fc-game[data-fc-theme] .fc-guide-section h3 { font-size: 12px; }
+.fc-game[data-fc-theme] .fc-guide-footer { font-size: 12px; }
+.fc-game[data-fc-theme] .fc-tab { font-size: 14px !important; }
+.fc-game[data-fc-theme] :is(.fc-subtitle,.fc-page-intro,.fc-pad-intro,.fc-camera-setting-copy > span,.fc-camera-note) { font-size: 14px !important; }
+.fc-game[data-fc-theme] .fc-card :is(.ps-btn,.ps-sel) { font-size: 13px !important; }
+.fc-game[data-fc-theme] .fc-card .ps-calf input { font-size: 14px !important; }
+
+@container fc-hud (max-width: 900px) {
+  .fc-game[data-fc-theme] .fc-clock-hud > header > .fc-flight-toolbar { grid-column: 1 / -1; grid-row: 2; }
+  .fc-game[data-fc-theme] .fc-match-summary > :not(.fc-score-card) { display: none; }
+  .fc-game[data-fc-theme] .fc-match-summary .fc-score-card {
+    min-width: 0 !important; max-width: 100% !important; width: 100%; padding: 10px !important; overflow-wrap: anywhere;
+  }
+  .fc-game[data-fc-theme] .fc-match-summary .fc-score-card > div:not(:has([id$="scoreText"])) { display: none; }
+}
+@container fc-hud (max-height: 380px) {
+  .fc-game[data-fc-theme] .fc-split-hud .fc-score-card > span { font-size: 10px; }
+  .fc-game[data-fc-theme] .fc-split-hud .fc-score-card [id$="scoreText"] { font-size: 22px; }
+  .fc-game[data-fc-theme] .fc-split-hud .fc-telemetry :is([id$="telemetrySpeed"],[id$="telemetryAlt"],[id$="telemetryThrottle"]) { font-size: 18px !important; }
+  .fc-game[data-fc-theme] .fc-split-hud .fc-telemetry > div:last-child > div > span { font-size: 10px; }
+}
+@media (max-width: 700px) {
+  .fc-game[data-fc-theme] .fc-match-clock { top: max(10px, env(safe-area-inset-top)) !important; min-width: 120px; padding: 7px 12px !important; }
+  .fc-game[data-fc-theme] .fc-clock-hud { padding-top: max(10px, env(safe-area-inset-top)) !important; }
+  .fc-game[data-fc-theme] .fc-match-clock :is([id$="gameClockText"],#raceTimer,#bigTimerVal) { font-size: 23px !important; }
+  .fc-game[data-fc-theme] .fc-match-clock > span:first-child { font-size: 11px; }
+  .fc-game[data-fc-theme] .fc-clock-hud > header { grid-template-columns: minmax(0, 1fr) 140px minmax(0, 1fr); gap: 8px; }
+  .fc-game[data-fc-theme] .fc-clock-hud > header > .fc-flight-toolbar { display: flex; flex-wrap: wrap; }
+  .fc-game[data-fc-theme] .fc-centered-scoreboard > div:nth-child(2) { min-width: 0; width: min(220px, calc(100vw - 88px)); }
+  .fc-game[data-fc-theme] .fc-centered-scoreboard > div:nth-child(2) > div:last-child { width: 100%; gap: 2px !important; }
+  .fc-game[data-fc-theme] #topBar button { min-width: 0; padding-left: 3px !important; padding-right: 3px !important; font-size: 9px; flex-shrink: 1; }
+  .fc-game[data-fc-theme] #topBar .fc-hud-button { font-size: 0 !important; }
+}
+
+/* Compact flight controls: frequent commands stay visible, settings open on demand. */
+.fc-game[data-fc-theme] .fc-hud > header { position: relative; z-index: 3; }
+.fc-game[data-fc-theme] .fc-hud > header > .fc-flight-toolbar,
+.fc-game[data-fc-theme] .fc-clock-hud > header > .fc-flight-toolbar,
+.fc-game[data-fc-theme] .fc-shared-toolbar {
+  display: flex; align-items: center; justify-content: flex-start;
+  width: max-content; max-width: 100% !important; min-width: 0;
+  justify-self: end; padding: 5px; gap: 5px !important;
+  border: 1px solid var(--fc-line); border-radius: 14px;
+  background: var(--fc-hud-surface); box-shadow: 0 5px 22px #0002;
+  pointer-events: auto; flex-wrap: nowrap;
+}
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-flight-actions,
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-system-actions {
+  display: flex; align-items: center; flex: none; width: auto;
+  gap: 3px; padding: 0; flex-wrap: nowrap; justify-content: flex-start;
+}
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-system-actions {
+  padding-left: 5px; border: 0; border-left: 1px solid var(--fc-line);
+}
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action,
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-system-actions .fc-action {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: auto; min-width: 44px; height: 44px; min-height: 44px;
+  padding: 0 11px; gap: 7px; border-radius: 9px !important;
+  font-size: 13px !important; line-height: 1.3; cursor: pointer;
+}
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action-label {
+  display: inline-flex; font-size: 13px; font-weight: 600; white-space: nowrap;
+}
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-icon { width: 17px; height: 17px; flex: none; }
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-shortcut { display: inline-flex; width: 18px; min-width: 18px; height: 20px; font-size: 10px; }
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action-land { background: var(--fc-soft) !important; }
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action-more { color: var(--fc-muted) !important; }
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action[aria-expanded=true] { background: var(--fc-selected) !important; color: var(--fc-blue) !important; }
+.fc-game[data-fc-theme] .fc-toolbar-popover {
+  position: fixed; inset: auto; margin: 0; padding: 6px;
+  width: 260px; max-width: calc(100vw - 16px); max-height: calc(100dvh - 16px);
+  overflow: auto; overscroll-behavior: contain; box-sizing: border-box;
+  border: 1px solid var(--fc-line); border-radius: 16px;
+  background: var(--fc-surface); color: var(--fc-ink); box-shadow: var(--fc-shadow);
+  font: 500 13px/1.5 "Segoe UI", "Microsoft JhengHei", sans-serif;
+  pointer-events: auto;
+}
+.fc-game[data-fc-theme] .fc-more-heading {
+  display: flex; align-items: center; justify-content: space-between; padding: 2px 5px 6px 11px;
+  border-bottom: 1px solid var(--fc-line); margin-bottom: 5px;
+}
+.fc-game[data-fc-theme] .fc-more-heading strong { font-size: 12px; font-weight: 600; color: var(--fc-muted); }
+.fc-game[data-fc-theme] .fc-more-close {
+  display: grid; place-items: center; width: 36px; height: 36px;
+  padding: 0; border: 0; border-radius: 8px; background: transparent; color: var(--fc-muted); cursor: pointer;
+}
+.fc-game[data-fc-theme] .fc-more-close:hover { background: var(--fc-hover); }
+.fc-game[data-fc-theme] .fc-more-close .fc-icon { width: 16px; height: 16px; }
+.fc-game[data-fc-theme] .fc-more-actions { display: flex; flex-direction: column; gap: 3px; }
+.fc-game[data-fc-theme] .fc-more-actions .fc-action {
+  display: flex; align-items: center; justify-content: flex-start;
+  width: 100%; min-width: 0; min-height: 44px; height: auto;
+  gap: 11px; padding: 10px 12px; margin: 0; border: 1px solid transparent;
+  border-radius: 9px !important; background: transparent !important; border-color: transparent !important; color: var(--fc-ink) !important;
+  box-shadow: none; text-align: left; font: inherit; white-space: nowrap; cursor: pointer;
+}
+.fc-game[data-fc-theme] .fc-more-actions .fc-action > i { display: none; }
+.fc-game[data-fc-theme] .fc-more-actions .fc-icon { width: 17px; height: 17px; flex: none; order: -1; color: var(--fc-muted); }
+.fc-game[data-fc-theme] .fc-more-actions .fc-action-label {
+  display: block; flex: 1; min-width: 0; font: inherit; line-height: 1.5; white-space: normal;
+}
+.fc-game[data-fc-theme] .fc-more-actions .fc-action-context { flex: 1; }
+.fc-game[data-fc-theme] .fc-more-actions .fc-action-context + .fc-action-label { flex: none; color: var(--fc-blue); }
+.fc-game[data-fc-theme] .fc-more-actions .fc-shortcut {
+  flex: none; min-width: 32px; height: 24px; margin-left: auto; padding: 0 6px;
+  color: var(--fc-muted); background: var(--fc-input); border-color: var(--fc-line); opacity: 1;
+}
+.fc-game[data-fc-theme] .fc-more-actions .fc-action:hover { background: var(--fc-hover) !important; border-color: var(--fc-line) !important; }
+.fc-game[data-fc-theme] .fc-more-actions .fc-action:focus-visible {
+  outline: 2px solid var(--fc-blue) !important; outline-offset: -2px; background: var(--fc-hover) !important;
+}
+.fc-game[data-fc-theme] .fc-more-actions .fc-action-reset { color: var(--fc-danger) !important; border-top-color: var(--fc-line) !important; margin-top: 3px; }
+.fc-game[data-fc-theme] .fc-more-actions .fc-action-reset .fc-icon { color: inherit; }
+.fc-game[data-fc-theme] .fc-more-actions .fc-ai-setting {
+  display: flex; justify-content: space-between; min-height: 44px; gap: 12px;
+  border: 0; padding: 8px 12px; background: transparent; color: var(--fc-ink); font-size: 13px;
+}
+.fc-game[data-fc-theme] .fc-more-actions select {
+  min-height: 36px; border: 1px solid var(--fc-line); border-radius: 7px;
+  background: var(--fc-soft); color: var(--fc-ink); padding: 3px 7px; font: inherit;
+}
+.fc-game[data-fc-theme] .fc-guide-dialog { background: var(--fc-surface); color: var(--fc-ink); border-color: var(--fc-line); color-scheme: inherit; }
+.fc-game[data-fc-theme] .fc-guide-dialog .fc-close { background: var(--fc-soft); color: var(--fc-muted); min-height: 36px; cursor: pointer; }
+.fc-game[data-fc-theme] .fc-team-guide { width: min(860px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; }
+.fc-game[data-fc-theme] .fc-team-guide .fc-dialog-heading { position: sticky; top: 0; background: var(--fc-surface); z-index: 1; padding: 14px 20px; }
+.fc-game[data-fc-theme] .fc-team-guide .fc-page { padding: 20px; font-size: 13px; }
+.fc-game[data-fc-theme] .fc-team-guide table { min-width: 620px; }
+
+/* Shared scoreboard controls; official matches keep their own compact layout. */
+.fc-game[data-fc-theme] #topBar.fc-unified-scoreboard {
+  height: 120px; padding: 6px 16px; box-sizing: border-box;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-rows: 48px 56px; align-items: center; row-gap: 4px;
+}
+.fc-game[data-fc-theme] #topBar.fc-unified-scoreboard > div:nth-child(2) { padding: 0; width: min(280px, 45vw); }
+.fc-game[data-fc-theme] #topBar.fc-unified-scoreboard #clockText { position: static; transform: none; font-size: 22px !important; }
+.fc-game[data-fc-theme] #topBar.fc-unified-scoreboard .fc-match-status {
+  display: flex !important; flex-direction: column; align-items: center; gap: 1px;
+}
+.fc-game[data-fc-theme] #topBar.fc-unified-scoreboard .fc-match-status::before { display: none; }
+.fc-game[data-fc-theme] #topBar.fc-unified-scoreboard :is(#setLabel,#phaseText) { font-size: 10px; }
+.fc-game[data-fc-theme] #topBar.fc-unified-scoreboard .fc-shared-toolbar {
+  grid-column: 1 / -1; grid-row: 2; justify-self: center; margin: 0;
+  box-shadow: none; background: var(--fc-soft); padding: 3px;
+}
+.fc-game[data-fc-theme] #topBar.fc-unified-scoreboard .fc-shared-toolbar .fc-action { font-size: 13px !important; padding: 0 11px !important; }
+.fc-game[data-fc-theme] #topBar.fc-unified-scoreboard .fc-action-label { font-size: 13px; }
+.fc-game[data-fc-theme] #topBar.fc-unified-scoreboard ~ #arenaGrid { top: 120px; }
+.fc-game[data-fc-theme] #topBar.fc-unified-scoreboard ~ #faiOverlay { top: 120px !important; }
+
+@container fc-hud (max-width: 1120px) {
+  .fc-game[data-fc-theme] .fc-clock-hud > header > .fc-flight-toolbar {
+    grid-column: 1 / -1; grid-row: 2; justify-self: end; width: max-content; order: initial;
+  }
+}
+@container fc-hud (max-width: 600px) {
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-shortcut { display: none; }
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-action,
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-system-actions .fc-action { padding: 0 9px; }
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-system-actions .fc-action-label { display: none; }
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-flight-actions .fc-action-label { display: inline-flex; }
+  .fc-game[data-fc-theme] .fc-hud > header > .fc-flight-toolbar { flex-wrap: nowrap; width: max-content; max-width: 100% !important; }
+}
+@container fc-hud (max-width: 360px) {
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-action,
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-system-actions .fc-action { padding: 0 6px; gap: 5px; }
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-flight-actions .fc-icon { display: none; }
+}
+@container fc-hud (max-height: 380px) {
+  .fc-game[data-fc-theme] .fc-split-hud > header { flex-wrap: wrap; align-items: flex-start; }
+  .fc-game[data-fc-theme] .fc-split-hud > header > .fc-flight-toolbar { order: 3; margin: 0 0 0 auto; width: max-content; flex: none; }
+  .fc-game[data-fc-theme] .fc-split-hud .fc-flight-toolbar .fc-action,
+  .fc-game[data-fc-theme] .fc-split-hud .fc-flight-toolbar .fc-system-actions .fc-action {
+    min-width: 40px; width: auto; height: 40px; min-height: 40px; padding: 0 6px;
+  }
+  .fc-game[data-fc-theme] .fc-split-hud .fc-flight-toolbar .fc-action-label,
+  .fc-game[data-fc-theme] .fc-split-hud .fc-flight-toolbar .fc-shortcut { display: none; }
+  .fc-game[data-fc-theme] .fc-split-hud .fc-flight-toolbar .fc-flight-actions .fc-action-label { display: inline-flex; }
+  .fc-game[data-fc-theme] .fc-split-hud .fc-flight-toolbar .fc-flight-actions .fc-icon { display: none; }
+}
+@media (max-width: 420px) {
+  .fc-game[data-fc-theme] #topBar.fc-unified-scoreboard { padding-left: 8px; padding-right: 8px; }
+  .fc-game[data-fc-theme] #topBar.fc-unified-scoreboard .fc-shared-toolbar .fc-action { padding: 0 7px !important; gap: 5px; }
+  .fc-game[data-fc-theme] #topBar.fc-unified-scoreboard .fc-flight-actions .fc-icon,
+  .fc-game[data-fc-theme] #topBar.fc-unified-scoreboard .fc-shortcut { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fc-game[data-fc-theme] .fc-flight-toolbar .fc-action { transition: none; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .fc-game[data-fc-theme] [id$="touchControls"] { display: none !important; }
+}
+@media (hover: none), (pointer: coarse) {
+  .fc-game[data-fc-theme] .fc-split-hud [id$="-touchControls"] { top: auto; bottom: 10px; transform: none; }
+}
+
+/* Direct camera selection: flight modes above, spatial observation stations below. */
+.fc-game[data-fc-theme] .fc-camera-trigger > i { display: none; }
+.fc-game[data-fc-theme] .fc-camera-trigger { gap: 7px; }
+.fc-game[data-fc-theme] .fc-camera-trigger .fc-camera-chevron { width: 12px; height: 12px; color: var(--fc-muted); }
+.fc-game[data-fc-theme] .fc-camera-trigger[aria-expanded=true] .fc-camera-chevron { transform: rotate(180deg); }
+.fc-game[data-fc-theme] .fc-camera-trigger > .fc-icon:first-child { color: var(--fc-blue); }
+.fc-game[data-fc-theme] .fc-camera-picker {
+  position: fixed; inset: auto; margin: 0; width: 352px; padding: 18px;
+  max-width: calc(100vw - 16px); max-height: calc(100dvh - 16px); box-sizing: border-box;
+  overflow: auto; overscroll-behavior: contain; pointer-events: auto;
+  border: 1px solid var(--fc-line); border-radius: 20px;
+  background: var(--fc-surface); color: var(--fc-ink); box-shadow: var(--fc-shadow);
+  font: 500 13px/1.5 "Segoe UI", "Microsoft JhengHei", sans-serif;
+}
+.fc-game[data-fc-theme] .fc-camera-picker-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 15px; border-bottom: 1px solid var(--fc-line); }
+.fc-game[data-fc-theme] .fc-camera-picker-heading strong { display: block; font-size: 17px; letter-spacing: .04em; }
+.fc-game[data-fc-theme] .fc-camera-current { display: block; margin-top: 4px; font-size: 12px; color: var(--fc-blue); }
+.fc-game[data-fc-theme] .fc-camera-section { margin-top: 16px; }
+.fc-game[data-fc-theme] .fc-camera-section h3 { margin: 0 0 9px; color: var(--fc-muted); font-size: 11px; font-weight: 600; letter-spacing: .08em; }
+.fc-game[data-fc-theme] .fc-camera-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
+.fc-game[data-fc-theme] .fc-camera-option {
+  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-width: 0; min-height: 84px; gap: 10px; padding: 14px 2px 12px;
+  border: 1px solid var(--fc-line); border-radius: 12px;
+  background: var(--fc-soft); color: var(--fc-muted); font: inherit; cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.fc-game[data-fc-theme] .fc-camera-option > .fc-icon:first-child { width: 25px; height: 25px; }
+.fc-game[data-fc-theme] .fc-camera-option > span { font-size: 12px; font-weight: 600; white-space: nowrap; }
+.fc-game[data-fc-theme] .fc-camera-option .fc-camera-check { display: none; position: absolute; top: 6px; right: 6px; width: 13px; height: 13px; }
+.fc-game[data-fc-theme] .fc-camera-option:hover { color: var(--fc-ink); background: var(--fc-hover); border-color: var(--fc-blue); }
+.fc-game[data-fc-theme] .fc-camera-option[aria-pressed=true] { background: var(--fc-selected); color: var(--fc-blue); border-color: var(--fc-blue); }
+.fc-game[data-fc-theme] .fc-camera-option[aria-pressed=true] .fc-camera-check { display: block; }
+.fc-game[data-fc-theme] :is(.fc-camera-option,.fc-camera-trigger,.fc-camera-picker button):focus-visible { outline: 2px solid var(--fc-blue); outline-offset: 3px; }
+.fc-game[data-fc-theme] .fc-camera-description { margin: 15px 0 0; padding: 11px 12px; border-radius: 10px; background: var(--fc-soft); color: var(--fc-muted); font-size: 12px; line-height: 1.8; }
+.fc-game[data-fc-theme] .fc-camera-picker .fc-camera-comfort { display: flex; margin-top: 12px; padding: 12px 0 0; border: 0; border-top: 1px solid var(--fc-line); border-radius: 0; background: transparent; }
+.fc-game[data-fc-theme] .fc-camera-picker .fc-camera-comfort[hidden] { display: none; }
+.fc-game[data-fc-theme] .fc-camera-picker .fc-camera-setting-copy strong { font-size: 12px; }
+.fc-game[data-fc-theme] .fc-camera-picker .fc-camera-setting-copy > span { font-size: 11px !important; }
+.fc-game[data-fc-theme] .fc-camera-picker .fc-camera-toggle {
+  appearance: none; position: relative; width: 36px; height: 22px; margin: 0;
+  border: 1px solid var(--fc-line); border-radius: 20px; background: var(--fc-hover);
+}
+.fc-game[data-fc-theme] .fc-camera-picker .fc-camera-toggle::after {
+  content: ''; position: absolute; top: 3px; left: 3px; width: 14px; height: 14px;
+  border-radius: 50%; background: var(--fc-muted); transition: transform .15s;
+}
+.fc-game[data-fc-theme] .fc-camera-picker .fc-camera-toggle:checked { background: var(--fc-selected); border-color: var(--fc-blue); }
+.fc-game[data-fc-theme] .fc-camera-picker .fc-camera-toggle:checked::after { transform: translateX(14px); background: var(--fc-blue); }
+.fc-game[data-fc-theme] .fc-camera-picker .fc-camera-toggle:focus-visible { outline: 2px solid var(--fc-blue); outline-offset: 3px; }
+.fc-game[data-fc-theme] .panel-root .fc-camera-trigger { min-height: 36px; display: inline-flex; align-items: center; padding: 0 9px; }
+.fc-game[data-fc-theme] .panel-root .fc-camera-trigger .fc-icon { width: 15px; height: 15px; }
+.fc-game[data-fc-theme] .panel-root .fc-camera-trigger .fc-camera-chevron { width: 10px; height: 10px; }
+@container fc-hud (max-width: 600px) {
+  .fc-game[data-fc-theme] .fc-camera-trigger .fc-camera-chevron { display: none; }
+}
+@media (max-width: 700px) {
+  .fc-game[data-fc-theme] .panel-root .fc-camera-trigger { gap: 4px; padding: 0 5px; }
+  .fc-game[data-fc-theme] .panel-root .fc-camera-trigger .fc-camera-chevron { display: none; }
+}
+@media (max-width: 360px) {
+  .fc-game[data-fc-theme] .fc-camera-picker { padding: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fc-game[data-fc-theme] .fc-camera-option { transition: none; }
+}
+
+/* Official matches: blue at the left edge, clock centered, red at the right. */
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard {
+  height: 64px; grid-template-rows: 48px; gap: 0 16px; padding: 8px 20px;
+  grid-template-columns: minmax(0, 1fr) 224px minmax(0, 1fr);
+  background: linear-gradient(90deg, #12263a, #101d2a 40%, #101d2a 60%, #2b1c2b) !important;
+  border-bottom: 1px solid #ffffff14 !important;
+  box-shadow: 0 4px 18px #02081030;
+}
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-shared-toolbar[hidden] { display: none !important; }
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard ~ #arenaGrid { top: 64px; }
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard ~ #faiOverlay { top: 64px !important; }
+
+/* Official matches omit the pilot name/readiness badge in every camera view. */
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard ~ #arenaGrid .glassmorphism:has([id$="-readyText"]) {
+  display: none !important;
+}
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard ~ #arenaGrid [id$="-btnCam"] {
+  margin-inline-start: auto;
+}
+
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-score {
+  --fc-team-accent: #9bceff; --fc-team-rgb: 96,165,250;
+  grid-row: 1; display: grid; grid-template-columns: auto 1fr auto; align-items: center;
+  min-width: 0; width: min(256px, 100%); height: 48px;
+  gap: 16px; padding: 5px 12px; box-sizing: border-box; border-radius: 9px;
+  border: 1px solid rgba(var(--fc-team-rgb), .25);
+  background: linear-gradient(115deg, rgba(var(--fc-team-rgb), .12), rgba(var(--fc-team-rgb), .025));
+  box-shadow: inset 3px 0 0 var(--fc-team-accent), inset 0 1px 0 #ffffff05;
+  white-space: nowrap;
+}
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-blue { grid-column: 1; justify-self: start; }
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-red {
+  --fc-team-accent: #ffacb9; --fc-team-rgb: 251,113,133;
+  grid-column: 3; justify-self: end;
+  box-shadow: inset -3px 0 0 var(--fc-team-accent), inset 0 1px 0 #ffffff05;
+}
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-blue > div { align-items: flex-start; }
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-red > div { align-items: flex-end; }
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard > div.fc-official-clock {
+  grid-column: 2; grid-row: 1; justify-self: center; width: 100%; min-width: 0; padding: 0;
+}
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-match-status {
+  display: grid !important; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 10px; align-items: center;
+}
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-match-status::before { display: none; }
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard #clockText {
+  position: static; transform: none; grid-column: 2; grid-row: 1; justify-self: center;
+  color: #f1f7fc !important; font-size: 25px !important; font-weight: 750; line-height: 1;
+  letter-spacing: 1.5px;
+}
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard #setLabel {
+  grid-column: 1; grid-row: 1; justify-self: end; color: #b3c3d3; font-size: 10px; line-height: 14px;
+}
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard #phaseText {
+  grid-column: 3; grid-row: 1; justify-self: start; color: #9acabc; font-size: 10px; line-height: 14px;
+}
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-flight-actions[hidden] { display: none !important; }
+
+/* Team name, live goals and set wins share one line. Preserve all live display IDs. */
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-score > div { display: contents; }
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-score > div > span:first-child {
+  color: var(--fc-team-accent); font-size: 13px; line-height: 17px; font-weight: 750; letter-spacing: 1px;
+  grid-row: 1; grid-column: 1;
+}
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-red > div > span:first-child { grid-column: 3; }
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard :is(#scoreBlue,#scoreRed) {
+  display: flex; align-items: center; justify-content: center; gap: 7px; grid-column: 2; grid-row: 1;
+  min-width: 44px; color: #f4f8fc !important; font-size: 28px; line-height: 32px; font-weight: 800;
+  font-variant-numeric: tabular-nums; letter-spacing: -.5px;
+}
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard :is(#scoreBlue,#scoreRed)::before {
+  content: '本局'; color: #b4c3d2; font-size: 9px; line-height: 10px; font-weight: 500; letter-spacing: 1px;
+}
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard :is(#scoreBlue,#scoreRed) { border-inline: 1px solid rgba(var(--fc-team-rgb), .2); padding: 0 10px; }
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-set-wins {
+  display: inline-flex; align-items: center; justify-content: space-between; gap: 8px;
+  min-width: 56px; height: 24px; padding: 0 6px; box-sizing: border-box; grid-column: 3; grid-row: 1;
+  border: 0; border-radius: 4px; background: rgba(var(--fc-team-rgb), .1); box-shadow: none;
+  color: var(--fc-team-accent); white-space: nowrap;
+}
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-red .fc-set-wins { grid-column: 1; }
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-set-wins-label { font-size: 10px; line-height: 1; font-weight: 500; letter-spacing: .5px; }
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-set-wins-value { color: #f1f6fc; font-size: 13px; line-height: 1; font-weight: 750; font-variant-numeric: tabular-nums; }
+@media (min-width: 641px) and (max-width: 900px) {
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-score { gap: 6px; padding-inline: 9px; }
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard :is(#scoreBlue,#scoreRed) { gap: 4px; padding-inline: 6px; font-size: 25px; }
+}
+@media (max-width: 640px) {
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard { grid-template-columns: minmax(0, 1fr) 120px minmax(0, 1fr); padding: 8px 4px; column-gap: 4px; }
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-score { gap: 3px; padding: 5px 5px; border-radius: 7px; }
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-score > div > span:first-child { font-size: 11px; line-height: 16px; }
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard :is(#scoreBlue,#scoreRed) { min-width: 0; padding: 0 3px; font-size: 22px; line-height: 26px; }
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard :is(#scoreBlue,#scoreRed)::before { display: none; }
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-set-wins { min-width: 30px; padding: 0 3px; gap: 3px; }
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-set-wins-label { font-size: 9px; letter-spacing: 0; }
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-set-wins-value { font-size: 12px; }
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard #clockText { font-size: 17px !important; letter-spacing: 0; }
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard :is(#setLabel,#phaseText) { font-size: 9px; white-space: nowrap; }
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-match-status { column-gap: 3px; }
+}
+@media (max-width: 360px) {
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-score { gap: 2px; padding-inline: 3px; }
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard .fc-team-score > div > span:first-child { font-size: 10px; letter-spacing: 0; }
+  .fc-game[data-fc-theme] #topBar.fc-official-scoreboard :is(#scoreBlue,#scoreRed) { font-size: 20px; padding-inline: 2px; }
+}
+
+/* Free-formation scores, timer and flight controls occupy one row. */
+.fc-game[data-fc-theme] #topBar.fc-inline-scoreboard {
+  height: 64px; padding: 6px 16px; column-gap: 12px; row-gap: 0;
+  grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr) auto;
+  grid-template-rows: 1fr; align-items: center;
+}
+.fc-game[data-fc-theme] #topBar.fc-inline-scoreboard > .fc-inline-red { grid-column: 1; grid-row: 1; }
+.fc-game[data-fc-theme] #topBar.fc-inline-scoreboard > .fc-inline-blue { grid-column: 5; grid-row: 1; justify-self: end; }
+.fc-game[data-fc-theme] #topBar.fc-inline-scoreboard > div.fc-inline-clock {
+  grid-column: 3; grid-row: 1; width: auto; min-width: 0; padding: 0;
+}
+.fc-game[data-fc-theme] #topBar.fc-inline-scoreboard .fc-shared-toolbar {
+  grid-column: 4; grid-row: 1; justify-self: end; max-width: none !important;
+}
+.fc-game[data-fc-theme] #topBar.fc-inline-scoreboard ~ #arenaGrid { top: 64px; }
+.fc-game[data-fc-theme] #topBar.fc-inline-scoreboard ~ #faiOverlay { top: 64px !important; }
+@media (max-width: 1100px) {
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard {
+    grid-template-columns: auto auto auto minmax(0, 1fr); column-gap: 10px;
+  }
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard > div.fc-inline-clock { grid-column: 2; }
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard > .fc-inline-blue { grid-column: 3; }
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard .fc-shortcut { display: none; }
+}
+@media (max-width: 640px) {
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard { padding: 6px; column-gap: 6px; }
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard > :is(.fc-inline-red,.fc-inline-blue) { gap: 4px; white-space: nowrap; }
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard > :is(.fc-inline-red,.fc-inline-blue) > span { font-size: 12px; }
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard :is(#scoreRed,#scoreBlue) { font-size: 16px; }
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard #clockText { font-size: 14px !important; white-space: nowrap; }
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard .fc-shared-toolbar { padding: 2px; gap: 2px !important; }
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard .fc-shared-toolbar .fc-action {
+    width: 36px; min-width: 36px; height: 40px; min-height: 40px; padding: 0 !important; gap: 0;
+  }
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard .fc-shared-toolbar .fc-action-label { display: none; }
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard .fc-flight-actions .fc-icon { display: block; }
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard .fc-flight-actions,
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard .fc-system-actions { gap: 1px; }
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard .fc-system-actions { padding-left: 2px; }
+}
+@media (max-width: 360px) {
+  .fc-game[data-fc-theme] #topBar.fc-inline-scoreboard .fc-shared-toolbar .fc-action { width: 32px; min-width: 32px; }
+}
+
+/* Unified pre-flight main menu: mode briefing + settings + persistent action. */
+.fc-game[data-fc-theme] .fc-start-overlay { padding: 28px !important; background: radial-gradient(ellipse at 12% 8%,#28332055,transparent 60%),#090d12ee !important; }
+.fc-game[data-fc-theme] .fc-start-overlay .fc-main-menu { width: 1040px; max-width: min(1040px,100%) !important; max-height: 100% !important; border-radius: 8px !important; border-color: var(--fc-line) !important; background: var(--fc-surface) !important; box-shadow: 0 32px 100px #0008 !important; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-card-heading { padding: 23px 30px !important; background: var(--fc-surface); border-bottom: 1px solid var(--fc-line); }
+.fc-game[data-fc-theme] .fc-main-menu .fc-card-heading h1,.fc-game[data-fc-theme] .fc-main-menu .fc-card-heading h2 { font-size: 25px !important; line-height: 1.4 !important; letter-spacing: .5px !important; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-kicker { color: var(--fc-muted) !important; font-size: 9px !important; letter-spacing: 2px !important; }
+.fc-menu-layout { display: grid; grid-template-columns: 300px minmax(0,1fr); min-height: 0; flex: 1; }
+.fc-menu-overview { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; min-width: 0; overflow: auto; padding: 28px 25px; border-right: 1px solid var(--fc-line); background: linear-gradient(150deg,#1c2720,#0c1118 70%); }
+.fc-menu-category { display: inline-flex; align-items: center; gap: 8px; color: var(--fc-blue); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; }
+.fc-menu-category::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--fc-blue); box-shadow: 0 0 12px #ff654d22; }
+.fc-menu-art { display: block; width: 100%; height: auto; aspect-ratio: 5/3; object-fit: cover; border: 1px solid var(--fc-line); border-radius: 8px; background: var(--fc-input); }
+.fc-game[data-fc-theme] .fc-menu-slogan { color: var(--fc-ink); font-size: 19px; line-height: 1.6; font-weight: 750; letter-spacing: .2px; margin: 0; }
+.fc-game[data-fc-theme] .fc-menu-description { font-size: 12px !important; color: var(--fc-muted) !important; line-height: 1.9; margin: -7px 0 0; }
+.fc-menu-badges { display: flex; flex-wrap: wrap; gap: 7px; }
+.fc-menu-badges span { display: inline-flex; align-items: center; gap: 5px; padding: 5px 8px; border: 1px solid var(--fc-line); border-radius: 7px; color: var(--fc-muted); font-size: 10px; }
+.fc-menu-badges .fc-icon { width: 14px; height: 14px; }
+.fc-game[data-fc-theme] .fc-menu-tip { margin: auto 0 0; padding-top: 10px; color: var(--fc-muted); font-size: 11px; line-height: 1.8; }
+.fc-menu-content { display: flex; flex-direction: column; min-height: 0; min-width: 0; background: var(--fc-surface); }
+.fc-game[data-fc-theme] .fc-main-menu .fc-tabs { padding: 14px 24px; gap: 6px; background: var(--fc-surface); border-bottom: 1px solid var(--fc-line); overflow: visible; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-tab { display: flex; align-items: center; justify-content: center; flex: 1; min-width: 0; min-height: 42px; padding: 9px 12px !important; border: 1px solid transparent !important; border-radius: 6px !important; font-size: 12px !important; color: var(--fc-muted) !important; transition: background .15s,color .15s; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-tab:hover { background: var(--fc-hover) !important; color: var(--fc-ink) !important; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-tab[aria-selected=true] { color: var(--fc-blue) !important; background: var(--fc-selected) !important; border-color: #a65343 !important; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-pages { min-height: 0; background: var(--fc-surface); scrollbar-gutter: auto; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-page { padding: 22px 24px 26px; gap: 16px; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-page-intro { font-size: 12px !important; color: var(--fc-muted) !important; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-settings > p { text-align: center !important; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-settings > p:not(.fc-page-intro) { color: var(--fc-ink) !important; font-size: 12px !important; font-weight: 650; letter-spacing: .4px !important; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-settings > .flex,.fc-game[data-fc-theme] .fc-main-menu .fc-menu-settings > .grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px !important; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-settings > .flex:has(> :last-child:nth-child(2)) { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.fc-game[data-fc-theme] .fc-main-menu :is(.level-btn,.difficulty-option,.attack-difficulty-option,.red-ai-difficulty-option,.break-option,.fc-menu-choice) { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; min-width: 0; min-height: 72px; padding: 15px 10px !important; border-radius: 7px !important; border: 1px solid var(--fc-line) !important; background: var(--fc-soft) !important; box-shadow: none !important; transition: background .15s,border-color .15s; }
+.fc-game[data-fc-theme] .fc-main-menu :is(.level-btn,.difficulty-option,.attack-difficulty-option,.red-ai-difficulty-option,.break-option,.fc-menu-choice):hover { border-color: var(--fc-blue) !important; background: var(--fc-hover) !important; transform: none; }
+.fc-game[data-fc-theme] .fc-main-menu :is(.level-btn,.difficulty-option,.attack-difficulty-option,.red-ai-difficulty-option,.break-option,.fc-menu-choice)[aria-pressed=true] { background: var(--fc-selected) !important; border: 2px solid var(--fc-blue) !important; padding: 14px 9px !important; }
+.fc-game[data-fc-theme] .fc-main-menu [aria-pressed=true]:is(.level-btn,.difficulty-option,.attack-difficulty-option,.red-ai-difficulty-option,.break-option,.fc-menu-choice)::after { content: '✓'; position: absolute; right: 7px; top: 4px; color: var(--fc-blue); font-size: 12px; font-weight: 800; }
+.fc-game[data-fc-theme] .fc-main-menu :is(.level-btn,.difficulty-option,.attack-difficulty-option,.red-ai-difficulty-option,.break-option,.fc-menu-choice) p:first-child { font-size: 15px !important; line-height: 1.6; letter-spacing: .5px !important; }
+.fc-game[data-fc-theme] .fc-main-menu :is(.level-btn,.difficulty-option,.attack-difficulty-option,.red-ai-difficulty-option,.fc-menu-choice) p:not(:first-child) { font-size: 11px !important; line-height: 1.7; margin-top: 4px; }
+.fc-game[data-fc-theme] .fc-main-menu .role-btn { min-height: 48px; flex: 1; padding: 12px 8px !important; border-radius: 7px; font-size: 12px !important; }
+.fc-game[data-fc-theme] .fc-main-menu #roleDesc { font-size: 12px !important; line-height: 1.9; padding: 12px 0; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-camera-setting { margin-top: 8px; padding: 14px 16px; }
+.fc-game[data-fc-theme] .fc-main-menu select { min-height: 38px; border: 1px solid var(--fc-line); border-radius: 7px; padding: 6px 24px 6px 10px; color: var(--fc-ink); background: var(--fc-input); font-size: 13px; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-pregame-camera { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border: 1px solid var(--fc-line); border-radius: 7px; background: var(--fc-soft); }
+.fc-game[data-fc-theme] .fc-main-menu .fc-pregame-camera select { flex: none; max-width: 100%; }
+.fc-menu-ready { display: grid; grid-template-columns: 38px 1fr; align-items: center; gap: 6px 12px; padding: 20px; border: 1px solid #52653a; border-radius: 8px; background: #1e2a1b; }
+.fc-menu-ready .fc-icon { grid-row: span 2; width: 32px; height: 32px; padding: 7px; border-radius: 50%; background: #314528; color: var(--fc-blue); }
+.fc-menu-ready strong { font-size: 14px; color: var(--fc-ink); }
+.fc-game[data-fc-theme] .fc-menu-ready p { color: var(--fc-muted); font-size: 12px; margin: 0; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-start-footer { padding: 16px 24px; background: var(--fc-input); border-top: 1px solid var(--fc-line); gap: 12px; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-footer-hint { font-size: 12px !important; color: var(--fc-muted) !important; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-primary-action { min-width: 200px; min-height: 48px; padding: 12px 24px !important; border-radius: 7px !important; color: var(--fc-on-primary) !important; border-color: var(--fc-blue) !important; background: var(--fc-blue) !important; font-size: 14px !important; font-weight: 750 !important; box-shadow: 0 4px 16px #ff654d12; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-primary-action:hover { background: #ff806b !important; border-color: #ff806b !important; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-player-navigation { padding: 12px 24px; background: var(--fc-surface); border-bottom: 1px solid var(--fc-line); }
+.fc-game[data-fc-theme] .fc-main-menu .fc-player-navigation button { min-height: 40px; font-size: 12px; }
+.fc-game[data-fc-theme] .fc-main-menu :is(button,[role=button],select):focus-visible { outline: 3px solid var(--fc-blue) !important; outline-offset: 3px; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-page [hidden] { display: none !important; }
+@media (min-width: 801px) and (min-height: 650px) { .fc-game[data-fc-theme] .fc-main-menu .fc-menu-layout { min-height: 390px; } }
+@media (max-width: 800px) {
+ .fc-game[data-fc-theme] .fc-start-overlay { padding: 16px !important; }
+ .fc-game[data-fc-theme] .fc-start-overlay .fc-main-menu { border-radius: 7px !important; }
+ .fc-menu-layout { grid-template-columns: 1fr; }
+ .fc-menu-overview { display: none; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-card-heading { padding: 20px 22px !important; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-card-heading h1,.fc-game[data-fc-theme] .fc-main-menu .fc-card-heading h2 { font-size: 22px !important; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-page { padding: 20px; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-tabs { padding: 10px 16px; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-start-footer { padding: 14px 20px; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-primary-action { min-width: 160px; }
+}
+@media (max-width: 480px) {
+ .fc-game[data-fc-theme] .fc-start-overlay { padding: 10px !important; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-card-heading { padding: 18px !important; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-card-heading h1,.fc-game[data-fc-theme] .fc-main-menu .fc-card-heading h2 { font-size: 20px !important; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-page { padding: 16px; gap: 14px; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-tabs { padding: 8px 12px; gap: 4px; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-tab { padding: 9px 5px !important; font-size: 12px !important; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-start-footer { flex-direction: column; align-items: stretch; padding: 12px 16px; gap: 8px; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-footer-hint { font-size: 11px !important; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-primary-action { width: 100% !important; min-width: 0; }
+ .fc-game[data-fc-theme] .fc-main-menu :is(.level-btn,.difficulty-option,.attack-difficulty-option,.red-ai-difficulty-option,.break-option,.fc-menu-choice) { padding: 13px 6px !important; }
+ .fc-game[data-fc-theme] .fc-main-menu :is(.level-btn,.difficulty-option,.attack-difficulty-option,.red-ai-difficulty-option,.break-option,.fc-menu-choice)[aria-pressed=true] { padding: 12px 5px !important; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-player-navigation { padding: 8px 12px; gap: 5px; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-player-navigation button { font-size: 11px; }
+}
+@media (max-height: 620px) {
+ .fc-game[data-fc-theme] .fc-start-overlay { padding: 10px !important; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-card-heading { padding: 12px 20px !important; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-card-heading h1,.fc-game[data-fc-theme] .fc-main-menu .fc-card-heading h2 { font-size: 19px !important; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-kicker { font-size: 8px !important; margin: 0 !important; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-tabs { padding-top: 6px; padding-bottom: 6px; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-page { padding-top: 14px; padding-bottom: 14px; }
+ .fc-game[data-fc-theme] .fc-main-menu .fc-start-footer { padding-top: 10px; padding-bottom: 10px; }
+ .fc-menu-overview { padding: 18px 22px; gap: 10px; }
+ .fc-menu-art { max-height: 130px; }
+ .fc-menu-tip { display: none; }
+}
+.fc-game body:has(.fc-start-overlay:not(.fc-start-inactive):not(.opacity-0):not([style*="display: none"])) .fc-control-dock { visibility: hidden; }
+/* Keep the card and action in place while switching tabs or players. */
+.fc-game[data-fc-theme] .fc-start-overlay { transition-property: opacity,transform !important; }
+.fc-game[data-fc-theme] .fc-start-overlay .fc-main-menu { height: min(680px,100%); }
+@media (prefers-reduced-motion: reduce) { .fc-game[data-fc-theme] .fc-start-overlay { transition-duration: 0s !important; } }
+@media (max-width: 800px) {
+ .fc-game[data-fc-theme] .fc-start-overlay .fc-main-menu { height: min(620px,100%); }
+ .fc-menu-layout { grid-template-rows: auto minmax(0,1fr); }
+ .fc-menu-overview { display: grid; grid-template-columns: 100px minmax(0,1fr); align-items: center; gap: 6px 14px; padding: 14px 18px; border-right: 0; border-bottom: 1px solid var(--fc-line); overflow: hidden; }
+ .fc-menu-art { grid-column: 1; grid-row: 1 / 3; border-radius: 8px; }
+ .fc-menu-category { grid-column: 2; font-size: 10px; }
+ .fc-game[data-fc-theme] .fc-menu-slogan { grid-column: 2; font-size: 14px; line-height: 1.7; }
+ .fc-menu-overview :is(.fc-menu-description,.fc-menu-badges,.fc-menu-tip) { display: none; }
+}
+@media (max-height: 620px) and (max-width: 800px) {
+ .fc-menu-layout { grid-template-rows: minmax(0,1fr); }
+ .fc-menu-overview { display: none; }
+}
+/* Span-based race cards use the same clear title/detail stack as other modes. */
+.fc-game[data-fc-theme] .fc-main-menu .level-btn:has(>span) { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; text-align: center; }
+.fc-game[data-fc-theme] .fc-main-menu .level-btn > span:first-child { font-size: 15px !important; line-height: 1.6; }
+.fc-game[data-fc-theme] .fc-main-menu .level-btn > span:not(:first-child) { font-size: 11px !important; line-height: 1.7; }
+
+/* Keep live headings and the timer together in one centered row. */
+.fc-game[data-fc-theme] .fc-flight-status {
+  position: fixed; top: max(18px, env(safe-area-inset-top)); left: 50%;
+  transform: translateX(-50%); z-index: 25; pointer-events: none;
+  display: flex; flex-direction: row; align-items: stretch; gap: 8px;
+  max-width: calc(100% - 24px);
+}
+.fc-game[data-fc-theme] .fc-heading-row { display: flex; align-items: stretch; justify-content: center; gap: 8px; min-width: 0; max-width: 100%; }
+.fc-game[data-fc-theme] .fc-heading-row .fc-compass-card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1 1 auto;
+  min-width: 0; margin: 0; padding: 8px 18px; white-space: nowrap;
+  border: 1px solid var(--fc-line);
+}
+.fc-game[data-fc-theme] .fc-heading-row .fc-compass-card > span { font-size: 10px; color: var(--fc-muted); }
+.fc-game[data-fc-theme] .fc-flight-status > .fc-match-clock {
+  position: static !important; inset: auto !important; transform: none !important;
+  max-width: 100%; flex: none; white-space: nowrap;
+}
+.fc-game.fc-centered-flight-status[data-fc-theme] body > [id$="sysNotification"] {
+  top: max(var(--fc-flight-notification-top, 166px), var(--fc-practice-status-bottom, 0px)) !important;
+  max-width: calc(100vw - 24px); width: max-content; text-align: center;
+  transition-property: opacity, transform;
+}
+.fc-game.fc-centered-flight-status[data-fc-theme] .fc-clock-hud > header {
+  grid-template-columns: minmax(0, 1fr) var(--fc-flight-status-width, 260px) minmax(0, 1fr);
+  grid-template-rows: minmax(var(--fc-flight-status-height, 68px), auto);
+}
+.fc-game.fc-centered-flight-status[data-fc-theme] #dualArena.fc-clock-arena {
+  padding-top: calc(max(18px, env(safe-area-inset-top)) + var(--fc-flight-status-height, 68px) + 12px);
+}
+@media (max-width: 700px) {
+  .fc-game[data-fc-theme] .fc-flight-status { top: max(10px, env(safe-area-inset-top)); gap: 6px; }
+  .fc-game[data-fc-theme] .fc-heading-row { gap: 5px; }
+  .fc-game[data-fc-theme] .fc-heading-row .fc-compass-card { padding: 6px 9px; border-radius: 10px; }
+  .fc-game[data-fc-theme] .fc-heading-row [id$="compassVal"] { font-size: 18px; }
+  .fc-game[data-fc-theme] .fc-heading-row [id$="compassDir"] { font-size: 10px; }
+  .fc-game.fc-centered-flight-status[data-fc-theme] #dualArena.fc-clock-arena {
+    padding-top: calc(max(10px, env(safe-area-inset-top)) + var(--fc-flight-status-height, 60px) + 10px);
+  }
+}
+@media (max-width: 600px) {
+  .fc-game.fc-centered-flight-status[data-fc-theme] .fc-clock-hud > header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .fc-game.fc-centered-flight-status[data-fc-theme] .fc-clock-hud > header > .fc-match-summary {
+    grid-column: 1; grid-row: 2;
+  }
+  .fc-game.fc-centered-flight-status[data-fc-theme] .fc-match-summary .fc-score-card {
+    display: flex; flex-direction: row; align-items: center; gap: 8px;
+    width: max-content; padding: 5px 10px !important;
+  }
+  .fc-game.fc-centered-flight-status[data-fc-theme] .fc-match-summary .fc-score-card > span {
+    font-size: 11px; white-space: nowrap;
+  }
+  .fc-game.fc-centered-flight-status[data-fc-theme] .fc-match-summary .fc-score-card > div {
+    margin-top: 0;
+  }
+  .fc-game.fc-centered-flight-status[data-fc-theme] .fc-match-summary .fc-score-card [id$="scoreText"] {
+    font-size: 24px;
+  }
+  .fc-game.fc-centered-flight-status[data-fc-theme] .fc-clock-hud > header > .fc-flight-toolbar {
+    grid-column: 1; grid-row: 3;
+  }
+}
+@media (max-width: 400px) {
+  .fc-game[data-fc-theme] .fc-flight-status:has(.fc-compass-card:nth-child(3)) { gap: 5px; }
+  .fc-game[data-fc-theme] .fc-heading-row:has(.fc-compass-card:nth-child(3)) { gap: 3px; }
+  .fc-game[data-fc-theme] .fc-heading-row:has(.fc-compass-card:nth-child(3)) .fc-compass-card { padding: 6px 5px; }
+  .fc-game[data-fc-theme] .fc-heading-row:has(.fc-compass-card:nth-child(3)) [id$="compassVal"] { font-size: 14px; }
+  .fc-game[data-fc-theme] .fc-heading-row:has(.fc-compass-card:nth-child(3)) [id$="compassVal"] + span { font-size: 9px; }
+  .fc-game[data-fc-theme] .fc-flight-status:has(.fc-compass-card:nth-child(3)) > .fc-match-clock { min-width: 100px; padding: 7px 8px !important; }
+  .fc-game[data-fc-theme] .fc-flight-status:has(.fc-compass-card:nth-child(3)) :is([id$="gameClockText"],#raceTimer,#bigTimerVal) { font-size: 18px !important; }
+}
+
+/* Player assignment: identity, device and claim action have independent space. */
+.fc-game[data-fc-theme] .fc-player-assignments {
+  container: player-assignments / inline-size;
+  padding: 18px !important; gap: 16px !important;
+  background: var(--fc-soft) !important; border-color: var(--fc-line) !important;
+  border-radius: 14px;
+}
+.fc-game[data-fc-theme] .fc-player-assignments-heading {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 5px;
+}
+.fc-game[data-fc-theme] .fc-player-assignments-heading > span:first-child {
+  font-size: 14px; font-weight: 700; color: var(--fc-ink) !important;
+}
+.fc-game[data-fc-theme] .fc-player-assignments-heading > span:last-child {
+  font-size: 12px; line-height: 1.8; color: var(--fc-muted) !important;
+}
+.fc-game[data-fc-theme] #psPlayers {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 12px !important; align-items: stretch;
+}
+.fc-game[data-fc-theme] #psPlayers > .ps-player {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(112px, auto);
+  grid-template-areas: "identity identity" "device device" "status claim";
+  gap: 14px 10px !important; padding: 16px !important;
+  border-radius: 11px; background: var(--fc-surface) !important;
+  border: 1px solid var(--fc-line) !important; align-items: center;
+}
+.fc-game[data-fc-theme] #psPlayers > .ps-player.on {
+  border-color: var(--fc-blue) !important;
+  box-shadow: inset 0 3px 0 var(--fc-blue);
+}
+.fc-game[data-fc-theme] #psPlayers .ps-pick {
+  grid-area: identity; display: flex; align-items: center; justify-content: space-between;
+  gap: 8px; min-width: 0; min-height: 36px; padding: 4px 0;
+  border: 0; border-radius: 5px; background: transparent; box-shadow: none;
+  font-size: 13px !important; line-height: 1.6; text-align: left;
+}
+.fc-game[data-fc-theme] #psPlayers .ps-pname { min-width: 0; overflow-wrap: anywhere; }
+.fc-game[data-fc-theme] #psPlayers .ps-pick[aria-pressed=true]::after {
+  content: "校正中"; flex: none; padding: 3px 7px; border-radius: 5px;
+  background: var(--fc-selected); color: var(--fc-blue); font-size: 10px; font-weight: 600;
+}
+.fc-game[data-fc-theme] #psPlayers .fc-player-device {
+  grid-area: device; display: grid; gap: 6px; min-width: 0;
+  font-size: 11px; color: var(--fc-muted);
+}
+.fc-game[data-fc-theme] #psPlayers select {
+  width: 100%; max-width: none; min-width: 0; min-height: 40px;
+  padding: 8px 10px !important; font-size: 12px !important;
+  text-overflow: ellipsis; border-radius: 7px !important;
+}
+.fc-game[data-fc-theme] #psPlayers .ps-pstat {
+  grid-area: status; min-width: 0; font-size: 11px; line-height: 1.7;
+  font-family: inherit; color: var(--fc-muted);
+}
+.fc-game[data-fc-theme] #psPlayers .ps-pstat.ok { color: var(--fc-success); }
+.fc-game[data-fc-theme] #psPlayers .ps-claim {
+  grid-area: claim; min-height: 40px; max-width: 156px; padding: 8px 12px !important;
+  font-size: 11px !important; line-height: 1.6; white-space: normal;
+  text-align: center; justify-self: stretch; overflow-wrap: anywhere;
+}
+.fc-game[data-fc-theme] #psPlayers .ps-claim.ps-has {
+  color: var(--fc-blue) !important; border-color: var(--fc-blue) !important;
+  background: var(--fc-selected) !important;
+}
+.fc-game[data-fc-theme] #psPlayers :is(.ps-pick,.ps-claim,select):focus-visible {
+  outline: 2px solid var(--fc-blue); outline-offset: 3px;
+}
+.fc-game[data-fc-theme] .fc-player-edit-note {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 6px;
+  border-top: 1px solid var(--fc-line); padding-top: 12px;
+  color: var(--fc-muted) !important; font-size: 12px;
+}
+.fc-game[data-fc-theme] .fc-player-edit-note b { color: var(--fc-blue) !important; }
+.fc-game[data-fc-theme] .fc-player-edit-note > span { flex-basis: 100%; font-size: 11px; }
+@container player-assignments (max-width: 560px) {
+  .fc-game[data-fc-theme] #psPlayers { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) {
+  .fc-game[data-fc-theme] .fc-player-assignments { padding: 12px !important; }
+  .fc-game[data-fc-theme] #psPlayers > .ps-player { padding: 12px !important; gap: 10px !important; }
+  .fc-game[data-fc-theme] #psPlayers .ps-pick { flex-wrap: wrap; }
+}
+
+/* Refresh target in the shared display settings. */
+.fc-game .fc-frame-setting{margin-top:12px}.fc-game .fc-frame-target{flex-shrink:0;max-width:140px;border:1px solid #385069;border-radius:8px;background:#101e2d;color:#e6eff9;padding:8px 10px;font:inherit;font-size:12px;color-scheme:dark}.fc-game .fc-frame-target:focus-visible{outline:2px solid #41c7bd;outline-offset:3px}@media(max-width:420px){.fc-game .fc-frame-setting{align-items:flex-start;gap:12px}.fc-game .fc-frame-target{max-width:118px}}
+.fc-game[data-fc-theme] .fc-camera-dialog{padding:0;overflow:auto;font-size:13px}
+.fc-game[data-fc-theme] .fc-camera-dialog>.fc-dialog-heading{position:sticky;top:0;background:var(--fc-surface);z-index:1;border-bottom:1px solid var(--fc-line);padding:18px 20px}
+.fc-game[data-fc-theme] .fc-camera-dialog>.fc-settings-intro{padding:16px 20px 0;margin:0;font-size:13px;line-height:1.8;color:var(--fc-muted)}
+.fc-game[data-fc-theme] .fc-camera-dialog>.fc-camera-setting{margin:16px 20px 0;padding:16px;gap:16px}
+.fc-game[data-fc-theme] .fc-camera-dialog>.fc-control-entry{margin:16px 20px;min-height:44px}
+.fc-game[data-fc-theme] .fc-camera-dialog>.fc-camera-note{margin:16px 20px;color:var(--fc-muted);line-height:1.8}
+.fc-game[data-fc-theme] .fc-camera-dialog :is(button,select){min-height:44px}
+.fc-game[data-fc-theme] .fc-camera-dialog .fc-camera-setting-copy strong{font-size:13px}
+.fc-game[data-fc-theme] .fc-camera-dialog .fc-camera-setting-copy>span{font-size:12px}
+.fc-game[data-fc-theme] .fc-frame-target{color-scheme:inherit;background:var(--fc-soft);color:var(--fc-ink);border-color:var(--fc-line)}
+.fc-game[data-fc-theme] .fc-ai-description{font-size:12px;line-height:1.8;color:var(--fc-muted);margin:8px 0 14px}
+@media(max-width:420px){.fc-game[data-fc-theme] .fc-camera-dialog .fc-frame-setting{flex-direction:column;align-items:stretch}.fc-game[data-fc-theme] .fc-camera-dialog .fc-frame-target{max-width:none;width:100%}}
+
+
+/* Competition shell: one accent for actions; team colours retain their meaning. */
+.fc-game[data-fc-theme] :is(button,[role="button"],select,input,a):focus-visible {
+  outline: 2px solid var(--fc-blue) !important;
+  outline-offset: 3px;
+}
+.fc-game[data-fc-theme] .fc-start-overlay .fc-main-menu {
+  border-top: 3px solid var(--fc-blue) !important;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-card-heading :is(h1,h2) {
+  font-weight: 750 !important;
+  letter-spacing: -.3px !important;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-category { letter-spacing: .8px; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-tab {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .3px;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-primary-action { letter-spacing: .2px !important; }
+.fc-game[data-fc-theme] :is(.fc-card,.fc-result-card,.fc-guide-dialog,.fc-restart-dialog,.fc-toolbar-popover) {
+  border-radius: 10px !important;
+}
+.fc-game[data-fc-theme] :is(.fc-flight-toolbar,.fc-shared-toolbar,.fc-telemetry,.fc-compass-card,.fc-score-card,.fc-match-clock) {
+  border-radius: 8px !important;
+}
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action { border-radius: 5px !important; }
+.fc-game[data-fc-theme] .fc-restart-dialog { background: var(--fc-surface); border-color: var(--fc-line); }
+.fc-game[data-fc-theme] .fc-restart-actions { background: var(--fc-input); border-color: var(--fc-line); }
+.fc-game[data-fc-theme] .fc-restart-actions button { border-radius: 6px; background: var(--fc-soft); border-color: var(--fc-line); color: var(--fc-ink); }
+.fc-game[data-fc-theme] .fc-restart-actions .fc-restart-confirm { background: var(--fc-blue); border-color: var(--fc-blue); color: var(--fc-on-primary); }
+.fc-game[data-fc-theme] .fc-restart-actions .fc-restart-confirm:hover { background: #ff806b; }
+.fc-game[data-fc-theme] .fc-score-card [id$="scoreText"],
+.fc-game[data-fc-theme] :is([id$="gameClockText"],#raceTimer,#bigTimerVal) { font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) {
+  .fc-game[data-fc-theme] :is(.fc-main-menu button,.fc-flight-toolbar .fc-action) { transition: none !important; }
+}
+
+/* Release presentation: a race briefing, with the venue taking the stage. */
+html.fc-game {
+  --fc-surface: #0f151f; --fc-soft: #19222e; --fc-hover: #253141;
+  --fc-input: #080d15; --fc-ink: #f2f3f6; --fc-muted: #9aa7b8;
+  --fc-line: #334153; --fc-blue: #ff654d; --fc-on-primary: #180a07;
+  --fc-selected: #39231f; --fc-success: #9ed8c3; --fc-info: #87cfff;
+  --fc-scrim: #080b12e8; --fc-hud-surface: #0b1320e8;
+}
+.fc-game[data-fc-theme] .fc-start-overlay {
+  padding: clamp(18px,4vw,60px) !important;
+  background: radial-gradient(ellipse at 10% 80%,#4e221e55,transparent 56%),linear-gradient(115deg,#080b12e8,#111d2be8) !important;
+  backdrop-filter: blur(4px);
+}
+.fc-game[data-fc-theme] .fc-start-overlay .fc-main-menu {
+  width: 1200px; max-width: min(1200px,100%) !important; height: min(730px,100%);
+  border: 1px solid #52607577 !important; border-top: 1px solid #52607577 !important;
+  border-radius: 3px !important; box-shadow: 0 30px 100px #0008 !important;
+  background: #0c121c !important; overflow: hidden !important;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-layout {
+  display: grid; grid-template-columns: 46% minmax(0,1fr); grid-template-rows: minmax(0,1fr);
+  flex: 1; min-height: 0; height: 100%;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-overview {
+  display: flex; flex-direction: column; position: relative; isolation: isolate;
+  justify-content: flex-end; align-items: flex-start; gap: 15px; min-height: 0;
+  padding: 40px 36px; overflow: hidden; border-right: 1px solid #52607555;
+  background: #101c2a;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-overview::before {
+  content: ''; position: absolute; inset: 0; z-index: -3;
+  background: url('../lobby/arena-scene.png') 50% 44% / auto 125%;
+  opacity: .28; filter: saturate(.65);
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-overview::after {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg,#0a131c11 15%,#0a111ae6 61%,#0a111a 100%);
+}
+.fc-game[data-fc-theme] .fc-menu-wordmark {
+  position: absolute; left: 32px; top: 24px; color: #ffffff12;
+  white-space: pre-line; font: 900 clamp(60px,7vw,100px)/.83 'Segoe UI',sans-serif;
+  letter-spacing: -.06em; transform: skew(-7deg); z-index: -1;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-art {
+  position: absolute; top: 15%; left: -8%; width: 118%; height: 50%; max-height: none;
+  object-fit: contain; border: 0; border-radius: 0; background: transparent;
+  mix-blend-mode: screen; filter: drop-shadow(0 24px 18px #0008); z-index: -2;
+  mask-image: radial-gradient(ellipse at 50% 45%,#000 38%,transparent 76%);
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-category {
+  position: absolute; top: 25px; right: 24px; padding: 5px 8px;
+  border: 1px solid #92adc455; color: #c6d9e9; font-size: 10px; letter-spacing: .1em;
+  background: #0c1723a6;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-category::before { display: none; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-slogan {
+  color: #f3f5f7; font-size: clamp(25px,2.1vw,34px); line-height: 1.45;
+  font-weight: 800; letter-spacing: -.02em; max-width: 400px;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-description {
+  font-size: 12px !important; line-height: 1.9; color: #a5b7c7 !important; margin: 0; max-width: 385px;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-badges { gap: 16px; margin: 3px 0 0; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-badges span {
+  padding: 0; border: 0; border-radius: 0; color: #c0ccd8; font-size: 10px; gap: 6px;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-badges .fc-icon { color: #87cfff; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-tip { display: none; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-route-tag {
+  display: flex; justify-content: space-between; align-items: center; width: 100%;
+  padding-top: 19px; margin-top: 10px; border-top: 1px solid #a7c6e033;
+}
+.fc-game[data-fc-theme] .fc-menu-route-tag>span { font: 600 8px 'Segoe UI',sans-serif; letter-spacing: .2em; color: #819ab0; }
+.fc-game[data-fc-theme] .fc-menu-route-tag>strong { color: #ff8b78; font-size: 10px; font-weight: 650; letter-spacing: .12em; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-content {
+  display: flex; flex-direction: column; min-height: 0; min-width: 0; overflow: hidden;
+  background: linear-gradient(130deg,#131c27,#0d131d 65%);
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-card-heading {
+  padding: 34px 36px 23px !important; border: 0; background: transparent !important;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-kicker {
+  color: #ff8b78 !important; font-size: 8px !important; letter-spacing: .24em !important; margin-bottom: 11px !important;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-card-heading :is(h1,h2) {
+  font-size: clamp(24px,2.5vw,36px) !important; font-weight: 800 !important;
+  letter-spacing: -.035em !important; line-height: 1.25 !important;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-tabs {
+  padding: 0 36px; gap: 23px; background: transparent; border: 0; overflow: visible; flex: none;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-tab {
+  flex: initial; padding: 9px 0 11px !important; min-height: 36px;
+  border: 0 !important; border-bottom: 2px solid transparent !important; border-radius: 0 !important;
+  color: #778c9f !important; background: transparent !important; font-size: 11px !important;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-tab:hover { background: transparent !important; color: #d8e0e8 !important; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-tab[aria-selected=true] {
+  color: #f2f3f6 !important; background: transparent !important; border-bottom: 2px solid #ff654d !important;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-pages { flex: 1; min-height: 0; background: transparent; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-page { padding: 25px 36px; gap: 18px; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-settings>.fc-page-intro {
+  text-align: left !important; font-size: 11px !important; color: #8d9faf !important;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-menu-settings>.grid { gap: 8px !important; }
+.fc-game[data-fc-theme] .fc-main-menu :is(.level-btn,.difficulty-option,.attack-difficulty-option,.red-ai-difficulty-option,.break-option,.fc-menu-choice) {
+  border-radius: 3px !important; min-height: 72px; background: #18232f !important;
+  border: 1px solid #334656 !important; color: #c9d8e6 !important;
+}
+.fc-game[data-fc-theme] .fc-main-menu :is(.level-btn,.difficulty-option,.attack-difficulty-option,.red-ai-difficulty-option,.break-option,.fc-menu-choice)[aria-pressed=true] {
+  background: #36221e !important; border: 1px solid #e07b65 !important;
+  padding: 15px 10px !important; box-shadow: inset 0 -2px 0 #ff654d !important;
+}
+.fc-game[data-fc-theme] .fc-main-menu .role-btn { border-radius: 3px !important; min-height: 50px; }
+.fc-game[data-fc-theme] .fc-main-menu #roleDesc { padding: 8px 0; color: #a8b9c8 !important; }
+.fc-game[data-fc-theme] .fc-main-menu :is(.fc-ai-difficulty,.fc-pregame-camera) { background: #121d29; border-radius: 3px; border-color: #334656; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-start-footer {
+  padding: 18px 36px 28px; background: transparent; border: 0; display: flex; flex-direction: column;
+  align-items: stretch; gap: 12px; flex: none;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-footer-hint { font-size: 10px !important; color: #879bad !important; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-primary-action {
+  display: flex !important; align-items: center; justify-content: space-between; text-align: left;
+  width: 100% !important; min-width: 0; min-height: 58px; padding: 15px 20px !important;
+  border-radius: 3px !important; background: #ff654d !important; border-color: #ff654d !important;
+  color: #180a07 !important; font-size: 15px !important; font-weight: 800 !important;
+  box-shadow: 0 9px 26px #ff654d1a; transition: background .18s,transform .18s;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-primary-action:hover { background: #ff806b !important; border-color: #ff806b !important; transform: translateY(-1px); }
+.fc-game[data-fc-theme] .fc-main-menu .fc-more-options {
+  border-top: 1px solid #334153; border-bottom: 1px solid #334153; margin-top: 4px;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-more-options>summary {
+  display: flex; align-items: center; gap: 9px; padding: 14px 0; cursor: pointer;
+  list-style: none; color: #c4d0dc; font-size: 11px; font-weight: 600;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-more-options>summary::-webkit-details-marker { display: none; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-more-options>summary::before { content: '+'; font: 400 18px 'Segoe UI',sans-serif; color: #ff8b78; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-more-options[open]>summary::before { content: '−'; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-more-options>summary>span { margin-left: auto; color: #71889d; font-size: 10px; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-more-options-body { display: flex; flex-direction: column; gap: 8px; padding-bottom: 14px; }
+.fc-game[data-fc-theme] .fc-main-menu .fc-more-options-body>.fc-control-entry {
+  min-height: 40px; font-size: 11px; text-align: left; padding: 10px 12px; border-radius: 2px;
+  background: #172330; border-color: #334656; color: #c5d5e3;
+}
+.fc-game[data-fc-theme] .fc-main-menu .fc-player-navigation { padding: 0 36px 12px; background: transparent; border: 0; }
+.fc-game[data-fc-theme] :is(.fc-flight-toolbar,.fc-shared-toolbar) {
+  border-radius: 4px !important; border-color: #47596c77 !important;
+  background: #0b1320eb !important; box-shadow: 0 9px 25px #02050b33;
+}
+.fc-game[data-fc-theme] .fc-flight-toolbar .fc-action { border-radius: 2px !important; }
+.fc-game[data-fc-theme] :is(.fc-telemetry,.fc-compass-card,.fc-score-card,.fc-match-clock) { border-radius: 4px !important; border-color: #52677b66 !important; }
+.fc-game[data-fc-theme] .fc-score-card [id$='scoreText'] { color: #f2f3f6 !important; font-weight: 800; }
+.fc-game[data-fc-theme] :is([id$='gameClockText'],#raceTimer,#bigTimerVal) { letter-spacing: .04em; font-weight: 700; }
+.fc-game[data-fc-theme] #topBar.fc-official-scoreboard { background: #0b1320f2 !important; border-bottom: 1px solid #73889b44; }
+.fc-launch-cue {
+  position: fixed; inset: 0; z-index: 2147483000; pointer-events: none; display: grid; place-content: center;
+  text-align: center; background: #080b12; color: #f2f3f6; gap: 11px;
+  animation: fc-launch-cue .7s cubic-bezier(.2,.6,.3,1) both;
+}
+.fc-launch-cue>span { color: #ff8b78; font: 700 9px 'Segoe UI',sans-serif; letter-spacing: .4em; }
+.fc-launch-cue>strong { font: italic 900 clamp(30px,6vw,72px)/1 'Segoe UI',sans-serif; letter-spacing: -.04em; }
+.fc-launch-cue>i { width: 86px; height: 2px; margin: 8px auto 0; background: #ff654d; }
+@keyframes fc-launch-cue { 0%{opacity:0;transform:translateX(-4%)} 20%,48%{opacity:1;transform:translateX(0)} 100%{opacity:0;transform:translateX(6%)} }
+@media (min-width:801px) and (max-height:720px) {
+  .fc-game[data-fc-theme] .fc-start-overlay { padding: 16px 28px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-card-heading { padding: 22px 28px 15px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-tabs { padding-inline: 28px; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-page { padding: 18px 28px; gap: 13px; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-start-footer { padding: 12px 28px 20px; gap: 8px; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-menu-overview { padding: 28px; }
+}
+@media (max-width:800px) {
+  .fc-game[data-fc-theme] .fc-start-overlay .fc-main-menu { height: min(720px,100%); }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-menu-layout { display: grid; grid-template-columns: 1fr; grid-template-rows: minmax(0,1fr); }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-menu-overview { display: none; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-card-heading { padding: 24px 24px 19px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-card-heading :is(h1,h2) { font-size: 28px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-tabs { padding: 0 24px; gap: 24px; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-page { padding: 22px 24px; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-start-footer { padding: 14px 24px 22px; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-player-navigation { padding-inline: 24px; }
+}
+@media (max-width:420px) {
+  .fc-game[data-fc-theme] .fc-start-overlay { padding: 12px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-card-heading { padding: 24px 20px 18px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-card-heading :is(h1,h2) { font-size: 26px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-tabs { padding-inline: 20px; gap: 20px; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-tab { font-size: 11px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-page { padding: 20px; gap: 15px; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-start-footer { padding: 14px 20px 20px; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-primary-action { min-height: 52px; font-size: 14px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu :is(.level-btn,.difficulty-option,.attack-difficulty-option,.red-ai-difficulty-option,.break-option,.fc-menu-choice) { min-height: 66px; padding: 12px 6px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu :is(.level-btn,.difficulty-option,.attack-difficulty-option,.red-ai-difficulty-option,.break-option,.fc-menu-choice)[aria-pressed=true] { padding: 12px 6px !important; }
+}
+@media (max-height:480px) {
+  .fc-game[data-fc-theme] .fc-start-overlay { padding: 8px 16px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-card-heading { padding: 13px 24px 10px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-card-heading :is(h1,h2) { font-size: 22px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-kicker { font-size: 7px !important; margin-bottom: 6px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-tabs { padding-inline: 24px; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-tab { padding-top: 4px !important; padding-bottom: 7px !important; min-height: 30px; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-page { padding-block: 12px; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-start-footer { padding: 9px 24px 13px; gap: 5px; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-primary-action { min-height: 44px; padding-block: 10px !important; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-menu-overview { display: none; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-menu-layout { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .fc-launch-cue { display: none; }
+  .fc-game[data-fc-theme] .fc-main-menu .fc-primary-action { transition: none; transform: none; }
+}

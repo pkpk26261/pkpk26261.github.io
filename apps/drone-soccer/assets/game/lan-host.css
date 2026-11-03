@@ -1,0 +1,242 @@
+/* One viewport for the host. Panels change without moving the page. */
+body[data-role=host]{height:100dvh;overflow:hidden;display:grid;grid-template-rows:46px minmax(0,1fr)}
+body[data-role=host] .topbar{height:46px;min-width:0;padding:5px 14px;gap:8px;overflow:visible}
+body[data-role=host] button,body[data-role=host] input,body[data-role=host] select{min-height:32px;padding:5px 9px;font-size:12px}
+body[data-role=host] .brand{font-size:13px;min-width:0}
+body[data-role=host] .host-layout{height:100%;min-height:0;padding:10px;gap:10px;display:grid;grid-template-columns:minmax(0,1fr) clamp(350px,23vw,540px);overflow:hidden}
+body[data-role=host] .broadcast{position:relative;top:auto;align-self:stretch;min-height:0;min-width:0;padding:0;display:grid;grid-template-rows:64px auto minmax(0,1fr) 38px;gap:0}
+body[data-role=host] .broadcast>.scoreboard{grid-row:1}
+body[data-role=host] .broadcast>.broadcast-status{grid-row:2}
+body[data-role=host] .broadcast>.world{grid-row:3}
+body[data-role=host] .broadcast>.broadcast-tools{grid-row:4}
+.broadcast-status{min-width:0;display:flex;align-items:center;gap:12px;padding:7px 14px;background:#112735;border:1px solid #284355;border-top:0}
+.broadcast-status strong{font-size:12px;color:#9aead2;flex-shrink:0}
+.broadcast-status span{font-size:11px;color:#9fb8ca;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body[data-role=host] .scoreboard{padding:5px 10px;min-width:0}
+body[data-role=host] .scoreboard b{font-size:28px;margin:0 8px}
+body[data-role=host] .scoreboard strong{font-size:25px}
+body[data-role=host] .world{aspect-ratio:auto;min-height:0;height:100%;background:#0b1421;border-inline:1px solid #293e55}
+body[data-role=host] .world iframe{pointer-events:none}
+body[data-role=host] .broadcast-tools{padding:4px 0;gap:7px;flex-wrap:nowrap;min-width:0}
+body[data-role=host] .broadcast-tools label{font-size:11px;gap:5px;flex-shrink:0}
+body[data-role=host] .broadcast-tools select{min-width:0;max-width:180px}
+body[data-role=host] #target{flex:1;width:0}
+body[data-role=host] #watchLink{white-space:nowrap;font-size:11px}
+body[data-role=host] .management{min-height:0;min-width:0;padding:10px;border:1px solid #293e55;border-radius:12px;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:25px 32px minmax(0,1fr);gap:8px}
+body[data-role=host] .panel-title{min-width:0;margin:0;border:0;display:flex;justify-content:space-between;align-items:center;gap:8px}
+body[data-role=host] .panel-title h1{font-size:16px;margin:0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body[data-role=host] #hostArena{flex-shrink:0;max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body[data-role=host] .eyebrow{font-size:8px;letter-spacing:1px}
+.host-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;min-width:0}
+.host-tabs button{padding:4px!important;font-size:12px!important;white-space:nowrap}
+.host-tabs [aria-selected=true],.host-view-tabs [aria-pressed=true]{color:#8af0ce;background:#123e34;border-color:#38896d}
+.host-panels{min-height:0;min-width:0;position:relative}
+body[data-role=host] #roomControls{display:contents}
+body[data-role=host] .host-panel{height:100%;min-height:0;min-width:0;margin:0;padding:0;border:0}
+body[data-role=host] .host-panel h2{font-size:14px;margin:0}
+body[data-role=host] .host-panel p{font-size:12px;line-height:1.5;margin:7px 0}
+body[data-role=host] .host-panel label{font-size:12px;margin:7px 0;gap:7px}
+body[data-role=host] #createForm,body[data-role=host] #cameraForm{display:flex;flex-direction:column;align-items:stretch;gap:6px}
+body[data-role=host] #createForm>p,body[data-role=host] #cameraForm>p{margin:0}
+body[data-role=host] .roster-editor{gap:8px}
+body[data-role=host] fieldset{padding:6px 9px}
+body[data-role=host] fieldset legend{font-size:12px}
+body[data-role=host] fieldset input{width:55px}
+.host-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+body[data-role=host] .host-options label{display:grid;gap:4px;min-width:0;margin:0}
+.host-options select{width:100%;min-width:0}
+body[data-role=host] #create,body[data-role=host] #updateRoster,body[data-role=host] #applyCamera{margin-top:5px}
+body[data-role=host] #playerControls{display:grid;grid-template-rows:30px minmax(18px,32px) 22px minmax(0,1fr) 34px;gap:6px}
+body[data-role=host] .room-heading{min-width:0;gap:6px}
+body[data-role=host] .room-heading h2{font-size:14px;white-space:nowrap}
+body[data-role=host] .room-heading span{letter-spacing:2px}
+body[data-role=host] .room-heading button{font-size:11px;white-space:nowrap}
+body[data-role=host] #roomStatus{margin:0;line-height:16px;max-height:32px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:11px}
+body[data-role=host] .check{margin:0;font-size:11px;gap:6px}
+body[data-role=host] input[type=checkbox]{min-height:0;width:15px;height:15px;flex-shrink:0}
+body[data-role=host] .seats{min-height:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(40px,1fr);gap:5px}
+body[data-role=host] .seat-row{min-height:0;min-width:0;margin:0;padding:6px;gap:4px;overflow:hidden}
+body[data-role=host] .seat-row>div:first-child{min-width:0}
+body[data-role=host] .seat-row strong{font-size:12px;line-height:18px;white-space:nowrap}
+body[data-role=host] .seat-row small{display:block;max-width:100%;font-size:10px;line-height:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.seat-actions{display:flex;flex-direction:column;gap:3px;flex-shrink:0}
+body[data-role=host] .seat-row>.seat-actions{flex:0 0 auto}
+body[data-role=host] .seat-actions button{font-size:10px;min-height:24px;padding:3px 4px;white-space:nowrap}
+body[data-role=host] .actions{margin:0;gap:5px;flex-wrap:nowrap}
+body[data-role=host] .actions button{min-width:0;min-height:30px;font-size:11px;padding:4px 6px;white-space:nowrap}
+body[data-role=host] .actions .primary{width:auto}
+body[data-role=host] .danger{margin:0}
+body[data-role=host] .camera-numbers{gap:7px;margin:0}
+body[data-role=host] .camera-numbers label{margin:0;font-size:11px;min-width:0}
+body[data-role=host] .camera-numbers input{margin-top:4px;min-width:0}
+body[data-role=host] .host-invite-panel{display:grid;grid-template-rows:18px minmax(0,1fr);gap:7px}
+.join-empty{display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:8px;text-align:center;min-height:0;padding:8px}
+.join-empty p{margin:0!important}
+.join-empty a,.join-address a{display:block;overflow-wrap:anywhere;word-break:break-word;font-size:12px;line-height:17px;color:#83eac9}
+.join-empty small{font-size:11px}
+.join-details{min-height:0;display:grid;align-content:start;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(100px,220px) 32px 20px auto 32px 32px;grid-template-areas:"qr" "code" "count" "address" "copy" "enlarge";gap:8px}
+.join-qr{grid-area:qr;min-height:0;min-width:0;display:grid;place-items:center;position:relative}
+.join-qr img{display:block;width:100%;height:100%;max-width:220px;max-height:220px;object-fit:contain}
+.join-qr p{position:absolute;inset:0;background:#162437;padding:12px;font-size:12px}
+.join-code{grid-area:code;align-self:center;font-size:28px!important;letter-spacing:6px!important}
+body[data-role=host] .join-count{grid-area:count;margin:0!important;text-align:center;font-size:11px!important}
+.join-address{grid-area:address;min-width:0;border:1px solid #30475b;border-radius:7px;padding:5px 8px;background:#0b1723}
+.join-address span{display:block;color:#a2b4c7;font-size:10px;margin-bottom:2px}
+.join-copy{grid-area:copy}
+.join-enlarge{grid-area:enlarge}
+.host-view-tabs{display:none}
+@media(min-width:1600px) and (min-height:800px){
+  body[data-role=host]{grid-template-rows:56px minmax(0,1fr)}
+  body[data-role=host] .topbar{height:56px;padding-inline:20px}
+  body[data-role=host] .topbar .brand{font-size:16px}
+  body[data-role=host] .host-layout{padding:16px;gap:16px}
+  body[data-role=host] .broadcast{grid-template-rows:84px auto minmax(0,1fr) 48px}
+  body[data-role=host] .scoreboard b{font-size:40px;margin-inline:18px}
+  body[data-role=host] .scoreboard strong{font-size:34px}
+  body[data-role=host] .scoreboard small{font-size:13px}
+  body[data-role=host] .management{padding:18px;max-height:840px;grid-template-rows:32px 42px minmax(0,1fr);gap:12px}
+  body[data-role=host] .panel-title h1{font-size:20px}
+  body[data-role=host] #hostArena{font-size:11px}
+  body[data-role=host] .host-tabs button{font-size:14px!important}
+  body[data-role=host] .host-invite-panel{grid-template-rows:24px minmax(0,1fr);gap:16px}
+  body[data-role=host] .host-panel h2{font-size:17px}
+  .join-details{align-self:start;grid-template-rows:minmax(100px,min(260px,calc(100dvh - 660px))) 40px 24px auto 36px 36px;gap:10px;padding:14px;background:#102131;border:1px solid #2c455a;border-radius:12px}
+  .join-qr img{max-width:260px;max-height:260px;border-radius:10px;background:#fff}
+  .join-code{font-size:34px!important;letter-spacing:7px!important}
+  body[data-role=host] .join-count{font-size:13px!important}
+  .join-address a{font-size:14px;line-height:20px}
+}
+body[data-role=host] .host-message{position:fixed;z-index:20;bottom:12px;left:22px;right:390px;min-height:0;padding:9px 12px;border:1px solid #78613d;border-radius:8px;background:#192432f5;box-shadow:0 5px 20px #0006;font-size:12px;pointer-events:none}
+.host-message:empty{display:none}
+body[data-role=host] #invite{max-width:640px;width:calc(100% - 24px);max-height:calc(100dvh - 20px);padding:16px;overflow:hidden}
+body[data-role=host] #invite .dialog-head h2{font-size:17px}
+body[data-role=host] #invite p{font-size:12px;line-height:1.5;margin:5px 0}
+.invite-layout{display:grid;grid-template-columns:210px minmax(0,1fr);gap:18px;align-items:center;margin:10px 0}
+body[data-role=host] #qr{width:210px;height:210px;margin:0;max-width:100%}
+.invite-info{min-width:0}
+body[data-role=host] .big-code{font-size:30px;letter-spacing:5px;line-height:1.3}
+body[data-role=host] #invite label{font-size:11px;margin:7px 0 5px}
+body[data-role=host] #joinURL{min-height:32px;font-size:11px;padding:5px 6px;margin-top:4px}
+body[data-role=host] #interfaceInfo{display:block;line-height:1.4;font-size:10px;overflow-wrap:anywhere}
+@media(max-width:900px){
+  body[data-role=host]{grid-template-rows:44px 34px minmax(0,1fr)}
+  body[data-role=host] .topbar{height:44px;padding:4px 9px;gap:6px}
+  body[data-role=host] .topbar .brand{font-size:11px}
+  body[data-role=host] .topbar .brand span{display:none}
+  body[data-role=host] .topbar .chip{font-size:10px;padding:4px 6px}
+  body[data-role=host] .topbar button{font-size:10px;padding:4px 6px;min-height:30px}
+  .host-view-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:0 8px 3px;background:#0c1622}
+  .host-view-tabs button{min-height:28px!important;font-size:11px!important;padding:3px!important}
+  body[data-role=host] .host-layout{grid-template-columns:minmax(0,1fr);padding:8px;gap:0}
+  body[data-role=host][data-host-view=controls] .broadcast,body[data-role=host][data-host-view=broadcast] .management{display:none}
+  body[data-role=host] .management{padding:9px;border-top:1px solid #293e55}
+  body[data-role=host] .host-message{left:12px;right:12px;bottom:10px}
+  body[data-role=host] .broadcast{grid-template-rows:64px auto minmax(0,1fr) 38px}
+  body[data-role=host] .broadcast-tools select{max-width:110px}
+  body[data-role=host] .broadcast-tools label{font-size:0}
+  body[data-role=host] .broadcast-tools #watchLink{font-size:10px}
+}
+@media(max-width:480px){
+  .invite-layout{grid-template-columns:minmax(0,1fr);gap:7px;margin:7px 0}
+  body[data-role=host] #invite{padding:12px}
+  body[data-role=host] #qr{width:170px;height:170px;margin:auto}
+  body[data-role=host] #invite .dialog-head h2{font-size:15px}
+  body[data-role=host] #invite .big-code{font-size:28px}
+  body[data-role=host] #interfaceInfo{font-size:9px}
+}
+@media(max-height:550px){
+  .join-details{grid-template-columns:minmax(100px,.8fr) minmax(0,1.2fr);grid-template-rows:28px 18px auto 28px 28px;grid-template-areas:"qr code" "qr count" "qr address" "qr copy" "qr enlarge";gap:4px 10px;align-content:center}
+  .join-qr{height:100%}
+  .join-qr img{max-width:180px;max-height:180px}
+  .join-code{font-size:23px!important;letter-spacing:3px!important}
+  .join-copy button,.join-enlarge{font-size:10px!important;min-height:27px!important;padding:3px!important}
+  .join-address{padding:3px 5px}
+  .join-address a{font-size:10px;line-height:14px}
+  body[data-role=host] .management{padding:7px;grid-template-rows:19px 28px minmax(0,1fr);gap:5px}
+  body[data-role=host] .panel-title h1{font-size:14px}
+  body[data-role=host] #playerControls{grid-template-rows:26px 28px 20px minmax(0,1fr) 30px;gap:4px}
+  body[data-role=host] .host-panel h2{font-size:12px}
+  body[data-role=host] .host-panel p{font-size:11px;line-height:1.4}
+  body[data-role=host] #createForm,body[data-role=host] #cameraForm{gap:4px}
+  body[data-role=host] fieldset{padding:1px 8px}
+  body[data-role=host] fieldset label{margin:2px 0}
+  body[data-role=host] .host-panel input,body[data-role=host] .host-panel select{min-height:28px;padding:3px 6px}
+  body[data-role=host] #cameraForm label{margin:3px 0}
+  body[data-role=host] #cameraForm .check{margin:0;min-height:18px}
+  body[data-role=host] #cameraForm input[type=checkbox]{min-height:0;height:15px}
+  body[data-role=host] .seats{grid-auto-rows:minmax(31px,1fr);gap:4px}
+  body[data-role=host] .seat-row{padding:3px 5px}
+  body[data-role=host] .seat-row strong{font-size:11px;line-height:14px}
+  body[data-role=host] .seat-row small{font-size:9px;line-height:12px}
+  body[data-role=host] .seat-row{padding:2px 4px}
+  body[data-role=host] .seat-row strong{font-size:10px;line-height:12px}
+  body[data-role=host] .seat-row small{line-height:10px}
+  body[data-role=host] .seat-actions{flex-direction:row;gap:3px}
+  body[data-role=host] .seat-actions button{font-size:9px;min-height:22px;padding:1px 3px}
+  body[data-role=host] #invite .invite-note,body[data-role=host] #invite .invite-methods{display:none}
+  body[data-role=host] #qr{width:170px;height:170px}
+}
+@media(max-width:480px) and (max-height:550px){
+  body[data-role=host] #qr{width:112px;height:112px}
+  body[data-role=host] #invite{padding:8px}
+  body[data-role=host] .invite-layout{gap:4px;margin:4px 0}
+  body[data-role=host] #interfaceInfo{display:none}
+}
+
+/* Compact match desk: team cards keep their natural height on large screens. */
+.lan-icon{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+body[data-role=host] button{display:inline-flex;align-items:center;justify-content:center;gap:6px}
+body[data-role=host] .management{background:linear-gradient(155deg,#132537,#0c1826 55%);border-color:#334c62;box-shadow:0 8px 30px #0003}
+body[data-role=host] .host-tabs{background:#091522;padding:3px;border:1px solid #2b4258;border-radius:9px;gap:3px}
+body[data-role=host] .host-tabs button{border:0;background:transparent;font-weight:600;font-size:11px!important;gap:4px}
+body[data-role=host] .host-tabs [aria-selected=true]{background:#1c5145;box-shadow:inset 0 -2px #79e5bd;color:#c6ffea}
+body[data-role=host] #playerControls{grid-template-rows:32px minmax(24px,36px) 22px 27px minmax(0,1fr) 36px;gap:8px}
+body[data-role=host] #roomStatus{padding:4px 8px;border-radius:6px;background:#102e2b;color:#a3dfcd;border-left:3px solid #4cc797;max-height:36px}
+body[data-role=host] #roomStatus[data-state=paused]{background:#34291a;color:#f3d191;border-color:#d4a653}
+body[data-role=host] #roomStatus[data-state=ended]{background:#29263b;color:#c6bce8;border-color:#9889c8}
+.team-headings{display:grid;grid-template-columns:1fr 1fr;gap:8px;min-width:0}
+.team-headings>div{display:flex;align-items:center;justify-content:space-between;padding:0 6px;font-size:12px;font-weight:750;gap:5px}
+.team-headings small{font-size:10px;font-weight:500;white-space:nowrap;color:#8ba5b9}
+body[data-role=host] .seats{grid-auto-rows:minmax(62px,max-content);align-content:start;gap:8px}
+body[data-role=host] .seat-row{padding:9px 7px;background:#0b1928;border-color:#293f54;border-radius:10px}
+body[data-role=host] .seat-row[data-team=red]{border-left:2px solid #a34d61}
+body[data-role=host] .seat-row[data-team=blue]{border-left:2px solid #477ba9}
+body[data-role=host] .seat-row[data-state=ready]{background:#103129;border-color:#378768}
+body[data-role=host] .seat-info{display:flex;align-items:center;gap:7px;min-width:0}
+.seat-copy{min-width:0;flex:1}
+.seat-symbol{display:grid;place-items:center;width:29px;height:32px;flex-shrink:0;border:1px solid #314a60;border-radius:7px;background:#152a3b}
+.seat-symbol .lan-icon{width:20px;height:20px}
+body[data-role=host] .seat-row strong{font-size:12px;color:#e1eaf6}
+body[data-role=host] .seat-row small{margin-top:3px;color:#91a9bd}
+body[data-role=host] .actions .danger{background:#351e2a}
+@media(min-width:1600px) and (min-height:800px){
+  body[data-role=host] .host-tabs button{font-size:14px!important}
+  body[data-role=host] .host-tabs .lan-icon{width:18px;height:18px}
+  body[data-role=host] #playerControls{grid-template-rows:38px minmax(28px,42px) 26px 34px minmax(0,1fr) 44px;gap:12px}
+  body[data-role=host] .seats{grid-auto-rows:minmax(80px,max-content);gap:12px}
+  body[data-role=host] .seat-row{padding:12px}
+  body[data-role=host] .seat-row strong{font-size:15px;line-height:20px}
+  body[data-role=host] .seat-row small{font-size:12px;line-height:17px}
+  .seat-symbol{width:38px;height:40px}
+  .seat-symbol .lan-icon{width:25px;height:25px}
+  .team-headings>div{font-size:15px}
+  .team-headings small{font-size:12px}
+  body[data-role=host] .actions button{font-size:14px}
+}
+@media(max-width:480px){
+  body[data-role=host] .host-tabs .lan-icon,body[data-role=host] .actions .lan-icon,.seat-symbol{display:none}
+  .team-headings>div{font-size:11px;padding:0 3px}
+  .team-headings small{font-size:9px}
+}
+@media(max-height:550px){
+  body[data-role=host] #playerControls{grid-template-rows:26px 28px 20px minmax(0,1fr) 30px;gap:4px}
+  .team-headings{display:none}
+  body[data-role=host] .seats{grid-auto-rows:minmax(31px,max-content);gap:4px}
+  body[data-role=host] .seat-row{padding:2px 4px;border-radius:6px}
+  body[data-role=host] .seat-row strong{font-size:10px;line-height:12px}
+  body[data-role=host] .seat-row small{margin-top:0;font-size:9px;line-height:10px}
+  body[data-role=host] #roomStatus{padding:2px 6px;font-size:10px;line-height:12px}
+  body[data-role=host] .seat-symbol{display:none}
+  body[data-role=host] .actions .lan-icon{display:none}
+  .host-tabs .lan-icon{width:14px;height:14px}
+}

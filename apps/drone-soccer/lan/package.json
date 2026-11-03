@@ -1,0 +1,36 @@
+{
+  "name": "webduino-lan-official",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Direct QR HTTPS/WSS drone soccer matches with a bundled online connector",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server.cjs",
+    "test": "node --test test/room.test.cjs",
+    "test:network": "node test/network.cjs",
+    "test:browser": "node test/browser.cjs",
+    "test:scene": "node test/scene-sync.cjs",
+    "test:controller": "node test/controller-readiness.cjs",
+    "test:layout": "node test/host-layout.cjs",
+    "test:invite": "node test/invite.cjs",
+    "test:service": "node test/service.cjs",
+    "test:persistence": "node test/persistence.cjs",
+    "test:service-ui": "node test/service-ui.cjs",
+    "test:admin-layout": "node test/admin-layout.cjs",
+    "test:panel-settings": "node test/panel-settings.cjs",
+    "test:certificate-setup": "node test/certificate-setup.cjs",
+    "test:public-origin": "node test/public-origin.cjs",
+    "test:cloud": "node test/cloud.cjs",
+    "test:direct-ui": "node test/direct-qr-ui.cjs",
+    "test:direct-connector": "node ../desktop/connector-lifecycle.test.cjs"
+  },
+  "dependencies": {
+    "playwright": "1.56.1",
+    "qrcode": "1.5.4",
+    "ws": "8.21.0"
+  },
+  "devDependencies": {
+    "jsqr": "1.4.0",
+    "pngjs": "5.0.0"
+  }
+}

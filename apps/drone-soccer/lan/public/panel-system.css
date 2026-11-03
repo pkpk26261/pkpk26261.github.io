@@ -1,0 +1,305 @@
+/* FLIGHT CLUB — shared match settings and management surfaces. */
+.room-search-status{margin:-4px 0 16px;color:#92a0b3;font-size:12px;line-height:1.6}
+.panel-system{--panel-bg:#080b12;--panel-surface:#101620;--panel-raised:#161e2a;--panel-line:#283240;--panel-muted:#92a0b3;--panel-text:#f1f5fb;--panel-accent:#ff654d;--panel-ice:#87cfff;--panel-success:#85d9b5;color:var(--panel-text);color-scheme:dark}
+.panel-system :is(input,select,textarea){color:var(--panel-text);background:#0b1019;border:1px solid #354052;border-radius:8px;transition:border-color .16s,box-shadow .16s}
+.panel-system :is(input,select,textarea):focus-visible{outline:0;border-color:var(--panel-ice);box-shadow:0 0 0 3px #87cfff20}
+.panel-system :is(button,a,input,select):focus-visible{outline:2px solid var(--panel-ice);outline-offset:3px}
+.panel-system input[type=checkbox]{accent-color:var(--panel-accent)}
+.panel-system button{border:1px solid #354052;background:#18202c;color:#e1e7ef;border-radius:8px;font-weight:650;transition:background .16s,border-color .16s}
+.panel-system button:hover:not(:disabled){background:#242e3c;border-color:#607084}
+.panel-system button.primary,.panel-system a.primary{background:var(--panel-accent);border-color:var(--panel-accent);color:#1a0e0d;box-shadow:none;font-weight:800}
+.panel-system button.primary:hover:not(:disabled),.panel-system a.primary:hover{background:#ff806d;border-color:#ff806d}
+.panel-system button:disabled{opacity:.42;cursor:not-allowed}
+.panel-system button.danger{color:#ffac9d;background:#24191b;border-color:#66392f}
+.panel-system .panel-eyebrow{margin:0;color:var(--panel-ice);font-size:9px;font-weight:750;line-height:1.4;letter-spacing:1.6px}
+.panel-system .settings-section-heading{margin-bottom:16px}
+.panel-system .settings-section-heading h3{font-size:18px;line-height:1.5;margin:5px 0 3px;letter-spacing:.2px}
+.panel-system .settings-section-note{margin:0;font-size:12px;line-height:1.7;color:var(--panel-muted)}
+.panel-system .settings-group{min-width:0;border:1px solid var(--panel-line);background:#101620;border-radius:12px;padding:20px}
+.panel-system .settings-group :is(input,select){width:100%;min-width:0}
+.panel-system .settings-callout{border-left:2px solid var(--panel-ice);background:#87cfff08;color:#aebccd;padding:10px 12px;border-radius:0 6px 6px 0}
+.panel-system dialog{color:var(--panel-text);background:var(--panel-bg);border:1px solid #3a4656;border-radius:16px;box-shadow:0 24px 100px #000b}
+.panel-system dialog::backdrop{background:#03050ac9;backdrop-filter:blur(7px)}
+.panel-system .fc-panel-dialog{width:min(460px,calc(100vw - 28px));padding:0;max-height:calc(100dvh - 28px);overflow:auto}
+.panel-system .fc-panel-dialog form{padding:0;margin:0;border:0;background:none;display:block}
+.panel-system .fc-panel-dialog header{position:relative;padding:26px 28px 20px;border-bottom:1px solid var(--panel-line)}
+.panel-system .fc-panel-dialog h2{margin:8px 32px 0 0;font-size:23px;line-height:1.5}
+.panel-system .panel-dialog-close{position:absolute;right:16px;top:18px;width:32px;min-height:32px;padding:0;background:transparent;border-color:transparent;font-size:23px;font-weight:400}
+.panel-system .panel-decision-body{padding:20px 28px 26px}
+.panel-system .panel-decision-body>p{font-size:14px;color:#b0bdce;line-height:1.9;margin:0}
+.panel-system .panel-prompt-field{display:grid;gap:8px;margin-top:20px;color:#d4deeb;font-size:12px;font-weight:650}
+.panel-system .panel-prompt-field[hidden]{display:none}
+.panel-system .panel-prompt-field input{padding:12px;width:100%;min-height:44px;box-sizing:border-box}
+.panel-system .fc-panel-dialog footer{display:flex;justify-content:flex-end;gap:10px;padding:16px 28px;background:#101620;border-top:1px solid var(--panel-line)}
+.panel-system .fc-panel-dialog footer button{min-height:42px;padding:10px 18px;font-size:13px;width:auto}
+.panel-system .fc-panel-dialog[data-danger=true] .panel-eyebrow{color:#ffac9d}
+.panel-system .fc-panel-dialog[data-danger=true] #panelDecisionAccept{background:#ff654d;color:#1a0e0d;border-color:#ff654d}
+/* Administrative workspace and creation wizard. */
+body[data-service-role=admin].panel-system .settings-login{position:relative;padding:40px;max-width:570px;border:1px solid #303a49;background:linear-gradient(140deg,#161e2b,#0e141e 68%);border-radius:16px;box-shadow:0 28px 70px #0005}
+body[data-service-role=admin].panel-system .settings-login h1{font-size:42px;line-height:1.22;letter-spacing:-1.5px;margin:16px 0 20px}
+.panel-system .settings-login>p:not(.eyebrow){font-size:14px;line-height:1.8;color:#9fadc0}
+.panel-system .settings-login #loginForm{display:grid;gap:9px;margin:27px 0 22px}
+.panel-system .settings-login #adminKey{min-height:48px;padding:11px 14px;font-size:16px}
+.panel-system .settings-login button{min-height:48px;margin-top:8px}
+.panel-system .settings-login>a{font-size:12px;color:var(--panel-ice)}
+.panel-system .settings-login .settings-security-note{font-size:11px!important;line-height:1.8!important;border-top:1px solid var(--panel-line);padding-top:18px;margin:24px 0 0!important}
+body[data-service-role=admin].panel-system #roomDialog{width:min(960px,calc(100vw - 40px));max-width:none;max-height:calc(100dvh - 40px);padding:0;overflow:hidden}
+.panel-system #newRoomForm{display:flex;flex-direction:column;max-height:calc(100dvh - 42px);padding:0;margin:0;background:none;border:0;border-radius:0}
+.panel-system #newRoomForm>.dialog-heading{position:relative;display:block;margin:0;padding:22px 28px;border-bottom:1px solid var(--panel-line);flex:none}
+.panel-system #newRoomForm>.dialog-heading h2{font-size:24px;margin:6px 40px 0 0;line-height:1.4}
+.panel-system #roomDialogClose{position:absolute;right:20px;top:24px;background:transparent;border-color:transparent;width:34px;padding:0;min-height:34px}
+.panel-system .match-creation-layout{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:0;overflow:auto;overscroll-behavior:contain}
+.panel-system .creation-summary{background:linear-gradient(160deg,#1c2633,#111821 65%);padding:26px 24px;display:flex;flex-direction:column;align-items:flex-start;gap:18px;border-right:1px solid var(--panel-line)}
+.panel-system .creation-summary>img{display:block;object-fit:contain;width:100%;aspect-ratio:1.12;filter:drop-shadow(0 15px 25px #0008);margin:6px 0}
+.panel-system .creation-summary>strong{font-size:25px;line-height:1.5;letter-spacing:-.5px}
+.panel-system .creation-summary>p{font-size:12px;line-height:1.8;margin:0;color:#a4b2c4}
+.panel-system .creation-count{display:grid;gap:5px;padding-top:20px;border-top:1px solid #354052;width:100%;margin-top:auto}
+.panel-system .creation-count b{font-size:22px;color:var(--panel-ice);font-weight:700}
+.panel-system .creation-count span{font-size:13px;color:#9aaabd}
+.panel-system .creation-fields{padding:22px;display:grid;gap:14px;align-content:start;background:#0a0f17}
+.panel-system .creation-fields .settings-group{padding:18px}
+.panel-system .creation-fields .settings-section-heading{margin-bottom:13px}
+.panel-system .creation-fields .settings-section-heading .panel-eyebrow{display:none}
+.panel-system .creation-fields .settings-section-heading h3{font-size:15px;margin:0 0 3px}
+.panel-system .creation-fields .settings-section-note{font-size:11px}
+.panel-system .creation-info{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+.panel-system .creation-info>.settings-section-heading{grid-column:1/-1;margin-bottom:0}
+.panel-system .creation-info label,.panel-system .creation-rules label{display:grid;gap:7px;margin:0;font-size:11px;color:#b5c2d2}
+.panel-system .creation-fields input,.panel-system .creation-fields select{min-height:39px;padding:8px 10px;box-sizing:border-box;font-size:13px}
+.panel-system .creation-fields .team-configuration{gap:12px;margin:0}
+.panel-system .creation-fields fieldset{background:#0b111b;border:1px solid #333b49;border-radius:8px;padding:10px 12px;min-width:0;margin:0}
+.panel-system .creation-fields fieldset:has(.red){border-top:2px solid #ff7865}
+.panel-system .creation-fields fieldset:has(.blue){border-top:2px solid var(--panel-ice)}
+.panel-system .creation-fields fieldset legend{padding:0 7px;font-size:12px;font-weight:750}
+.panel-system .creation-fields fieldset label{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:7px 0 0;font-size:12px;color:#a8b6c8}
+.panel-system .creation-fields fieldset input{width:68px;text-align:center;min-height:34px}
+.panel-system .creation-roster>.muted{font-size:10px;line-height:1.7;color:#8291a5;margin:10px 0 0}
+.panel-system .settings-dialog-footer{display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 16px;padding:16px 24px;border-top:1px solid var(--panel-line);background:#111821;flex:none}
+.panel-system .settings-dialog-footer #newRoomError{grid-column:1/-1;padding:0;margin:0;font-size:12px}
+.panel-system .settings-dialog-footer #newRoomError:empty{display:none}
+.panel-system .settings-dialog-footer>p{font-size:11px;color:#93a2b6;margin:0}
+.panel-system .settings-footer-actions{min-width:0}
+.panel-system .settings-footer-actions button{min-height:42px;padding:10px 18px;white-space:nowrap;font-size:12px}
+.panel-system #adminArenas{padding-right:3px}
+.panel-system #siteForm.service-identity{display:grid;grid-template-columns:minmax(180px,1fr) minmax(180px,1fr) auto;gap:22px;align-items:center;margin:0 0 25px;padding:23px;background:#101620;border:1px solid var(--panel-line);border-radius:12px}
+.panel-system .service-identity .settings-section-heading{margin:0}
+.panel-system .service-identity .settings-section-heading h3{font-size:18px;margin:4px 0}
+.panel-system .service-identity label{font-size:11px;color:#9fadc0;margin:0;display:grid;gap:8px}
+.panel-system .service-identity input{min-height:42px;padding:10px 12px;width:100%;min-width:0;box-sizing:border-box}
+.panel-system .service-identity button{min-height:42px;margin-top:23px;white-space:nowrap}
+.panel-system #adminArenas .section-heading h2{font-size:22px;letter-spacing:-.4px;margin:0 0 7px}
+.panel-system #adminArenas .section-heading p{font-size:12px;line-height:1.8;max-width:550px}
+.panel-system #adminArenas #addArena{background:#87cfff13;border-color:#87cfff55;color:var(--panel-ice);white-space:nowrap}
+.panel-system .admin-arena-grid{gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-content:start}
+.panel-system .arena-editor{position:relative;border:1px solid var(--panel-line);background:linear-gradient(150deg,#151d29,#0e151f);padding:20px;border-radius:12px;box-shadow:none}
+.panel-system .arena-editor h3{font-size:13px;line-height:1.5;color:var(--panel-ice);margin:0 0 20px;padding-bottom:14px;border-bottom:1px solid var(--panel-line)}
+.panel-system .arena-editor label{display:grid;justify-content:stretch;align-items:stretch;gap:7px;font-size:11px;color:#9cacc0;margin:13px 0}
+.panel-system .arena-editor label input:not([type=checkbox]){width:100%;min-width:0;box-sizing:border-box;min-height:40px;padding:9px 11px;font-size:13px}
+.panel-system .arena-editor label:has([type=checkbox]){display:flex;flex-direction:row-reverse;justify-content:flex-end;align-items:center;padding:12px 0;border-block:1px solid #27313f;font-size:12px;color:#d9e1ec}
+.panel-system .arena-editor input[type=checkbox]{width:17px;height:17px;margin:0 4px 0 0;min-height:0}
+.panel-system .arena-editor .card-actions{display:flex;justify-content:space-between;gap:10px;margin:18px 0 0}
+.panel-system .arena-editor .card-actions button{font-size:12px;min-height:36px;padding:7px 15px}
+.panel-system .arena-editor .card-actions button[type=submit],.panel-system .arena-editor .card-actions button:first-child{background:#87cfff16;border-color:#87cfff55;color:var(--panel-ice)}
+.panel-system #adminHistory>h2{font-size:25px;line-height:1.4;margin:8px 0}
+.panel-system #adminHistory>.settings-section-note{margin-bottom:25px;max-width:600px}
+.panel-system .result-list{border:1px solid var(--panel-line);border-radius:12px;overflow:hidden}
+.panel-system .result-row{background:#101620;border-color:var(--panel-line);padding:18px 22px}
+/* Host desk: inputs remain inside the existing single-screen panel geometry. */
+body[data-role=host].panel-system .management{background:linear-gradient(145deg,#141c28,#0e141e 65%);border-color:#303b49;box-shadow:0 12px 35px #0004}
+body[data-role=host].panel-system .host-tabs{background:#080d15;border-color:#2d3746}
+body[data-role=host].panel-system .host-tabs [aria-selected=true]{background:#ff654d17;box-shadow:inset 0 -2px var(--panel-accent);color:#ffb5a9}
+body[data-role=host].panel-system .host-panel>.panel-eyebrow{font-size:8px;margin:2px 0 0;line-height:1.4;letter-spacing:1.3px}
+body[data-role=host].panel-system .host-panel h2{font-size:17px;line-height:1.5;letter-spacing:-.2px}
+body[data-role=host].panel-system .host-panel>p:not(.panel-eyebrow){font-size:11px;color:#92a2b6;line-height:1.7}
+body[data-role=host].panel-system #createForm{gap:10px}
+body[data-role=host].panel-system #createForm .roster-editor{gap:10px;margin-top:8px}
+body[data-role=host].panel-system #createForm fieldset{padding:12px;border-radius:10px;background:#0b111a;border-color:#2d3847}
+body[data-role=host].panel-system #createForm fieldset:has(.red){border-top:2px solid #ff7865}
+body[data-role=host].panel-system #createForm fieldset:has(.blue){border-top:2px solid var(--panel-ice)}
+body[data-role=host].panel-system #createForm fieldset label{color:#9cacbf;margin:8px 0}
+body[data-role=host].panel-system #createForm .host-options{padding:13px 0;border-block:1px solid var(--panel-line);margin-top:4px}
+body[data-role=host].panel-system #createForm .host-options label{font-size:11px;color:#9cacbf;gap:7px}
+body[data-role=host].panel-system #createForm #create,body[data-role=host].panel-system #createForm #updateRoster{margin-top:auto;min-height:38px}
+body[data-role=host].panel-system #cameraForm{gap:8px}
+body[data-role=host].panel-system #cameraForm>.settings-option-row{display:flex;justify-content:space-between;align-items:center;margin:4px 0 0;padding:10px 0;border-top:1px solid var(--panel-line);font-size:11px;color:#adbbce}
+body[data-role=host].panel-system #cameraMode{min-width:0;max-width:66%;font-size:11px}
+body[data-role=host].panel-system .camera-layout-preview{position:relative;display:grid;grid-template-columns:32px minmax(0,1fr) 32px;align-items:center;gap:12px;min-height:90px;padding:13px 18px 28px;background:radial-gradient(ellipse at center,#87cfff0b,transparent 70%),#090f18;border:1px solid #283341;border-radius:9px}
+.panel-system .camera-layout-preview .preview-team{font-size:9px;white-space:nowrap;border:1px solid currentColor;border-radius:5px;padding:4px;text-align:center;position:relative}
+.panel-system .camera-layout-preview .preview-team:after{content:"";position:absolute;left:50%;top:calc(100% + 4px);width:4px;height:4px;border-radius:50%;background:currentColor;box-shadow:0 0 10px currentColor}
+.panel-system .camera-layout-preview[data-station=left] .preview-team:after{left:12%}
+.panel-system .camera-layout-preview[data-station=right] .preview-team:after{left:82%}
+.panel-system .preview-field{position:relative;height:42px;border:1px solid #607489;transform:perspective(200px) rotateX(28deg);background:repeating-linear-gradient(90deg,transparent 0 22%,#6986a316 22% 23%,transparent 23% 25%),repeating-linear-gradient(0deg,transparent 0 46%,#6986a31c 46% 48%,transparent 48% 50%)}
+.panel-system .preview-field:before,.panel-system .preview-field:after{content:"";position:absolute;border:2px solid #ff806d;width:12px;height:23px;top:8px;left:13%;border-radius:50%}
+.panel-system .preview-field:after{left:auto;right:13%;border-color:var(--panel-ice)}
+.panel-system .preview-field i:nth-child(2){position:absolute;left:50%;height:100%;border-left:1px solid #607489}
+.panel-system .camera-layout-preview small{position:absolute;bottom:8px;inset-inline:0;text-align:center;color:#70859b;font-size:9px}
+body[data-role=host].panel-system .camera-setting-rows{display:grid;grid-template-columns:minmax(0,1fr);gap:0;border:1px solid var(--panel-line);background:#0b111a;border-radius:9px;padding:0 12px}
+body[data-role=host].panel-system .camera-setting-rows label.settings-option-row{display:flex;justify-content:space-between;align-items:center;gap:9px;margin:0;padding:12px 0;min-width:0;border-bottom:1px solid #27313f}
+body[data-role=host].panel-system .camera-setting-rows label:last-child{border-bottom:0}
+.panel-system .settings-option-copy{display:grid;gap:3px;min-width:0}
+.panel-system .settings-option-copy strong{font-size:12px;font-weight:650;color:#d9e3f0}
+.panel-system .settings-option-copy small{font-size:10px;line-height:1.5;color:#7f91a7}
+.panel-system .settings-number{display:flex;align-items:center;gap:7px;flex-shrink:0}
+body[data-role=host].panel-system .camera-setting-rows .settings-number input{width:68px;min-height:34px;margin:0;text-align:center;padding:6px 4px}
+.panel-system .settings-number>span{font-size:10px;color:#7d8fa4;min-width:10px}
+body[data-role=host].panel-system #cameraForm .settings-callout{margin:0;font-size:10px;line-height:1.6;padding:8px 10px}
+.panel-system .camera-apply-footer{margin-top:auto;display:grid;gap:7px;flex-shrink:0}
+.panel-system .settings-apply-state{font-size:10px;color:#8293a9;line-height:1.5}
+.panel-system .settings-apply-state[data-state=pending]{color:#f4c282}
+.panel-system .settings-apply-state[data-state=saved]{color:var(--panel-success)}
+body[data-role=host].panel-system #applyCamera{width:100%;min-height:38px;margin:0}
+body[data-role=host].panel-system #roomStatus{background:#87cfff0c;border-color:#87cfff66;color:#bad7ee}
+body[data-role=host].panel-system .seat-row{background:#0b111a;border-color:#283441;border-radius:9px}
+body[data-role=host].panel-system .seat-row[data-team=red]{border-left-color:#ff7865}
+body[data-role=host].panel-system .seat-row[data-team=blue]{border-left-color:var(--panel-ice)}
+body[data-role=host].panel-system .seat-row[data-state=ready]{background:#143027;border-color:#3b735a}
+body[data-role=host].panel-system .seat-symbol{background:#17202c;border-color:#354252}
+body[data-role=host].panel-system #invite{padding:24px;background:#0c121b;border-color:#3b4858}
+body[data-role=host].panel-system #invite .dialog-head{position:relative;display:block;padding-right:40px}
+body[data-role=host].panel-system #invite .dialog-head h2{margin-top:5px;font-size:23px}
+body[data-role=host].panel-system #inviteClose{position:absolute;right:0;top:0;min-height:30px;padding:4px 10px}
+body[data-role=host].panel-system #invite .settings-callout{font-size:11px;padding:10px 12px;margin:13px 0}
+body[data-role=host].panel-system #invite .invite-layout{margin:18px 0;gap:25px}
+body[data-role=host].panel-system #invite .invite-steps{font-size:9px;line-height:1.8;letter-spacing:.2px;color:var(--panel-ice);margin:12px 0}
+.panel-system .invite-direct-link{display:block;color:#87cfff;font-size:10px;line-height:1.7;margin-top:12px}
+.panel-system .invite-direct-link[hidden]{display:none}
+body[data-role=host].panel-system #invite #qr{border:10px solid white;border-radius:9px;background:white;box-sizing:border-box}
+body[data-role=host].panel-system .join-qr img{border:8px solid white;border-radius:9px;box-sizing:border-box;background:white}
+body[data-role=host].panel-system #invite .big-code,.panel-system .join-code{color:#f1f5fb;font-family:ui-monospace,Consolas,monospace;font-weight:800}
+/* Controller setup: useful settings grouped behind explicit, keyboard-accessible tabs. */
+body[data-role=player].panel-system #setupPanel{width:min(780px,calc(100vw - 32px));background:linear-gradient(155deg,#161e2a,#0c121b 55%);border-color:#394554;border-radius:16px;max-height:calc(100dvh - 36px);overflow:auto;overscroll-behavior:contain;padding:28px 28px 0}
+body[data-role=player].panel-system #setupPanel .dialog-head h2{font-size:28px;margin-top:8px;letter-spacing:-.7px}
+body[data-role=player].panel-system #setupPanel .setup-intro{font-size:12px;line-height:1.9;color:#93a4ba;max-width:630px;margin:15px 0 20px}
+body[data-role=player].panel-system #setupPanel .controller-checks{background:#080e16;border:1px solid #2a3544;border-radius:9px}
+body[data-role=player].panel-system #setupPanel #padReason{background:#87cfff0a;border-color:#87cfff22;color:#b1cee7;font-size:12px;line-height:1.8;border-radius:8px}
+body[data-role=player].panel-system #setupPanel .controller-selection{border-bottom:1px solid var(--panel-line);padding-bottom:15px;margin-bottom:16px}
+body[data-role=player].panel-system #setupPanel .controller-monitor{border:1px solid #2b3746;border-radius:10px;background:radial-gradient(ellipse at 50% 40%,#87cfff0b,transparent 70%),#0a111a}
+body[data-role=player].panel-system #setupPanel .monitor-label{color:#7492ae;font-size:9px;letter-spacing:1.7px}
+body[data-role=player].panel-system .advanced-controls{border:1px solid #303b49;border-radius:10px;background:#0c131e;overflow:hidden;margin-top:20px}
+body[data-role=player].panel-system .advanced-controls>summary{padding:15px 18px;font-size:13px;font-weight:650;color:#c7d4e4;cursor:pointer}
+body[data-role=player].panel-system .advanced-controls[open]>summary{border-bottom:1px solid var(--panel-line)}
+body[data-role=player].panel-system .advanced-content{padding:0;background:#0a1019}
+.panel-system .controller-settings-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:10px;border-bottom:1px solid #293342;background:#101823}
+.panel-system .controller-settings-nav button{min-width:0;min-height:36px;background:transparent;border-color:transparent;font-size:12px;padding:7px 5px;color:#8d9fb6;white-space:nowrap}
+.panel-system .controller-settings-nav button[aria-selected=true]{background:#87cfff13;border-color:#87cfff44;color:var(--panel-ice)}
+.panel-system .controller-settings-pages{padding:20px}
+.panel-system .controller-settings-pages .settings-group{padding:0;background:transparent;border:0;border-radius:0}
+.panel-system .controller-settings-pages .settings-group[hidden]{display:none}
+.panel-system .controller-settings-pages .settings-section-heading h3{font-size:17px}
+.panel-system .controller-settings-pages .settings-section-heading .panel-eyebrow{display:none}
+.panel-system .controller-settings-pages label{display:flex;justify-content:space-between;align-items:center;gap:15px;color:#9aaec5;font-size:12px;padding:12px 0;margin:0;border-bottom:1px solid #27313f}
+.panel-system .controller-settings-pages label>select{width:auto;max-width:65%;min-height:36px;font-size:12px}
+.panel-system .controller-settings-pages label>input{width:90px;min-height:36px;padding:7px 9px;font-size:13px}
+.panel-system .controller-settings-pages .axis-map{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;margin:15px 0;padding:13px;background:#101925;border:1px solid #2c394a;border-radius:8px}
+.panel-system .controller-settings-pages .axis-map label{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0;border:0;font-size:11px}
+.panel-system .controller-settings-pages .axis-map select{width:65px;max-width:none;flex-shrink:0;min-height:30px;padding:4px;font-size:11px}
+.panel-system .controller-settings-pages .axis-map input[type=checkbox]{width:14px;height:14px;min-height:0}
+.panel-system .calibration-steps{list-style:none;counter-reset:cal-step;display:grid;gap:13px;margin:21px 0;padding:0}
+.panel-system .calibration-steps li{counter-increment:cal-step;display:flex;align-items:center;gap:11px;font-size:12px;line-height:1.7;color:#adbdd0}
+.panel-system .calibration-steps li:before{content:counter(cal-step,decimal-leading-zero);display:grid;place-items:center;width:29px;height:29px;border:1px solid #3c4e64;color:var(--panel-ice);border-radius:50%;font-size:10px;flex-shrink:0}
+.panel-system .controller-calibration-page .actions{display:flex;flex-wrap:wrap;gap:8px}
+.panel-system .controller-calibration-page .actions button{font-size:12px;padding:10px 14px;min-height:40px;margin:0}
+.panel-system .controller-calibration-page #calFinish:not(:disabled){background:var(--panel-accent);border-color:var(--panel-accent);color:#1a0e0d}
+.panel-system .calibration-state{padding:11px 13px;font-size:11px;color:#8fa5bd;line-height:1.8;background:#87cfff08;border-left:2px solid #607e9b;margin:17px 0 0}
+.panel-system .calibration-state[data-state=active]{color:#ffd196;background:#ffcd740c;border-color:#dba657}
+.panel-system .controller-save-note{font-size:10px;color:#758ca4;line-height:1.8;border-top:1px solid #253242;margin:18px 0 0;padding-top:12px}
+.panel-system .controller-raw-page pre{padding:15px;background:#050a11;border:1px solid #293748;border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:11px;line-height:1.9;color:#9bb9d3}
+.panel-system .controller-raw-page>small{font-size:10px;color:#7f95ad;line-height:1.8}
+body[data-role=player].panel-system #setupPanel .setup-footer{border-top:1px solid #2d3949;margin-inline:-28px;padding:18px 28px;gap:16px}
+body[data-role=player].panel-system #setupPanel .setup-footer button{min-height:44px;font-size:13px;white-space:nowrap}
+body[data-role=player].panel-system #setupPanel .setup-footer #ready{width:auto;min-width:220px;flex:0 0 auto;margin:0}
+body[data-role=player].panel-system #setupPanel .setup-footer>p{max-width:260px;font-size:11px;line-height:1.8}
+body[data-role=watch].panel-system .topbar{background:#0c121b;border-color:#2c3848}
+body[data-role=watch].panel-system .scoreboard{background:linear-gradient(90deg,#ff654d08,transparent 35% 65%,#87cfff08);border-bottom:1px solid #2c3745}
+@media(max-width:1100px){.panel-system #siteForm.service-identity{grid-template-columns:1fr auto}.panel-system .service-identity>.settings-section-heading{grid-column:1/-1}.panel-system .service-identity button{margin-top:22px}}
+@media(max-width:650px){
+ .panel-system .match-creation-layout{grid-template-columns:minmax(0,1fr)}
+ .panel-system .creation-summary{display:none}
+ .panel-system .creation-fields{padding:14px;gap:10px}
+ body[data-service-role=admin].panel-system #roomDialog{width:calc(100vw - 20px);max-height:calc(100dvh - 20px)}
+ .panel-system #newRoomForm{max-height:calc(100dvh - 22px)}
+ .panel-system #newRoomForm>.dialog-heading{padding:18px}
+ .panel-system #newRoomForm>.dialog-heading h2{font-size:21px}
+ .panel-system #roomDialogClose{top:20px;right:12px}
+ .panel-system .creation-fields .settings-group{padding:14px}
+ .panel-system .creation-fields fieldset label{white-space:nowrap;gap:7px}
+ .panel-system .creation-fields fieldset input{width:54px}
+ .panel-system .creation-info{grid-template-columns:1fr}
+ .panel-system .creation-info>.settings-section-heading{grid-column:auto}
+ .panel-system .settings-dialog-footer{padding:12px 14px;grid-template-columns:1fr;gap:9px}
+ .panel-system .settings-footer-actions button{width:100%;min-height:42px;padding-inline:8px}
+ .panel-system .settings-dialog-footer>p{font-size:10px}
+ body[data-service-role=admin].panel-system .settings-login{padding:28px 22px}
+ body[data-service-role=admin].panel-system .settings-login h1{font-size:34px}
+ .panel-system #siteForm.service-identity{padding:18px;gap:14px;grid-template-columns:minmax(0,1fr)}
+ .panel-system .service-identity button{margin:0}
+ .panel-system .admin-arena-grid{grid-template-columns:minmax(0,1fr)}
+ .panel-system .arena-editor{padding:18px}
+ .panel-system #adminArenas .section-heading{gap:14px;align-items:start;flex-wrap:wrap}
+ body[data-role=host].panel-system #invite{padding:16px}
+ body[data-role=host].panel-system #invite .dialog-head h2{font-size:20px}
+ body[data-role=host].panel-system #invite .invite-layout{gap:14px;margin:14px 0}
+ body[data-role=player].panel-system #setupPanel{padding:19px 19px 0;width:calc(100vw - 24px);max-height:calc(100dvh - 24px)}
+ body[data-role=player].panel-system #setupPanel .setup-footer{margin-inline:-19px;padding:16px 19px;gap:10px}
+ body[data-role=player].panel-system #setupPanel .setup-footer #ready{min-width:145px;font-size:11px;padding-inline:12px;gap:16px}
+ body[data-role=player].panel-system #setupPanel .setup-footer>p{font-size:9px}
+ body[data-role=player].panel-system #setupPanel .dialog-head h2{font-size:25px}
+ .panel-system .controller-settings-pages{padding:15px}
+ .panel-system .controller-settings-pages .axis-map{grid-template-columns:minmax(0,1fr)}
+ .panel-system .controller-settings-nav{gap:3px;padding:7px}
+ .panel-system .controller-settings-nav button{font-size:11px}
+ .panel-system .controller-settings-pages label>select{max-width:65%;font-size:11px}
+ .panel-system .controller-calibration-page .actions button{flex:1 1 100%;width:100%}
+ .panel-system .fc-panel-dialog header{padding:24px 22px 18px}
+ .panel-system .fc-panel-dialog h2{font-size:21px}
+ .panel-system .panel-decision-body{padding:18px 22px 23px}
+ .panel-system .fc-panel-dialog footer{padding:14px 22px}
+}
+@media(max-height:700px){
+ body[data-role=host].panel-system #cameraForm{gap:6px}
+ body[data-role=host].panel-system .camera-layout-preview{min-height:66px;padding-block:7px 20px}
+ body[data-role=host].panel-system .camera-setting-rows label.settings-option-row{padding:8px 0}
+ body[data-role=host].panel-system #createForm{gap:6px}
+ body[data-role=host].panel-system #createForm fieldset{padding:7px 10px}
+ body[data-role=host].panel-system #createForm .roster-editor{margin-top:2px}
+ body[data-role=host].panel-system #createForm .host-options{padding:9px 0}
+}
+@media(max-height:550px){
+ .panel-system .match-creation-layout{grid-template-columns:minmax(0,1fr)}
+ .panel-system .creation-summary{display:none}
+ .panel-system #newRoomForm>.dialog-heading{padding-block:14px}
+ .panel-system #newRoomForm>.dialog-heading h2{font-size:20px}
+ .panel-system #roomDialogClose{top:17px}
+ body[data-role=host].panel-system .host-panel>.panel-eyebrow,body[data-role=host].panel-system .camera-layout-preview{display:none}
+ body[data-role=host].panel-system .host-panel h2{font-size:12px;line-height:1.4}
+ body[data-role=host].panel-system .host-panel>p:not(.panel-eyebrow){font-size:10px;line-height:1.5}
+ body[data-role=host].panel-system #createForm,body[data-role=host].panel-system #cameraForm{gap:4px}
+ body[data-role=host].panel-system #createForm .roster-editor{margin:0;gap:8px}
+ body[data-role=host].panel-system #createForm fieldset{padding:0 8px}
+ body[data-role=host].panel-system #createForm fieldset label{margin:3px 0}
+ body[data-role=host].panel-system #createForm .host-options{padding:4px 0;margin:0;gap:10px}
+ body[data-role=host].panel-system #createForm .host-options label{gap:3px;font-size:10px}
+ body[data-role=host].panel-system #createForm #create,body[data-role=host].panel-system #createForm #updateRoster{min-height:28px;margin:0}
+ body[data-role=host].panel-system #cameraForm>.settings-option-row{padding:3px 0;margin:0;border:0;font-size:10px}
+ body[data-role=host].panel-system .camera-setting-rows{padding:0 7px;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+ body[data-role=host].panel-system .camera-setting-rows label.settings-option-row{padding:5px 0;display:grid;gap:4px;border:0}
+ body[data-role=host].panel-system .camera-setting-rows .settings-number input{min-height:25px;padding:2px 5px;width:100%;min-width:0}
+ body[data-role=host].panel-system .settings-option-copy{gap:0;display:flex;align-items:center;gap:12px}
+ body[data-role=host].panel-system .settings-option-copy strong{font-size:10px;white-space:nowrap}
+ body[data-role=host].panel-system .settings-option-copy small{display:none}
+ body[data-role=host].panel-system #cameraForm .settings-callout{padding:4px 7px;font-size:9px;line-height:1.4}
+ body[data-role=host].panel-system .camera-apply-footer{gap:3px}
+ body[data-role=host].panel-system .settings-apply-state{font-size:9px}
+ body[data-role=host].panel-system #applyCamera{min-height:28px;margin:0}
+ body[data-role=host].panel-system #invite{padding:12px}
+ body[data-role=host].panel-system #invite .dialog-head .panel-eyebrow,body[data-role=host].panel-system #invite .invite-steps{display:none}
+ body[data-role=host].panel-system #invite .dialog-head h2{font-size:16px;margin:0}
+ body[data-role=host].panel-system #invite .invite-layout{margin:10px 0;gap:15px}
+ body[data-role=player].panel-system #setupPanel{max-height:calc(100dvh - 20px)}
+ .panel-system .fc-panel-dialog header{padding-block:16px 12px}
+ .panel-system .panel-decision-body{padding-block:14px 18px}
+ .panel-system .fc-panel-dialog footer{padding-block:11px}
+}
+@media(max-width:480px) and (max-height:550px){body[data-role=host].panel-system #invite .invite-layout{gap:5px;margin:5px 0}body[data-role=host].panel-system #invite{padding:9px}body[data-role=host].panel-system .settings-option-copy small{display:none}}
+@media(max-width:480px) and (max-height:700px){body[data-role=host].panel-system .camera-layout-preview{display:none}}
+@media(prefers-reduced-motion:reduce){.panel-system :is(input,select,textarea,button){transition:none}.panel-system dialog::backdrop{backdrop-filter:none}}

@@ -1,0 +1,466 @@
+{
+  "attack": {
+    "id": "attack",
+    "category": "battle",
+    "title": "單人進攻",
+    "src": "assets/lobby/previews/attack.svg",
+    "alt": "單人進攻開場示意：紅方 · 1 玩家，藍方 · 2 AI，全員停在己方起飛區。",
+    "legend": [
+      "紅方 · 1 玩家",
+      "全員由己方起飛區出發",
+      "藍方 · 2 AI"
+    ],
+    "roster": [
+      [
+        "red",
+        false,
+        "drone"
+      ],
+      [
+        "blue",
+        true,
+        "shield"
+      ],
+      [
+        "blue",
+        true,
+        "shield"
+      ]
+    ]
+  },
+  "defense": {
+    "id": "defense",
+    "category": "battle",
+    "title": "單人防守",
+    "src": "assets/lobby/previews/defense.svg",
+    "alt": "單人防守開場示意：紅方 · 1 AI，藍方 · 1 玩家＋1 AI，全員停在己方起飛區。",
+    "legend": [
+      "紅方 · 1 AI",
+      "全員由己方起飛區出發",
+      "藍方 · 1 玩家＋1 AI"
+    ],
+    "roster": [
+      [
+        "red",
+        true,
+        "drone"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ],
+      [
+        "blue",
+        true,
+        "shield"
+      ]
+    ]
+  },
+  "attack-defense": {
+    "id": "attack-defense",
+    "category": "battle",
+    "title": "攻守對決",
+    "src": "assets/lobby/previews/attack-defense.svg",
+    "alt": "攻守對決開場示意：紅方 · 1 玩家，藍方 · 1 玩家＋1 AI，全員停在己方起飛區。",
+    "legend": [
+      "紅方 · 1 玩家",
+      "全員由己方起飛區出發",
+      "藍方 · 1 玩家＋1 AI"
+    ],
+    "roster": [
+      [
+        "red",
+        false,
+        "drone"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ],
+      [
+        "blue",
+        true,
+        "shield"
+      ]
+    ]
+  },
+  "double-defense": {
+    "id": "double-defense",
+    "category": "battle",
+    "title": "雙人聯防",
+    "src": "assets/lobby/previews/double-defense.svg",
+    "alt": "雙人聯防開場示意：紅方 · 1 AI，藍方 · 2 玩家，全員停在己方起飛區。",
+    "legend": [
+      "紅方 · 1 AI",
+      "全員由己方起飛區出發",
+      "藍方 · 2 玩家"
+    ],
+    "roster": [
+      [
+        "red",
+        true,
+        "drone"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ]
+    ]
+  },
+  "one-vs-two": {
+    "id": "one-vs-two",
+    "category": "battle",
+    "title": "一攻二守",
+    "src": "assets/lobby/previews/one-vs-two.svg",
+    "alt": "一攻二守開場示意：紅方 · 1 玩家，藍方 · 2 玩家，全員停在己方起飛區。",
+    "legend": [
+      "紅方 · 1 玩家",
+      "全員由己方起飛區出發",
+      "藍方 · 2 玩家"
+    ],
+    "roster": [
+      [
+        "red",
+        false,
+        "drone"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ]
+    ]
+  },
+  "team-ai": {
+    "id": "team-ai",
+    "category": "battle",
+    "title": "組隊挑戰 AI",
+    "src": "assets/lobby/previews/team-ai.svg",
+    "alt": "組隊挑戰 AI開場示意：紅方 · 3 AI，藍方 · 3 玩家，全員停在己方起飛區。",
+    "legend": [
+      "紅方 · 3 AI",
+      "全員由己方起飛區出發",
+      "藍方 · 3 玩家"
+    ],
+    "roster": [
+      [
+        "red",
+        true,
+        "drone"
+      ],
+      [
+        "red",
+        true,
+        "shield"
+      ],
+      [
+        "red",
+        true,
+        "shield"
+      ],
+      [
+        "blue",
+        false,
+        "drone"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ]
+    ]
+  },
+  "six-player": {
+    "id": "six-player",
+    "category": "battle",
+    "title": "紅藍全員對戰",
+    "src": "assets/lobby/previews/six-player.svg",
+    "alt": "紅藍全員對戰開場示意：紅方 · 3 玩家，藍方 · 3 玩家，全員停在己方起飛區。",
+    "legend": [
+      "紅方 · 3 玩家",
+      "全員由己方起飛區出發",
+      "藍方 · 3 玩家"
+    ],
+    "roster": [
+      [
+        "red",
+        false,
+        "drone"
+      ],
+      [
+        "red",
+        false,
+        "shield"
+      ],
+      [
+        "red",
+        false,
+        "shield"
+      ],
+      [
+        "blue",
+        false,
+        "drone"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ]
+    ]
+  },
+  "practice": {
+    "id": "practice",
+    "category": "practice",
+    "title": "自由飛行練習",
+    "src": "assets/lobby/previews/practice.svg",
+    "alt": "自由飛行練習開場示意：紅方 · 1 玩家，藍方 · 2 AI，全員停在己方起飛區。",
+    "legend": [
+      "紅方 · 1 玩家",
+      "全員由己方起飛區出發",
+      "藍方 · 2 AI"
+    ],
+    "roster": [
+      [
+        "red",
+        false,
+        "drone"
+      ],
+      [
+        "blue",
+        true,
+        "shield"
+      ],
+      [
+        "blue",
+        true,
+        "shield"
+      ]
+    ]
+  },
+  "rings": {
+    "id": "rings",
+    "category": "racing",
+    "title": "高低環",
+    "src": "assets/lobby/previews/rings.svg",
+    "alt": "高低環賽道示意：不同高度環門與穿環航線。",
+    "legend": [
+      "起點 IN",
+      "高低環門 · 航線示意",
+      "終點 OUT"
+    ],
+    "roster": [
+      [
+        "blue",
+        false,
+        "drone"
+      ]
+    ]
+  },
+  "maze": {
+    "id": "maze",
+    "category": "racing",
+    "title": "立體迷宮",
+    "src": "assets/lobby/previews/maze.svg",
+    "alt": "立體迷宮賽道示意：三層立方晶格、隔板與立體穿越路線。",
+    "legend": [
+      "起點 IN",
+      "立體晶格 · 路線示意",
+      "終點 OUT"
+    ],
+    "roster": [
+      [
+        "blue",
+        false,
+        "drone"
+      ]
+    ]
+  },
+  "grid": {
+    "id": "grid",
+    "category": "racing",
+    "title": "九宮格",
+    "src": "assets/lobby/previews/grid.svg",
+    "alt": "九宮格賽道示意：固定九宮格框體、中央目標格位與穿越航線。",
+    "legend": [
+      "起點 IN",
+      "九宮格 · 目標格位",
+      "終點 OUT"
+    ],
+    "roster": [
+      [
+        "blue",
+        false,
+        "drone"
+      ]
+    ]
+  },
+  "tunnel": {
+    "id": "tunnel",
+    "category": "racing",
+    "title": "單軌隧道",
+    "src": "assets/lobby/previews/tunnel.svg",
+    "alt": "單軌隧道賽道示意：僅沿單一彎折路徑延伸的晶格通道、入口與出口。",
+    "legend": [
+      "起點 IN",
+      "單一路徑 · 晶格隧道",
+      "終點 OUT"
+    ],
+    "roster": [
+      [
+        "blue",
+        false,
+        "drone"
+      ]
+    ]
+  },
+  "slalom": {
+    "id": "slalom",
+    "category": "racing",
+    "title": "蛇形繞標",
+    "src": "assets/lobby/previews/slalom.svg",
+    "alt": "蛇形繞標賽道示意：左右交錯環門與蛇形穿越航線。",
+    "legend": [
+      "起點 IN",
+      "蛇形環門 · 連續側移",
+      "終點 OUT"
+    ],
+    "roster": [
+      [
+        "blue",
+        false,
+        "drone"
+      ]
+    ]
+  },
+  "spiral": {
+    "id": "spiral",
+    "category": "racing",
+    "title": "螺旋爬升",
+    "src": "assets/lobby/previews/spiral.svg",
+    "alt": "螺旋爬升賽道示意：螺旋排列環門與持續爬升航線。",
+    "legend": [
+      "起點 IN",
+      "螺旋環門 · 盤旋爬升",
+      "終點 OUT"
+    ],
+    "roster": [
+      [
+        "blue",
+        false,
+        "drone"
+      ]
+    ]
+  },
+  "official-ai": {
+    "id": "official-ai",
+    "category": "official",
+    "title": "正式賽・挑戰 AI",
+    "src": "assets/lobby/previews/official-ai.svg",
+    "alt": "正式賽・挑戰 AI開場示意：紅方 · 3 AI，藍方 · 3 玩家，全員停在己方起飛區。",
+    "legend": [
+      "紅方 · 3 AI",
+      "三局兩勝 · 起飛區待命",
+      "藍方 · 3 玩家"
+    ],
+    "roster": [
+      [
+        "red",
+        true,
+        "drone"
+      ],
+      [
+        "red",
+        true,
+        "shield"
+      ],
+      [
+        "red",
+        true,
+        "shield"
+      ],
+      [
+        "blue",
+        false,
+        "drone"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ]
+    ]
+  },
+  "official-six": {
+    "id": "official-six",
+    "category": "official",
+    "title": "正式賽・紅藍對抗",
+    "src": "assets/lobby/previews/official-six.svg",
+    "alt": "正式賽・紅藍對抗開場示意：紅方 · 3 玩家，藍方 · 3 玩家，全員停在己方起飛區。",
+    "legend": [
+      "紅方 · 3 玩家",
+      "三局兩勝 · 起飛區待命",
+      "藍方 · 3 玩家"
+    ],
+    "roster": [
+      [
+        "red",
+        false,
+        "drone"
+      ],
+      [
+        "red",
+        false,
+        "shield"
+      ],
+      [
+        "red",
+        false,
+        "shield"
+      ],
+      [
+        "blue",
+        false,
+        "drone"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ],
+      [
+        "blue",
+        false,
+        "shield"
+      ]
+    ]
+  }
+}

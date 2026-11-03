@@ -1,0 +1,232 @@
+/* Flight Club shared secondary surfaces. Native game IDs and actions remain owned by each game. */
+.fc-game[data-fc-theme] :is(.fc-settings-window,.fc-team-guide,.fc-flight-guide-dialog,.fc-restart-dialog,.fc-camera-picker,.fc-toolbar-popover) {
+  color: #edf2f7; background: #111924; border: 1px solid #394a5d; border-radius: 6px;
+  box-shadow: 0 32px 110px #0009; font-family: 'Segoe UI','Microsoft JhengHei',sans-serif; color-scheme: dark;
+}
+.fc-game[data-fc-theme] :is(.fc-settings-window,.fc-team-guide,.fc-flight-guide-dialog,.fc-restart-dialog)::backdrop {
+  background: #03060cba; backdrop-filter: blur(10px);
+}
+.fc-game[data-fc-theme] :is(.fc-settings-window,.fc-team-guide,.fc-flight-guide-dialog,.fc-restart-dialog,.fc-camera-picker,.fc-toolbar-popover) :is(button,select,a):focus-visible {
+  outline: 2px solid #87cfff; outline-offset: 3px;
+}
+.fc-game[data-fc-theme] .fc-settings-window {
+  box-sizing: border-box; width: min(960px,calc(100vw - 48px)); max-width: none;
+  height: min(680px,calc(100dvh - 48px)); max-height: none; padding: 0; overflow: hidden;
+}
+.fc-game[data-fc-theme] .fc-settings-window[open] { display: flex; flex-direction: column; }
+.fc-game[data-fc-theme] .fc-settings-header {
+  display: flex; flex: none; justify-content: space-between; align-items: flex-start; gap: 24px;
+  padding: 28px 32px 24px; border-bottom: 1px solid #304052; background: #121b28;
+}
+.fc-game[data-fc-theme] .fc-settings-kicker { color: #ff8b78; font-size: 9px; letter-spacing: .22em; font-weight: 650; }
+.fc-game[data-fc-theme] .fc-settings-header h2 { margin: 10px 0 8px; color: #f3f5f7; font-size: 28px; line-height: 1.25; font-weight: 800; letter-spacing: -.03em; }
+.fc-game[data-fc-theme] .fc-settings-header p { margin: 0; color: #94a6b8; font-size: 12px; line-height: 1.7; }
+.fc-game[data-fc-theme] :is(.fc-settings-close,.fc-more-close,.fc-guide-close,.fc-team-guide .fc-close) {
+  flex: none; display: grid; place-items: center; width: 44px; height: 44px; min-height: 44px !important;
+  padding: 0; border: 1px solid #3b4d61; border-radius: 4px !important; background: #1b2735; color: #b2c3d4; cursor: pointer;
+}
+.fc-game[data-fc-theme] :is(.fc-settings-close,.fc-more-close,.fc-guide-close):hover { background: #293a4c; color: #fff; }
+.fc-game[data-fc-theme] :is(.fc-settings-close,.fc-more-close,.fc-guide-close) .fc-icon { width: 18px; height: 18px; }
+.fc-game[data-fc-theme] .fc-settings-layout { display: grid; grid-template-columns: 200px minmax(0,1fr); grid-template-rows: minmax(0,1fr); flex: 1; min-height: 0; }
+.fc-game[data-fc-theme] .fc-settings-nav { padding: 24px 14px; border-right: 1px solid #304052; background: #0e1621; display: flex; flex-direction: column; gap: 7px; min-height: 0; overflow: auto; overscroll-behavior: contain; scroll-padding: 12px; scrollbar-width: thin; scrollbar-color: #3b5066 transparent; }
+.fc-game[data-fc-theme] .fc-settings-nav-item {
+  display: grid; grid-template-columns: 20px minmax(0,1fr); gap: 3px 11px; align-items: center;
+  min-height: 68px; flex-shrink: 0; padding: 13px 12px; border: 1px solid transparent; border-left: 2px solid transparent; border-radius: 3px;
+  text-align: left; background: transparent; color: #91a4b8; cursor: pointer;
+}
+.fc-game[data-fc-theme] .fc-settings-nav-item>.fc-icon { width: 19px; height: 19px; grid-row: span 2; }
+.fc-game[data-fc-theme] .fc-settings-nav-item>span { font-size: 13px; font-weight: 650; }
+.fc-game[data-fc-theme] .fc-settings-nav-item>small { font-size: 8px; letter-spacing: .13em; color: #6e869d; }
+.fc-game[data-fc-theme] .fc-settings-nav-item:hover { background: #182637; color: #e2eaf2; }
+.fc-game[data-fc-theme] .fc-settings-nav-item[aria-selected=true] { background: #273038; border-color: #52606b; border-left-color: #ff654d; color: #f1f4f7; }
+.fc-game[data-fc-theme] .fc-settings-nav-item[aria-selected=true]>.fc-icon { color: #ff8b78; }
+.fc-game[data-fc-theme] .fc-settings-body { min-width: 0; overflow: auto; overscroll-behavior: contain; padding: 32px; scrollbar-width: thin; scrollbar-color: #3b5066 transparent; }
+.fc-game[data-fc-theme] .fc-settings-page[hidden] { display: none; }
+.fc-game[data-fc-theme] .fc-settings-section-kicker { margin: 0 0 10px; color: #7d9bb7; font-size: 9px; font-weight: 650; letter-spacing: .18em; }
+.fc-game[data-fc-theme] .fc-settings-page h3 { margin: 0 0 10px; color: #eaf0f6; font-size: 22px; line-height: 1.4; font-weight: 750; letter-spacing: -.02em; }
+.fc-game[data-fc-theme] .fc-settings-description { color: #91a6b9; font-size: 12px; line-height: 1.9; margin: 0 0 26px; }
+.fc-game[data-fc-theme] .fc-settings-window .fc-camera-setting {
+  margin: 0; padding: 20px; border: 1px solid #3b4c5e; border-radius: 4px; background: #172330; gap: 24px; min-width: 0;
+}
+.fc-game[data-fc-theme] .fc-settings-window .fc-camera-setting-copy { gap: 9px; }
+.fc-game[data-fc-theme] .fc-settings-window .fc-camera-setting-copy strong { color: #e4ecf4; font-size: 14px; font-weight: 650; }
+.fc-game[data-fc-theme] .fc-settings-window .fc-camera-setting-copy>span { color: #94a9bc; font-size: 12px !important; line-height: 1.85; }
+.fc-game[data-fc-theme] .fc-settings-window .fc-frame-target { width: 148px; max-width: 148px; min-height: 44px; padding: 10px 12px; border: 1px solid #6c8298; border-radius: 3px; background: #0d1723; font-size: 13px; color: #e9f1f8; }
+.fc-game[data-fc-theme] .fc-settings-window .fc-camera-toggle { flex: none; appearance: auto; width: 24px; height: 24px; margin: 0; accent-color: #ff806b; cursor: pointer; }
+.fc-game[data-fc-theme] .fc-settings-information { display: flex; gap: 13px; align-items: flex-start; margin: 22px 0 0; padding: 16px 0; border-top: 1px solid #2d4052; }
+.fc-game[data-fc-theme] .fc-settings-information>.fc-icon { width: 18px; height: 18px; flex: none; margin-top: 1px; color: #87cfff; }
+.fc-game[data-fc-theme] .fc-settings-information strong { display: block; color: #bbcddd; font-size: 12px; font-weight: 650; }
+.fc-game[data-fc-theme] .fc-settings-information p { margin: 6px 0 0; color: #859bb0; font-size: 12px; line-height: 1.9; }
+.fc-game[data-fc-theme] .fc-settings-footer { display: grid; grid-template-columns: 1fr auto; gap: 12px 20px; flex: none; padding: 18px 24px; border-top: 1px solid #304052; background: #0e1621; align-items: center; }
+.fc-game[data-fc-theme] .fc-settings-save-status { grid-column: 1/-1; margin: 0; color: #94aabc; font-size: 11px !important; line-height: 1.8; }
+.fc-game[data-fc-theme] .fc-settings-save-status::before { content: ''; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #87cfff; margin-right: 8px; vertical-align: 2px; }
+.fc-game[data-fc-theme] .fc-settings-related:empty { display: none; }
+.fc-game[data-fc-theme] .fc-settings-related .fc-control-entry { display: inline-flex; min-height: 44px; margin: 0; padding: 8px 0; background: transparent; border: 0; border-radius: 0; color: #95bcda; font-size: 11px; text-align: left; }
+.fc-game[data-fc-theme] .fc-settings-footer-actions { display: flex; justify-content: flex-end; gap: 10px; grid-column: 2; }
+.fc-game[data-fc-theme] :is(.fc-settings-reset,.fc-settings-done) { min-height: 44px; padding: 10px 15px; border: 1px solid #3d5267; border-radius: 3px; background: #182534; color: #afc3d5; font-size: 12px; font-weight: 600; cursor: pointer; }
+.fc-game[data-fc-theme] .fc-settings-done { min-width: 100px; border-color: #ff654d; background: #ff654d; color: #210c08; font-weight: 750; }
+.fc-game[data-fc-theme] .fc-settings-done:hover { background: #ff806b; }
+.fc-game[data-fc-theme] .fc-runtime-metrics { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
+.fc-game[data-fc-theme] .fc-runtime-metric { padding: 18px 14px; border: 1px solid #3d5064; border-radius: 4px; background: #172330; min-width: 0; }
+.fc-game[data-fc-theme] .fc-runtime-metric>span { display: block; color: #a4b8c9; font-size: 11px; }
+.fc-game[data-fc-theme] .fc-runtime-metric>strong { display: block; font: 650 30px/1.25 'Segoe UI',sans-serif; color: #dcecf7; margin-top: 10px; white-space: nowrap; }
+.fc-game[data-fc-theme] .fc-runtime-metric>small { display: block; color: #6d8ca6; font-size: 8px; letter-spacing: .18em; margin-top: 8px; }
+.fc-game[data-fc-theme] .fc-runtime-status { margin: 16px 0; color: #8da7bc; font-size: 11px; line-height: 1.8; }
+.fc-game[data-fc-theme] .fc-runtime-details { border-top: 1px solid #304052; color: #a8bfd3; font-size: 12px; }
+.fc-game[data-fc-theme] .fc-runtime-details summary { cursor: pointer; padding: 16px 0; min-height: 44px; box-sizing: border-box; }
+.fc-game[data-fc-theme] .fc-runtime-data { margin: 0; }
+.fc-game[data-fc-theme] .fc-runtime-data>div { display: flex; justify-content: space-between; padding: 9px 0; gap: 16px; border-top: 1px solid #233647; color: #859caf; font-size: 11px; }
+.fc-game[data-fc-theme] .fc-runtime-data dd { margin: 0; color: #ceddea; font-variant-numeric: tabular-nums; }
+/* Camera and action popovers use the same surfaces and selection language. */
+.fc-game[data-fc-theme] .fc-camera-picker { width: 364px; padding: 20px; }
+.fc-game[data-fc-theme] .fc-camera-picker-heading { border-color: #34495d; padding-bottom: 16px; }
+.fc-game[data-fc-theme] .fc-camera-picker-heading strong { color: #f2f4f7; font-size: 19px; letter-spacing: -.02em; }
+.fc-game[data-fc-theme] .fc-camera-current { color: #87cfff; font-size: 11px; }
+.fc-game[data-fc-theme] .fc-camera-section h3 { color: #8ba3b9; font-size: 11px; }
+.fc-game[data-fc-theme] .fc-camera-option { min-height: 82px; border-radius: 3px; border-color: #3a4e62; background: #172432; color: #a8bdcf; }
+.fc-game[data-fc-theme] .fc-camera-option[aria-pressed=true] { color: #ffb2a4; background: #382923; border-color: #d88976; box-shadow: inset 0 -2px #ff654d; }
+.fc-game[data-fc-theme] .fc-camera-option:hover { color: #e3edf7; background: #223647; border-color: #87cfff; }
+.fc-game[data-fc-theme] .fc-camera-description { border-radius: 3px; background: #0c1520; color: #98adbf; }
+.fc-game[data-fc-theme] .fc-camera-picker .fc-camera-comfort { border-color: #34495d; }
+.fc-game[data-fc-theme] .fc-toolbar-popover { width: 284px; padding: 8px; }
+.fc-game[data-fc-theme] .fc-more-heading { padding: 6px 6px 10px 12px; border-color: #34495d; }
+.fc-game[data-fc-theme] .fc-more-heading strong { color: #d5e1ed; font-size: 13px; letter-spacing: .04em; }
+.fc-game[data-fc-theme] .fc-more-actions .fc-action { min-height: 48px; padding: 11px 13px; border: 1px solid transparent; border-radius: 3px !important; background: transparent !important; color: #b8cada !important; font-size: 12px; }
+.fc-game[data-fc-theme] .fc-more-actions .fc-action:hover { border-color: #40576b; background: #1c2c3c !important; color: #eff5f9 !important; }
+.fc-game[data-fc-theme] .fc-more-actions .fc-action-reset { margin-top: 6px; border-top-color: #405064; color: #ffa28f !important; }
+.fc-game[data-fc-theme] .fc-official-tools { position: fixed !important; inset: auto 16px 14px auto; display: flex !important; width: auto !important; max-width: calc(100vw - 32px); padding: 5px !important; z-index: 60; }
+.fc-game[data-fc-theme]:has(.fc-start-overlay:not(.hidden)) .fc-official-tools { visibility: hidden; pointer-events: none; }
+.fc-game[data-fc-theme] .fc-official-tools .fc-flight-actions[hidden] { display: none !important; }
+.fc-game[data-fc-theme] .fc-official-tools .fc-system-actions { display: flex; border: 0; width: auto; padding: 0; gap: 4px; }
+.fc-game[data-fc-theme] .fc-official-tools .fc-action { min-height: 40px; }
+/* Guides are always modal: one readable reference with current player bindings. */
+.fc-game[data-fc-theme] .fc-flight-guide-dialog { width: min(680px,calc(100vw - 40px)); max-height: calc(100dvh - 40px); border: 1px solid #3b4e63; border-radius: 6px; padding: 0; overflow: hidden; }
+.fc-game[data-fc-theme] .fc-flight-guide-dialog[open] { display: flex; }
+.fc-game[data-fc-theme] .fc-flight-guide-dialog .fc-flight-guide { width: 100%; border: 0; border-radius: 0; background: #111c29; color: #e4edf5; overflow: hidden; max-height: calc(100dvh - 42px); }
+.fc-game[data-fc-theme] .fc-guide-heading { padding: 22px 26px; border-color: #34495d; flex: none; background: #142131; }
+.fc-game[data-fc-theme] .fc-guide-eyebrow { color: #ff9b86; font-size: 8px; letter-spacing: .18em; }
+.fc-game[data-fc-theme] .fc-guide-title h2 { font-size: 21px; font-weight: 750; letter-spacing: -.02em; }
+.fc-game[data-fc-theme] .fc-guide-title>.fc-icon { color: #87cfff; width: 24px; height: 24px; }
+.fc-game[data-fc-theme] .fc-guide-body { padding: 18px 26px 24px; overflow: auto; min-height: 0; overscroll-behavior: contain; }
+.fc-game[data-fc-theme] .fc-guide-section { padding-top: 16px; }
+.fc-game[data-fc-theme] .fc-guide-section h3 { color: #7da4c1; font-size: 11px; margin-bottom: 12px; }
+.fc-game[data-fc-theme] .fc-guide-row { min-height: 44px; padding: 4px 0; border-top: 1px solid #2b4050; }
+.fc-game[data-fc-theme] .fc-guide-label { font-size: 12px; color: #b9cede; }
+.fc-game[data-fc-theme] .fc-guide-keys { font-size: 11px; color: #a7bfd2; flex-wrap: wrap; max-width: 60%; }
+.fc-game[data-fc-theme] .fc-keycap { background: #203346; border-color: #57718a; border-radius: 3px; min-width: 28px; height: 29px; color: #d9e8f4; font-size: 11px; }
+.fc-game[data-fc-theme] .fc-guide-footer { padding: 15px 26px; color: #88a4bb; font-size: 11px; line-height: 1.8; border-color: #34495d; background: #0b1521; flex: none; }
+.fc-game[data-fc-theme] .fc-team-guide { width: min(680px,calc(100vw - 40px)); max-width: none; max-height: calc(100dvh - 40px); padding: 0; overflow: auto; }
+.fc-game[data-fc-theme] .fc-team-guide .fc-dialog-heading { position: sticky; top: 0; z-index: 1; background: #142131; padding: 20px 24px; border-bottom: 1px solid #34495d; }
+.fc-game[data-fc-theme] .fc-team-guide .fc-dialog-heading strong { font-size: 21px; color: #edf3f8; }
+.fc-game[data-fc-theme] .fc-team-guide>.fc-visible-guide { margin: 0 !important; padding: 24px !important; border: 0 !important; border-radius: 0 !important; background: #111c29 !important; color: #b5cadb !important; }
+.fc-game[data-fc-theme] .fc-team-guide .fc-close { font-size: 0; }
+.fc-game[data-fc-theme] .fc-team-guide .fc-close::after { content: '×'; font-size: 23px; font-weight: 300; }
+/* Pause, retry and match results retain native actions and data. */
+.fc-game[data-fc-theme] .fc-restart-dialog { width: min(520px,calc(100vw - 32px)); max-height: calc(100dvh - 32px); border-top: 2px solid #ff654d; }
+.fc-game[data-fc-theme] .fc-restart-content { padding: 32px; }
+.fc-game[data-fc-theme] .fc-restart-symbol { width: 48px; height: 48px; margin-bottom: 24px; color: #ffac98; border: 1px solid #80584f; border-radius: 4px; background: #372824; }
+.fc-game[data-fc-theme] .fc-restart-status { color: #87cfff; font-size: 10px; letter-spacing: .12em; }
+.fc-game[data-fc-theme] .fc-restart-dialog h2 { margin: 12px 0 14px; font-size: 25px; font-weight: 750; letter-spacing: -.03em; color: #eff4f8; }
+.fc-game[data-fc-theme] .fc-restart-dialog p { font-size: 13px; line-height: 1.9; color: #95adbf; }
+.fc-game[data-fc-theme] .fc-restart-actions { display: flex; padding: 20px 32px; gap: 12px; border-top: 1px solid #34495d; background: #0d1722; }
+.fc-game[data-fc-theme] .fc-ground-result .fc-restart-actions { margin: 28px -32px -32px; }
+.fc-game[data-fc-theme] :is(.fc-restart-cancel,.fc-restart-confirm) { display: flex; align-items: center; justify-content: center; flex: 1; min-height: 48px; padding: 12px 16px; border: 1px solid #3f576c; border-radius: 3px; color: #b7ccdf; background: #192938; font-size: 13px; font-weight: 650; cursor: pointer; text-decoration: none; }
+.fc-game[data-fc-theme] .fc-restart-confirm { background: #ff654d; border-color: #ff654d; color: #210c08; }
+.fc-game[data-fc-theme] .fc-restart-confirm:hover { background: #ff806b; }
+.fc-game[data-fc-theme] .fc-result-overlay { background: #03070ed6 !important; padding: 24px !important; }
+.fc-game[data-fc-theme] .fc-result-card { width: 100%; max-width: 560px; padding: 36px !important; border: 1px solid #3a5065; border-top: 2px solid #ff654d; border-radius: 6px; background: linear-gradient(145deg,#1a2939,#101a27) !important; box-shadow: 0 30px 100px #0008; }
+.fc-game[data-fc-theme] .fc-result-kicker { display: block; margin-bottom: 22px; color: #ff9a85; font: 650 9px/1.4 'Segoe UI',sans-serif; letter-spacing: .23em; }
+.fc-game[data-fc-theme] .fc-result-card>:is(.text-5xl,#finishIcon) { font-size: 30px; color: #87cfff !important; margin-bottom: 18px; animation: none; }
+.fc-game[data-fc-theme] .fc-result-card h2 { margin-bottom: 14px; font-size: 27px; letter-spacing: -.025em; line-height: 1.45; font-weight: 800; }
+.fc-game[data-fc-theme] .fc-result-card p { line-height: 1.9; }
+.fc-game[data-fc-theme] .fc-result-card #finishElapsedTime { font-size: 56px; line-height: 1.4; color: #e7f4ff; font-weight: 700; font-variant-numeric: tabular-nums; }
+.fc-game[data-fc-theme] .fc-result-card :is([class*="bg-slate-9"],[class*="bg-slate-8"]) { background: #0b1723; border-color: #3a5065; border-radius: 4px; }
+.fc-game[data-fc-theme] .fc-result-card button { min-height: 48px; border-radius: 3px; font-size: 12px; background: #1b2d3e; border: 1px solid #47617a; color: #cbdeed; box-shadow: none; margin-top: 8px; }
+.fc-game[data-fc-theme] .fc-result-card :is(#btnRetryLevel,#btnRestart,#btnPlayAgain,#btnNextLevel) { background: #ff654d; border-color: #ff654d; color: #210c08 !important; }
+.fc-game[data-fc-theme] #faiOverlay .fc-official-panel {
+  box-sizing: border-box; max-width: 520px; max-height: calc(100dvh - 152px); overflow: auto; overscroll-behavior: contain;
+  padding: 28px !important; border: 1px solid #3d536b; border-top: 2px solid #ff654d; border-radius: 6px;
+  background: linear-gradient(145deg,#1a2939,#101a27); box-shadow: 0 26px 90px #0009; font-size: 12px; line-height: 1.8;
+}
+.fc-game[data-fc-theme] .fc-official-kicker { display: block; margin: 0 0 18px; color: #ff9a85; font: 650 9px/1.4 'Segoe UI',sans-serif; letter-spacing: .2em; }
+.fc-game[data-fc-theme] #faiOverlay .fc-official-scroll { pointer-events: auto; scrollbar-width: thin; scrollbar-color: #516b83 transparent; }
+.fc-game[data-fc-theme] #faiOverlay #faiCount { color: #e1f2ff !important; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.fc-game[data-fc-theme] #faiOverlay [data-fai-action] { min-height: 48px; padding: 12px 18px; border: 1px solid #ff654d; border-radius: 3px; background: #ff654d; color: #210c08 !important; font-size: 13px; font-weight: 750; letter-spacing: .02em; cursor: pointer; }
+.fc-game[data-fc-theme] #faiOverlay [data-fai-action]:hover { background: #ff806b; }
+.fc-game[data-fc-theme] #faiOverlay [data-fai-action]:focus-visible { outline: 2px solid #87cfff; outline-offset: 4px; }
+.fc-game[data-fc-theme] #faiOverlay table { width: 100%; font-size: 12px; border-collapse: collapse; margin-block: 18px; }
+.fc-game[data-fc-theme] #faiOverlay :is(td,th) { padding: 10px 8px; border-bottom: 1px solid #364d62; }
+@media(max-width:650px) {
+  .fc-game[data-fc-theme] .fc-settings-window { width: calc(100vw - 24px); height: calc(100dvh - 24px); }
+  .fc-game[data-fc-theme] .fc-settings-header { padding: 20px; gap: 16px; }
+  .fc-game[data-fc-theme] .fc-settings-header h2 { font-size: 24px; margin-block: 8px; }
+  .fc-game[data-fc-theme] .fc-settings-header p { font-size: 11px; }
+  .fc-game[data-fc-theme] .fc-settings-layout { display: flex; flex-direction: column; }
+  .fc-game[data-fc-theme] .fc-settings-nav { flex: none; flex-direction: row; padding: 8px 10px; border-right: 0; border-bottom: 1px solid #304052; gap: 4px; }
+  .fc-game[data-fc-theme] .fc-settings-nav-item { display: flex; flex: 1; flex-direction: column; gap: 5px; padding: 10px 2px; min-height: 58px; border-left-width: 1px; border-bottom: 2px solid transparent; align-items: center; text-align: center; }
+  .fc-game[data-fc-theme] .fc-settings-nav-item>.fc-icon { display: none; }
+  .fc-game[data-fc-theme] .fc-settings-nav-item>span { font-size: 11px; }
+  .fc-game[data-fc-theme] .fc-settings-nav-item>small { font-size: 7px; }
+  .fc-game[data-fc-theme] .fc-settings-nav-item[aria-selected=true] { border-left-color: #52606b; border-bottom-color: #ff654d; }
+  .fc-game[data-fc-theme] .fc-settings-body { flex: 1; padding: 22px 20px; }
+  .fc-game[data-fc-theme] .fc-settings-page h3 { font-size: 20px; }
+  .fc-game[data-fc-theme] .fc-settings-description { font-size: 11px; margin-bottom: 20px; }
+  .fc-game[data-fc-theme] .fc-settings-window .fc-camera-setting { padding: 16px; gap: 14px; }
+  .fc-game[data-fc-theme] .fc-settings-window .fc-frame-setting { flex-direction: column; align-items: stretch; }
+  .fc-game[data-fc-theme] .fc-settings-window .fc-frame-target { width: 100%; max-width: none; }
+  .fc-game[data-fc-theme] .fc-settings-footer { grid-template-columns: 1fr; padding: 13px 18px; gap: 8px; }
+  .fc-game[data-fc-theme] .fc-settings-save-status { font-size: 10px !important; }
+  .fc-game[data-fc-theme] .fc-settings-related .fc-control-entry { min-height: 32px; padding: 2px 0; font-size: 11px; }
+  .fc-game[data-fc-theme] .fc-settings-footer-actions { grid-column: 1; justify-content: stretch; gap: 8px; }
+  .fc-game[data-fc-theme] .fc-settings-reset { flex: 1; font-size: 11px; padding-inline: 9px; }
+  .fc-game[data-fc-theme] .fc-settings-done { min-width: 80px; font-size: 12px; }
+  .fc-game[data-fc-theme] .fc-runtime-metrics { gap: 6px; }
+  .fc-game[data-fc-theme] .fc-runtime-metric { padding: 13px 8px; }
+  .fc-game[data-fc-theme] .fc-runtime-metric>strong { font-size: 23px; }
+  .fc-game[data-fc-theme] .fc-runtime-metric>span { font-size: 10px; }
+  .fc-game[data-fc-theme] .fc-guide-heading { padding: 18px; }
+  .fc-game[data-fc-theme] .fc-guide-title h2 { font-size: 18px; }
+  .fc-game[data-fc-theme] .fc-guide-title>.fc-icon { display: none; }
+  .fc-game[data-fc-theme] .fc-guide-body { padding: 12px 18px 18px; }
+  .fc-game[data-fc-theme] .fc-guide-footer { padding: 13px 18px; font-size: 10px; }
+  .fc-game[data-fc-theme] .fc-result-card { padding: 28px 22px !important; }
+  .fc-game[data-fc-theme] .fc-result-card h2 { font-size: 23px; }
+  .fc-game[data-fc-theme] #faiOverlay .fc-official-panel { padding: 20px !important; }
+  .fc-game[data-fc-theme] .fc-official-tools { inset: auto 10px 10px auto; }
+  .fc-game[data-fc-theme] .fc-official-tools .fc-action { width: 44px; min-height: 44px; }
+  .fc-game[data-fc-theme] .fc-official-tools .fc-action-label { display: none; }
+}
+@media(max-height:480px) {
+  .fc-game[data-fc-theme] .fc-settings-window { width: calc(100vw - 24px); height: calc(100dvh - 16px); }
+  .fc-game[data-fc-theme] .fc-settings-header { padding: 12px 20px; align-items: center; }
+  .fc-game[data-fc-theme] .fc-settings-header h2 { font-size: 21px; margin: 5px 0 0; }
+  .fc-game[data-fc-theme] .fc-settings-header p { display: none; }
+  .fc-game[data-fc-theme] .fc-settings-layout { display: grid; grid-template-columns: 170px minmax(0,1fr); }
+  .fc-game[data-fc-theme] .fc-settings-nav { flex-direction: column; padding: 12px; border-right: 1px solid #304052; border-bottom: 0; }
+  .fc-game[data-fc-theme] .fc-settings-nav-item { min-height: 44px; flex: none; padding: 8px 10px; display: flex; flex-direction: row; align-items: center; text-align: left; border: 1px solid transparent; border-left: 2px solid transparent; }
+  .fc-game[data-fc-theme] .fc-settings-nav-item>:is(.fc-icon,small) { display: none; }
+  .fc-game[data-fc-theme] .fc-settings-nav-item[aria-selected=true] { border-color: #52606b; border-left-color: #ff654d; }
+  .fc-game[data-fc-theme] .fc-settings-body { padding: 20px; }
+  .fc-game[data-fc-theme] .fc-settings-footer { display: flex; flex-wrap: wrap; padding: 10px 20px; gap: 6px 18px; }
+  .fc-game[data-fc-theme] .fc-settings-save-status { width: 100%; font-size: 10px !important; }
+  .fc-game[data-fc-theme] .fc-settings-related { flex: 1; }
+  .fc-game[data-fc-theme] .fc-settings-related .fc-control-entry { min-height: 36px; }
+  .fc-game[data-fc-theme] .fc-settings-footer-actions { margin-left: auto; }
+  .fc-game[data-fc-theme] .fc-settings-reset,.fc-game[data-fc-theme] .fc-settings-done { min-height: 40px; }
+  .fc-game[data-fc-theme] .fc-restart-content { padding: 22px 26px; }
+  .fc-game[data-fc-theme] .fc-restart-symbol { display: none; }
+  .fc-game[data-fc-theme] .fc-restart-dialog h2 { font-size: 22px; }
+  .fc-game[data-fc-theme] .fc-restart-actions { padding: 15px 26px; }
+  .fc-game[data-fc-theme] .fc-ground-result .fc-restart-actions { margin: 20px -26px -22px; }
+}
+@media(max-width:360px) {
+  .fc-game[data-fc-theme] .fc-settings-header { padding: 16px; }
+  .fc-game[data-fc-theme] .fc-settings-header h2 { font-size: 22px; }
+  .fc-game[data-fc-theme] .fc-settings-body { padding: 20px 16px; }
+  .fc-game[data-fc-theme] .fc-settings-footer { padding-inline: 14px; }
+  .fc-game[data-fc-theme] .fc-restart-content { padding: 24px; }
+  .fc-game[data-fc-theme] .fc-restart-dialog h2 { font-size: 22px; }
+  .fc-game[data-fc-theme] .fc-restart-actions { padding: 16px 24px; }
+  .fc-game[data-fc-theme] .fc-ground-result .fc-restart-actions { margin: 24px -24px -24px; }
+  .fc-game[data-fc-theme] .fc-camera-picker { padding: 14px; }
+}

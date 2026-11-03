@@ -1,0 +1,145 @@
+'use strict';
+// A real HTTPS reverse proxy and separate host/player browser contexts.
+// Uses isolated test certificates and synthetic controllers; no cloud deployment.
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const http = require('node:http');
+const https = require('node:https');
+const net = require('node:net');
+const { randomBytes } = require('node:crypto');
+const { chromium } = require('playwright');
+const { start } = require('../server.cjs');
+
+const output = path.resolve(__dirname, '../../../../artifacts/cloud-deploy-20261103/browser');
+const report = { checks: [], errors: [], externalRequests: [], limitations: ['Local proxy, not a deployed Linux container.', 'Synthetic controllers, not physical hardware.'] };
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+async function until(fn, label, timeout = 40000) {
+  const deadline = Date.now() + timeout;
+  while (Date.now() < deadline) { if (await fn()) return; await delay(75); }
+  throw Error('Timeout: ' + label);
+}
+async function freePort() {
+  const listener = net.createServer();
+  await new Promise((resolve, reject) => { listener.once('error', reject); listener.listen(0, '127.0.0.1', resolve); });
+  const port = listener.address().port;
+  await new Promise(resolve => listener.close(resolve));
+  return port;
+}
+function syntheticPad() {
+  window.__pads = [{ id: 'Synthetic cloud-test controller', index: 0, connected: true, mapping: 'standard', axes: [0, 0, 0, 0], buttons: Array.from({ length: 16 }, () => ({ value: 0, pressed: false, touched: false })), timestamp: 1 }];
+  Object.defineProperty(navigator, 'getGamepads', { value: () => window.__pads });
+}
+
+(async () => {
+  let service, proxy, browser;
+  const tunnels = new Set();
+  fs.mkdirSync(output, { recursive: true });
+  try {
+    assert(process.env.LAN_TEST_CERT_DIR, 'LAN_TEST_CERT_DIR must name isolated test certificates');
+    const certDir = path.resolve(process.env.LAN_TEST_CERT_DIR);
+    const internalPort = await freePort(), externalPort = await freePort();
+    const origin = 'https://127.0.0.1:' + externalPort;
+    const adminToken = randomBytes(32).toString('base64url');
+    service = await start({ cloud: true, port: internalPort, persist: false, 'public-origin': origin, 'admin-token': adminToken });
+    proxy = https.createServer({ cert: fs.readFileSync(path.join(certDir, 'server.pem')), key: fs.readFileSync(path.join(certDir, 'server-key.pem')) }, (req, res) => {
+      const upstream = http.request({ hostname: '127.0.0.1', port: internalPort, path: req.url, method: req.method, headers: req.headers }, reply => {
+        res.writeHead(reply.statusCode, reply.headers); reply.pipe(res);
+      });
+      upstream.on('error', error => { if (!res.headersSent) res.writeHead(502); res.end(error.message); });
+      req.pipe(upstream);
+    });
+    proxy.on('upgrade', (req, socket, head) => {
+      const upstream = net.connect(internalPort, '127.0.0.1', () => {
+        upstream.write(req.method + ' ' + req.url + ' HTTP/1.1\r\n' + req.rawHeaders.reduce((lines, value, i, rows) => i % 2 ? lines : lines + value + ': ' + rows[i + 1] + '\r\n', '') + '\r\n');
+        if (head.length) upstream.write(head);
+        socket.pipe(upstream); upstream.pipe(socket);
+      });
+      tunnels.add(socket); tunnels.add(upstream);
+      for (const connection of [socket, upstream]) {
+        connection.on('error', () => { socket.destroy(); upstream.destroy(); });
+        connection.on('close', () => { tunnels.delete(connection); socket.destroy(); upstream.destroy(); });
+      }
+    });
+    await new Promise((resolve, reject) => { proxy.once('error', reject); proxy.listen(externalPort, '127.0.0.1', resolve); });
+    browser = await chromium.launch({ executablePath: chromium.executablePath(), headless: true });
+    const newContext = async () => {
+      const context = await browser.newContext({ ignoreHTTPSErrors: true, viewport: { width: 1440, height: 900 } });
+      context.on('page', page => {
+        page.on('pageerror', error => report.errors.push(error.message));
+        page.on('request', request => { if (!request.url().startsWith(origin + '/') && !/^(data|blob):/.test(request.url())) report.externalRequests.push(request.url()); });
+      });
+      return context;
+    };
+    const hostContext = await newContext(), host = await hostContext.newPage();
+    const configResponse = await hostContext.request.get(origin + '/api/config');
+    const config = await configResponse.json();
+    assert.equal(config.joinURL, origin + '/play');
+    assert.equal(config.certificateTrustRequired, false);
+    assert.equal(config.publicReady, true);
+    assert.equal(service.internalOrigin, 'http://127.0.0.1:' + internalPort);
+    report.checks.push('HTTPS public configuration and private HTTP authority work through an actual TLS reverse proxy without server certificates.');
+    await host.goto(origin + '/admin');
+    await host.locator('#adminKey').fill(adminToken);
+    await host.locator('#loginForm button').click();
+    await host.locator('#adminDashboard').waitFor({ state: 'visible' });
+    const cookies = await hostContext.cookies();
+    const session = cookies.find(cookie => cookie.name === 'lan_session');
+    assert(session?.secure && session.httpOnly && session.sameSite === 'Strict');
+    // Exercise the existing standalone host screen using its authenticated cookie.
+    await host.goto(origin + '/host');
+    await host.locator('#redHumans').fill('1');
+    await host.locator('#redAI').fill('0');
+    await host.locator('#blueHumans').fill('1');
+    await host.locator('#blueAI').fill('0');
+    await host.locator('#create').click();
+    await until(() => service.roomMap.size === 1, 'host creates room');
+    const room = [...service.roomMap.values()][0];
+    await until(() => room.engineReady && room.snapshot, 'authoritative game snapshots');
+    await host.locator('#inviteClose').click();
+    report.checks.push('A browser-only host logs in using a Secure/HttpOnly cookie, creates a room and starts the original authoritative game engine.');
+    const players = [];
+    for (const [i, seat] of ['r-atk', 'b-atk'].entries()) {
+      const context = await newContext();
+      await context.addInitScript(syntheticPad);
+      const player = await context.newPage(); players.push(player);
+      await player.goto(origin + '/play?code=' + room.code);
+      await player.locator('#nickname').fill('雲端玩家 ' + (i + 1));
+      await player.locator('#seat').selectOption(seat);
+      await player.locator('#joinSubmit').click();
+      await until(() => [...room.players.values()].some(p => p.seat === seat && p.pad && p.cameraAck === room.camera.revision && p.viewAck === room.engineRevision), 'player scene and controller ready');
+      await until(() => player.locator('#ready').isEnabled(), 'neutral controller');
+      await player.locator('#ready').click();
+    }
+    await until(() => room.conditions(), 'both players ready');
+    const watchContext = await newContext(), watch = await watchContext.newPage();
+    await watch.goto(origin + '/watch?code=' + room.code);
+    await watch.locator('#scene:not([hidden])').waitFor();
+    await host.locator('#tabRoom').click();
+    await host.locator('#start').click();
+    await until(() => room.status === 'running' && room.snapshot?.match.phase === 'play', 'countdown and whistle');
+    report.checks.push('Two independent player browsers join different seats over WSS, synchronize their 3D views, prepare and enter the official match; an independent observer watches the same room.');
+    await host.locator('#pause').click();
+    await until(() => room.status === 'paused', 'host pause');
+    await host.screenshot({ path: path.join(output, 'host.png') });
+    await players[0].screenshot({ path: path.join(output, 'player.png') });
+    await watch.screenshot({ path: path.join(output, 'watch.png') });
+    await host.reload();
+    await until(() => host.locator('#roomCode').textContent().then(value => value === room.code), 'host reload retains room');
+    assert.equal(service.roomMap.size, 1);
+    report.checks.push('Host pause and browser refresh retain the same server-owned room and engine.');
+    assert.deepEqual(report.errors, []);
+    assert.deepEqual(report.externalRequests, []);
+    report.result = 'PASS';
+    console.log('CLOUD BROWSER PASS', report.checks.length);
+  } catch (error) {
+    report.result = 'FAIL'; report.failure = error.stack;
+    console.error(error.stack); process.exitCode = 1;
+  } finally {
+    await browser?.close();
+    for (const socket of tunnels) socket.destroy();
+    if (proxy) await new Promise(resolve => proxy.close(resolve));
+    await service?.close();
+    fs.writeFileSync(path.join(output, 'report.json'), JSON.stringify(report, null, 2));
+  }
+})();

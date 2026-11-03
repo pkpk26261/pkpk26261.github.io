@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1018">
+  <meta name="description" content="FLIGHT CLUB 賽事大廳。選擇比賽或輸入房碼，直接參賽與觀看轉播。">
+  <title>FLIGHT CLUB｜賽事大廳</title>
+  <link rel="icon" href="/apps/drone-soccer/assets/brand/flight-club.ico">
+  <link rel="stylesheet" href="/lan/service.css">
+  <link rel="stylesheet" href="/apps/drone-soccer/assets/lobby/tournament-lobby.css">
+</head>
+<body data-service-role="public">
+  <a class="skip-link" href="#mainContent">跳至主要內容</a>
+  <header class="service-header">
+    <a class="service-brand" href="/" aria-label="FLIGHT CLUB 賽事大廳首頁"><svg class="brand-symbol" viewBox="0 0 24 24" aria-hidden="true"><use href="/apps/drone-soccer/assets/game/lan-icons.svg#drone"/></svg><span class="brand-copy">FLIGHT CLUB<small>DRONE SOCCER</small></span></a>
+    <nav class="service-nav" aria-label="大廳導覽"><a href="/" aria-current="page">賽事大廳</a><a href="/apps/drone-soccer/">單機訓練</a></nav>
+    <a href="/admin" class="host-entry">主持人入口 <span aria-hidden="true">↗</span></a>
+  </header>
+  <main class="service-main" id="mainContent">
+    <header class="lobby-heading">
+      <div><p id="siteName" class="site-name">FLIGHT CLUB 現場賽事</p><h1>賽事大廳<span class="heading-mark" aria-hidden="true">／</span></h1></div>
+      <div id="serviceCounts" class="service-counts" aria-label="即時賽事統計"></div>
+    </header>
+    <div id="serviceMessage" class="service-message" role="status"></div>
+    <div class="lobby-layout">
+      <aside class="join-sidebar" aria-label="房碼加入與說明">
+        <form id="quickJoin" class="entry-card">
+          <div class="entry-heading"><svg class="lan-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="/apps/drone-soccer/assets/game/lan-icons.svg#users"/></svg><div><h2>用房碼加入</h2><p>已有邀請？直接輸入房間代碼。</p></div></div>
+          <div class="entry-options" role="group" aria-label="加入身分"><label><input type="radio" name="entryRole" value="play" checked><span>參賽玩家</span></label><label><input type="radio" name="entryRole" value="watch"><span>觀眾轉播</span></label></div>
+          <label class="entry-code-label" for="entryCode">房間代碼 <span>6 位英數字</span></label>
+          <div class="entry-code-row"><input id="entryCode" maxlength="6" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABC234" aria-describedby="entryFeedback entryHint" required><button type="submit" class="primary" disabled><span id="joinActionLabel">加入比賽</span><span aria-hidden="true">→</span></button></div>
+          <p id="entryFeedback" class="entry-feedback" role="status"></p>
+          <p id="entryHint" class="entry-hint">正在確認公開遊戲入口…</p>
+        </form>
+        <details class="support-details" id="arrivalHelp"><summary>第一次參賽？<span class="details-mark" aria-hidden="true">＋</span></summary><div class="details-content"><ol class="arrival-guide"><li><strong id="arrivalNetworkTitle">保持網際網路連線</strong><span id="arrivalNetworkDetail">主機與玩家都需連網</span></li><li><strong>加入房間，選擇席位</strong><span>輸入暱稱，再選擇紅隊或藍隊。</span></li><li><strong>確認搖桿，準備上場</strong><span>完成準備後，等待主持人開賽。</span></li></ol><a href="/apps/drone-soccer/lan/setup.html" class="support-link">查看連線說明 <span aria-hidden="true">↗</span></a></div></details>
+        <details class="support-details arena-section"><summary>賽場資訊<span class="details-mark" aria-hidden="true">＋</span></summary><div class="details-content"><div id="arenaList" class="arena-grid"></div></div></details>
+      </aside>
+      <div class="matches-column">
+        <section class="matches-section" id="matches" aria-labelledby="matchesTitle">
+          <div class="matches-heading"><h2 id="matchesTitle">選擇比賽</h2><span id="serviceConnection" class="status-chip" role="status" data-state="connecting">連線中</span></div>
+          <div class="filters"><label class="room-search"><svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><input id="roomSearch" type="search" aria-label="搜尋房間" placeholder="搜尋房名、房碼或賽場"></label><select id="roomFilter" aria-label="房間狀態"><option value="active" selected>目前賽事</option><option value="lobby">等待開賽</option><option value="running">比賽中</option><option value="paused">已暫停</option><option value="ended">已結束</option><option value="all">全部賽事</option></select></div>
+          <div class="list-context"><p id="roomSearchStatus" class="room-search-status" role="status" aria-live="polite" aria-atomic="true">正在載入比賽…</p><span id="updatedAt"></span></div>
+          <div id="roomList" class="room-grid"></div>
+          <div id="roomEmpty" class="empty-state" hidden><span class="empty-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M9 4v16m4-6h4"/></svg></span><h3 id="roomEmptyTitle">目前沒有開放中的比賽</h3><p id="roomEmptyDetail">主持人建立房間後，就會顯示在這裡。</p><button id="clearRoomSearch" type="button" hidden>清除篩選</button></div>
+        </section>
+        <details id="recentResults" class="results-details" hidden><summary><span>最近賽果 <small id="resultCount"></small></span><span class="details-mark" aria-hidden="true">＋</span></summary><div id="resultList" class="result-list"></div></details>
+      </div>
+    </div>
+  </main>
+  <footer class="service-footer"><span class="footer-wordmark">FLIGHT CLUB <small>無人機足球</small></span><a href="/apps/drone-soccer/">單機訓練 <span aria-hidden="true">↗</span></a><a href="/apps/drone-soccer/lan/setup.html">需要協助？ <span aria-hidden="true">↗</span></a></footer>
+  <script src="/lan/service.js"></script>
+</body>
+</html>

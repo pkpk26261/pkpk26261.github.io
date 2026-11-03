@@ -1,0 +1,107 @@
+/* USB setup: connection, live sticks and optional correction. */
+.usb-legacy[hidden],.usb-simple-card [hidden]{display:none!important}
+.fc-game[data-fc-theme] .usb-simple-card{max-width:760px!important}
+.fc-game[data-fc-theme] .usb-simple-card .fc-page{display:flex;flex-direction:column;gap:14px}
+.fc-settings-intro,.usb-field-hint{margin:0;font-size:12px;line-height:1.8;color:var(--fc-muted,#9fb1c9)}
+.usb-health{padding:12px 14px;border:1px solid #6c582b;border-radius:12px;background:#292415;color:#f6d791;font-size:12px;line-height:1.8;overflow-wrap:anywhere}
+.usb-health[data-state="ok"]{background:#142b25;color:#9ee3c6;border-color:#306957}
+.usb-health p{margin:0}
+.usb-actions:has(label:not([hidden])){margin-top:10px}
+.usb-actions label,.usb-preset-field label{display:grid;gap:6px;font-size:12px;font-weight:600;min-width:0}
+.usb-actions select,.usb-preset-field select{width:100%;max-width:100%;min-width:0;min-height:44px;text-overflow:ellipsis;font-weight:400}
+.fc-game[data-fc-theme] .usb-simple-card .fc-sticks{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px!important;margin:0!important}
+.fc-game[data-fc-theme] .usb-simple-card .fc-sticks>div{display:flex!important;flex-direction:column;min-width:0;padding:12px!important;gap:10px!important}
+.fc-game[data-fc-theme] .usb-simple-card .fc-sticks>div>div:first-child{width:100%;display:flex;flex-wrap:wrap;gap:4px}
+.fc-game[data-fc-theme] .usb-simple-card .fc-sticks canvas{max-width:160px!important;width:100%;height:auto;align-self:center}
+.usb-help{border:1px solid var(--fc-line,#344a65);border-radius:12px;min-width:0}
+.usb-help summary{padding:12px 14px;cursor:pointer;font-size:12px;line-height:1.8;color:var(--fc-muted,#9fb1c9)}
+.usb-help-body{display:grid;gap:14px;padding:0 14px 14px}
+.usb-help-body>#psSwap{justify-self:start}
+.usb-direction-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.usb-direction-grid .ps-inv{display:flex;align-items:center;gap:8px;min-height:36px;font-size:12px;white-space:normal}
+.usb-direction-grid input{width:18px;height:18px;flex:none}
+.usb-cal-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.usb-simple-card .usb-cal-actions .ps-btn{min-height:44px;padding:8px 14px!important}
+.usb-simple-card #psCal{background:var(--fc-blue,#58d5bd)!important;color:var(--fc-surface,#0b1926)!important;font-weight:700}
+.usb-simple-card :is(button,select,input):disabled{opacity:.45;cursor:not-allowed}
+.usb-simple-card #psCalBox{padding:12px;gap:10px;line-height:1.8}
+.usb-simple-card #psCalBox>span{min-width:0!important;flex-basis:100%}
+.usb-simple-card summary:focus-visible{outline:2px solid var(--fc-blue,#58d5bd);outline-offset:3px}
+@media(max-width:600px){
+ .fc-game[data-fc-theme] .usb-simple-card .fc-sticks{gap:8px!important}
+ .fc-game[data-fc-theme] .usb-simple-card .fc-sticks>div{padding:10px!important}
+ .fc-game[data-fc-theme] .usb-simple-card .fc-sticks canvas{max-width:120px!important}
+ .usb-direction-grid{grid-template-columns:minmax(0,1fr)}
+ .usb-simple-card .usb-cal-actions .ps-btn{flex:1;white-space:normal}
+}
+
+/* Controller setup shares the game's professional settings language. */
+.fc-game[data-fc-theme] .fc-pad-overlay .usb-simple-card{max-width:920px!important;border:1px solid #36465b!important;border-radius:7px!important;background:#111a27!important;color:#edf2f9!important;box-shadow:0 30px 130px #000b!important}
+.fc-game[data-fc-theme] .usb-simple-card>.fc-card-heading{padding:24px 27px 20px!important;background:linear-gradient(110deg,#182436,#101823)!important;border-bottom:1px solid #2d3b50!important}
+.fc-game[data-fc-theme] .usb-simple-card>.fc-card-heading .fc-kicker{color:#ff947f!important;letter-spacing:2px!important;font-size:8px!important;margin-bottom:7px!important}
+.fc-game[data-fc-theme] .usb-simple-card>.fc-card-heading h2{font-size:27px!important;line-height:1.4!important;color:#edf3fb!important;-webkit-text-fill-color:#edf3fb!important}
+.fc-game[data-fc-theme] .usb-simple-card>.fc-pages{background:#111a27!important}
+.fc-game[data-fc-theme] .usb-simple-card .usb-setup-content{padding:22px 27px!important;gap:18px!important}
+.usb-setup-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;list-style:none;padding:0;margin:0 0 2px}
+.usb-setup-steps li{display:flex;align-items:center;gap:9px;min-width:0;padding:0 0 14px;border-bottom:2px solid #2c3c50}
+.usb-setup-steps b{display:grid;place-items:center;flex:none;width:29px;height:29px;border:1px solid #3b4b60;color:#647d98;border-radius:3px;background:#152233;font:600 10px "Segoe UI",sans-serif}
+.usb-setup-steps strong{display:block;color:#8296af;font-size:11px;font-weight:650;letter-spacing:.3px;line-height:1.5}
+.usb-setup-steps small{display:block;color:#4f6984;font-size:8px;line-height:1.6;margin-top:3px}
+.usb-setup-steps [aria-current=step]{border-color:#ff654d}.usb-setup-steps [aria-current=step] b{color:#ffad97;border-color:#ad6452;background:#3e2925}.usb-setup-steps [aria-current=step] strong{color:#f0d4cb}.usb-setup-steps [data-complete=true]{border-color:#487b91}.usb-setup-steps [data-complete=true] b{color:#a8d8ee;border-color:#436e86}
+.fc-game[data-fc-theme] .usb-simple-card .usb-health{background:#2e251a!important;color:#d9bb8d!important;border:1px solid #7a613d!important;border-radius:4px!important;padding:14px 17px!important;font-size:11px;line-height:1.9;overflow-wrap:anywhere}
+.fc-game[data-fc-theme] .usb-simple-card .usb-health[data-state=ok]{background:#172b3a!important;color:#a8cbe0!important;border-color:#416b83!important}
+.usb-health-heading{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.usb-health-heading i{width:6px;height:6px;flex:none;border-radius:50%;background:#e4af65}.usb-health[data-state=ok] .usb-health-heading i{background:#87cfff}
+.usb-health-heading strong{font-size:13px;font-weight:650;color:#ecddc5}.usb-health[data-state=ok] .usb-health-heading strong{color:#d3e8f8}
+.fc-game[data-fc-theme] .usb-simple-card .fc-settings-intro{font-size:12px;color:#a6bad0;margin:0;line-height:1.8}
+.usb-simple-card .usb-flight-guide{padding:0 0 14px;border-bottom:1px solid #2a3c51;color:#7792ad;font-size:11px;line-height:1.9}
+.fc-game[data-fc-theme] .usb-simple-card .fc-sticks{gap:15px!important}
+.fc-game[data-fc-theme] .usb-simple-card .fc-sticks>div{padding:17px!important;border:1px solid #334b65!important;background:#142133!important;border-radius:4px!important;box-shadow:none!important}
+.fc-game[data-fc-theme] .usb-simple-card .fc-sticks>div>div:first-child{justify-content:space-between;align-items:center;gap:8px!important}
+.fc-game[data-fc-theme] .usb-simple-card .fc-sticks>div>div:first-child>span:first-child{font-size:13px!important;color:#d1e2f5!important}
+.fc-game[data-fc-theme] .usb-simple-card .fc-sticks>div>div:first-child>span:last-child{font-size:9px!important;color:#7d98b7!important}
+.fc-game[data-fc-theme] .usb-simple-card .fc-sticks canvas{width:100%!important;max-width:164px!important;border-radius:50%;border:1px solid #35516b;background:#0c1726}
+.usb-simple-card .usb-help{border:1px solid #30465f;background:#101b2a;border-radius:4px;margin:0}
+.usb-simple-card .usb-help>summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;color:#aec7e1;min-height:48px;font-size:12px;font-weight:650;list-style-position:inside}
+.usb-help>summary:after{content:'＋';color:#87a6c5;font-size:18px;font-weight:400}.usb-help[open]>summary:after{content:'−'}
+.usb-help>summary small{margin-left:auto;color:#577695;font-size:9px;font-weight:400}
+.usb-simple-card .usb-help-body{padding:7px 17px 17px;gap:17px}
+.usb-simple-card .usb-preset-field label{font-size:11px;color:#8faccc;gap:8px}
+.usb-simple-card .usb-actions select,.usb-simple-card .usb-preset-field select,.usb-simple-card .usb-raw-unit select{min-height:40px;padding:8px 11px;background:#15283d!important;border:1px solid #3d5874!important;border-radius:3px!important;color:#c6dbef!important;font-size:12px!important}
+.usb-simple-card .usb-direction-grid{padding:14px;border:1px solid #2b4058;border-radius:4px;gap:11px;background:#152235}
+.usb-simple-card .usb-direction-grid .ps-inv{font-size:11px;color:#a0b9d2;line-height:1.7;min-height:32px}
+.usb-simple-card .usb-direction-grid input{width:17px;height:17px;accent-color:#ff654d}
+.usb-simple-card .usb-help-body>#psSwap{background:#1a3047!important;border-color:#3e5a76!important;color:#b9d7ef!important;border-radius:3px!important;font-size:11px!important;min-height:40px}
+.usb-simple-card .usb-cal-actions .ps-btn{border:1px solid #425d78!important;border-radius:3px!important;background:#1b2e44!important;color:#bed3e9!important;font-size:12px!important;min-height:44px!important}
+.usb-simple-card .usb-cal-actions #psCal{background:#ff654d!important;border-color:#ff8d76!important;color:#180a07!important}
+.usb-simple-card #psCalBox{background:#2e281b!important;border:1px solid #8c703e!important;border-radius:4px!important;color:#e1c28e!important;font-size:11px!important;padding:15px!important;line-height:1.9!important}
+.usb-simple-card #psCalBox .ps-btn{background:#463724!important;border:1px solid #987347!important;border-radius:3px!important;color:#ffe0af!important;min-height:40px;font-size:11px!important}
+.usb-simple-card #psCalFileMsg{font-size:11px!important;color:#d7be96!important;line-height:1.8}
+.usb-raw-inspector{border-top:1px solid #30445b;padding-top:13px;margin-top:2px}
+.usb-raw-inspector>summary{font-size:11px;color:#799abb;cursor:pointer;min-height:33px}
+.usb-raw-inspector>.usb-field-hint{font-size:10px;color:#617f9b;margin:8px 0 13px}
+.usb-raw-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.usb-raw-unit{min-width:0;padding:13px;border:1px solid #304861;border-radius:4px;background:#0d1827}
+.usb-raw-unit h3{font-size:12px!important;color:#a8c3df!important;margin:0 0 11px!important}
+.usb-raw-unit .ps-map{display:grid;grid-template-columns:55px minmax(0,1fr);align-items:center;gap:8px;font-size:10px;color:#7391ad;margin-top:10px}
+.usb-raw-unit .ps-map select{width:100%;min-width:0;font-size:11px!important}
+.usb-raw-unit>div:has(.ps-vx){font-size:10px!important;color:#6787a7!important;margin:8px 0}
+.usb-raw-unit :is(.ps-vx,.ps-vy){font-size:12px;color:#a8d2f7!important;font-variant-numeric:tabular-nums}
+.fc-game[data-fc-theme] .usb-simple-card>.fc-pad-footer{background:#0c1420!important;border-top:1px solid #2f4157!important;padding:16px 26px!important;gap:18px}
+.fc-game[data-fc-theme] .usb-simple-card .fc-pad-footer #psClose{min-height:45px;min-width:155px;border-radius:3px!important;background:#ff654d!important;color:#180a07!important;border:1px solid #ff8a73!important;font-weight:750!important;font-size:13px!important;padding:11px 22px!important}
+.usb-simple-card .fc-footer-hint{font-size:10px;color:#647e98}
+.usb-simple-card .fc-player-assignments{border:1px solid #38516b!important;border-radius:4px!important;background:#152335!important;padding:15px!important}
+.usb-simple-card .fc-player-assignments-heading{font-size:12px;color:#c4d9ef!important}
+.usb-simple-card .fc-player-device select{border-radius:3px!important;background:#12253a!important;border-color:#3a5a77!important;color:#b7d2ed!important;min-width:0!important;max-width:100%}
+.fc-game[data-fc-theme] .usb-simple-card .fc-player-assignments-heading>span:first-child{font-size:13px;color:#c4d9ef!important}
+.fc-game[data-fc-theme] .usb-simple-card .fc-player-assignments-heading>span:last-child{font-size:10px;color:#7792ae!important}
+.fc-game[data-fc-theme] .usb-simple-card #psPlayers>.ps-player{border-radius:4px;background:#111d2d!important;border-color:#324b65!important;padding:14px!important;gap:10px!important}
+.fc-game[data-fc-theme] .usb-simple-card #psPlayers>.ps-player.on{border-color:#87cfff!important;box-shadow:inset 0 2px #87cfff}
+.fc-game[data-fc-theme] .usb-simple-card #psPlayers .ps-pick{font-size:11px!important}
+.fc-game[data-fc-theme] .usb-simple-card #psPlayers .ps-pick[aria-pressed=true]::after{content:'目前檢查';border-radius:3px;background:#1d3a4f;color:#bfe7ff;font-size:9px}
+.fc-game[data-fc-theme] .usb-simple-card #psPlayers .ps-pstat{font-size:9px;overflow-wrap:anywhere;color:#7896b3}
+.fc-game[data-fc-theme] .usb-simple-card #psPlayers .ps-claim{border-radius:3px!important;background:#1a3047!important;border-color:#415f7a!important;color:#b6d1e8!important;font-size:10px!important}
+.fc-game[data-fc-theme] .usb-simple-card .fc-player-edit-note{font-size:10px;color:#8aa6c1!important;border-color:#344c64}
+.fc-game[data-fc-theme] .usb-simple-card .fc-player-edit-note>span{font-size:9px}
+@media(max-width:600px){.fc-game[data-fc-theme] .fc-pad-overlay .usb-simple-card{max-height:calc(100dvh - 20px)!important}.fc-game[data-fc-theme] .usb-simple-card>.fc-card-heading{padding:19px 19px 15px!important}.fc-game[data-fc-theme] .usb-simple-card>.fc-card-heading h2{font-size:23px!important}.fc-game[data-fc-theme] .usb-simple-card .usb-setup-content{padding:17px 19px!important;gap:15px!important}.usb-setup-steps{gap:7px}.usb-setup-steps li{gap:5px;align-items:flex-start;padding-bottom:10px}.usb-setup-steps b{width:22px;height:22px;font-size:8px}.usb-setup-steps strong{font-size:9px}.usb-setup-steps small{display:none}.usb-simple-card .usb-health{padding:11px 13px!important;font-size:10px!important}.usb-health-heading strong{font-size:12px}.fc-game[data-fc-theme] .usb-simple-card .fc-sticks{gap:9px!important}.fc-game[data-fc-theme] .usb-simple-card .fc-sticks>div{padding:11px!important;gap:8px!important}.fc-game[data-fc-theme] .usb-simple-card .fc-sticks>div>div:first-child>span:first-child{font-size:11px!important}.fc-game[data-fc-theme] .usb-simple-card .fc-sticks>div>div:first-child>span:last-child{font-size:8px!important}.fc-game[data-fc-theme] .usb-simple-card .fc-sticks canvas{max-width:120px!important}.usb-help>summary small{display:none}.usb-simple-card .usb-help>summary{padding:12px 13px;font-size:11px}.usb-simple-card .usb-help-body{padding:5px 12px 13px}.usb-raw-grid{grid-template-columns:1fr}.fc-game[data-fc-theme] .usb-simple-card>.fc-pad-footer{padding:13px 17px!important;gap:8px}.fc-game[data-fc-theme] .usb-simple-card .fc-pad-footer #psClose{min-width:129px;font-size:12px!important;padding:10px 15px!important}.usb-simple-card .fc-footer-hint{font-size:8px;max-width:130px}.usb-simple-card .usb-cal-actions{gap:6px}.usb-simple-card .usb-cal-actions .ps-btn{font-size:10px!important;padding:9px!important}.usb-simple-card .usb-direction-grid{padding:11px;gap:8px}.usb-simple-card .usb-direction-grid .ps-inv{font-size:10px}.usb-simple-card .fc-player-assignments{padding:10px!important}}
+@media(max-height:500px){.fc-game[data-fc-theme] .usb-simple-card>.fc-card-heading{padding:13px 21px 12px!important}.fc-game[data-fc-theme] .usb-simple-card>.fc-card-heading h2{font-size:21px!important}.fc-game[data-fc-theme] .usb-simple-card .usb-setup-content{padding:15px 21px!important}.fc-game[data-fc-theme] .usb-simple-card>.fc-pad-footer{padding:10px 20px!important}.usb-setup-steps small{display:none}.usb-setup-steps li{padding-bottom:8px}}

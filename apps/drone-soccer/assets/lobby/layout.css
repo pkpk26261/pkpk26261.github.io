@@ -1,0 +1,50 @@
+/* Keep selected-mode details compact without changing the mode catalog. */
+.launch-panel { container: launch-panel / inline-size; }
+.launch-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "heading" "description" "facts" "lineup" "difficulty" "action" "note";
+  gap: 10px;
+  padding: 16px 18px;
+}
+.launch-content > .selected-heading { grid-area: heading; }
+.launch-content > #selected-description { grid-area: description; margin: 0; }
+.launch-content > .mode-facts { grid-area: facts; margin: 0; padding: 0 0 10px; border-bottom: 1px solid var(--line); }
+.launch-content > .lineup-preview { grid-area: lineup; margin: 0; padding: 10px 12px; }
+.launch-content > .ai-difficulty-setting { grid-area: difficulty; padding: 0; border: 0; }
+.launch-content > .launch-action { grid-area: action; align-self: stretch; }
+.launch-content > .launch-note { grid-area: note; margin: 0; text-align: center; }
+.launch-content .formation { margin: 0; }
+.launch-content .selected-heading { align-items: center; }
+.launch-content #selected-description { line-height: 1.5; }
+#launch-button { background: #19754b; box-shadow: 0 3px 10px #072e232b; }
+#launch-button:hover:not(:disabled) { background: #208455; }
+#launch-button:active:not(:disabled) { background: #125d3b; }
+#launch-button:focus-visible { outline-color: #8ce4b6; }
+#launch-button small { color: #d3f6e3; }
+
+/* The lineup is summarized by the preview. Keep a single full-width column
+   even on wide panels, including modes whose AI setting is hidden. */
+
+@media (min-width: 761px) and (max-height: 800px) {
+  .launch-content { gap: 7px; padding: 12px 14px; }
+  .launch-content > .lineup-preview { padding: 8px 10px; }
+}
+@media (max-width: 760px) {
+  .workspace:has(.selection-layout[data-view="preview"]) { overflow-y: auto; }
+  main:has(.selection-layout[data-view="preview"]) { flex: 1 0 auto; }
+  .launch-panel { container-type: normal; height: auto; min-height: 0; }
+  .preview-visual { flex: none; height: clamp(100px, 25dvh, 210px); min-height: 0; }
+  .selection-layout[data-view="modes"] .launch-content { display: contents; }
+  .launch-content { padding: 12px 14px; gap: 8px; }
+  .launch-content > .mode-facts { padding-bottom: 8px; }
+  .launch-content > .lineup-preview { padding: 8px; }
+  .launch-content > .launch-action { align-self: auto; }
+  .launch-content > .ai-difficulty-setting { padding-top: 8px; border-top: 1px solid var(--line); }
+  .launch-content .selected-heading h2 { font-size: var(--ui-selected-title); }
+}
+/* Keep the right panel accessible in short desktop windows. */
+@media (min-width: 761px) and (max-height: 700px) {
+  .launch-panel { overflow-y: auto; }
+  .preview-visual { flex: none; height: 130px; min-height: 130px; }
+}

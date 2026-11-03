@@ -1,0 +1,191 @@
+/* Full-window service workspace. The public lobby keeps its own page layout. */
+body[data-service-role=admin]{height:100dvh;min-height:0;overflow:hidden;display:grid;grid-template-rows:60px minmax(0,1fr);background:radial-gradient(ellipse at 14% 0,#16324566,transparent 48%),#08111b}
+body[data-service-role=admin] .service-header{height:60px;min-height:0;padding:10px 24px;gap:18px;background:#0c1926ed;border-color:#2b4053}
+body[data-service-role=admin] .service-brand{font-size:17px}
+body[data-service-role=admin] .service-header>a:not(.service-brand){font-size:13px}
+body[data-service-role=admin] .service-main{height:100%;width:100%;max-width:none;margin:0;padding:20px;min-width:0;min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr);gap:12px;overflow:hidden}
+body[data-service-role=admin] #serviceMessage{grid-row:1;margin:0}
+body[data-service-role=admin] #adminLogin{grid-row:2;place-self:center;max-width:520px;width:100%;max-height:100%;overflow:auto;margin:0}
+body[data-service-role=admin] #adminDashboard{grid-row:2;display:grid;grid-template-columns:206px minmax(0,1fr);gap:22px;min-width:0;min-height:0;height:100%}
+.admin-sidebar{display:flex;flex-direction:column;min-height:0;padding:20px 14px 14px;border:1px solid #2a4357;border-radius:16px;background:linear-gradient(165deg,#142b3d,#0d1c2b 65%);box-shadow:0 12px 32px #0002}
+.workspace-label{display:flex;align-items:center;gap:12px;padding:4px 8px 25px;border-bottom:1px solid #2d4558}
+.workspace-label>.lan-icon{width:30px;height:30px;color:#7be2c1}
+.workspace-label strong{display:block;font-size:16px;letter-spacing:.5px}
+.workspace-label small{display:block;font-size:9px;letter-spacing:2px;color:#89a9bf;margin-top:3px}
+body[data-service-role=admin] .admin-tabs{display:grid;gap:8px;margin:22px 0}
+body[data-service-role=admin] .admin-tabs button{justify-content:flex-start;gap:12px;padding:13px 15px;background:transparent;border-color:transparent;color:#97afc4;font-size:14px;min-height:46px}
+body[data-service-role=admin] .admin-tabs button:hover{background:#193548;color:#d7f6ed}
+body[data-service-role=admin] .admin-tabs [aria-pressed=true]{background:#17473e;color:#b1f3d7;border-color:#347c69;box-shadow:inset 3px 0 #70dbb3}
+.sidebar-arena{margin-top:auto;border:1px solid #2e4d60;border-radius:11px;background:#0b1b29;padding:14px;display:grid;gap:6px}
+.sidebar-arena>svg{display:block;width:100%;height:100px;stroke:#5cbfa6;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;opacity:.8}
+.sidebar-arena .arena-grid-lines{stroke:#2e6a69;stroke-width:.7}
+.sidebar-arena strong{font-size:13px;color:#9ce0c8}
+.sidebar-arena small{font-size:10px;color:#829fb5}
+.admin-content{display:grid;grid-template-rows:auto 90px minmax(0,1fr);gap:18px;min-width:0;min-height:0;height:100%}
+body[data-service-role=admin] .admin-heading{min-width:0;gap:18px;padding:3px 2px}
+body[data-service-role=admin] .admin-heading>div{min-width:0}
+body[data-service-role=admin] .admin-heading .eyebrow{margin:0 0 4px;font-size:11px;letter-spacing:2px}
+body[data-service-role=admin] .admin-heading h1{font-size:clamp(23px,1.25vw,33px);line-height:1.3;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+body[data-service-role=admin] .admin-heading p:not(.eyebrow){font-size:13px;margin-top:6px;color:#8ea8bd}
+body[data-service-role=admin] #newRoom{min-height:44px;white-space:nowrap;padding:10px 20px;box-shadow:0 5px 18px #06281d55}
+body[data-service-role=admin] .service-counts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0;min-width:0;min-height:0}
+body[data-service-role=admin] .service-counts>.admin-stat{padding:13px 18px;display:grid;grid-template-columns:42px minmax(0,1fr);grid-template-rows:1fr auto;column-gap:14px;align-items:center;min-width:0;background:linear-gradient(130deg,#152b3d,#102130);border:1px solid #2b465b;border-radius:12px}
+.stat-icon{grid-row:1/3;width:40px;height:40px;display:grid;place-items:center;border-radius:10px;border:1px solid #35635f;background:#163c37;color:#8cddc1}
+.stat-icon .lan-icon{width:22px;height:22px}
+.stat-copy{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
+.stat-copy>span{font-size:13px;color:#b1c4d3;white-space:nowrap}
+body[data-service-role=admin] .stat-copy strong{font-size:31px;line-height:1.15;color:#eef9ff;margin:0;font-weight:700}
+.admin-stat>small{grid-column:2;color:#7697ae;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body[data-service-role=admin] #adminRooms{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(350px,1fr);gap:18px;align-items:stretch;min-width:0;min-height:0;height:100%;overflow:hidden}
+body[data-service-role=admin] #adminRooms:has(#liveMonitor[hidden]){grid-template-columns:minmax(0,1fr)}
+body[data-service-role=admin] .admin-live-monitor{position:relative;top:auto;display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;gap:12px;min-height:0;min-width:0;height:100%;padding:18px;margin:0;background:linear-gradient(145deg,#142d3e,#0e1d2b);border:1px solid #365569;box-shadow:0 8px 30px #0002}
+body[data-service-role=admin] .live-monitor-heading{margin:0;gap:12px;flex-wrap:nowrap;min-width:0}
+body[data-service-role=admin] .live-monitor-heading>div{gap:10px;flex-shrink:0}
+body[data-service-role=admin] .live-monitor-heading h2{font-size:17px}
+body[data-service-role=admin] .live-monitor-heading select{max-width:60%;min-width:0;font-size:12px;min-height:36px}
+body[data-service-role=admin] .live-monitor-info{margin:0;font-size:13px}
+body[data-service-role=admin] .admin-live-stage{height:100%;width:100%;min-height:0;max-height:none;aspect-ratio:auto;border-radius:11px;background:#091624}
+body[data-service-role=admin] .live-monitor-footer{margin:0;gap:14px}
+body[data-service-role=admin] .live-monitor-footer p{font-size:12px;color:#87a3b9}
+body[data-service-role=admin] .live-monitor-footer a{font-size:12px;min-height:36px}
+.admin-room-panel{display:grid;grid-template-rows:auto auto minmax(0,1fr);gap:14px;min-width:0;min-height:0;height:100%;padding:18px;background:#0e1e2d;border:1px solid #2d485e;border-radius:16px;container-type:inline-size}
+.room-panel-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.room-panel-heading .eyebrow{font-size:9px;margin:0 0 3px;letter-spacing:1.7px}
+.room-panel-heading h2{font-size:19px;line-height:1.3}
+.room-panel-heading .status-chip{font-variant-numeric:tabular-nums;color:#b6cece}
+.admin-room-filters{display:grid;grid-template-columns:minmax(0,1fr) 124px;gap:8px}
+.admin-room-filters input,.admin-room-filters select{width:100%;font-size:12px;min-height:36px;padding:7px 10px;background:#091724}
+.room-list-scroll{min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#3a586a #0c1b2a;padding-right:4px}
+body[data-service-role=admin] #roomList{grid-template-columns:minmax(0,1fr);gap:12px;align-content:start}
+body[data-service-role=admin] .room-card{padding:15px;gap:9px;background:linear-gradient(135deg,#142b3d,#102335);border-color:#2c465e;border-radius:11px}
+body[data-service-role=admin] .room-card[data-preview=true]{border-color:#498b79;box-shadow:inset 3px 0 #68c9a6;background:linear-gradient(135deg,#15383c,#112738)}
+body[data-service-role=admin] .room-card h3{font-size:15px;line-height:1.4}
+body[data-service-role=admin] .room-code{font-size:11px;letter-spacing:1.6px}
+body[data-service-role=admin] .room-card .arena-label{font-size:11px}
+body[data-service-role=admin] .room-score{padding:6px 10px;gap:12px;background:#0b1c2b;border:1px solid #203c50}
+body[data-service-role=admin] .room-score strong{font-size:25px;line-height:1.25}
+body[data-service-role=admin] .room-card .lineup{font-size:11px;line-height:1.5}
+body[data-service-role=admin] .room-card .room-progress{font-size:10px;line-height:1.5}
+body[data-service-role=admin] .room-card .card-actions{display:grid;grid-template-columns:1.1fr 1.1fr 1fr auto;gap:6px}
+body[data-service-role=admin] .room-card .card-actions>*{padding:7px 6px;font-size:11px;min-height:34px;gap:4px}
+body[data-service-role=admin] .room-card .card-actions .lan-icon{width:14px;height:14px}
+body[data-service-role=admin] .room-card .card-actions .danger{padding-inline:10px}
+body[data-service-role=admin] #roomEmpty{padding:26px 16px;background:#102434;border-color:#33586b}
+body[data-service-role=admin] #roomEmpty h2{font-size:17px}
+body[data-service-role=admin] #adminArenas,body[data-service-role=admin] #adminHistory{height:100%;min-height:0;overflow:auto;overscroll-behavior:contain;padding:20px;border:1px solid #2e485e;border-radius:15px;background:#0f2030;scrollbar-width:thin;scrollbar-color:#3a586a #0c1b2a}
+body[data-service-role=admin] .admin-arena-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+body[data-service-role=admin] .settings-row{margin:0 0 24px}
+body[data-service-role=admin] .settings-row label{width:min(520px,80%)}
+body[data-service-role=admin] .section-heading{margin:18px 0 16px}
+body[data-service-role=admin] #adminHistory>h2{margin-bottom:18px}
+@container(min-width:760px){body[data-service-role=admin] #roomList{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:2300px){
+ body[data-service-role=admin] .service-main{padding:26px}
+ body[data-service-role=admin] #adminDashboard{grid-template-columns:228px minmax(0,1fr);gap:26px}
+ .admin-content{grid-template-rows:auto 102px minmax(0,1fr);gap:22px}
+ body[data-service-role=admin] .service-counts>.admin-stat{padding:18px 24px}
+ .stat-copy>span{font-size:15px}
+ body[data-service-role=admin] .stat-copy strong{font-size:37px}
+ .admin-stat>small{font-size:12px}
+ body[data-service-role=admin] .admin-live-monitor,.admin-room-panel{padding:22px;gap:18px}
+ body[data-service-role=admin] .live-monitor-heading h2{font-size:21px}
+ body[data-service-role=admin] .room-card{padding:18px;gap:12px}
+ body[data-service-role=admin] .room-card h3{font-size:17px}
+ body[data-service-role=admin] .room-card .lineup{font-size:12px}
+ body[data-service-role=admin] .room-card .room-progress{font-size:11px}
+ body[data-service-role=admin] .room-score strong{font-size:29px}
+ body[data-service-role=admin] .room-card .card-actions>*{font-size:12px;min-height:38px}
+}
+@media(max-width:1180px){
+ body[data-service-role=admin] .service-main{padding:14px}
+ body[data-service-role=admin] #adminDashboard{grid-template-columns:minmax(0,1fr);grid-template-rows:46px minmax(0,1fr);gap:14px}
+ .admin-sidebar{padding:0;background:transparent;border:0;box-shadow:none;display:block}
+ .workspace-label,.sidebar-arena{display:none}
+ body[data-service-role=admin] .admin-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:0}
+ body[data-service-role=admin] .admin-tabs button{justify-content:center;border:1px solid #2c465b;padding:9px;min-height:44px;background:#0e2030}
+ .admin-content{grid-template-rows:auto 78px minmax(0,1fr);gap:14px}
+ body[data-service-role=admin] #adminRooms{grid-template-columns:minmax(0,1fr) 340px;gap:12px}
+ body[data-service-role=admin] .service-counts{gap:9px}
+ body[data-service-role=admin] .service-counts>.admin-stat{padding:10px;column-gap:8px;grid-template-columns:30px minmax(0,1fr)}
+ .stat-icon{width:29px;height:32px;border-radius:7px}
+ .stat-icon .lan-icon{width:18px;height:18px}
+ .stat-copy>span{font-size:12px}
+ body[data-service-role=admin] .stat-copy strong{font-size:27px}
+ .admin-stat>small{font-size:10px}
+ body[data-service-role=admin] .admin-live-monitor,.admin-room-panel{padding:12px;gap:10px}
+ body[data-service-role=admin] .live-monitor-heading{flex-wrap:wrap}
+ body[data-service-role=admin] .live-monitor-heading select{max-width:100%;width:100%}
+ body[data-service-role=admin] .live-monitor-footer{align-items:start;gap:7px;flex-direction:column}
+ body[data-service-role=admin] .live-monitor-footer p{max-width:100%;font-size:11px}
+}
+@media(min-width:901px) and (max-height:650px){
+ body[data-service-role=admin]{grid-template-rows:46px minmax(0,1fr)}
+ body[data-service-role=admin] .service-header{height:46px;padding-block:5px}
+ body[data-service-role=admin] .service-main{padding:10px}
+ body[data-service-role=admin] #adminDashboard{gap:12px}
+ .admin-content{grid-template-rows:auto 58px minmax(0,1fr);gap:10px}
+ .workspace-label{padding-bottom:14px}
+ .sidebar-arena>svg{display:none}
+ body[data-service-role=admin] .admin-heading .eyebrow,body[data-service-role=admin] .admin-heading p:not(.eyebrow){display:none}
+ body[data-service-role=admin] .admin-heading h1{font-size:22px}
+ body[data-service-role=admin] #newRoom{min-height:34px;padding-block:6px}
+ body[data-service-role=admin] .service-counts>.admin-stat{padding:7px 12px}
+ .admin-stat>small{display:none}
+ .stat-icon{grid-row:1/3;width:29px;height:29px}
+ body[data-service-role=admin] .stat-copy strong{font-size:25px}
+ body[data-service-role=admin] .admin-live-monitor,.admin-room-panel{padding:10px;gap:8px}
+ body[data-service-role=admin] .live-monitor-heading h2{font-size:15px}
+ body[data-service-role=admin] .live-monitor-heading select{min-height:30px}
+ body[data-service-role=admin] .live-monitor-footer p{display:none}
+}
+@media(max-width:900px){
+ body[data-service-role=admin]{height:auto;min-height:100dvh;overflow:auto;display:block}
+ body[data-service-role=admin] .service-header{height:auto;min-height:56px;padding:10px 14px;gap:10px;flex-wrap:wrap}
+ body[data-service-role=admin] .service-main{height:auto;min-height:calc(100dvh - 56px);padding:12px;overflow:visible;display:block}
+ body[data-service-role=admin] #adminDashboard{height:auto;grid-template-rows:auto auto;gap:16px}
+ .admin-content{height:auto;grid-template-rows:auto auto auto;gap:16px;overflow:visible}
+ body[data-service-role=admin] .admin-heading{flex-direction:row;align-items:center;padding:0}
+ body[data-service-role=admin] .admin-heading h1{font-size:23px}
+ body[data-service-role=admin] .admin-heading p:not(.eyebrow){font-size:11px}
+ body[data-service-role=admin] #newRoom{min-height:38px;padding:8px 12px;font-size:12px}
+ body[data-service-role=admin] .service-counts{grid-template-columns:repeat(4,minmax(0,1fr))}
+ body[data-service-role=admin] .service-counts>.admin-stat{padding:10px;grid-template-columns:minmax(0,1fr)}
+ .stat-icon{display:none}
+ .stat-copy>span{font-size:11px}
+ .admin-stat>small{grid-column:1;font-size:9px}
+ body[data-service-role=admin] #adminRooms{height:auto;grid-template-columns:minmax(0,1fr);overflow:visible}
+ body[data-service-role=admin] .admin-live-monitor{height:auto;grid-template-rows:auto auto auto auto}
+ body[data-service-role=admin] .live-monitor-heading{flex-wrap:nowrap}
+ body[data-service-role=admin] .live-monitor-heading select{width:auto;max-width:60%}
+ body[data-service-role=admin] .admin-live-stage{height:auto;min-height:180px;aspect-ratio:16/10}
+ body[data-service-role=admin] .live-monitor-footer{flex-direction:row;align-items:center}
+ body[data-service-role=admin] .live-monitor-footer p{max-width:60%}
+ .admin-room-panel{height:auto;max-height:none;grid-template-rows:auto auto auto}
+ .room-list-scroll{overflow:visible}
+ body[data-service-role=admin] #roomList{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body[data-service-role=admin] .room-card .card-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body[data-service-role=admin] #adminArenas,body[data-service-role=admin] #adminHistory{height:auto;overflow:visible;padding:14px}
+ body[data-service-role=admin] #adminLogin{margin:30px auto}
+}
+@media(max-width:540px){
+ body[data-service-role=admin] .service-brand{font-size:13px}
+ body[data-service-role=admin] .service-header>a:not(.service-brand){font-size:11px}
+ body[data-service-role=admin] .service-header button{font-size:11px;padding:6px 9px;min-height:32px}
+ body[data-service-role=admin] .admin-tabs button{font-size:12px;gap:6px;min-height:40px}
+ body[data-service-role=admin] .admin-heading{align-items:start}
+ body[data-service-role=admin] .admin-heading h1{font-size:21px}
+ body[data-service-role=admin] .admin-heading p:not(.eyebrow){display:none}
+ body[data-service-role=admin] .admin-heading .eyebrow{font-size:9px}
+ body[data-service-role=admin] .service-counts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ body[data-service-role=admin] .service-counts>.admin-stat{padding:10px 12px}
+ .stat-copy>span{font-size:12px}
+ body[data-service-role=admin] #roomList{grid-template-columns:minmax(0,1fr)}
+ body[data-service-role=admin] .live-monitor-heading{flex-wrap:wrap}
+ body[data-service-role=admin] .live-monitor-heading select{max-width:100%;width:100%}
+ body[data-service-role=admin] .live-monitor-footer{flex-direction:column;align-items:stretch}
+ body[data-service-role=admin] .live-monitor-footer p{max-width:100%}
+ body[data-service-role=admin] .admin-arena-grid{grid-template-columns:minmax(0,1fr)}
+ body[data-service-role=admin] .settings-row{align-items:stretch;flex-direction:column}
+ body[data-service-role=admin] .settings-row label{width:100%}
+ .admin-room-filters{grid-template-columns:minmax(0,1fr) 110px}
+}
