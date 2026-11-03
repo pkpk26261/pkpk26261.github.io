@@ -18,8 +18,8 @@
 
 **建立前需確認費用。** 模板選用 `1c-2g`（1 CPU、2 GB RAM），並掛載 1 GB 持久磁碟。依 2026-11-03 查閱的官方價格，運算費為 US$25／月，磁碟與可能的額外用量另計；最終以 Render 建立服務時顯示的費用為準。這是部署起點，尚未證明雲端可同時穩定運行兩場比賽。[Render 價格](https://render.com/pricing)
 
-1. 將乾淨的雲端發佈原始碼放到自己的 GitHub 倉庫或專用分支。保留根目錄 `Dockerfile`、`render.yaml` 與它們引用的遊戲檔案；不需上傳本機 runtime、`node_modules`、憑證、瀏覽器設定檔或比賽資料。
-2. 登入 [Render Dashboard](https://dashboard.render.com/)，選擇 **New → Blueprint**，連接該 GitHub 倉庫並選擇包含 `render.yaml` 的分支。
+1. 雲端發佈使用 [pkpk26261/pkpk26261.github.io 的 flight-club-cloud 分支](https://github.com/pkpk26261/pkpk26261.github.io/tree/flight-club-cloud)。這個分支只放乾淨的遊戲與伺服器原始碼，保留根目錄 `Dockerfile`、`render.yaml` 與它們引用的檔案；原有 `master` 分支的 GitHub Pages 網站不受影響。本機 runtime、`node_modules`、憑證、瀏覽器設定檔與比賽資料不需上傳。
+2. 登入 [Render Dashboard](https://dashboard.render.com/)，選擇 **New → Blueprint**，連接 `pkpk26261/pkpk26261.github.io`，並選擇 `flight-club-cloud` 分支。
 3. 檢查區域為 Singapore、實例數為 1、方案與磁碟費用。`ADMIN_TOKEN` 欄位填入至少 32 字元的隨機管理金鑰。金鑰只保存在 Render 的秘密環境變數，禁止寫入 GitHub。
 4. 確認建立，等待 Docker 建置與 `/api/health` 健康檢查通過。Render 會設定 `RENDER_EXTERNAL_URL`，伺服器使用它產生同來源的 HTTPS／WSS 邀請，不需要手填或猜測網站網域。
 5. 開啟 Render 回傳的實際網址，測試主持人登入、建房、兩台裝置加入、搖桿準備、開賽及重連。完成實測前，不把本機自動化結果視為雲端或實體設備驗收。
@@ -51,3 +51,11 @@ docker build -t flight-club-cloud .
 映像固定使用 `mcr.microsoft.com/playwright:v1.56.1-noble`，與 `lan/package.json` 的 Playwright `1.56.1` 一致。之後升級 Playwright 時必須一起更新映像版本。建置安裝 production 套件，遊戲 runtime、Windows 啟動器、Cloudflare Tunnel 與本機憑證都不在映像內。
 
 `Dockerfile` 的健康檢查只確認服務與引擎啟動狀態；它不代表實際 Wi-Fi 延遲、控制器相容性、長時間運行或雲端效能已通過驗收。
+
+## Linux 容器驗證
+
+雲端分支的 GitHub Actions `Cloud game verification` 會建置 Linux Docker 映像，先檢查雲端啟動、授權與資料保存，再透過隔離的測試 HTTPS 代理，驗證一位主持人與兩位玩家的瀏覽器流程。測試的搖桿訊號為合成輸入，測試憑證不會用於正式服務。驗證截圖與報告保存在該次 workflow 的 `cloud-browser-verification` artifact。
+
+Linux 映像建置與伺服器啟動、授權、資料保存檢查已通過。最初的瀏覽器測試在 CI 的軟體繪圖負載下出現等待逾時；目前改為讓各模擬玩家使用獨立 Chromium 程序，並只將測試用客戶端的繪圖限制為 4 FPS。伺服器的權威引擎、約 20 Hz 狀態同步與每 32 ms 的搖桿輸入流程維持原設定；這個限制不套用到正式玩家頁面。
+
+瀏覽器流程仍以 [Actions 中該次提交的實際結果](https://github.com/pkpk26261/pkpk26261.github.io/actions) 為準，尚未將修正後的完整 workflow 宣稱為通過。正式雲端服務尚未上線；即使 Linux 檢查全部通過，公開 HTTPS／WSS、多裝置實體搖桿、網路延遲及長時間運行仍需在實際服務確認。

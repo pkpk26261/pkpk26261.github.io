@@ -12,7 +12,7 @@ const { chromium } = require('playwright');
 const { start } = require('../server.cjs');
 
 const output = path.resolve(__dirname, '../../../../artifacts/cloud-deploy-20261103/browser');
-const report = { checks: [], errors: [], externalRequests: [], limitations: ['Local proxy, not a deployed Linux container.', 'Synthetic controllers, not physical hardware.'] };
+const report = { checks: [], errors: [], externalRequests: [], limitations: ['HTTPS proxy test, not a public cloud deployment.', 'Synthetic controllers, not physical hardware.', 'Simulated clients render at 4 FPS to bound software-GPU load; the authoritative engine is unmodified.'] };
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 async function until(fn, label, timeout = 40000) {
   const deadline = Date.now() + timeout;
@@ -30,9 +30,17 @@ function syntheticPad() {
   window.__pads = [{ id: 'Synthetic cloud-test controller', index: 0, connected: true, mapping: 'standard', axes: [0, 0, 0, 0], buttons: Array.from({ length: 16 }, () => ({ value: 0, pressed: false, touched: false })), timestamp: 1 }];
   Object.defineProperty(navigator, 'getGamepads', { value: () => window.__pads });
 }
+function clientRendering() {
+  // These clients share a GPU-less CI machine, unlike real players' devices.
+  // Keep rendering separate from the real 32 ms controller/WSS timers.
+  window.__cloudTestRenderFrames = 0;
+  window.requestAnimationFrame = callback => setTimeout(() => { window.__cloudTestRenderFrames++; callback(performance.now()); }, 250);
+  window.cancelAnimationFrame = id => clearTimeout(id);
+}
 
 (async () => {
-  let service, proxy, browser;
+  let service, proxy, browser, inputProbe;
+  const playerBrowsers = [];
   const tunnels = new Set();
   fs.mkdirSync(output, { recursive: true });
   try {
@@ -63,8 +71,9 @@ function syntheticPad() {
     });
     await new Promise((resolve, reject) => { proxy.once('error', reject); proxy.listen(externalPort, '127.0.0.1', resolve); });
     browser = await chromium.launch({ executablePath: chromium.executablePath(), headless: true });
-    const newContext = async () => {
-      const context = await browser.newContext({ ignoreHTTPSErrors: true, viewport: { width: 1440, height: 900 } });
+    const newContext = async (deviceBrowser = browser) => {
+      const context = await deviceBrowser.newContext({ ignoreHTTPSErrors: true, viewport: { width: 1280, height: 720 } });
+      await context.addInitScript(clientRendering);
       context.on('page', page => {
         page.on('pageerror', error => report.errors.push(error.message));
         page.on('request', request => { if (!request.url().startsWith(origin + '/') && !/^(data|blob):/.test(request.url())) report.externalRequests.push(request.url()); });
@@ -100,7 +109,9 @@ function syntheticPad() {
     report.checks.push('A browser-only host logs in using a Secure/HttpOnly cookie, creates a room and starts the original authoritative game engine.');
     const players = [];
     for (const [i, seat] of ['r-atk', 'b-atk'].entries()) {
-      const context = await newContext();
+      const deviceBrowser = await chromium.launch({ executablePath: chromium.executablePath(), headless: true });
+      playerBrowsers.push(deviceBrowser);
+      const context = await newContext(deviceBrowser);
       await context.addInitScript(syntheticPad);
       const player = await context.newPage(); players.push(player);
       await player.goto(origin + '/play?code=' + room.code);
@@ -108,16 +119,31 @@ function syntheticPad() {
       await player.locator('#seat').selectOption(seat);
       await player.locator('#joinSubmit').click();
       await until(() => [...room.players.values()].some(p => p.seat === seat && p.pad && p.cameraAck === room.camera.revision && p.viewAck === room.engineRevision), 'player ' + seat + ' scene and controller ready');
+    }
+    const watchContext = await newContext(), watch = await watchContext.newPage();
+    await watch.goto(origin + '/watch?code=' + room.code);
+    await watch.locator('#scene:not([hidden])').waitFor();
+    for (const player of players) {
       await until(() => player.locator('#ready').isEnabled(), 'neutral controller');
       await player.locator('#ready').click();
     }
     await until(() => room.conditions(), 'both players ready');
-    const watchContext = await newContext(), watch = await watchContext.newPage();
-    await watch.goto(origin + '/watch?code=' + room.code);
-    await watch.locator('#scene:not([hidden])').waitFor();
     await host.locator('#tabRoom').click();
+    report.inputFreshness = { samples: 0, maxAgeMilliseconds: 0 };
+    inputProbe = setInterval(() => {
+      if (room.status !== 'running') return;
+      for (const player of room.players.values()) {
+        report.inputFreshness.samples++;
+        report.inputFreshness.maxAgeMilliseconds = Math.max(report.inputFreshness.maxAgeMilliseconds, Date.now() - player.lastInput);
+      }
+    }, 25);
     await host.locator('#start').click();
     await until(() => room.status === 'running' && room.snapshot?.match.phase === 'play', 'countdown and whistle');
+    await delay(1000);
+    clearInterval(inputProbe); inputProbe = null;
+    assert.equal(room.status, 'running');
+    assert(report.inputFreshness.samples > 0 && report.inputFreshness.maxAgeMilliseconds < 600, 'Player inputs stay fresh through countdown and match play.');
+    assert([...room.players.values()].every(player => player.pad && Date.now() - player.lastInput < 600));
     report.checks.push('Two independent player browsers join different seats over WSS, synchronize their 3D views, prepare and enter the official match; an independent observer watches the same room.');
     await host.locator('#pause').click();
     await until(() => room.status === 'paused', 'host pause');
@@ -140,7 +166,8 @@ function syntheticPad() {
       players: [...room.players.values()].map(player => ({ seat: player.seat, connected: player.connected, pad: player.pad, ready: player.ready, cameraAck: player.cameraAck, viewAck: player.viewAck, lastInput: player.lastInput }))
     }));
     report.pages = [];
-    if (browser) for (const [i, context] of browser.contexts().entries()) for (const [j, page] of context.pages().entries()) {
+    const contexts = [browser, ...playerBrowsers].filter(Boolean).flatMap(deviceBrowser => deviceBrowser.contexts());
+    for (const [i, context] of contexts.entries()) for (const [j, page] of context.pages().entries()) {
       const record = { url: page.url(), frames: [] };
       try {
         record.body = (await page.locator('body').innerText({ timeout: 3000 })).slice(0, 5000);
@@ -151,7 +178,8 @@ function syntheticPad() {
     }
     console.error(error.stack); process.exitCode = 1;
   } finally {
-    await browser?.close();
+    clearInterval(inputProbe);
+    await Promise.allSettled([browser, ...playerBrowsers].filter(Boolean).map(deviceBrowser => deviceBrowser.close()));
     for (const socket of tunnels) socket.destroy();
     if (proxy) await new Promise(resolve => proxy.close(resolve));
     await service?.close();
