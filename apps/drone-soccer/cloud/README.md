@@ -56,6 +56,6 @@ docker build -t flight-club-cloud .
 
 雲端分支的 GitHub Actions `Cloud game verification` 會建置 Linux Docker 映像，先檢查雲端啟動、授權與資料保存，再透過隔離的測試 HTTPS 代理，驗證一位主持人與兩位玩家的瀏覽器流程。測試的搖桿訊號為合成輸入，測試憑證不會用於正式服務。驗證截圖與報告保存在該次 workflow 的 `cloud-browser-verification` artifact。
 
-Linux 映像建置與伺服器啟動、授權、資料保存檢查已通過。最初的瀏覽器測試在 CI 的軟體繪圖負載下出現等待逾時；目前改為讓各模擬玩家使用獨立 Chromium 程序，並只將測試用客戶端的繪圖限制為 4 FPS。伺服器的權威引擎、約 20 Hz 狀態同步與每 32 ms 的搖桿輸入流程維持原設定；這個限制不套用到正式玩家頁面。
+Linux 映像建置與伺服器啟動、授權、資料保存檢查已通過。容器中的模擬玩家各使用獨立 Chromium 程序，採 SwANGLE 軟體繪圖、800×600 觸控配置及 4 FPS，以限制沒有顯示卡的 CI 主機繪圖負載。這是功能流程驗證，不代表預設畫質與更新率的效能驗收。伺服器的權威引擎、約 20 Hz 狀態同步與每 32 ms 的搖桿輸入流程維持原設定；測試配置不套用到正式玩家頁面。
 
 瀏覽器流程仍以 [Actions 中該次提交的實際結果](https://github.com/pkpk26261/pkpk26261.github.io/actions) 為準，尚未將修正後的完整 workflow 宣稱為通過。正式雲端服務尚未上線；即使 Linux 檢查全部通過，公開 HTTPS／WSS、多裝置實體搖桿、網路延遲及長時間運行仍需在實際服務確認。

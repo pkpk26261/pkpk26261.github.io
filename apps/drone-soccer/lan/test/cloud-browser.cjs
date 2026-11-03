@@ -12,7 +12,7 @@ const { chromium } = require('playwright');
 const { start } = require('../server.cjs');
 
 const output = path.resolve(__dirname, '../../../../artifacts/cloud-deploy-20261103/browser');
-const report = { checks: [], errors: [], externalRequests: [], limitations: ['HTTPS proxy test, not a public cloud deployment.', 'Synthetic controllers, not physical hardware.', 'Simulated clients use the documented SwANGLE software driver and render at 4 FPS; the authoritative engine is unmodified.'] };
+const report = { checks: [], errors: [], externalRequests: [], clientProfile: { viewport: { width: 800, height: 600 }, hasTouch: true, renderFPS: 4, graphics: 'SwANGLE' }, limitations: ['HTTPS proxy test, not a public cloud deployment.', 'Synthetic controllers, not physical hardware.', 'Simulated clients use 800x600 touch views with the documented SwANGLE software driver at 4 FPS; the authoritative engine is unmodified.'] };
 // Chromium's GPU-less bot configuration:
 // https://chromium.googlesource.com/chromium/src/+/main/docs/gpu/swiftshader.md
 const launchClientBrowser = () => chromium.launch({ executablePath: chromium.executablePath(), headless: true, args: ['--use-gl=angle', '--use-angle=swiftshader'] });
@@ -75,7 +75,7 @@ function clientRendering() {
     await new Promise((resolve, reject) => { proxy.once('error', reject); proxy.listen(externalPort, '127.0.0.1', resolve); });
     browser = await launchClientBrowser();
     const newContext = async (deviceBrowser = browser) => {
-      const context = await deviceBrowser.newContext({ ignoreHTTPSErrors: true, viewport: { width: 1280, height: 720 } });
+      const context = await deviceBrowser.newContext({ ignoreHTTPSErrors: true, viewport: { width: 800, height: 600 }, hasTouch: true, deviceScaleFactor: 1 });
       await context.addInitScript(clientRendering);
       context.on('page', page => {
         page.on('pageerror', error => report.errors.push(error.message));
