@@ -107,7 +107,7 @@ function syntheticPad() {
       await player.locator('#nickname').fill('雲端玩家 ' + (i + 1));
       await player.locator('#seat').selectOption(seat);
       await player.locator('#joinSubmit').click();
-      await until(() => [...room.players.values()].some(p => p.seat === seat && p.pad && p.cameraAck === room.camera.revision && p.viewAck === room.engineRevision), 'player scene and controller ready');
+      await until(() => [...room.players.values()].some(p => p.seat === seat && p.pad && p.cameraAck === room.camera.revision && p.viewAck === room.engineRevision), 'player ' + seat + ' scene and controller ready');
       await until(() => player.locator('#ready').isEnabled(), 'neutral controller');
       await player.locator('#ready').click();
     }
@@ -134,6 +134,21 @@ function syntheticPad() {
     console.log('CLOUD BROWSER PASS', report.checks.length);
   } catch (error) {
     report.result = 'FAIL'; report.failure = error.stack;
+    report.rooms = [...(service?.roomMap.values() || [])].map(room => ({
+      code: room.code, status: room.status, engineReady: room.engineReady,
+      engineRevision: room.engineRevision, cameraRevision: room.camera.revision,
+      players: [...room.players.values()].map(player => ({ seat: player.seat, connected: player.connected, pad: player.pad, ready: player.ready, cameraAck: player.cameraAck, viewAck: player.viewAck, lastInput: player.lastInput }))
+    }));
+    report.pages = [];
+    if (browser) for (const [i, context] of browser.contexts().entries()) for (const [j, page] of context.pages().entries()) {
+      const record = { url: page.url(), frames: [] };
+      try {
+        record.body = (await page.locator('body').innerText({ timeout: 3000 })).slice(0, 5000);
+        await page.screenshot({ path: path.join(output, 'failure-' + i + '-' + j + '.png'), timeout: 10000 });
+        for (const frame of page.frames()) record.frames.push(await frame.evaluate(() => ({ url: location.href, ready: document.readyState, secureContext: isSecureContext, hidden: document.hidden, focused: document.hasFocus(), canvases: document.querySelectorAll('canvas').length, gamepads: navigator.getGamepads ? Array.from(navigator.getGamepads()).filter(Boolean).map(p => ({ id: p.id, connected: p.connected, axes: p.axes.length, buttons: p.buttons.length })) : null, three: typeof THREE, lanEngine: window.DroneLANEngine ? { active: window.DroneLANEngine.active } : null })));
+      } catch (diagnosticError) { record.diagnosticError = diagnosticError.message; }
+      report.pages.push(record);
+    }
     console.error(error.stack); process.exitCode = 1;
   } finally {
     await browser?.close();
