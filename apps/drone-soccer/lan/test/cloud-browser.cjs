@@ -29,6 +29,33 @@ async function freePort() {
   await new Promise(resolve => listener.close(resolve));
   return port;
 }
+async function clickEnabled(button) {
+  await button.waitFor({ state: 'visible' });
+  await until(() => button.isEnabled(), 'enabled user action');
+  await button.evaluate(element => element.scrollIntoView({ block: 'center', inline: 'nearest' }));
+  await until(() => button.evaluate(element => {
+    const bounds = element.getBoundingClientRect();
+    return !window.FlightPanels?.busy && element.contains(document.elementFromPoint(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2));
+  }), 'uncovered user action');
+  // Physical clicks do not wait for two renderer frames. Semantic clicks keep
+  // independent simulated devices from sharing the driver's mouse focus.
+  await button.evaluate(element => element.click());
+}
+async function preparePlayers(players, room) {
+  for (let attempt = 0; attempt < 4; attempt++) {
+    for (const [i, player] of players.entries()) {
+      const seat = i ? 'b-atk' : 'r-atk';
+      if ([...room.players.values()].some(value => value.seat === seat && value.ready)) continue;
+      if (!await player.locator('#ready').isVisible()) await clickEnabled(player.locator('#reviewController'));
+      await clickEnabled(player.locator('#ready'));
+      await until(() => [...room.players.values()].some(value => value.seat === seat && value.ready), 'server confirms player preparation');
+    }
+    if (room.conditions()) return;
+    report.preparationRetries = (report.preparationRetries || 0) + 1;
+    await delay(600);
+  }
+  throw Error('Players cannot retain synchronized, fresh preparation.');
+}
 function syntheticPad() {
   window.__pads = [{ id: 'Synthetic cloud-test controller', index: 0, connected: true, mapping: 'standard', axes: [0, 0, 0, 0], buttons: Array.from({ length: 16 }, () => ({ value: 0, pressed: false, touched: false })), timestamp: 1 }];
   Object.defineProperty(navigator, 'getGamepads', { value: () => window.__pads });
@@ -133,12 +160,8 @@ function clientRendering() {
     const watchContext = await newContext(), watch = await watchContext.newPage();
     await watch.goto(origin + '/watch?code=' + room.code);
     await watch.locator('#scene:not([hidden])').waitFor();
-    for (const player of players) {
-      await until(() => player.locator('#ready').isEnabled(), 'neutral controller');
-      await player.locator('#ready').click();
-    }
-    await until(() => room.conditions(), 'both players ready');
-    await host.locator('#tabRoom').click();
+    await preparePlayers(players, room);
+    await clickEnabled(host.locator('#tabRoom'));
     report.inputFreshness = { samples: 0, maxAgeMilliseconds: 0 };
     inputProbe = setInterval(() => {
       if (room.status !== 'running') return;
@@ -147,8 +170,18 @@ function clientRendering() {
         report.inputFreshness.maxAgeMilliseconds = Math.max(report.inputFreshness.maxAgeMilliseconds, Date.now() - player.lastInput);
       }
     }, 25);
-    await host.locator('#start').click();
-    await until(() => room.status === 'running' && room.snapshot?.match.phase === 'play', 'countdown and whistle');
+    await clickEnabled(host.locator('#start'));
+    for (let recovery = 0; ; recovery++) {
+      await until(() => room.status === 'paused' || room.status === 'running' && room.snapshot?.match.phase === 'play', 'countdown or safety pause');
+      if (room.status === 'running') break;
+      assert(recovery < 2, 'The match must become stable after bounded, explicit user recovery.');
+      assert(/輸入逾時|權威運算中斷/.test(room.reason), 'Only observed startup watchdog pauses may be recovered.');
+      (report.startupPauses ||= []).push({ reason: room.reason, inputFreshness: { ...report.inputFreshness } });
+      await until(() => room.engineReady, 'authority available for explicit resume');
+      await preparePlayers(players, room);
+      report.inputFreshness = { samples: 0, maxAgeMilliseconds: 0 };
+      await clickEnabled(host.locator('#resume'));
+    }
     await delay(1000);
     clearInterval(inputProbe); inputProbe = null;
     assert.equal(room.status, 'running');
