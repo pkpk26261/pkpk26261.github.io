@@ -12,7 +12,10 @@ const { chromium } = require('playwright');
 const { start } = require('../server.cjs');
 
 const output = path.resolve(__dirname, '../../../../artifacts/cloud-deploy-20261103/browser');
-const report = { checks: [], errors: [], externalRequests: [], limitations: ['HTTPS proxy test, not a public cloud deployment.', 'Synthetic controllers, not physical hardware.', 'Simulated clients render at 4 FPS to bound software-GPU load; the authoritative engine is unmodified.'] };
+const report = { checks: [], errors: [], externalRequests: [], limitations: ['HTTPS proxy test, not a public cloud deployment.', 'Synthetic controllers, not physical hardware.', 'Simulated clients use the documented SwANGLE software driver and render at 4 FPS; the authoritative engine is unmodified.'] };
+// Chromium's GPU-less bot configuration:
+// https://chromium.googlesource.com/chromium/src/+/main/docs/gpu/swiftshader.md
+const launchClientBrowser = () => chromium.launch({ executablePath: chromium.executablePath(), headless: true, args: ['--use-gl=angle', '--use-angle=swiftshader'] });
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 async function until(fn, label, timeout = 40000) {
   const deadline = Date.now() + timeout;
@@ -70,7 +73,7 @@ function clientRendering() {
       }
     });
     await new Promise((resolve, reject) => { proxy.once('error', reject); proxy.listen(externalPort, '127.0.0.1', resolve); });
-    browser = await chromium.launch({ executablePath: chromium.executablePath(), headless: true });
+    browser = await launchClientBrowser();
     const newContext = async (deviceBrowser = browser) => {
       const context = await deviceBrowser.newContext({ ignoreHTTPSErrors: true, viewport: { width: 1280, height: 720 } });
       await context.addInitScript(clientRendering);
@@ -109,7 +112,7 @@ function clientRendering() {
     report.checks.push('A browser-only host logs in using a Secure/HttpOnly cookie, creates a room and starts the original authoritative game engine.');
     const players = [];
     for (const [i, seat] of ['r-atk', 'b-atk'].entries()) {
-      const deviceBrowser = await chromium.launch({ executablePath: chromium.executablePath(), headless: true });
+      const deviceBrowser = await launchClientBrowser();
       playerBrowsers.push(deviceBrowser);
       const context = await newContext(deviceBrowser);
       await context.addInitScript(syntheticPad);
@@ -161,7 +164,7 @@ function clientRendering() {
   } catch (error) {
     report.result = 'FAIL'; report.failure = error.stack;
     report.rooms = [...(service?.roomMap.values() || [])].map(room => ({
-      code: room.code, status: room.status, engineReady: room.engineReady,
+      code: room.code, status: room.status, reason: room.reason, engineReady: room.engineReady,
       engineRevision: room.engineRevision, cameraRevision: room.camera.revision,
       players: [...room.players.values()].map(player => ({ seat: player.seat, connected: player.connected, pad: player.pad, ready: player.ready, cameraAck: player.cameraAck, viewAck: player.viewAck, lastInput: player.lastInput }))
     }));
