@@ -122,6 +122,13 @@ function clientRendering() {
       await player.locator('#seat').selectOption(seat);
       await player.locator('#joinSubmit').click();
       await until(() => [...room.players.values()].some(p => p.seat === seat && p.pad && p.cameraAck === room.camera.revision && p.viewAck === room.engineRevision), 'player ' + seat + ' scene and controller ready');
+      const scene = player.frames().find(frame => frame.url().includes('lan=viewer'));
+      assert(scene, 'Player has a live game view.');
+      const rendering = await scene.evaluate(() => window.DroneLANEngine.rendering);
+      assert.equal(rendering.software, true, 'The forced software driver selects the real lightweight viewer.');
+      assert.equal(rendering.dynamicShadows, false);
+      assert(rendering.scale <= 0.65);
+      (report.renderProfiles ||= []).push(rendering);
     }
     const watchContext = await newContext(), watch = await watchContext.newPage();
     await watch.goto(origin + '/watch?code=' + room.code);

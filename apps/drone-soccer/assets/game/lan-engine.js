@@ -5,6 +5,7 @@
   if (!['authority','viewer'].includes(mode)) return;
   let bridge, control, appliedAt = 0, command = 0, lastPublish = 0, sequence = 0;
   let renderer, camera, surface, config, samples = [], observer = 'all', observerTarget = '', ready = false;
+  let rendering = null;
   let arenaCorners, arenaCenter, broadcastFrameKey='',previewActive=null;const previewMaterials=[],endNets=[];
   const actionStates=new WeakMap();
   let playerViewShift=0;
@@ -153,6 +154,7 @@
   },{capture:true,passive:false});
   window.DroneLANEngine = {
     active:true,
+    get rendering() { return rendering; },
     mount(value) {
       bridge=value;
       if(mode==='authority') { document.title='LAN authority'; return; }
@@ -169,6 +171,18 @@
       // The ordinary split renderer prepares lighting lazily. LAN viewers use
       // their own render loop, so they must apply the same art direction here.
       window.DroneArenaLighting.prepare(bridge.scene,renderer);
+      // Software WebGL can spend longer than the input watchdog on dynamic
+      // shadows. Keep the venue and contact shadows while reducing viewer GPU
+      // work; the authority and its physics do not enter this mount branch.
+      let software=false;
+      try {
+        const context=renderer.getContext(),debug=context.getExtension('WEBGL_debug_renderer_info');
+        if(debug)software=/swiftshader|llvmpipe|softpipe|software rasterizer/i.test(String(context.getParameter(debug.UNMASKED_RENDERER_WEBGL)||''));
+      } catch (_) { /* Restricted renderer diagnostics retain normal quality. */ }
+      const scale=Math.min(devicePixelRatio||1,software ? .65 : 1.5);
+      if(software)renderer.shadowMap.enabled=false;
+      renderer.setPixelRatio(scale);
+      rendering=Object.freeze({software,scale,dynamicShadows:!!renderer.shadowMap.enabled});
       bridge.scene.traverse(object=>{
         if(object.name.startsWith('flexible-rope-z-'))endNets.push({mesh:object,visible:object.visible});
         if(!object.isMesh||!object.material||Array.isArray(object.material))return;
@@ -178,7 +192,7 @@
         object.material=object.material.clone();const material=object.material;
         previewMaterials.push({material,opacity:material.opacity,transparent:material.transparent,depthWrite:material.depthWrite,preview:roofRail ? .2 : object.name.includes('rope-y-') ? .035 : .09});
       });
-      renderer.setPixelRatio(Math.min(devicePixelRatio || 1,1.5));renderer.autoClear=true;
+      renderer.autoClear=true;
       camera=new THREE.PerspectiveCamera(60,16/9,.025,100);
       send({type:'loaded'});
     },
